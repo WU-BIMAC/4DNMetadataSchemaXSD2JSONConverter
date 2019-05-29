@@ -289,6 +289,7 @@ public class XSD2JSONConverter {
 					final XSAttributeUse attributeUse = (XSAttributeUse) obj;
 					insert = this.getAttribute(attributeUse, aSB, null, map,
 							required, 0);
+					aSB.append(",\n");
 				}
 				if (insert) {
 					sb.insert(previousIndex, aSB.toString());
@@ -298,7 +299,7 @@ public class XSD2JSONConverter {
 				previousIndex = currentIndex;
 				currentIndex = sb.length();
 			}
-			sb.append("\t\t\"tier\": {\n");
+			sb.append("\t\t\"Tier\": {\n");
 			sb.append("\t\t\t\"type\":\"integer\",\n");
 			sb.append("\t\t\t\"description\":\"The tier level of the microscope.\",\n");
 			sb.append("\t\t\t\"tier\":" + tier + ",\n");
@@ -423,7 +424,7 @@ public class XSD2JSONConverter {
 				for (int i = 0; i < extraTabs; i++) {
 					aSB.append("\t");
 				}
-				aSB.append("\t\t\t\t" + s);
+				aSB.append("\t\t\t\t\"" + s + "\"");
 				if (k < (enums.getLength() - 1)) {
 					aSB.append(",\n");
 				} else {
@@ -433,7 +434,7 @@ public class XSD2JSONConverter {
 			for (int i = 0; i < extraTabs; i++) {
 				aSB.append("\t");
 			}
-			aSB.append("\t\t\t]\n");
+			aSB.append("\t\t\t],\n");
 		}
 		for (int i = 0; i < extraTabs; i++) {
 			aSB.append("\t");
@@ -453,7 +454,6 @@ public class XSD2JSONConverter {
 			aSB.append("\t");
 		}
 		aSB.append("\t\t}");
-		aSB.append(",\n");
 		return insert;
 	}
 
@@ -689,6 +689,7 @@ public class XSD2JSONConverter {
 				final XSAttributeUse attributeUse = (XSAttributeUse) obj;
 				insert = this.getAttribute(attributeUse, attrSB, catName,
 						attrCategories, required, extraTabs);
+				// attrSB.append(",\n");
 			}
 			if (insert) {
 				jsonAttributes.add(previousIndex, attrSB.toString());
