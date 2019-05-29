@@ -1,0 +1,266 @@
+ReflectanceRange
+CutInUnit description is missing
+CutOutUnit description is missing
+**********
+LightGuide
+CutInUnit description is missing
+CutOutUnit description is missing
+PeakWavelengthUnit description is missing
+AcceptanceAngleUnit description is missing
+DiameterUnit description is missing
+**********
+LightEmittingDiode
+PeakWavelenghtUnit description is missing
+LumenPowerUnit description is missing
+ProjectionAngleUnit description is missing
+CutInUnit description is missing
+CutOutUnit description is missing
+NominalPowerUnit description is missing
+**********
+**********
+CouplingLens
+RadiusOfCurvatureUnit description is missing
+FocalDistanceToObjectUnit description is missing
+FocalDistanceToImageUnits description is missing
+FocalLengthUnit description is missing
+DensityUnit description is missing
+DiameterUnit description is missing
+**********
+MicroscopeTable
+TableWidthUnit description is missing
+TableDepthUnit description is missing
+**********
+PiezoElectricObjective
+ResolutionUnit description is missing
+SettlingTimeUnit description is missing
+XTravelRangeUnit description is missing
+YTravelRangeUnit description is missing
+ZTravelRangeUnit description is missing
+MaxVelocityUnit description is missing
+**********
+AdditionalFilter
+CutInUnit description is missing
+CutOutUnit description is missing
+**********
+PolarizationOptics
+CutInUnit description is missing
+CutOutUnit description is missing
+**********
+StandardDichroic
+CutInUnit description is missing
+CutOutUnit description is missing
+CutInUnit description is missing
+CutOutUnit description is missing
+RadiusOfCurvatureUnit description is missing
+**********
+Filament
+NominalPowerUnit description is missing
+**********
+**********
+Laser
+WavelengthUnit description is missing
+RepetitionRateUnit description is missing
+NominalPowerUnit description is missing
+**********
+GenericDetector
+CutInUnit description is missing
+CutOutUnit description is missing
+ReadNoiseUnit description is missing
+DarkCurrentRateUnit description is missing
+PeakWavelenghtUnit description is missing
+AmbientOperatingTemperatureUnit description is missing
+**********
+IntensifiedCCD
+CutInUnit description is missing
+CutOutUnit description is missing
+PixelWidthUnit description is missing
+PixelHeightUnit description is missing
+ImageWidthUnit description is missing
+ImageHeightUnit description is missing
+PixelWellCapacityUnit description is missing
+RegisterWellCapacityUnit description is missing
+VerticalClockSpeedUnit description is missing
+MaximumFrameRateUnit description is missing
+MaximumReadoutRateUnit description is missing
+ReadNoiseUnit description is missing
+DarkCurrentRateUnit description is missing
+PeakWavelenghtUnit description is missing
+AmbientOperatingTemperatureUnit description is missing
+**********
+Reflector
+RadiusOfCurvatureUnit description is missing
+**********
+Prism
+CutInUnit description is missing
+CutOutUnit description is missing
+PrismAngleUnit description is missing
+AngleOfIncidenceUnit description is missing
+DevianceAngleUnit description is missing
+DensityUnit description is missing
+**********
+SampleHolder
+RotationAngleUnit description is missing
+XTravelRangeUnit description is missing
+YTravelRangeUnit description is missing
+ZTravelRangeUnit description is missing
+MaxVelocityUnit description is missing
+**********
+RelayLens
+RadiusOfCurvatureUnit description is missing
+FocalDistanceToObjectUnit description is missing
+FocalDistanceToImageUnits description is missing
+FocalLengthUnit description is missing
+DensityUnit description is missing
+DiameterUnit description is missing
+**********
+Optovar
+**********
+FilterSet
+StandardDichroicRef tier is missing (no annotations)
+StandardDichroicRef description is missing (no annotations)
+**********
+Pump
+**********
+IntensityCalibrationTool
+**********
+AdditionalDichroic
+CutInUnit description is missing
+CutOutUnit description is missing
+CutInUnit description is missing
+CutOutUnit description is missing
+RadiusOfCurvatureUnit description is missing
+**********
+Direct
+**********
+CMOS
+CutInUnit description is missing
+CutOutUnit description is missing
+PixelWidthUnit description is missing
+PixelHeightUnit description is missing
+ImageWidthUnit description is missing
+ImageHeightUnit description is missing
+PixelWellCapacityUnit description is missing
+RegisterWellCapacityUnit description is missing
+VerticalClockSpeedUnit description is missing
+MaximumFrameRateUnit description is missing
+MaximumReadoutRateUnit description is missing
+ReadNoiseUnit description is missing
+DarkCurrentRateUnit description is missing
+PeakWavelenghtUnit description is missing
+AmbientOperatingTemperatureUnit description is missing
+**********
+ObjectiveTurret
+ResolutionUnit description is missing
+SettlingTimeUnit description is missing
+XTravelRangeUnit description is missing
+YTravelRangeUnit description is missing
+ZTravelRangeUnit description is missing
+MaxVelocityUnit description is missing
+**********
+BeamSplitter
+RadiusOfCurvatureUnit description is missing
+**********
+GenericExcitationSource
+NominalPowerUnit description is missing
+**********
+**********
+Arc
+NominalPowerUnit description is missing
+**********
+PiezoElectricStage
+ResolutionUnit description is missing
+SettlingTimeUnit description is missing
+XTravelRangeUnit description is missing
+YTravelRangeUnit description is missing
+ZTravelRangeUnit description is missing
+MaxVelocityUnit description is missing
+**********
+PhotoMultiplier
+CutInUnit description is missing
+CutOutUnit description is missing
+ReadNoiseUnit description is missing
+DarkCurrentRateUnit description is missing
+PeakWavelenghtUnit description is missing
+AmbientOperatingTemperatureUnit description is missing
+**********
+MechanicalStage
+ResolutionUnit description is missing
+SettlingTimeUnit description is missing
+XTravelRangeUnit description is missing
+YTravelRangeUnit description is missing
+ZTravelRangeUnit description is missing
+MaxVelocityUnit description is missing
+**********
+EmissionFilter
+CutInUnit description is missing
+CutOutUnit description is missing
+**********
+AutoFocus
+**********
+CCD
+CutInUnit description is missing
+CutOutUnit description is missing
+PixelWidthUnit description is missing
+PixelHeightUnit description is missing
+ImageWidthUnit description is missing
+ImageHeightUnit description is missing
+PixelWellCapacityUnit description is missing
+RegisterWellCapacityUnit description is missing
+VerticalClockSpeedUnit description is missing
+MaximumFrameRateUnit description is missing
+MaximumReadoutRateUnit description is missing
+ReadNoiseUnit description is missing
+DarkCurrentRateUnit description is missing
+PeakWavelenghtUnit description is missing
+AmbientOperatingTemperatureUnit description is missing
+**********
+AdditionalLens
+RadiusOfCurvatureUnit description is missing
+FocalDistanceToObjectUnit description is missing
+FocalDistanceToImageUnits description is missing
+FocalLengthUnit description is missing
+DensityUnit description is missing
+DiameterUnit description is missing
+**********
+WavelengthRange
+CutInUnit description is missing
+CutOutUnit description is missing
+**********
+LEDModule
+PeakWavelenghtUnit description is missing
+LumenPowerUnit description is missing
+ProjectionAngleUnit description is missing
+CutInUnit description is missing
+CutOutUnit description is missing
+**********
+TransmittanceRange
+CutInUnit description is missing
+CutOutUnit description is missing
+**********
+ExcitationFilter
+CutInUnit description is missing
+CutOutUnit description is missing
+**********
+AnalogVideo
+CutInUnit description is missing
+CutOutUnit description is missing
+PixelWidthUnit description is missing
+PixelHeightUnit description is missing
+ImageWidthUnit description is missing
+ImageHeightUnit description is missing
+PixelWellCapacityUnit description is missing
+RegisterWellCapacityUnit description is missing
+VerticalClockSpeedUnit description is missing
+MaximumFrameRateUnit description is missing
+MaximumReadoutRateUnit description is missing
+ReadNoiseUnit description is missing
+DarkCurrentRateUnit description is missing
+PeakWavelenghtUnit description is missing
+AmbientOperatingTemperatureUnit description is missing
+**********
+Objective
+CoverslipTickness description is missing
+WorkingDistanceUnit description is missing
+ParfocalizingDistanceUnit description is missing
+BackFocalPlanePositionUnit description is missing
+**********

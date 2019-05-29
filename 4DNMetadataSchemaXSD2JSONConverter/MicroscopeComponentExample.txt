@@ -1,0 +1,15 @@
+MicroscopeComponent.json
+
+{
+    "properties" : {
+       "title" : {
+           "type" : "string"
+        },
+        "SerialNumber": {
+			"type":"string",
+			"description":"The serial number of the component",
+		},
+         
+    },
+    "additionalProperties" : true
+}
