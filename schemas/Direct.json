@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Direct.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Direct",
 	"description":"Direct coupling consists of either direct mounting or a optical light path that connects the Light Source with the microscope",

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalLens.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"AdditionalLens",
 	"description":"A lens poistioned in the light path in the light path for a given channel.",

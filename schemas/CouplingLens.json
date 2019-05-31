@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CouplingLens.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"CouplingLens",
 	"description":"A lens positioned at connector between this light source coupling element and the microscope body.",

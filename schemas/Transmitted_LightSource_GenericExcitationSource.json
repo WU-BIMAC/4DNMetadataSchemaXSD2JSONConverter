@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_GenericExcitationSource.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"GenericExcitationSource",
 	"description":"The GenericExcitationSource element is used to represent a source as a collection of key/value pairs, stored in a Map. The other lightsource objects should always be used in preference to this if possible.",

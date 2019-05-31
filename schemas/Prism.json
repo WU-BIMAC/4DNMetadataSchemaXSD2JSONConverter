@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Prism.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Prism",
 	"description":"A prism is a block of glass or other transparent material with flat, polished surfaces. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. Prisms can be classified in three general categories: reflecting prisms, polarizing prisms, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Refracting prisms can be employed to bend and separate light into its component colors. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters. A prism can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others",

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"GenericDetector.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"GenericDetector",
 	"description":"The GenericDetector element is used to represent a detector as a collection of key/value pairs, stored in a Map. The other detector objects should always be used in preference to this if possible.",

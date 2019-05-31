@@ -2,7 +2,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Microscope.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Microscope",
 	"description":"This element describes the instrument used to capture the Image. It is primarily a container for manufacturer's model and catalog numbers for the Microscope, LightSource, Detector, Objective and Filters components. The Objective element contains the additional elements LensNA and Magnification. The Filters element can be composed either of separate excitation, emission filters and a dichroic mirror or a single filter set. Within the Image itself, a reference is made to this one Filter element. There may be multiple light sources, detectors, objectives and filters on a microscope. Each of these has their own ID attribute, which can be referred to from Channel. It is understood that the light path configuration can be different for each channel, but cannot be different for each timepoint or each plane of an XYZ stack",
@@ -97,7 +97,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ReflectanceRange.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"ReflectanceRange",
 	"description":"This records the range of wavelengths that are reflected by the mirror.",
@@ -221,7 +221,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LightGuide.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"LightGuide",
 	"description":"Light Guides interface with illuminators to transfer light to the speciment in a usable manner.",
@@ -626,7 +626,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_LightEmittingDiode.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"LightEmittingDiode",
 	"description":"The LightEmittingDiode element is used to describe various kinds of LED lamps",
@@ -984,7 +984,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_LightEmittingDiode.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"LightEmittingDiode",
 	"description":"The LightEmittingDiode element is used to describe various kinds of LED lamps",
@@ -1344,7 +1344,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CouplingLens.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"CouplingLens",
 	"description":"A lens positioned at connector between this light source coupling element and the microscope body.",
@@ -1790,7 +1790,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MicroscopeTable.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"MicroscopeTable",
 	"description":"This element describes the table on which this Microscope rests during acquisition.",
@@ -1985,7 +1985,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PiezoElectricObjective.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"PiezoElectricObjective",
 	"description":"This is a piezoelectric objective-lens positioning device",
@@ -2360,7 +2360,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalFilter.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"AdditionalFilter",
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to a filter positioned along the light path in addition to the excitation and the emission filters.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
@@ -2604,7 +2604,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PolarizationOptics.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"PolarizationOptics",
 	"description":"This is an optical filter that lets light waves of a specific polarization pass through while blocking light waves of other polarizations",
@@ -2880,7 +2880,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"StandardDichroic.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"StandardDichroic",
 	"description":"A Dichroic used in the standard fluorecence Ligh Path.",
@@ -3416,7 +3416,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_Filament.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Filament",
 	"description":"The Filament element is used to describe various kinds of filament bulbs such as Incadescent or Halogen. The Power of the Filament is now stored in the LightSource.",
@@ -3550,7 +3550,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Filament.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Filament",
 	"description":"The Filament element is used to describe various kinds of filament bulbs such as Incadescent or Halogen. The Power of the Filament is now stored in the LightSource.",
@@ -3685,7 +3685,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Laser.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Laser",
 	"description":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
@@ -4008,7 +4008,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"GenericDetector.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"GenericDetector",
 	"description":"The GenericDetector element is used to represent a detector as a collection of key/value pairs, stored in a Map. The other detector objects should always be used in preference to this if possible.",
@@ -4379,7 +4379,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"IntensifiedCCD.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"IntensifiedCCD",
 	"description":"The type of Intensified CCD camera used",
@@ -5133,7 +5133,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Reflector.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Reflector",
 	"description":"This is a total reflector mirror",
@@ -5349,7 +5349,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Prism.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Prism",
 	"description":"A prism is a block of glass or other transparent material with flat, polished surfaces. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. Prisms can be classified in three general categories: reflecting prisms, polarizing prisms, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Refracting prisms can be employed to bend and separate light into its component colors. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters. A prism can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others",
@@ -5704,7 +5704,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"SampleHolder.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"SampleHolder",
 	"description":"This element describes an optional sample holder mounted on the microscope stage.",
@@ -6003,7 +6003,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"RelayLens.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"RelayLens",
 	"description":"A lens positioned at the mount connecting this detector to the microscope body.",
@@ -6449,7 +6449,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Optovar.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Optovar",
 	"description":"Optovars are magnification changing devices originally developed by Zeiss, which provide additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification changer components are placed before the tube lens within the infinity space of the optical system. Typical magnification increments are: 1.25x, 1.6x, and 2x",
@@ -6556,7 +6556,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"FilterSet.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"FilterSet",
 	"description":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. Often they are pre-assebled by the manufacturer and pruchased as a whole",
@@ -6667,7 +6667,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Pump.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Pump",
 	"description":"The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any).",
@@ -6701,7 +6701,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"IntensityCalibrationTool.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"IntensityCalibrationTool",
 	"description":"A tool, such as the Meta-Max calibration toold developed by the 4D Nucleome Imaging Standards Working Group, used to perform an intensity calibration procedure.",
@@ -6797,7 +6797,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalDichroic.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"AdditionalDichroic",
 	"description":"An additional Dichroic poistioned in the light path for a given channel.",
@@ -7333,7 +7333,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Direct.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Direct",
 	"description":"Direct coupling consists of either direct mounting or a optical light path that connects the Light Source with the microscope",
@@ -7452,7 +7452,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CMOS.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"CMOS",
 	"description":"A complementary metal-oxide-semiconductor camera",
@@ -8207,7 +8207,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ObjectiveTurret.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"ObjectiveTurret",
 	"description":"This is a objective turret positoning device.",
@@ -8582,7 +8582,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"BeamSplitter.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"BeamSplitter",
 	"description":"This is a mirror that reflects part of the light, regardless of wavelenght",
@@ -8812,7 +8812,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_GenericExcitationSource.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"GenericExcitationSource",
 	"description":"The GenericExcitationSource element is used to represent a source as a collection of key/value pairs, stored in a Map. The other lightsource objects should always be used in preference to this if possible.",
@@ -8941,7 +8941,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_GenericExcitationSource.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"GenericExcitationSource",
 	"description":"The GenericExcitationSource element is used to represent a source as a collection of key/value pairs, stored in a Map. The other lightsource objects should always be used in preference to this if possible.",
@@ -9071,7 +9071,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Arc.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Arc",
 	"description":"The Arc element is used to describe various kinds of Arc lamps - Hg, Xe, HgXe. The Power of the Arc is now stored in the LightSource",
@@ -9206,7 +9206,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PiezoElectricStage.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"PiezoElectricStage",
 	"description":"This is a piezoelectric stage positioning device.",
@@ -9581,7 +9581,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PhotoMultiplier.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"PhotoMultiplier",
 	"description":"A photomultiplier tube, useful for light detection of very weak signals, is a photoemissive device in which the absorption of a photon results in the emission of an electron. These detectors work by amplifying the electrons generated by a photocathode exposed to a photon flux",
@@ -9962,7 +9962,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MechanicalStage.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"MechanicalStage",
 	"description":"This is a mechanical stage positioning device",
@@ -10337,7 +10337,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"EmissionFilter.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"EmissionFilter",
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an emission filter. For each fluorescence Image there should be at least one emission filter element specified per Channel.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
@@ -10581,7 +10581,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AutoFocus.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"AutoFocus",
 	"description":"This element describes the focus stabilization device(s) available for this microscope.",
@@ -10677,7 +10677,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CCD.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"CCD",
 	"description":"A charged coupled device camera",
@@ -11432,7 +11432,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalLens.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"AdditionalLens",
 	"description":"A lens poistioned in the light path in the light path for a given channel.",
@@ -11878,7 +11878,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"WavelengthRange.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"WavelengthRange",
 	"description":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
@@ -12009,7 +12009,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LEDModule.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"LEDModule",
 	"description":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used.",
@@ -12243,7 +12243,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"TransmittanceRange.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"TransmittanceRange",
 	"description":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
@@ -12374,7 +12374,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ExcitationFilter.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"ExcitationFilter",
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an excitation filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
@@ -12618,7 +12618,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AnalogVideo.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"AnalogVideo",
 	"description":"A device used to capture analog videos",
@@ -13360,7 +13360,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Objective.json",
-	"version":"0.0.2",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"Objective",
 	"description":"A description of the microscope's objective lens. Required elements include the lens numerical aperture, and the magnification, both of which a floating point (real) numbers. The values are those that are fixed for a particular objective: either because it has been manufactured to this specification or the value has been measured on this particular objective. Correction: This is the type of correction coating applied to this lens. Immersion: This is the types of immersion medium the lens is designed to work with. It is not the same as 'Medium' in ObjectiveRef (a single type) as here Immersion can have compound values like 'Multi'. LensNA: The numerical aperture of the lens (as a float) NominalMagnification: The specified magnification e.g. x10 CalibratedMagnification: The measured magnification e.g. x10.3 WorkingDistance: WorkingDistance of the lens",
