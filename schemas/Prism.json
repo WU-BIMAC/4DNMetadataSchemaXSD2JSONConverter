@@ -8,12 +8,12 @@
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_Prism.png",
 	"tier":2,
-	"subCategoriesOrder": [
+	"subCategoriesOrder": {
 		"General:General information about the element",
 		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"Prism:NA",
 		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
-	],
+	},
 	"properties": {
 		"Name": {
 			"type":"string",

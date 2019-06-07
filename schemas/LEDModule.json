@@ -8,9 +8,9 @@
 	"category":"ChildElement",
 	"image":"ChildElement_LEDModule.png",
 	"tier":2,
-	"subCategoriesOrder": [
+	"subCategoriesOrder": {
 		"LEDModule:NA"
-	],
+	},
 	"properties": {
 		"PeakWavelenght": {
 			"type":"string",

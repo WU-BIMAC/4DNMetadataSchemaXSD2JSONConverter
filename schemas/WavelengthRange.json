@@ -8,9 +8,9 @@
 	"category":"ChildElement",
 	"image":"ChildElement_WavelengthRange.png",
 	"tier":5,
-	"subCategoriesOrder": [
+	"subCategoriesOrder": {
 		"WavelengthRange:NA"
-	],
+	},
 	"properties": {
 		"CutIn": {
 			"type":"string",

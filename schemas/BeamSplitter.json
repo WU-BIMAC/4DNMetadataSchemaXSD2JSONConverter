@@ -8,12 +8,12 @@
 	"category":"Mirror",
 	"image":"Mirror_BeamSplitter.png",
 	"tier":2,
-	"subCategoriesOrder": [
+	"subCategoriesOrder": {
 		"General:General information about the element",
 		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"Mirror:NA",
 		"BeamSplitter:NA"
-	],
+	},
 	"properties": {
 		"Transmittance": {
 			"type":"string",

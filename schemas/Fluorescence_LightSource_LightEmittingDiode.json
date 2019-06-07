@@ -8,13 +8,13 @@
 	"category":"Fluorescence_LightSource",
 	"image":"Fluorescence_LightSource_LightEmittingDiode.png",
 	"tier":1,
-	"subCategoriesOrder": [
+	"subCategoriesOrder": {
 		"General:General information about the element",
 		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"LightSource:NA",
 		"LightEmittingDiode:NA",
 		"LEDModule:A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
-	],
+	},
 	"properties": {
 		"Type": {
 			"type":"string",

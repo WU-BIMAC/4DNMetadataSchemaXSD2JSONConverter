@@ -8,9 +8,9 @@
 	"category":"ChildElement",
 	"image":"ChildElement_TransmittanceRange.png",
 	"tier":2,
-	"subCategoriesOrder": [
+	"subCategoriesOrder": {
 		"TransmittanceRange:NA"
-	],
+	},
 	"properties": {
 		"CutIn": {
 			"type":"string",

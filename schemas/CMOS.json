@@ -8,7 +8,7 @@
 	"category":"Detector.Camera",
 	"image":"Detector_Camera_CMOS.png",
 	"tier":2,
-	"subCategoriesOrder": [
+	"subCategoriesOrder": {
 		"General:General information about the element",
 		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"Detector:NA",
@@ -16,7 +16,7 @@
 		"CMOS:NA",
 		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
 		"RelayLens:This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
-	],
+	},
 	"properties": {
 		"Type": {
 			"type":"string",

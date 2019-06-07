@@ -8,11 +8,11 @@
 	"category":"ChildElement",
 	"image":"ChildElement_Pump.png",
 	"tier":5,
-	"subCategoriesOrder": [
+	"subCategoriesOrder": {
 		"General:General information about the element",
 		"Reference:NA",
 		"Pump:NA"
-	],
+	},
 	"properties": {
 		"ID": {
 			"type":"string",

@@ -8,9 +8,9 @@
 	"category":"ChildElement",
 	"image":"ChildElement_ReflectanceRange.png",
 	"tier":3,
-	"subCategoriesOrder": [
+	"subCategoriesOrder": {
 		"ReflectanceRange:NA"
-	],
+	},
 	"properties": {
 		"CutIn": {
 			"type":"string",

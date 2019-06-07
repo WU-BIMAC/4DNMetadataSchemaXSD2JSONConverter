@@ -320,7 +320,7 @@ public class XSD2JSONConverter {
 			sb.append("\t\"description\":\"" + desc + "\",\n");
 			sb.append("\t\"image\":\"" + image + "\",\n");
 			sb.append("\t\"tier\":" + tier + ",\n");
-			sb.append("\t\"subCategoriesOrder\": [\n");
+			sb.append("\t\"subCategoriesOrder\": {\n");
 			for (int i = 0; i < subCategoriesOrder.size(); i++) {
 				sb.append("\t\t\"" + subCategoriesOrder.get(i) + "\"");
 				if (i < (subCategoriesOrder.size() - 1)) {
@@ -329,7 +329,7 @@ public class XSD2JSONConverter {
 					sb.append("\n");
 				}
 			}
-			sb.append("\t],\n");
+			sb.append("\t},\n");
 			sb.append("\t\"properties\": {\n");
 			final XSObjectList attrList = microscopeBodyComplTypeDef
 					.getAttributeUses();
@@ -927,7 +927,7 @@ public class XSD2JSONConverter {
 				}
 				// TODO is this neeeded for subComponent?
 				sb.append("\t\"tier\":" + tier + ",\n");
-				sb.append("\t\"subCategoriesOrder\": [\n");
+				sb.append("\t\"subCategoriesOrder\": {\n");
 				for (int i = 0; i < subCategoriesOrder.size(); i++) {
 					sb.append("\t\t\"" + subCategoriesOrder.get(i) + "\"");
 					if (i < (subCategoriesOrder.size() - 1)) {
@@ -936,7 +936,7 @@ public class XSD2JSONConverter {
 						sb.append("\n");
 					}
 				}
-				sb.append("\t],\n");
+				sb.append("\t},\n");
 				// sb.append(references);
 				// sb.append(",\n");
 				sb.append("\t\"properties\": {\n");

@@ -8,12 +8,12 @@
 	"category":"SampleHolderAndFocusing",
 	"image":"SampleHolderAndFocusing_SampleHolder.png",
 	"tier":3,
-	"subCategoriesOrder": [
+	"subCategoriesOrder": {
 		"General:General information about the element",
 		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"Stage:NA",
 		"SampleHolder:NA"
-	],
+	},
 	"properties": {
 		"Type": {
 			"type":"string",
