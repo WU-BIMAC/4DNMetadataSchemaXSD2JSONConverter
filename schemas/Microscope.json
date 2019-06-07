@@ -8,7 +8,7 @@
 	"image":"Microscope_default.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General",
+		"General:General information about the element",
 		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"MicroscopeBody:NA"
 	},

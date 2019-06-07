@@ -9,7 +9,7 @@
 	"image":"Microscope_default.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General",
+		"General:General information about the element",
 		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"MicroscopeBody:NA"
 	},
@@ -220,7 +220,8 @@
 		"CutIn",
 		"CutOut"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LightGuide.json",
@@ -625,7 +626,8 @@
 		"Description",
 		"WavelengthRange"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_LightEmittingDiode.json",
@@ -984,7 +986,8 @@
 		"Description",
 		"LEDModule"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_LightEmittingDiode.json",
@@ -1345,7 +1348,8 @@
 		"Description",
 		"LEDModule"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CouplingLens.json",
@@ -1791,7 +1795,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MicroscopeTable.json",
@@ -1988,7 +1993,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PiezoElectricObjective.json",
@@ -2363,7 +2369,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalFilter.json",
@@ -2607,7 +2614,8 @@
 		"TransmittanceRange",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PolarizationOptics.json",
@@ -2883,7 +2891,8 @@
 		"WavelengthRange",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"StandardDichroic.json",
@@ -3419,7 +3428,8 @@
 		"Description",
 		"TransmittanceRange"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_Filament.json",
@@ -3553,7 +3563,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Filament.json",
@@ -3688,7 +3699,8 @@
 		"Description",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Laser.json",
@@ -4011,7 +4023,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"GenericDetector.json",
@@ -4382,7 +4395,8 @@
 		"Description",
 		"Map"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"IntensifiedCCD.json",
@@ -5136,7 +5150,8 @@
 		"WavelengthRange",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Reflector.json",
@@ -5352,7 +5367,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Prism.json",
@@ -5707,7 +5723,8 @@
 		"WavelengthRange",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"SampleHolder.json",
@@ -6006,7 +6023,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"RelayLens.json",
@@ -6452,7 +6470,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Optovar.json",
@@ -6559,7 +6578,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"FilterSet.json",
@@ -6670,7 +6690,8 @@
 		"EmissionFilter",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Pump.json",
@@ -6705,7 +6726,8 @@
 	"required": [
 		"ID"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"IntensityCalibrationTool.json",
@@ -6801,7 +6823,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalDichroic.json",
@@ -7337,7 +7360,8 @@
 		"Description",
 		"TransmittanceRange"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Direct.json",
@@ -7456,7 +7480,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CMOS.json",
@@ -8211,7 +8236,8 @@
 		"WavelengthRange",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ObjectiveTurret.json",
@@ -8586,7 +8612,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"BeamSplitter.json",
@@ -8816,7 +8843,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_GenericExcitationSource.json",
@@ -8945,7 +8973,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_GenericExcitationSource.json",
@@ -9075,7 +9104,8 @@
 		"Description",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Arc.json",
@@ -9210,7 +9240,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PiezoElectricStage.json",
@@ -9585,7 +9616,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PhotoMultiplier.json",
@@ -9966,7 +9998,8 @@
 		"WavelengthRange",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MechanicalStage.json",
@@ -10341,7 +10374,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"EmissionFilter.json",
@@ -10585,7 +10619,8 @@
 		"TransmittanceRange",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AutoFocus.json",
@@ -10681,7 +10716,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CCD.json",
@@ -11436,7 +11472,8 @@
 		"WavelengthRange",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LightSourceSettings.json",
@@ -11564,7 +11601,8 @@
 		"ID",
 		"Wavelength"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalLens.json",
@@ -12010,7 +12048,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"WavelengthRange.json",
@@ -12142,7 +12181,8 @@
 		"CutOut",
 		"WavelenghtProfile"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LEDModule.json",
@@ -12378,7 +12418,8 @@
 		"CutOut",
 		"WavelenghtProfile"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ExcitationCalibration.json",
@@ -12565,7 +12606,8 @@
 		"Date",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"TransmittanceRange.json",
@@ -12697,7 +12739,8 @@
 		"CutOut",
 		"Transmittance"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ExcitationFilter.json",
@@ -12941,7 +12984,8 @@
 		"TransmittanceRange",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AnalogVideo.json",
@@ -13683,7 +13727,8 @@
 		"WavelengthRange",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Objective.json",
@@ -14010,4 +14055,5 @@
 		"Description"
 	]
 }
+
 ]
