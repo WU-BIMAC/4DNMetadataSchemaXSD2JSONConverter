@@ -129,12 +129,18 @@ WavelengthRange from 1 to 1
 RelayLensRef from 0 to 1
 AnnotationRef from 0 to 1
 **********
+LightSourceSettings
+**********
 AdditionalLens
 AnnotationRef from 0 to 1
 **********
 WavelengthRange
 **********
 LEDModule
+**********
+ExcitationCalibration
+IntensityCalibrationToolRef from 0 to -1
+AnnotationRef from 0 to 1
 **********
 TransmittanceRange
 **********
