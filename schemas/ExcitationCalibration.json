@@ -9,9 +9,10 @@
 	"image":"Calibration_ExcitationCalibration.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"IntensityCalibration:NA",
-		"ExcitationCalibration:NA"
+		"General":"General information about the element",
+		"IntensityCalibration":"NA",
+		"ExcitationCalibration":"This procedure measures the performance and allows calibration of the wavelength and irradiance of the excitation light.",
+		"IntensityCalibrationTool":"This element is a reference to the tool if any used to perform this calibratin procdure."
 	},
 	"properties": {
 		"ID": {

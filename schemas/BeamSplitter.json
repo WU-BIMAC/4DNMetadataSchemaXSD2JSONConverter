@@ -9,10 +9,12 @@
 	"image":"Mirror_BeamSplitter.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Mirror:NA",
-		"BeamSplitter:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Mirror":"NA",
+		"BeamSplitter":"This is a mirror that reflects part of the light, regardless of wavelenght",
+		"BeamSplitter":"The maximum amount of light this Beamsplitteris capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
+		"BeamSplitter":"The angle at which light is transmitted by this beamsplitter"
 	},
 	"properties": {
 		"Transmittance": {

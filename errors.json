@@ -1,7 +1,6 @@
 ReflectanceRange
 CutInUnit description is missing
 CutOutUnit description is missing
-null description is missing (no annotations)
 **********
 LightGuide
 CutInUnit description is missing
@@ -9,7 +8,6 @@ CutOutUnit description is missing
 PeakWavelengthUnit description is missing
 AcceptanceAngleUnit description is missing
 DiameterUnit description is missing
-null description is missing (no annotations)
 LightSourceCoupling description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
@@ -20,7 +18,6 @@ ProjectionAngleUnit description is missing
 CutInUnit description is missing
 CutOutUnit description is missing
 NominalPowerOutputUnit description is missing
-null description is missing (no annotations)
 LightSource description is missing
 ManufacturerSpec description contains NEWLINE
 **********
@@ -32,13 +29,11 @@ FocalDistanceToImageUnits description is missing
 FocalLengthUnit description is missing
 DensityUnit description is missing
 DiameterUnit description is missing
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 MicroscopeTable
 TableWidthUnit description is missing
 TableDepthUnit description is missing
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 PiezoElectricObjective
@@ -48,7 +43,6 @@ XTravelRangeUnit description is missing
 YTravelRangeUnit description is missing
 ZTravelRangeUnit description is missing
 MaxVelocityUnit description is missing
-null description is missing (no annotations)
 Focusing description is missing
 Stage description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
@@ -56,14 +50,12 @@ ManufacturerSpec description contains NEWLINE
 AdditionalFilter
 CutInUnit description is missing
 CutOutUnit description is missing
-null description is missing (no annotations)
 FIlter description is missing
 ManufacturerSpec description contains NEWLINE
 **********
 PolarizationOptics
 CutInUnit description is missing
 CutOutUnit description is missing
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 StandardDichroic
@@ -72,14 +64,12 @@ CutOutUnit description is missing
 CutInUnit description is missing
 CutOutUnit description is missing
 RadiusOfCurvatureUnit description is missing
-null description is missing (no annotations)
 Dichroic description is missing (no annotations)
 Mirror description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 Filament
 NominalPowerOutputUnit description is missing
-null description is missing (no annotations)
 LightSource description is missing
 ManufacturerSpec description contains NEWLINE
 **********
@@ -88,7 +78,6 @@ Laser
 WavelengthUnit description is missing
 RepetitionRateUnit description is missing
 NominalPowerOutputUnit description is missing
-null description is missing (no annotations)
 LightSource description is missing
 ManufacturerSpec description contains NEWLINE
 **********
@@ -99,7 +88,6 @@ ReadNoiseUnit description is missing
 DarkCurrentRateUnit description is missing
 PeakWavelenghtUnit description is missing
 AmbientOperatingTemperatureUnit description is missing
-null description is missing (no annotations)
 Detector description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
@@ -119,14 +107,12 @@ ReadNoiseUnit description is missing
 DarkCurrentRateUnit description is missing
 PeakWavelenghtUnit description is missing
 AmbientOperatingTemperatureUnit description is missing
-null description is missing (no annotations)
 Camera description is missing
 Detector description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 Reflector
 RadiusOfCurvatureUnit description is missing
-null description is missing (no annotations)
 Mirror description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
@@ -137,7 +123,6 @@ PrismAngleUnit description is missing
 AngleOfIncidenceUnit description is missing
 DevianceAngleUnit description is missing
 DensityUnit description is missing
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 SampleHolder
@@ -146,7 +131,6 @@ XTravelRangeUnit description is missing
 YTravelRangeUnit description is missing
 ZTravelRangeUnit description is missing
 MaxVelocityUnit description is missing
-null description is missing (no annotations)
 Stage description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
@@ -157,25 +141,20 @@ FocalDistanceToImageUnits description is missing
 FocalLengthUnit description is missing
 DensityUnit description is missing
 DiameterUnit description is missing
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 Optovar
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 FilterSet
 StandardDichroicRef tier is missing (no annotations)
 StandardDichroicRef description is missing (no annotations)
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 Pump
-null description is missing (no annotations)
 Reference description is missing
 **********
 IntensityCalibrationTool
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 AdditionalDichroic
@@ -184,13 +163,11 @@ CutOutUnit description is missing
 CutInUnit description is missing
 CutOutUnit description is missing
 RadiusOfCurvatureUnit description is missing
-null description is missing (no annotations)
 Dichroic description is missing (no annotations)
 Mirror description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 Direct
-null description is missing (no annotations)
 LightSourceCoupling description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
@@ -210,7 +187,6 @@ ReadNoiseUnit description is missing
 DarkCurrentRateUnit description is missing
 PeakWavelenghtUnit description is missing
 AmbientOperatingTemperatureUnit description is missing
-null description is missing (no annotations)
 Camera description is missing
 Detector description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
@@ -222,27 +198,23 @@ XTravelRangeUnit description is missing
 YTravelRangeUnit description is missing
 ZTravelRangeUnit description is missing
 MaxVelocityUnit description is missing
-null description is missing (no annotations)
 Focusing description is missing
 Stage description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 BeamSplitter
 RadiusOfCurvatureUnit description is missing
-null description is missing (no annotations)
 Mirror description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 GenericExcitationSource
 NominalPowerOutputUnit description is missing
-null description is missing (no annotations)
 LightSource description is missing
 ManufacturerSpec description contains NEWLINE
 **********
 **********
 Arc
 NominalPowerOutputUnit description is missing
-null description is missing (no annotations)
 LightSource description is missing
 ManufacturerSpec description contains NEWLINE
 **********
@@ -253,7 +225,6 @@ XTravelRangeUnit description is missing
 YTravelRangeUnit description is missing
 ZTravelRangeUnit description is missing
 MaxVelocityUnit description is missing
-null description is missing (no annotations)
 Focusing description is missing
 Stage description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
@@ -265,7 +236,6 @@ ReadNoiseUnit description is missing
 DarkCurrentRateUnit description is missing
 PeakWavelenghtUnit description is missing
 AmbientOperatingTemperatureUnit description is missing
-null description is missing (no annotations)
 Detector description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
@@ -276,7 +246,6 @@ XTravelRangeUnit description is missing
 YTravelRangeUnit description is missing
 ZTravelRangeUnit description is missing
 MaxVelocityUnit description is missing
-null description is missing (no annotations)
 Focusing description is missing
 Stage description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
@@ -284,12 +253,10 @@ ManufacturerSpec description contains NEWLINE
 EmissionFilter
 CutInUnit description is missing
 CutOutUnit description is missing
-null description is missing (no annotations)
 FIlter description is missing
 ManufacturerSpec description contains NEWLINE
 **********
 AutoFocus
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 CCD
@@ -308,7 +275,6 @@ ReadNoiseUnit description is missing
 DarkCurrentRateUnit description is missing
 PeakWavelenghtUnit description is missing
 AmbientOperatingTemperatureUnit description is missing
-null description is missing (no annotations)
 Camera description is missing
 Detector description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
@@ -317,7 +283,6 @@ LightSourceSettings
 ID description is missing
 Wavelength description contains NEWLINE
 PowerSettingsUnit description is missing
-null description is missing (no annotations)
 Settings description is missing
 Reference description is missing
 **********
@@ -328,13 +293,11 @@ FocalDistanceToImageUnits description is missing
 FocalLengthUnit description is missing
 DensityUnit description is missing
 DiameterUnit description is missing
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
 WavelengthRange
 CutInUnit description is missing
 CutOutUnit description is missing
-null description is missing (no annotations)
 **********
 LEDModule
 PeakWavelenghtUnit description is missing
@@ -342,24 +305,20 @@ PeakPowerUnit description is missing
 ProjectionAngleUnit description is missing
 CutInUnit description is missing
 CutOutUnit description is missing
-null description is missing (no annotations)
 **********
 ExcitationCalibration
 ObservedExcitationWavelenghtUnit description is missing
 ObservedExcitationPowerAtObjectiveUnit description is missing
 ObservedExcitationIrradianceUnit description is missing
-null description is missing (no annotations)
 IntensityCalibration description is missing (no annotations)
 **********
 TransmittanceRange
 CutInUnit description is missing
 CutOutUnit description is missing
-null description is missing (no annotations)
 **********
 ExcitationFilter
 CutInUnit description is missing
 CutOutUnit description is missing
-null description is missing (no annotations)
 FIlter description is missing
 ManufacturerSpec description contains NEWLINE
 **********
@@ -379,7 +338,6 @@ ReadNoiseUnit description is missing
 DarkCurrentRateUnit description is missing
 PeakWavelenghtUnit description is missing
 AmbientOperatingTemperatureUnit description is missing
-null description is missing (no annotations)
 Camera description is missing
 Detector description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
@@ -389,8 +347,6 @@ CoverslipTickness description is missing
 WorkingDistanceUnit description is missing
 ParfocalizingDistanceUnit description is missing
 BackFocalPlanePositionUnit description is missing
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE
 **********
-null description is missing (no annotations)
 ManufacturerSpec description contains NEWLINE

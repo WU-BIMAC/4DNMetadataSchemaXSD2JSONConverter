@@ -9,12 +9,12 @@
 	"image":"LightPath_FilterSet.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"FilterSet:NA",
-		"ExcitationFilter:This empty element has a reference (the Filter ID attribute) to the Filters placed in the Excitation light path.",
-		"StandardDichroic:NA",
-		"EmissionFilter:This empty element has a reference (the Filter ID attribute) to the Filters placed in the Emission light path"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"FilterSet":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. Often they are pre-assebled by the manufacturer and pruchased as a whole",
+		"ExcitationFilter":"This empty element has a reference (the Filter ID attribute) to the Filters placed in the Excitation light path.",
+		"StandardDichroic":"NA",
+		"EmissionFilter":"This empty element has a reference (the Filter ID attribute) to the Filters placed in the Emission light path"
 	},
 	"properties": {
 		"Name": {

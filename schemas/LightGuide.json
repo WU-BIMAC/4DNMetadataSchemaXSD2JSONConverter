@@ -9,12 +9,25 @@
 	"image":"LightSourceCoupling_LightGuide.png",
 	"tier":4,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSourceCoupling:NA",
-		"LightGuide:NA",
-		"CouplingLens:This is a reference to a lens positioned at connector between this light source coupling element and the microscope body.",
-		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSourceCoupling":"NA",
+		"LightGuide":"A Light Guide coupling between the light source and the microscope generally consists of a casing enclosing a medium capable of transferring light from the illuminator to the back of the microsocpe body.",
+		"LightGuide":"The type of light guide used in this case.",
+		"LightGuide":"The wavelength associated with maximum light intensity transmitted by this light guide",
+		"LightGuide":"NA",
+		"LightGuide":"The refractive index of the material this light guide is made of",
+		"LightGuide":"The numerical aperture of the light guide expressed as a floating point (real) number. Expected range 0.02 - 1.5",
+		"LightGuide":"The angle within which light beam may be coupled into the bound modes of an optical fiber.",
+		"LightGuide":"NA",
+		"LightGuide":"The shape of this LightGuide",
+		"LightGuide":"This records the chemical composition or the nonproprietary trade designation of the material used for this light guide",
+		"LightGuide":"Records whether or not the light guide is single-mode. If not then the guide is assumend to be multi-modal",
+		"LightGuide":"When boundary conditions are imposed by a physical structure a wave of a particular frequency can be described in terms of a transverse mode (or superposition of such modes). These modes generally follow different propagation constants",
+		"LightGuide":"The outer diameter of the light guide",
+		"LightGuide":"NA",
+		"CouplingLens":"This is a reference to a lens positioned at connector between this light source coupling element and the microscope body.",
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
 	},
 	"properties": {
 		"Type": {

@@ -9,10 +9,15 @@
 	"image":"Settings_LightSourceSettings.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"Reference:NA",
-		"Settings:NA",
-		"LightSourceSettings:NA"
+		"General":"General information about the element",
+		"Reference":"NA",
+		"Settings":"NA",
+		"LightSourceSettings":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case.",
+		"LightSourceSettings":"The nominal wavelength of the excitation light utilized in this case.              ",
+		"LightSourceSettings":"The units of the Wavelength of the light source - default:nanometres[nm].",
+		"LightSourceSettings":"The light power output settings utilized in this case.",
+		"LightSourceSettings":"NA",
+		"LightSourceSettings":"The observed attenuation of the excitation light power expressed as a fractional value from 0.0 to 1.0."
 	},
 	"properties": {
 		"ID": {

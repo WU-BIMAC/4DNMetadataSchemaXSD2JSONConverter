@@ -9,11 +9,21 @@
 	"image":"Fluorescence_LightSource_Laser.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource:NA",
-		"Laser:NA",
-		"Pump:The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any)."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"NA",
+		"Laser":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
+		"Laser":"Type is the general category of laser.",
+		"Laser":"The Medium attribute specifies the actual lasing medium for a given laser type.           ",
+		"Laser":"The center Wavelength of the light emitted by this laser.",
+		"Laser":"NA",
+		"Laser":"The optical frequency multiplication that may be specified for this laser.",
+		"Laser":"Whether or not the laser is Tuneable.",
+		"Laser":"The Pulse mode of the laser.",
+		"Laser":"If true the laser has a PockelCell to rotate the polarization of the beam.",
+		"Laser":"The is the rate in Hz at which the laser pulses if the Pulse type is 'Repetitive' hertz[Hz]",
+		"Laser":"NA",
+		"Pump":"The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any)."
 	},
 	"properties": {
 		"Type": {

@@ -9,9 +9,11 @@
 	"image":"Magnification_Optovar.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Optovar:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Optovar":"Optovars are magnification changing devices originally developed by Zeiss, which provide additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification changer components are placed before the tube lens within the infinity space of the optical system. Typical magnification increments are: 1.25x, 1.6x, and 2x",
+		"Optovar":"The magnification of the optovar lens as specified by the manufacturer.",
+		"Optovar":"The type of lens used by the Magnification Changer available with this microscope."
 	},
 	"properties": {
 		"Name": {

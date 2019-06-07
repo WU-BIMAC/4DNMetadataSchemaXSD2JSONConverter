@@ -9,11 +9,11 @@
 	"image":"SampleHolderAndFocusing_Focusing_ObjectiveTurret.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Stage:NA",
-		"Focusing:NA",
-		"ObjectiveTurret:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Stage":"NA",
+		"Focusing":"NA",
+		"ObjectiveTurret":"This is a objective turret positoning device."
 	},
 	"properties": {
 		"Resolution": {

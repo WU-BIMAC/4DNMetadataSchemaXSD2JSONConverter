@@ -9,9 +9,9 @@
 	"image":"Microscope_default.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"MicroscopeBody:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"MicroscopeBody":"A description of the body of this microscope"
 	},
 	"properties": {
 		"Name": {
@@ -107,7 +107,11 @@
 	"image":"ChildElement_ReflectanceRange.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"ReflectanceRange:NA"
+		"ReflectanceRange":"This records the range of wavelengths that are reflected by the mirror.",
+		"ReflectanceRange":"CutIn is the wavelength below which the response rate is below 50%.",
+		"ReflectanceRange":"NA",
+		"ReflectanceRange":"CutOut is the wavelength above which the response rate is below 50%.",
+		"ReflectanceRange":"NA"
 	},
 	"properties": {
 		"CutIn": {
@@ -220,8 +224,7 @@
 		"CutIn",
 		"CutOut"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LightGuide.json",
@@ -233,12 +236,25 @@
 	"image":"LightSourceCoupling_LightGuide.png",
 	"tier":4,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSourceCoupling:NA",
-		"LightGuide:NA",
-		"CouplingLens:This is a reference to a lens positioned at connector between this light source coupling element and the microscope body.",
-		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSourceCoupling":"NA",
+		"LightGuide":"A Light Guide coupling between the light source and the microscope generally consists of a casing enclosing a medium capable of transferring light from the illuminator to the back of the microsocpe body.",
+		"LightGuide":"The type of light guide used in this case.",
+		"LightGuide":"The wavelength associated with maximum light intensity transmitted by this light guide",
+		"LightGuide":"NA",
+		"LightGuide":"The refractive index of the material this light guide is made of",
+		"LightGuide":"The numerical aperture of the light guide expressed as a floating point (real) number. Expected range 0.02 - 1.5",
+		"LightGuide":"The angle within which light beam may be coupled into the bound modes of an optical fiber.",
+		"LightGuide":"NA",
+		"LightGuide":"The shape of this LightGuide",
+		"LightGuide":"This records the chemical composition or the nonproprietary trade designation of the material used for this light guide",
+		"LightGuide":"Records whether or not the light guide is single-mode. If not then the guide is assumend to be multi-modal",
+		"LightGuide":"When boundary conditions are imposed by a physical structure a wave of a particular frequency can be described in terms of a transverse mode (or superposition of such modes). These modes generally follow different propagation constants",
+		"LightGuide":"The outer diameter of the light guide",
+		"LightGuide":"NA",
+		"CouplingLens":"This is a reference to a lens positioned at connector between this light source coupling element and the microscope body.",
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
 	},
 	"properties": {
 		"Type": {
@@ -626,8 +642,7 @@
 		"Description",
 		"WavelengthRange"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_LightEmittingDiode.json",
@@ -639,11 +654,12 @@
 	"image":"Transmitted_LightSource_LightEmittingDiode.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource:NA",
-		"LightEmittingDiode:NA",
-		"LEDModule:A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"NA",
+		"LightEmittingDiode":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
+		"LightEmittingDiode":"The type of LightEmittingDiode light source.",
+		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
 	},
 	"properties": {
 		"Type": {
@@ -986,8 +1002,7 @@
 		"Description",
 		"LEDModule"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_LightEmittingDiode.json",
@@ -999,11 +1014,12 @@
 	"image":"Fluorescence_LightSource_LightEmittingDiode.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource:NA",
-		"LightEmittingDiode:NA",
-		"LEDModule:A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"NA",
+		"LightEmittingDiode":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
+		"LightEmittingDiode":"The type of LightEmittingDiode light source.",
+		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
 	},
 	"properties": {
 		"Type": {
@@ -1348,8 +1364,7 @@
 		"Description",
 		"LEDModule"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CouplingLens.json",
@@ -1361,10 +1376,10 @@
 	"image":"AdditionalOptics_CouplingLens.png",
 	"tier":5,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Lens:A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. This element describes a lens utilized in this microscope",
-		"CouplingLens:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Lens":"A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. This element describes a lens utilized in this microscope",
+		"CouplingLens":"A lens positioned at connector between this light source coupling element and the microscope body."
 	},
 	"properties": {
 		"Name": {
@@ -1795,8 +1810,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MicroscopeTable.json",
@@ -1808,9 +1822,14 @@
 	"image":"MicroscopyBasics_MicroscopeTable.png",
 	"tier":4,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"MicroscopeTable:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"MicroscopeTable":"This element describes the table on which this Microscope rests during acquisition.",
+		"MicroscopeTable":"This element describes the type of microscope table available for this instrument.",
+		"MicroscopeTable":"The width of this microscope table",
+		"MicroscopeTable":"NA",
+		"MicroscopeTable":"The depth of this microscope table",
+		"MicroscopeTable":"NA"
 	},
 	"properties": {
 		"Name": {
@@ -1993,8 +2012,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PiezoElectricObjective.json",
@@ -2006,11 +2024,11 @@
 	"image":"SampleHolderAndFocusing_Focusing_PiezoElectricObjective.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Stage:NA",
-		"Focusing:NA",
-		"PiezoElectricObjective:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Stage":"NA",
+		"Focusing":"NA",
+		"PiezoElectricObjective":"This is a piezoelectric objective-lens positioning device"
 	},
 	"properties": {
 		"Resolution": {
@@ -2369,8 +2387,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalFilter.json",
@@ -2382,11 +2399,11 @@
 	"image":"AdditionalOptics_AdditionalFilter.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"FIlter:NA",
-		"AdditionalFilter:NA",
-		"TransmittanceRange:This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"FIlter":"NA",
+		"AdditionalFilter":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to a filter positioned along the light path in addition to the excitation and the emission filters.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
 	},
 	"properties": {
 		"Name": {
@@ -2614,8 +2631,7 @@
 		"TransmittanceRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PolarizationOptics.json",
@@ -2627,10 +2643,16 @@
 	"image":"AdditionalOptics_PolarizationOptics.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"PolarizationOptics:NA",
-		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"PolarizationOptics":"This is an optical filter that lets light waves of a specific polarization pass through while blocking light waves of other polarizations",
+		"PolarizationOptics":"This records whether this polarizer optics is used to generate polarized light or to analyze polarized light",
+		"PolarizationOptics":"The modality in with which this Polarization Optics is constructed",
+		"PolarizationOptics":"The way in with which this Polarization Optics is fabricated",
+		"PolarizationOptics":"Retardation describes the phase shift between the polarization component projected along the fast axis and the component projected along the slow axis",
+		"PolarizationOptics":"This records the chemical composition or the nonproprietary trade designation of the glass",
+		"PolarizationOptics":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174 and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits followed by Vd rounded to three digits with all decimal points ignored. For example BK7 has nd = 1.5168 and Vd = 64.17 giving a six-digit glass code of 517642",
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
 	},
 	"properties": {
 		"Name": {
@@ -2891,8 +2913,7 @@
 		"WavelengthRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"StandardDichroic.json",
@@ -2904,13 +2925,13 @@
 	"image":"LightPath_StandardDichroic.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Mirror:NA",
-		"Dichroic:NA",
-		"StandardDichroic:NA",
-		"TransmittanceRange:This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
-		"ReflectanceRange:This records the range of wavelengths that are reflected by the mirror."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Mirror":"NA",
+		"Dichroic":"NA",
+		"StandardDichroic":"A Dichroic used in the standard fluorecence Ligh Path.",
+		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
+		"ReflectanceRange":"This records the range of wavelengths that are reflected by the mirror."
 	},
 	"properties": {
 		"DichroicType": {
@@ -3428,8 +3449,7 @@
 		"Description",
 		"TransmittanceRange"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_Filament.json",
@@ -3441,10 +3461,11 @@
 	"image":"Transmitted_LightSource_Filament.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource:NA",
-		"Filament:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"NA",
+		"Filament":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence).",
+		"Filament":"The type of Filament lamp light source."
 	},
 	"properties": {
 		"Type": {
@@ -3563,8 +3584,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Filament.json",
@@ -3576,10 +3596,11 @@
 	"image":"Fluorescence_LightSource_Filament.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource:NA",
-		"Filament:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"NA",
+		"Filament":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence).",
+		"Filament":"The type of Filament lamp light source."
 	},
 	"properties": {
 		"Type": {
@@ -3699,8 +3720,7 @@
 		"Description",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Laser.json",
@@ -3712,11 +3732,21 @@
 	"image":"Fluorescence_LightSource_Laser.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource:NA",
-		"Laser:NA",
-		"Pump:The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any)."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"NA",
+		"Laser":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
+		"Laser":"Type is the general category of laser.",
+		"Laser":"The Medium attribute specifies the actual lasing medium for a given laser type.           ",
+		"Laser":"The center Wavelength of the light emitted by this laser.",
+		"Laser":"NA",
+		"Laser":"The optical frequency multiplication that may be specified for this laser.",
+		"Laser":"Whether or not the laser is Tuneable.",
+		"Laser":"The Pulse mode of the laser.",
+		"Laser":"If true the laser has a PockelCell to rotate the polarization of the beam.",
+		"Laser":"The is the rate in Hz at which the laser pulses if the Pulse type is 'Repetitive' hertz[Hz]",
+		"Laser":"NA",
+		"Pump":"The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any)."
 	},
 	"properties": {
 		"Type": {
@@ -4023,8 +4053,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"GenericDetector.json",
@@ -4036,12 +4065,12 @@
 	"image":"Detector_GenericDetector.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector:NA",
-		"GenericDetector:NA",
-		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
-		"RelayLens:This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Detector":"NA",
+		"GenericDetector":"The GenericDetector element is used to represent a detector as a collection of key/value pairs, stored in a Map. One of the other detector elements should always be used in preference to this if possible.",
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
 	},
 	"properties": {
 		"Name": {
@@ -4395,8 +4424,7 @@
 		"Description",
 		"Map"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"IntensifiedCCD.json",
@@ -4408,13 +4436,14 @@
 	"image":"Detector_Camera_IntensifiedCCD.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector:NA",
-		"Camera:NA",
-		"IntensifiedCCD:NA",
-		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
-		"RelayLens:This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Detector":"NA",
+		"Camera":"NA",
+		"IntensifiedCCD":"The type of Intensified CCD camera used",
+		"IntensifiedCCD":"The type of intensifiedCCD camera used.",
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
 	},
 	"properties": {
 		"Type": {
@@ -5150,8 +5179,7 @@
 		"WavelengthRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Reflector.json",
@@ -5163,10 +5191,10 @@
 	"image":"Mirror_Reflector.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Mirror:NA",
-		"Reflector:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Mirror":"NA",
+		"Reflector":"This is a total reflector mirror"
 	},
 	"properties": {
 		"Name": {
@@ -5367,8 +5395,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Prism.json",
@@ -5380,10 +5407,25 @@
 	"image":"AdditionalOptics_Prism.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Prism:NA",
-		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Prism":"A prism is a block of glass or other transparent material with flat, polished surfaces. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. Prisms can be classified in three general categories: reflecting prisms, polarizing prisms, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Refracting prisms can be employed to bend and separate light into its component colors. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters. A prism can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others",
+		"Prism":"The category to which this prism belongs.",
+		"Prism":"The geometrical shape of this prism",
+		"Prism":"The maximum amount of light this Prism is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
+		"Prism":"The angle between two surfaces of a Prism",
+		"Prism":"NA",
+		"Prism":"The angle of incidence (AOI) is the angle between a beam of light incident on the prism surface and the line perpendicular to the surface at the point of incidence called the normal.",
+		"Prism":"NA",
+		"Prism":"A beam passing through an object like a prism is deflected twice: once entering and again when exiting. The sum of these two deflections is called the deviation angle and is measured with respect to the incident ray",
+		"Prism":"NA",
+		"Prism":"This records the chemical composition or the nonproprietary trade designation of the glass",
+		"Prism":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174 and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits followed by Vd rounded to three digits with all decimal points ignored. For example BK7 has nd = 1.5168 and Vd = 64.17 giving a six-digit glass code of 517642",
+		"Prism":"The refractive index of the material of which the prism is made",
+		"Prism":"The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength) with high values indicating low dispersion",
+		"Prism":"The density of the material of which the prism is made",
+		"Prism":"NA",
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
 	},
 	"properties": {
 		"Name": {
@@ -5723,8 +5765,7 @@
 		"WavelengthRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"SampleHolder.json",
@@ -5736,10 +5777,13 @@
 	"image":"SampleHolderAndFocusing_SampleHolder.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Stage:NA",
-		"SampleHolder:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Stage":"NA",
+		"SampleHolder":"This element describes an optional sample holder mounted on the microscope stage.",
+		"SampleHolder":"The type of sample holder.",
+		"SampleHolder":"The angle by which this device is capable of rotating",
+		"SampleHolder":"NA"
 	},
 	"properties": {
 		"Type": {
@@ -6023,8 +6067,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"RelayLens.json",
@@ -6036,10 +6079,10 @@
 	"image":"AdditionalOptics_RelayLens.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Lens:A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. This element describes a lens utilized in this microscope",
-		"RelayLens:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Lens":"A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. This element describes a lens utilized in this microscope",
+		"RelayLens":"A lens positioned at the mount connecting this detector to the microscope body."
 	},
 	"properties": {
 		"Name": {
@@ -6470,8 +6513,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Optovar.json",
@@ -6483,9 +6525,11 @@
 	"image":"Magnification_Optovar.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Optovar:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Optovar":"Optovars are magnification changing devices originally developed by Zeiss, which provide additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification changer components are placed before the tube lens within the infinity space of the optical system. Typical magnification increments are: 1.25x, 1.6x, and 2x",
+		"Optovar":"The magnification of the optovar lens as specified by the manufacturer.",
+		"Optovar":"The type of lens used by the Magnification Changer available with this microscope."
 	},
 	"properties": {
 		"Name": {
@@ -6578,8 +6622,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"FilterSet.json",
@@ -6591,12 +6634,12 @@
 	"image":"LightPath_FilterSet.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"FilterSet:NA",
-		"ExcitationFilter:This empty element has a reference (the Filter ID attribute) to the Filters placed in the Excitation light path.",
-		"StandardDichroic:NA",
-		"EmissionFilter:This empty element has a reference (the Filter ID attribute) to the Filters placed in the Emission light path"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"FilterSet":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. Often they are pre-assebled by the manufacturer and pruchased as a whole",
+		"ExcitationFilter":"This empty element has a reference (the Filter ID attribute) to the Filters placed in the Excitation light path.",
+		"StandardDichroic":"NA",
+		"EmissionFilter":"This empty element has a reference (the Filter ID attribute) to the Filters placed in the Emission light path"
 	},
 	"properties": {
 		"Name": {
@@ -6690,8 +6733,7 @@
 		"EmissionFilter",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Pump.json",
@@ -6703,9 +6745,9 @@
 	"image":"ChildElement_Pump.png",
 	"tier":5,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"Reference:NA",
-		"Pump:NA"
+		"General":"General information about the element",
+		"Reference":"NA",
+		"Pump":"The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any)."
 	},
 	"properties": {
 		"ID": {
@@ -6726,8 +6768,7 @@
 	"required": [
 		"ID"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"IntensityCalibrationTool.json",
@@ -6739,9 +6780,10 @@
 	"image":"Calibration_IntensityCalibrationTool.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"IntensityCalibrationTool:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"IntensityCalibrationTool":"A tool, such as the Meta-Max calibration toold developed by the 4D Nucleome Imaging Standards Working Group, used to perform an intensity calibration procedure.",
+		"IntensityCalibrationTool":"The type of calibration proceudure this tool is intended to perform."
 	},
 	"properties": {
 		"Name": {
@@ -6823,8 +6865,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalDichroic.json",
@@ -6836,13 +6877,13 @@
 	"image":"AdditionalOptics_AdditionalDichroic.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Mirror:NA",
-		"Dichroic:NA",
-		"AdditionalDichroic:NA",
-		"TransmittanceRange:This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
-		"ReflectanceRange:This records the range of wavelengths that are reflected by the mirror."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Mirror":"NA",
+		"Dichroic":"NA",
+		"AdditionalDichroic":"An additional Dichroic poistioned in the light path for a given channel.",
+		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
+		"ReflectanceRange":"This records the range of wavelengths that are reflected by the mirror."
 	},
 	"properties": {
 		"DichroicType": {
@@ -7360,8 +7401,7 @@
 		"Description",
 		"TransmittanceRange"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Direct.json",
@@ -7373,11 +7413,13 @@
 	"image":"LightSourceCoupling_Direct.png",
 	"tier":4,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSourceCoupling:NA",
-		"Direct:NA",
-		"CouplingLens:This is a reference to a lens positioned at connector between this light source coupling element and the microscope body."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSourceCoupling":"NA",
+		"Direct":"A Direct coupling between the light source and the microscope consists either of a direct mount or of an optical light path that directs light across space to the back of the microscope body.",
+		"Direct":"The type of direct coupling available for this Instrument.",
+		"Direct":"The mount utilized to attach the available light sources to this microscope body.",
+		"CouplingLens":"This is a reference to a lens positioned at connector between this light source coupling element and the microscope body."
 	},
 	"properties": {
 		"Type": {
@@ -7480,8 +7522,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CMOS.json",
@@ -7493,13 +7534,14 @@
 	"image":"Detector_Camera_CMOS.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector:NA",
-		"Camera:NA",
-		"CMOS:NA",
-		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
-		"RelayLens:This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Detector":"NA",
+		"Camera":"NA",
+		"CMOS":"A complementary metal-oxide-semiconductor camera",
+		"CMOS":"The type of CCD camera used.",
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
 	},
 	"properties": {
 		"Type": {
@@ -8236,8 +8278,7 @@
 		"WavelengthRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ObjectiveTurret.json",
@@ -8249,11 +8290,11 @@
 	"image":"SampleHolderAndFocusing_Focusing_ObjectiveTurret.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Stage:NA",
-		"Focusing:NA",
-		"ObjectiveTurret:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Stage":"NA",
+		"Focusing":"NA",
+		"ObjectiveTurret":"This is a objective turret positoning device."
 	},
 	"properties": {
 		"Resolution": {
@@ -8612,8 +8653,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"BeamSplitter.json",
@@ -8625,10 +8665,12 @@
 	"image":"Mirror_BeamSplitter.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Mirror:NA",
-		"BeamSplitter:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Mirror":"NA",
+		"BeamSplitter":"This is a mirror that reflects part of the light, regardless of wavelenght",
+		"BeamSplitter":"The maximum amount of light this Beamsplitteris capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
+		"BeamSplitter":"The angle at which light is transmitted by this beamsplitter"
 	},
 	"properties": {
 		"Transmittance": {
@@ -8843,8 +8885,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_GenericExcitationSource.json",
@@ -8856,10 +8897,10 @@
 	"image":"Transmitted_LightSource_GenericExcitationSource.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource:NA",
-		"GenericExcitationSource:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"NA",
+		"GenericExcitationSource":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible."
 	},
 	"properties": {
 		"Name": {
@@ -8973,8 +9014,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_GenericExcitationSource.json",
@@ -8986,10 +9026,10 @@
 	"image":"Fluorescence_LightSource_GenericExcitationSource.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource:NA",
-		"GenericExcitationSource:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"NA",
+		"GenericExcitationSource":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible."
 	},
 	"properties": {
 		"Name": {
@@ -9104,8 +9144,7 @@
 		"Description",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Arc.json",
@@ -9117,10 +9156,11 @@
 	"image":"Fluorescence_LightSource_Arc.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource:NA",
-		"Arc:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"NA",
+		"Arc":"An Arc lamp is a lamp that produces light by an electric arc (also called a voltaic arc), which is typically generated between metal electrodes through an inert gas in a glass bulb.",
+		"Arc":"The type of Arc lamp light source."
 	},
 	"properties": {
 		"Type": {
@@ -9240,8 +9280,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PiezoElectricStage.json",
@@ -9253,11 +9292,11 @@
 	"image":"SampleHolderAndFocusing_Focusing_PiezoElectricStage.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Stage:NA",
-		"Focusing:NA",
-		"PiezoElectricStage:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Stage":"NA",
+		"Focusing":"NA",
+		"PiezoElectricStage":"This is a piezoelectric stage positioning device."
 	},
 	"properties": {
 		"Resolution": {
@@ -9616,8 +9655,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PhotoMultiplier.json",
@@ -9629,12 +9667,14 @@
 	"image":"Detector_PhotoMultiplier.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector:NA",
-		"PhotoMultiplier:NA",
-		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
-		"RelayLens:This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Detector":"NA",
+		"PhotoMultiplier":"A photomultiplier tube, useful for light detection of very weak signals, is a photoemissive device in which the absorption of a photon results in the emission of an electron. These detectors work by amplifying the electrons generated by a photocathode exposed to a photon flux",
+		"PhotoMultiplier":"The type of photomultiplier used.",
+		"PhotoMultiplier":"The radiant sensitivity observed with this PhotoMultiplier at peak wavelength.",
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
 	},
 	"properties": {
 		"Type": {
@@ -9998,8 +10038,7 @@
 		"WavelengthRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MechanicalStage.json",
@@ -10011,11 +10050,11 @@
 	"image":"SampleHolderAndFocusing_Focusing_MechanicalStage.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Stage:NA",
-		"Focusing:NA",
-		"MechanicalStage:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Stage":"NA",
+		"Focusing":"NA",
+		"MechanicalStage":"This is a mechanical stage positioning device"
 	},
 	"properties": {
 		"Resolution": {
@@ -10374,8 +10413,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"EmissionFilter.json",
@@ -10387,11 +10425,11 @@
 	"image":"LightPath_EmissionFilter.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"FIlter:NA",
-		"EmissionFilter:NA",
-		"TransmittanceRange:This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"FIlter":"NA",
+		"EmissionFilter":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an emission filter. For each fluorescence Image there should be at least one emission filter element specified per Channel.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
 	},
 	"properties": {
 		"Name": {
@@ -10619,8 +10657,7 @@
 		"TransmittanceRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AutoFocus.json",
@@ -10632,9 +10669,10 @@
 	"image":"SampleHolderAndFocusing_Focusing_AutoFocus.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"AutoFocus:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"AutoFocus":"This element describes the focus stabilization device(s) available for this microscope.",
+		"AutoFocus":"The type of this autofocus device."
 	},
 	"properties": {
 		"Name": {
@@ -10716,8 +10754,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CCD.json",
@@ -10729,13 +10766,14 @@
 	"image":"Detector_Camera_CCD.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector:NA",
-		"Camera:NA",
-		"CCD:NA",
-		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
-		"RelayLens:This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Detector":"NA",
+		"Camera":"NA",
+		"CCD":"A charged coupled device camera",
+		"CCD":"The type of CCD camera used.",
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
 	},
 	"properties": {
 		"Type": {
@@ -11472,8 +11510,7 @@
 		"WavelengthRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LightSourceSettings.json",
@@ -11485,10 +11522,15 @@
 	"image":"Settings_LightSourceSettings.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"Reference:NA",
-		"Settings:NA",
-		"LightSourceSettings:NA"
+		"General":"General information about the element",
+		"Reference":"NA",
+		"Settings":"NA",
+		"LightSourceSettings":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case.",
+		"LightSourceSettings":"The nominal wavelength of the excitation light utilized in this case.              ",
+		"LightSourceSettings":"The units of the Wavelength of the light source - default:nanometres[nm].",
+		"LightSourceSettings":"The light power output settings utilized in this case.",
+		"LightSourceSettings":"NA",
+		"LightSourceSettings":"The observed attenuation of the excitation light power expressed as a fractional value from 0.0 to 1.0."
 	},
 	"properties": {
 		"ID": {
@@ -11601,8 +11643,7 @@
 		"ID",
 		"Wavelength"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalLens.json",
@@ -11614,10 +11655,10 @@
 	"image":"AdditionalOptics_AdditionalLens.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Lens:A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. This element describes a lens utilized in this microscope",
-		"AdditionalLens:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Lens":"A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. This element describes a lens utilized in this microscope",
+		"AdditionalLens":"A lens poistioned in the light path in the light path for a given channel."
 	},
 	"properties": {
 		"Name": {
@@ -12048,8 +12089,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"WavelengthRange.json",
@@ -12061,7 +12101,12 @@
 	"image":"ChildElement_WavelengthRange.png",
 	"tier":5,
 	"subCategoriesOrder": {
-		"WavelengthRange:NA"
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+		"WavelengthRange":"CutIn is the wavelength below which the response rate is below 50%.",
+		"WavelengthRange":"NA",
+		"WavelengthRange":"CutOut is the wavelength above which the response rate is below 50%.",
+		"WavelengthRange":"NA",
+		"WavelengthRange":"The location of a file containing the wavelenght profile of this component."
 	},
 	"properties": {
 		"CutIn": {
@@ -12181,8 +12226,7 @@
 		"CutOut",
 		"WavelenghtProfile"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LEDModule.json",
@@ -12194,7 +12238,18 @@
 	"image":"ChildElement_LEDModule.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"LEDModule:NA"
+		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used.",
+		"LEDModule":"The nominal wavelength at which the amount of light power output is at a maximum.",
+		"LEDModule":"NA",
+		"LEDModule":"The nominal light power output generated at peak wavelenght.",
+		"LEDModule":"NA",
+		"LEDModule":"The angle at which this light source projects light.",
+		"LEDModule":"NA",
+		"LEDModule":"CutIn is the wavelength below which the response rate is below 50%.",
+		"LEDModule":"NA",
+		"LEDModule":"CutOut is the wavelength above which the response rate is below 50%",
+		"LEDModule":"NA",
+		"LEDModule":"The location of a file containing the wavelenght profile of this component."
 	},
 	"properties": {
 		"PeakWavelenght": {
@@ -12418,8 +12473,7 @@
 		"CutOut",
 		"WavelenghtProfile"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ExcitationCalibration.json",
@@ -12431,9 +12485,10 @@
 	"image":"Calibration_ExcitationCalibration.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"IntensityCalibration:NA",
-		"ExcitationCalibration:NA"
+		"General":"General information about the element",
+		"IntensityCalibration":"NA",
+		"ExcitationCalibration":"This procedure measures the performance and allows calibration of the wavelength and irradiance of the excitation light.",
+		"IntensityCalibrationTool":"This element is a reference to the tool if any used to perform this calibratin procdure."
 	},
 	"properties": {
 		"ID": {
@@ -12606,8 +12661,7 @@
 		"Date",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"TransmittanceRange.json",
@@ -12619,7 +12673,12 @@
 	"image":"ChildElement_TransmittanceRange.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"TransmittanceRange:NA"
+		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
+		"TransmittanceRange":"CutIn is the wavelength below which the response rate is below 50%.",
+		"TransmittanceRange":"NA",
+		"TransmittanceRange":"CutOut is the wavelength above which the response rate is below 50%.",
+		"TransmittanceRange":"NA",
+		"TransmittanceRange":"The maximum amount of light this optical component is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0."
 	},
 	"properties": {
 		"CutIn": {
@@ -12739,8 +12798,7 @@
 		"CutOut",
 		"Transmittance"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ExcitationFilter.json",
@@ -12752,11 +12810,11 @@
 	"image":"LightPath_ExcitationFilter.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"FIlter:NA",
-		"ExcitationFilter:NA",
-		"TransmittanceRange:This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"FIlter":"NA",
+		"ExcitationFilter":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an excitation filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
 	},
 	"properties": {
 		"Name": {
@@ -12984,8 +13042,7 @@
 		"TransmittanceRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AnalogVideo.json",
@@ -12997,13 +13054,13 @@
 	"image":"Detector_Camera_AnalogVideo.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector:NA",
-		"Camera:NA",
-		"AnalogVideo:NA",
-		"WavelengthRange:This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
-		"RelayLens:This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Detector":"NA",
+		"Camera":"NA",
+		"AnalogVideo":"A device used to capture analog videos",
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
 	},
 	"properties": {
 		"Illumination": {
@@ -13727,8 +13784,7 @@
 		"WavelengthRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Objective.json",
@@ -13740,9 +13796,24 @@
 	"image":"Magnification_Objective.png",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Objective:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Objective":"A description of the microscope's objective lens. Required elements include the lens numerical aperture, and the magnification, both of which a floating point (real) numbers. The values are those that are fixed for a particular objective: either because it has been manufactured to this specification or the value has been measured on this particular objective. Correction: This is the type of correction coating applied to this lens. Immersion: This is the types of immersion medium the lens is designed to work with. It is not the same as 'Medium' in ObjectiveRef (a single type) as here Immersion can have compound values like 'Multi'. LensNA: The numerical aperture of the lens (as a float) NominalMagnification: The specified magnification e.g. x10 CalibratedMagnification: The measured magnification e.g. x10.3 WorkingDistance: WorkingDistance of the lens",
+		"Objective":"The correction applied to the lens.",
+		"Objective":"The magnification of the lens as specified by the manufacturer - i.e. 60 represents a 60X lens.",
+		"Objective":"The magnification of the lens as measured by a calibration process- i.e. '59.987' for a 60X lens.",
+		"Objective":"The numerical aperture of the lens expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
+		"Objective":"The immersion medium the lens is designed for.",
+		"Objective":"Records whether or not the objective is infinity corrected.",
+		"Objective":"NA",
+		"Objective":"The working distance of the lens expressed as a floating point (real) number.",
+		"Objective":"NA",
+		"Objective":"Records whether or not the objective was fitted with an Iris.",
+		"Objective":"The maximal diameter of the viewfield allowed by this objective expressed in mm and measured at the intermediate image plane. NB: The field of view is influenced by the magnification and diameter of the ocular (eyepiece) field diaphragm but also by the limits imposed by the design of the objective.",
+		"Objective":"The distance between the objective lens mounting plane and the specimen.",
+		"Objective":"NA",
+		"Objective":"The position of the back focal plane with respect to the specimen position.",
+		"Objective":"NA"
 	},
 	"properties": {
 		"Name": {
@@ -14055,5 +14126,4 @@
 		"Description"
 	]
 }
-
 ]

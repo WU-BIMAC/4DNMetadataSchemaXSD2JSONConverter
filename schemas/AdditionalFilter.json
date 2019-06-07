@@ -9,11 +9,11 @@
 	"image":"AdditionalOptics_AdditionalFilter.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"FIlter:NA",
-		"AdditionalFilter:NA",
-		"TransmittanceRange:This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"FIlter":"NA",
+		"AdditionalFilter":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to a filter positioned along the light path in addition to the excitation and the emission filters.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
 	},
 	"properties": {
 		"Name": {

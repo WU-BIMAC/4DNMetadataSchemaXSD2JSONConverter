@@ -9,10 +9,13 @@
 	"image":"SampleHolderAndFocusing_SampleHolder.png",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General:General information about the element",
-		"ManufacturerSpec:This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Stage:NA",
-		"SampleHolder:NA"
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Stage":"NA",
+		"SampleHolder":"This element describes an optional sample holder mounted on the microscope stage.",
+		"SampleHolder":"The type of sample holder.",
+		"SampleHolder":"The angle by which this device is capable of rotating",
+		"SampleHolder":"NA"
 	},
 	"properties": {
 		"Type": {
