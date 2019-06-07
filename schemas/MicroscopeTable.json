@@ -11,12 +11,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"MicroscopeTable":"This element describes the table on which this Microscope rests during acquisition.",
-		"MicroscopeTable":"This element describes the type of microscope table available for this instrument.",
-		"MicroscopeTable":"The width of this microscope table",
-		"MicroscopeTable":"NA",
-		"MicroscopeTable":"The depth of this microscope table",
-		"MicroscopeTable":"NA"
+		"MicroscopeTable":"This element describes the table on which this Microscope rests during acquisition."
 	},
 	"properties": {
 		"Name": {

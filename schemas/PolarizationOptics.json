@@ -12,12 +12,6 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"PolarizationOptics":"This is an optical filter that lets light waves of a specific polarization pass through while blocking light waves of other polarizations",
-		"PolarizationOptics":"This records whether this polarizer optics is used to generate polarized light or to analyze polarized light",
-		"PolarizationOptics":"The modality in with which this Polarization Optics is constructed",
-		"PolarizationOptics":"The way in with which this Polarization Optics is fabricated",
-		"PolarizationOptics":"Retardation describes the phase shift between the polarization component projected along the fast axis and the component projected along the slow axis",
-		"PolarizationOptics":"This records the chemical composition or the nonproprietary trade designation of the glass",
-		"PolarizationOptics":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174 and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits followed by Vd rounded to three digits with all decimal points ignored. For example BK7 has nd = 1.5168 and Vd = 64.17 giving a six-digit glass code of 517642",
 		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
 	},
 	"properties": {

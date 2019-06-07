@@ -9,18 +9,7 @@
 	"image":"ChildElement_LEDModule.png",
 	"tier":2,
 	"subCategoriesOrder": {
-		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used.",
-		"LEDModule":"The nominal wavelength at which the amount of light power output is at a maximum.",
-		"LEDModule":"NA",
-		"LEDModule":"The nominal light power output generated at peak wavelenght.",
-		"LEDModule":"NA",
-		"LEDModule":"The angle at which this light source projects light.",
-		"LEDModule":"NA",
-		"LEDModule":"CutIn is the wavelength below which the response rate is below 50%.",
-		"LEDModule":"NA",
-		"LEDModule":"CutOut is the wavelength above which the response rate is below 50%",
-		"LEDModule":"NA",
-		"LEDModule":"The location of a file containing the wavelenght profile of this component."
+		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
 	},
 	"properties": {
 		"PeakWavelenght": {
