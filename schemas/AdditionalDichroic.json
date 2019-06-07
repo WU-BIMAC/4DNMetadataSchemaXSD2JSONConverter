@@ -11,7 +11,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Mirror":"NA",
+		"Mirror":"This describes a mirror positioned in the light path for one or more channel available for this instrument. An instrument may have several mirrors of different types, such as dichroic, beamsplitter or reflector.",
 		"Dichroic":"NA",
 		"AdditionalDichroic":"An additional Dichroic poistioned in the light path for a given channel.",
 		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",

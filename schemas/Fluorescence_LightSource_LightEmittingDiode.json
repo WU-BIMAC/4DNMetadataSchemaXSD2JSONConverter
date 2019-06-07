@@ -11,7 +11,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource":"NA",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
 		"LightEmittingDiode":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
 		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
 	},

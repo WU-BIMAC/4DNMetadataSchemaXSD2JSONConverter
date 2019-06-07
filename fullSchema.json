@@ -95,8 +95,7 @@
 		"SerialNumber",
 		"SpecsFile"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ReflectanceRange.json",
@@ -235,9 +234,9 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSourceCoupling":"NA",
+		"LightSourceCoupling":"This element describes the device(s)/method(s) used to couple the available light source(s) with this microscope body in order to transfer light to the specimen. A typical light-microscope has a light coupling device for each available light source.",
 		"LightGuide":"A Light Guide coupling between the light source and the microscope generally consists of a casing enclosing a medium capable of transferring light from the illuminator to the back of the microsocpe body.",
-		"CouplingLens":"This is a reference to a lens positioned at connector between this light source coupling element and the microscope body.",
+		"CouplingLens":"This is a reference to a lens positioned at the connection between this light source coupling element and the microscope body.",
 		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
 	},
 	"properties": {
@@ -254,7 +253,7 @@
 		},
 		"PeakWavelength": {
 			"type":"string",
-			"description":"The wavelength associated with maximum light intensity transmitted by this light guide",
+			"description":"The wavelength associated with the transmittance peak for this light guide.",
 			"tier":5,
 			"category":"LightGuide"
 		},
@@ -303,19 +302,19 @@
 		},
 		"RefractiveIndex": {
 			"type":"string",
-			"description":"The refractive index of the material this light guide is made of",
+			"description":"The refractive index of the material this light guide is made of.",
 			"tier":5,
 			"category":"LightGuide"
 		},
 		"NumericalAperture": {
 			"type":"string",
-			"description":"The numerical aperture of the light guide expressed as a floating point (real) number. Expected range 0.02 - 1.5",
+			"description":"The numerical aperture of this light guide expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
 			"tier":5,
 			"category":"LightGuide"
 		},
 		"AcceptanceAngle": {
 			"type":"string",
-			"description":"The angle within which light beam may be coupled into the bound modes of an optical fiber.",
+			"description":"The angle within which the light beam produced by a light source may be coupled with the bound modes of this light guide.",
 			"tier":5,
 			"category":"LightGuide"
 		},
@@ -323,6 +322,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"default":"deg",
 			"enum": [
 				"deg",
 				"rad",
@@ -332,7 +332,7 @@
 		},
 		"Geometry": {
 			"type":"string",
-			"description":"The shape of this LightGuide",
+			"description":"The shape of this light guide.",
 			"tier":5,
 			"enum": [
 				"Spot Light",
@@ -346,7 +346,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This records the chemical composition or the nonproprietary trade designation of the material used for this light guide",
+			"description":"The chemical composition or the non-proprietary trade designation of the material used for this light guide.",
 			"tier":5,
 			"enum": [
 				"Quartz",
@@ -358,13 +358,13 @@
 		},
 		"SingleMode": {
 			"type":"string",
-			"description":"Records whether or not the light guide is single-mode. If not, then the guide is assumend to be multi-modal",
+			"description":"Whether or not this light guide is single-mode. If not, then the guide is assumend to be multi-modal.",
 			"tier":5,
 			"category":"LightGuide"
 		},
 		"WaveguideMode": {
 			"type":"string",
-			"description":"When boundary conditions are imposed by a physical structure, a wave of a particular frequency can be described in terms of a transverse mode (or superposition of such modes). These modes generally follow different propagation constants",
+			"description":"The transverse mode (or superposition of such modes) that are being imposed by this light guide onto the light wave traversing it. These modes generally follow different propagation constants.",
 			"tier":5,
 			"enum": [
 				"Transverse electromagnetic",
@@ -377,7 +377,7 @@
 		},
 		"Diameter": {
 			"type":"string",
-			"description":"The outer diameter of the light guide",
+			"description":"The outer diameter of this light guide.",
 			"tier":5,
 			"category":"LightGuide"
 		},
@@ -385,6 +385,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"default":"mm",
 			"enum": [
 				"Ym",
 				"Zm",
@@ -474,7 +475,7 @@
 		},
 		"CouplingLens": {
 			"type":"string",
-			"description":"This is a reference to a lens positioned at connector between this light source coupling element and the microscope body.",
+			"description":"This is a reference to a lens positioned at the connection between this light source coupling element and the microscope body.",
 			"tier":5,
 			"category":"CouplingLens",
 			"linkTo":"CouplingLens"
@@ -640,7 +641,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource":"NA",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
 		"LightEmittingDiode":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
 		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
 	},
@@ -999,7 +1000,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource":"NA",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
 		"LightEmittingDiode":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
 		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
 	},
@@ -1353,15 +1354,15 @@
 	"version":"1.05.3",
 	"type":"object",
 	"title":"CouplingLens",
-	"description":"A lens positioned at connector between this light source coupling element and the microscope body.",
+	"description":"A lens positioned at connector between this light source coupling device and the microscope body.",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_CouplingLens.png",
 	"tier":5,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Lens":"A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. This element describes a lens utilized in this microscope",
-		"CouplingLens":"A lens positioned at connector between this light source coupling element and the microscope body."
+		"Lens":"This describes a lens positioned in the light path for one or more channel available for this instrument. A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. An instrument may have several lenses with different fuctions such as, a coupling lens positioned between the light source and the microscope body, a relay lens positioned at the detector mount, or an additional lens positioned in the light path for various purposes.",
+		"CouplingLens":"A lens positioned at connector between this light source coupling device and the microscope body."
 	},
 	"properties": {
 		"Name": {
@@ -1379,7 +1380,7 @@
 		},
 		"Type": {
 			"type":"string",
-			"description":"The general category to which this lens belongs.",
+			"description":"The general category this lens belongs to.",
 			"tier":5,
 			"enum": [
 				"Amici-Bertrand",
@@ -1394,9 +1395,26 @@
 			],
 			"category":"Lens"
 		},
+		"Magnification": {
+			"type":"string",
+			"description":"The nominal magnification provided by this lens as specified by the manufacturer.",
+			"tier":2,
+			"category":"Lens"
+		},
+		"Construction": {
+			"type":"string",
+			"description":"Whether or not this lens is simple or composite.",
+			"tier":5,
+			"enum": [
+				"Simple",
+				"Composite",
+				"Other"
+			],
+			"category":"Lens"
+		},
 		"Geometry": {
 			"type":"string",
-			"description":"The geometrical shape of the lens surfaces",
+			"description":"The geometrical shape of this lens' surface(s).",
 			"tier":5,
 			"enum": [
 				"Spherical",
@@ -1412,80 +1430,21 @@
 			],
 			"category":"Lens"
 		},
-		"Construction": {
+		"RefractiveIndex": {
 			"type":"string",
-			"description":"Whether or not the lens is simple or composite",
+			"description":"The refractive index of the material this lens is made of, as specified by the manufacturer.",
 			"tier":5,
-			"enum": [
-				"Simple",
-				"Composite",
-				"Other"
-			],
-			"category":"Lens"
-		},
-		"Magnification": {
-			"type":"string",
-			"description":"The nominal magnification provided by this lens",
-			"tier":2,
 			"category":"Lens"
 		},
 		"AttenuationCoefficient": {
 			"type":"string",
-			"description":"The attenuation coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a lens. The attenuation coefficient is often defined in units of optical density (OD), wherease OD= -log10(T), and T=Transmittance (0?T?1).",
+			"description":"The attenuation coeffieient of this lens. The attenuation coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a lens. The attenuation coefficient is often defined in units of optical density (OD), wherease OD= -log10(T), and T=Transmittance (0?T?1).",
 			"tier":5,
-			"category":"Lens"
-		},
-		"RadiusOfCurvature": {
-			"type":"string",
-			"description":"A spherical lens or mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface",
-			"tier":5,
-			"category":"Lens"
-		},
-		"RadiusOfCurvatureUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"pixel",
-				"reference frame"
-			],
 			"category":"Lens"
 		},
 		"FocalDistanceToObject": {
 			"type":"string",
-			"description":"The distance between the front principal plane of the lens and the specimen",
+			"description":"The distance between the front principal plane of this lens and the specimen plane.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -1533,7 +1492,7 @@
 		},
 		"FocalDistanceToImage": {
 			"type":"string",
-			"description":"The distance from the rear principal plane to the image",
+			"description":"The distance between the rear principal plane of this lens and the image plane.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -1581,7 +1540,7 @@
 		},
 		"FocalLength": {
 			"type":"string",
-			"description":"The distance from the rear principal plane of the lens and its focal point",
+			"description":"The distance from the rear principal plane of this lens and its focal plane.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -1627,63 +1586,9 @@
 			],
 			"category":"Lens"
 		},
-		"MaterialName": {
-			"type":"string",
-			"description":"This records the chemical composition or the nonproprietary trade designation of the glass",
-			"tier":5,
-			"enum": [
-				"alpha-Barium Borate",
-				"N-BK7 (Borosilicate Crown)",
-				"Calcium Fluoride",
-				"UV-Grade Fused Silica (UVFS)",
-				"Germanium",
-				"Magnesium Fluoride",
-				"N-SF11 (Dense Flint)",
-				"Polytetrafluoroethylene (PFTE)",
-				"Zinc Selenide (ZnSe)",
-				"Other"
-			],
-			"category":"Lens"
-		},
-		"GlassCode": {
-			"type":"string",
-			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642",
-			"tier":5,
-			"category":"Lens"
-		},
-		"RefractiveIndex": {
-			"type":"string",
-			"description":"The refractive index of the material the prism is made of",
-			"tier":5,
-			"category":"Lens"
-		},
-		"AbbeNumber": {
-			"type":"string",
-			"description":"The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion",
-			"tier":5,
-			"category":"Lens"
-		},
-		"Density": {
-			"type":"string",
-			"description":"The density of the material this lens is made of",
-			"tier":5,
-			"category":"Lens"
-		},
-		"DensityUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"enum": [
-				"kg/m3",
-				"g/ml",
-				"mg/µg",
-				"µg/ng"
-			],
-			"category":"Lens"
-		},
 		"Diameter": {
 			"type":"string",
-			"description":"The physical diamter of this lens",
+			"description":"The physical diamter of this lens.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -1726,6 +1631,102 @@
 				"pt",
 				"pixel",
 				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"AbbeNumber": {
+			"type":"string",
+			"description":"The Abbe number of this lens. The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"RadiusOfCurvature": {
+			"type":"string",
+			"description":"The radius of curvature of this lens. A spherical lens or mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"RadiusOfCurvatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"MaterialName": {
+			"type":"string",
+			"description":"This records the chemical composition or the nonproprietary trade designation of the glass this lens is made of.",
+			"tier":5,
+			"enum": [
+				"alpha-Barium Borate",
+				"N-BK7 (Borosilicate Crown)",
+				"Calcium Fluoride",
+				"UV-Grade Fused Silica (UVFS)",
+				"Germanium",
+				"Magnesium Fluoride",
+				"N-SF11 (Dense Flint)",
+				"Polytetrafluoroethylene (PFTE)",
+				"Zinc Selenide (ZnSe)",
+				"Other"
+			],
+			"category":"Lens"
+		},
+		"GlassCode": {
+			"type":"string",
+			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"Density": {
+			"type":"string",
+			"description":"The density of the material this lens is made of.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"DensityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"enum": [
+				"kg/m3",
+				"g/ml",
+				"mg/µg",
+				"µg/ng"
 			],
 			"category":"Lens"
 		},
@@ -1778,22 +1779,21 @@
 		"ID",
 		"Name",
 		"Type",
-		"Construction",
 		"Magnification",
+		"Construction",
+		"Geometry",
+		"RefractiveIndex",
 		"AttenuationCoefficient",
 		"FocalDistanceToObject",
 		"FocalDistanceToImage",
 		"FocalLength",
-		"RefractiveIndex",
-		"AbbeNumber",
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MicroscopeTable.json",
@@ -1997,7 +1997,7 @@
 	"version":"1.05.3",
 	"type":"object",
 	"title":"PiezoElectricObjective",
-	"description":"This is a piezoelectric objective-lens positioning device",
+	"description":"The optional piezoelectric objective positioning device associated with this instrument.",
 	"category":"SampleHolderAndFocusing.Focusing",
 	"image":"SampleHolderAndFocusing_Focusing_PiezoElectricObjective.png",
 	"tier":3,
@@ -2005,8 +2005,8 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"Stage":"NA",
-		"Focusing":"NA",
-		"PiezoElectricObjective":"This is a piezoelectric objective-lens positioning device"
+		"Focusing":"This describes the objective lens and stage positioning device(s) available for this instrument. An instrument may have more than one of these devices of different type, such as mechanical stage, piezoelectric stage, objective turret and piezoelectric objective.",
+		"PiezoElectricObjective":"The optional piezoelectric objective positioning device associated with this instrument."
 	},
 	"properties": {
 		"Resolution": {
@@ -2124,7 +2124,7 @@
 		},
 		"MovementAxes": {
 			"type":"string",
-			"description":"The axis along which this device moves.",
+			"description":"The axes or axis along which this device is capable of moving.",
 			"tier":5,
 			"default":"Z",
 			"enum": [
@@ -2139,7 +2139,7 @@
 		},
 		"XTravelRange": {
 			"type":"string",
-			"description":"The X axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the X axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -2188,7 +2188,7 @@
 		},
 		"YTravelRange": {
 			"type":"string",
-			"description":"The Y axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Y axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -2237,7 +2237,7 @@
 		},
 		"ZTravelRange": {
 			"type":"string",
-			"description":"The Z axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Z axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -2286,7 +2286,7 @@
 		},
 		"MaxVelocity": {
 			"type":"string",
-			"description":"The maximum velocity this device is capable of moving at",
+			"description":"The maximum velocity at which this device is capable of moving.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -2365,8 +2365,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalFilter.json",
@@ -2380,7 +2379,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"FIlter":"NA",
+		"FIlter":"This describes an optical filter positioned in the light path for one or more channel available for this instrument. An optical filter is a device that selectively transmits light of different wavelengths. An instrument may have several filters of different types, such as an excitation, an emission filter or an additional filter positioned in the light path for different purposes. For each fluorescence Image there should be at least one filter element specified per Channel. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 		"AdditionalFilter":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to a filter positioned along the light path in addition to the excitation and the emission filters.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
 	},
@@ -2610,8 +2609,7 @@
 		"TransmittanceRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PolarizationOptics.json",
@@ -2901,7 +2899,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Mirror":"NA",
+		"Mirror":"This describes a mirror positioned in the light path for one or more channel available for this instrument. An instrument may have several mirrors of different types, such as dichroic, beamsplitter or reflector.",
 		"Dichroic":"NA",
 		"StandardDichroic":"A Dichroic used in the standard fluorecence Ligh Path.",
 		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
@@ -3423,8 +3421,7 @@
 		"Description",
 		"TransmittanceRange"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_Filament.json",
@@ -3438,7 +3435,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource":"NA",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
 		"Filament":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence)."
 	},
 	"properties": {
@@ -3572,7 +3569,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource":"NA",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
 		"Filament":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence)."
 	},
 	"properties": {
@@ -3707,7 +3704,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource":"NA",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
 		"Laser":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
 		"Pump":"The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any)."
 	},
@@ -4030,7 +4027,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector":"NA",
+		"Detector":"This describes a detector available for this instrument. An instrument may have more than one detector of different types, such as photomultiplier, or camera. The Detector ID can be used as a reference within the Channel element in the Image element. The values stored in Detector represent the fixed values, variable values modified during the acquisition go in DetectorSettings.",
 		"GenericDetector":"The GenericDetector element is used to represent a detector as a collection of key/value pairs, stored in a Map. One of the other detector elements should always be used in preference to this if possible.",
 		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
 		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
@@ -4387,8 +4384,7 @@
 		"Description",
 		"Map"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"IntensifiedCCD.json",
@@ -4402,8 +4398,8 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector":"NA",
-		"Camera":"NA",
+		"Detector":"This describes a detector available for this instrument. An instrument may have more than one detector of different types, such as photomultiplier, or camera. The Detector ID can be used as a reference within the Channel element in the Image element. The values stored in Detector represent the fixed values, variable values modified during the acquisition go in DetectorSettings.",
+		"Camera":"This describes a camera device available for this instrument. A camera is device that converts optical brightness into an electrical signal using a CCD(a semiconductor chip, which converts the intensity of light falling onto its surface at different points into a charge) and then reproduces an image of the specimen.  An instrument may have more than one camera of different types, such as EMCCD, intensified EMCCD, CMOS, or analog video.",
 		"IntensifiedCCD":"The type of Intensified CCD camera used",
 		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
 		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
@@ -5156,7 +5152,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Mirror":"NA",
+		"Mirror":"This describes a mirror positioned in the light path for one or more channel available for this instrument. An instrument may have several mirrors of different types, such as dichroic, beamsplitter or reflector.",
 		"Reflector":"This is a total reflector mirror"
 	},
 	"properties": {
@@ -5358,22 +5354,21 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Prism.json",
 	"version":"1.05.3",
 	"type":"object",
 	"title":"Prism",
-	"description":"A prism is a block of glass or other transparent material with flat, polished surfaces. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. Prisms can be classified in three general categories: reflecting prisms, polarizing prisms, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Refracting prisms can be employed to bend and separate light into its component colors. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters. A prism can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others",
+	"description":"This describes a prism positioned in the light path for one or more channel available for this instrument. A prism is a block of glass or other transparent material with flat, polished surfaces, which can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. An instrument may have several prisms with different factionality such as,  reflecting, polarizing, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. Refracting prisms can be employed to bend and separate light into its component colors. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters.",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_Prism.png",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Prism":"A prism is a block of glass or other transparent material with flat, polished surfaces. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. Prisms can be classified in three general categories: reflecting prisms, polarizing prisms, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Refracting prisms can be employed to bend and separate light into its component colors. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters. A prism can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others",
+		"Prism":"This describes a prism positioned in the light path for one or more channel available for this instrument. A prism is a block of glass or other transparent material with flat, polished surfaces, which can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. An instrument may have several prisms with different factionality such as,  reflecting, polarizing, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. Refracting prisms can be employed to bend and separate light into its component colors. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters.",
 		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
 	},
 	"properties": {
@@ -5402,6 +5397,52 @@
 			],
 			"category":"Prism"
 		},
+		"RefractiveIndex": {
+			"type":"string",
+			"description":"The refractive index of the material this prism is made of, as specified by the manufacturer.",
+			"tier":5,
+			"category":"Prism"
+		},
+		"Reflectance": {
+			"type":"string",
+			"description":"The maximum amount of light this Prism is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
+			"tier":5,
+			"category":"Prism"
+		},
+		"AngleOfIncidence": {
+			"type":"string",
+			"description":"The angle of incidence (AOI) is the angle between a beam of light incident on the prism surface and the line perpendicular to the surface at the point of incidence, called the normal.",
+			"tier":5,
+			"category":"Prism"
+		},
+		"AngleOfIncidenceUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			],
+			"category":"Prism"
+		},
+		"DeviationAngle": {
+			"type":"string",
+			"description":"A beam passing through an object like a prism is deflected twice: once entering, and again when exiting. The sum of these two deflections is called the deviation angle and is measured with respect to the incident ray.",
+			"tier":5,
+			"category":"Prism"
+		},
+		"DevianceAngleUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			],
+			"category":"Prism"
+		},
 		"Geometry": {
 			"type":"string",
 			"description":"The geometrical shape of this prism",
@@ -5427,9 +5468,9 @@
 			],
 			"category":"Prism"
 		},
-		"Reflectance": {
+		"AbbeNumber": {
 			"type":"string",
-			"description":"The maximum amount of light this Prism is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
+			"description":"The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion",
 			"tier":5,
 			"category":"Prism"
 		},
@@ -5440,40 +5481,6 @@
 			"category":"Prism"
 		},
 		"PrismAngleUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"enum": [
-				"deg",
-				"rad",
-				"gon"
-			],
-			"category":"Prism"
-		},
-		"AngleOfIncidence": {
-			"type":"string",
-			"description":"The angle of incidence (AOI) is the angle between a beam of light incident on the prism surface and the line perpendicular to the surface at the point of incidence, called the normal.",
-			"tier":5,
-			"category":"Prism"
-		},
-		"AngleOfIncidenceUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"enum": [
-				"deg",
-				"rad",
-				"gon"
-			],
-			"category":"Prism"
-		},
-		"DeviationAngle": {
-			"type":"string",
-			"description":"A beam passing through an object like a prism is deflected twice: once entering, and again when exiting. The sum of these two deflections is called the deviation angle and is measured with respect to the incident ray",
-			"tier":5,
-			"category":"Prism"
-		},
-		"DevianceAngleUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
@@ -5504,18 +5511,6 @@
 		"GlassCode": {
 			"type":"string",
 			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642",
-			"tier":5,
-			"category":"Prism"
-		},
-		"RefractiveIndex": {
-			"type":"string",
-			"description":"The refractive index of the material of which the prism is made",
-			"tier":5,
-			"category":"Prism"
-		},
-		"AbbeNumber": {
-			"type":"string",
-			"description":"The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion",
 			"tier":5,
 			"category":"Prism"
 		},
@@ -5702,11 +5697,10 @@
 		"ID",
 		"Name",
 		"Type",
+		"RefractiveIndex",
 		"Reflectance",
 		"AngleOfIncidence",
 		"DeviationAngle",
-		"RefractiveIndex",
-		"AbbeNumber",
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
@@ -5734,7 +5728,7 @@
 	"properties": {
 		"Type": {
 			"type":"string",
-			"description":"The type of sample holder.",
+			"description":"The type of this sample holder.",
 			"tier":5,
 			"enum": [
 				"Rigid Stand",
@@ -5745,7 +5739,7 @@
 		},
 		"RotationAngle": {
 			"type":"string",
-			"description":"The angle by which this device is capable of rotating",
+			"description":"The angle by which this sample holder is capable of rotating.",
 			"tier":5,
 			"category":"SampleHolder"
 		},
@@ -5753,6 +5747,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"default":"deg",
 			"enum": [
 				"deg",
 				"rad",
@@ -5775,7 +5770,7 @@
 		},
 		"MovementAxes": {
 			"type":"string",
-			"description":"The axis along which this device moves.",
+			"description":"The axes or axis along which this device is capable of moving.",
 			"tier":5,
 			"default":"Z",
 			"enum": [
@@ -5790,7 +5785,7 @@
 		},
 		"XTravelRange": {
 			"type":"string",
-			"description":"The X axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the X axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -5839,7 +5834,7 @@
 		},
 		"YTravelRange": {
 			"type":"string",
-			"description":"The Y axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Y axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -5888,7 +5883,7 @@
 		},
 		"ZTravelRange": {
 			"type":"string",
-			"description":"The Z axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Z axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -5937,7 +5932,7 @@
 		},
 		"MaxVelocity": {
 			"type":"string",
-			"description":"The maximum velocity this device is capable of moving at",
+			"description":"The maximum velocity at which this device is capable of moving.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -6020,15 +6015,15 @@
 	"version":"1.05.3",
 	"type":"object",
 	"title":"RelayLens",
-	"description":"A lens positioned at the mount connecting this detector to the microscope body.",
+	"description":"A lens positioned at the mount connecting a detector to the microscope body.",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_RelayLens.png",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Lens":"A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. This element describes a lens utilized in this microscope",
-		"RelayLens":"A lens positioned at the mount connecting this detector to the microscope body."
+		"Lens":"This describes a lens positioned in the light path for one or more channel available for this instrument. A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. An instrument may have several lenses with different fuctions such as, a coupling lens positioned between the light source and the microscope body, a relay lens positioned at the detector mount, or an additional lens positioned in the light path for various purposes.",
+		"RelayLens":"A lens positioned at the mount connecting a detector to the microscope body."
 	},
 	"properties": {
 		"Name": {
@@ -6046,7 +6041,7 @@
 		},
 		"Type": {
 			"type":"string",
-			"description":"The general category to which this lens belongs.",
+			"description":"The general category this lens belongs to.",
 			"tier":5,
 			"enum": [
 				"Amici-Bertrand",
@@ -6061,9 +6056,26 @@
 			],
 			"category":"Lens"
 		},
+		"Magnification": {
+			"type":"string",
+			"description":"The nominal magnification provided by this lens as specified by the manufacturer.",
+			"tier":2,
+			"category":"Lens"
+		},
+		"Construction": {
+			"type":"string",
+			"description":"Whether or not this lens is simple or composite.",
+			"tier":5,
+			"enum": [
+				"Simple",
+				"Composite",
+				"Other"
+			],
+			"category":"Lens"
+		},
 		"Geometry": {
 			"type":"string",
-			"description":"The geometrical shape of the lens surfaces",
+			"description":"The geometrical shape of this lens' surface(s).",
 			"tier":5,
 			"enum": [
 				"Spherical",
@@ -6079,80 +6091,21 @@
 			],
 			"category":"Lens"
 		},
-		"Construction": {
+		"RefractiveIndex": {
 			"type":"string",
-			"description":"Whether or not the lens is simple or composite",
+			"description":"The refractive index of the material this lens is made of, as specified by the manufacturer.",
 			"tier":5,
-			"enum": [
-				"Simple",
-				"Composite",
-				"Other"
-			],
-			"category":"Lens"
-		},
-		"Magnification": {
-			"type":"string",
-			"description":"The nominal magnification provided by this lens",
-			"tier":2,
 			"category":"Lens"
 		},
 		"AttenuationCoefficient": {
 			"type":"string",
-			"description":"The attenuation coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a lens. The attenuation coefficient is often defined in units of optical density (OD), wherease OD= -log10(T), and T=Transmittance (0?T?1).",
+			"description":"The attenuation coeffieient of this lens. The attenuation coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a lens. The attenuation coefficient is often defined in units of optical density (OD), wherease OD= -log10(T), and T=Transmittance (0?T?1).",
 			"tier":5,
-			"category":"Lens"
-		},
-		"RadiusOfCurvature": {
-			"type":"string",
-			"description":"A spherical lens or mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface",
-			"tier":5,
-			"category":"Lens"
-		},
-		"RadiusOfCurvatureUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"pixel",
-				"reference frame"
-			],
 			"category":"Lens"
 		},
 		"FocalDistanceToObject": {
 			"type":"string",
-			"description":"The distance between the front principal plane of the lens and the specimen",
+			"description":"The distance between the front principal plane of this lens and the specimen plane.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -6200,7 +6153,7 @@
 		},
 		"FocalDistanceToImage": {
 			"type":"string",
-			"description":"The distance from the rear principal plane to the image",
+			"description":"The distance between the rear principal plane of this lens and the image plane.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -6248,7 +6201,7 @@
 		},
 		"FocalLength": {
 			"type":"string",
-			"description":"The distance from the rear principal plane of the lens and its focal point",
+			"description":"The distance from the rear principal plane of this lens and its focal plane.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -6294,63 +6247,9 @@
 			],
 			"category":"Lens"
 		},
-		"MaterialName": {
-			"type":"string",
-			"description":"This records the chemical composition or the nonproprietary trade designation of the glass",
-			"tier":5,
-			"enum": [
-				"alpha-Barium Borate",
-				"N-BK7 (Borosilicate Crown)",
-				"Calcium Fluoride",
-				"UV-Grade Fused Silica (UVFS)",
-				"Germanium",
-				"Magnesium Fluoride",
-				"N-SF11 (Dense Flint)",
-				"Polytetrafluoroethylene (PFTE)",
-				"Zinc Selenide (ZnSe)",
-				"Other"
-			],
-			"category":"Lens"
-		},
-		"GlassCode": {
-			"type":"string",
-			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642",
-			"tier":5,
-			"category":"Lens"
-		},
-		"RefractiveIndex": {
-			"type":"string",
-			"description":"The refractive index of the material the prism is made of",
-			"tier":5,
-			"category":"Lens"
-		},
-		"AbbeNumber": {
-			"type":"string",
-			"description":"The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion",
-			"tier":5,
-			"category":"Lens"
-		},
-		"Density": {
-			"type":"string",
-			"description":"The density of the material this lens is made of",
-			"tier":5,
-			"category":"Lens"
-		},
-		"DensityUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"enum": [
-				"kg/m3",
-				"g/ml",
-				"mg/µg",
-				"µg/ng"
-			],
-			"category":"Lens"
-		},
 		"Diameter": {
 			"type":"string",
-			"description":"The physical diamter of this lens",
+			"description":"The physical diamter of this lens.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -6393,6 +6292,102 @@
 				"pt",
 				"pixel",
 				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"AbbeNumber": {
+			"type":"string",
+			"description":"The Abbe number of this lens. The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"RadiusOfCurvature": {
+			"type":"string",
+			"description":"The radius of curvature of this lens. A spherical lens or mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"RadiusOfCurvatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"MaterialName": {
+			"type":"string",
+			"description":"This records the chemical composition or the nonproprietary trade designation of the glass this lens is made of.",
+			"tier":5,
+			"enum": [
+				"alpha-Barium Borate",
+				"N-BK7 (Borosilicate Crown)",
+				"Calcium Fluoride",
+				"UV-Grade Fused Silica (UVFS)",
+				"Germanium",
+				"Magnesium Fluoride",
+				"N-SF11 (Dense Flint)",
+				"Polytetrafluoroethylene (PFTE)",
+				"Zinc Selenide (ZnSe)",
+				"Other"
+			],
+			"category":"Lens"
+		},
+		"GlassCode": {
+			"type":"string",
+			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"Density": {
+			"type":"string",
+			"description":"The density of the material this lens is made of.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"DensityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"enum": [
+				"kg/m3",
+				"g/ml",
+				"mg/µg",
+				"µg/ng"
 			],
 			"category":"Lens"
 		},
@@ -6445,36 +6440,35 @@
 		"ID",
 		"Name",
 		"Type",
-		"Construction",
 		"Magnification",
+		"Construction",
+		"Geometry",
+		"RefractiveIndex",
 		"AttenuationCoefficient",
 		"FocalDistanceToObject",
 		"FocalDistanceToImage",
 		"FocalLength",
-		"RefractiveIndex",
-		"AbbeNumber",
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Optovar.json",
 	"version":"1.05.3",
 	"type":"object",
 	"title":"Optovar",
-	"description":"Optovars are magnification changing devices originally developed by Zeiss, which provide additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification changer components are placed before the tube lens within the infinity space of the optical system. Typical magnification increments are: 1.25x, 1.6x, and 2x",
+	"description":"Optovars are magnification changing devices originally developed by Zeiss, which provide additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification changers are placed before the tube lens within the infinity space of the optical system. Typical magnification increments are: 1.25x, 1.6x, and 2x.",
 	"category":"Magnification",
 	"image":"Magnification_Optovar.png",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Optovar":"Optovars are magnification changing devices originally developed by Zeiss, which provide additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification changer components are placed before the tube lens within the infinity space of the optical system. Typical magnification increments are: 1.25x, 1.6x, and 2x"
+		"Optovar":"Optovars are magnification changing devices originally developed by Zeiss, which provide additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification changers are placed before the tube lens within the infinity space of the optical system. Typical magnification increments are: 1.25x, 1.6x, and 2x."
 	},
 	"properties": {
 		"Name": {
@@ -6492,13 +6486,13 @@
 		},
 		"Magnification": {
 			"type":"string",
-			"description":"The magnification of the optovar lens as specified by the manufacturer.",
+			"description":"The magnification associated with this magnification changing lens, as specified by the manufacturer.",
 			"tier":1,
 			"category":"Optovar"
 		},
 		"LensType": {
 			"type":"string",
-			"description":"The type of lens used by the Magnification Changer available with this microscope.",
+			"description":"The type of lens associated with this magnification changing device.",
 			"tier":5,
 			"enum": [
 				"Amici-Bertrand",
@@ -6678,8 +6672,7 @@
 		"EmissionFilter",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Pump.json",
@@ -6714,8 +6707,7 @@
 	"required": [
 		"ID"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"IntensityCalibrationTool.json",
@@ -6825,7 +6817,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Mirror":"NA",
+		"Mirror":"This describes a mirror positioned in the light path for one or more channel available for this instrument. An instrument may have several mirrors of different types, such as dichroic, beamsplitter or reflector.",
 		"Dichroic":"NA",
 		"AdditionalDichroic":"An additional Dichroic poistioned in the light path for a given channel.",
 		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
@@ -7347,8 +7339,7 @@
 		"Description",
 		"TransmittanceRange"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Direct.json",
@@ -7362,9 +7353,9 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSourceCoupling":"NA",
+		"LightSourceCoupling":"This element describes the device(s)/method(s) used to couple the available light source(s) with this microscope body in order to transfer light to the specimen. A typical light-microscope has a light coupling device for each available light source.",
 		"Direct":"A Direct coupling between the light source and the microscope consists either of a direct mount or of an optical light path that directs light across space to the back of the microscope body.",
-		"CouplingLens":"This is a reference to a lens positioned at connector between this light source coupling element and the microscope body."
+		"CouplingLens":"This is a reference to a lens positioned at the connection between this light source coupling element and the microscope body."
 	},
 	"properties": {
 		"Type": {
@@ -7380,7 +7371,7 @@
 		},
 		"Mount": {
 			"type":"string",
-			"description":"The mount utilized to attach the available light sources to this microscope body.",
+			"description":"The mount utilized to couple the available light sources to this microscope body.",
 			"tier":5,
 			"category":"Direct"
 		},
@@ -7435,7 +7426,7 @@
 		},
 		"CouplingLens": {
 			"type":"string",
-			"description":"This is a reference to a lens positioned at connector between this light source coupling element and the microscope body.",
+			"description":"This is a reference to a lens positioned at the connection between this light source coupling element and the microscope body.",
 			"tier":5,
 			"category":"CouplingLens",
 			"linkTo":"CouplingLens"
@@ -7481,8 +7472,8 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector":"NA",
-		"Camera":"NA",
+		"Detector":"This describes a detector available for this instrument. An instrument may have more than one detector of different types, such as photomultiplier, or camera. The Detector ID can be used as a reference within the Channel element in the Image element. The values stored in Detector represent the fixed values, variable values modified during the acquisition go in DetectorSettings.",
+		"Camera":"This describes a camera device available for this instrument. A camera is device that converts optical brightness into an electrical signal using a CCD(a semiconductor chip, which converts the intensity of light falling onto its surface at different points into a charge) and then reproduces an image of the specimen.  An instrument may have more than one camera of different types, such as EMCCD, intensified EMCCD, CMOS, or analog video.",
 		"CMOS":"A complementary metal-oxide-semiconductor camera",
 		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
 		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
@@ -8229,7 +8220,7 @@
 	"version":"1.05.3",
 	"type":"object",
 	"title":"ObjectiveTurret",
-	"description":"This is a objective turret positoning device.",
+	"description":"The objective turret positoning device associated with this instrument.",
 	"category":"SampleHolderAndFocusing.Focusing",
 	"image":"SampleHolderAndFocusing_Focusing_ObjectiveTurret.png",
 	"tier":3,
@@ -8237,8 +8228,8 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"Stage":"NA",
-		"Focusing":"NA",
-		"ObjectiveTurret":"This is a objective turret positoning device."
+		"Focusing":"This describes the objective lens and stage positioning device(s) available for this instrument. An instrument may have more than one of these devices of different type, such as mechanical stage, piezoelectric stage, objective turret and piezoelectric objective.",
+		"ObjectiveTurret":"The objective turret positoning device associated with this instrument."
 	},
 	"properties": {
 		"Resolution": {
@@ -8356,7 +8347,7 @@
 		},
 		"MovementAxes": {
 			"type":"string",
-			"description":"The axis along which this device moves.",
+			"description":"The axes or axis along which this device is capable of moving.",
 			"tier":5,
 			"default":"Z",
 			"enum": [
@@ -8371,7 +8362,7 @@
 		},
 		"XTravelRange": {
 			"type":"string",
-			"description":"The X axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the X axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -8420,7 +8411,7 @@
 		},
 		"YTravelRange": {
 			"type":"string",
-			"description":"The Y axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Y axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -8469,7 +8460,7 @@
 		},
 		"ZTravelRange": {
 			"type":"string",
-			"description":"The Z axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Z axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -8518,7 +8509,7 @@
 		},
 		"MaxVelocity": {
 			"type":"string",
-			"description":"The maximum velocity this device is capable of moving at",
+			"description":"The maximum velocity at which this device is capable of moving.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -8597,8 +8588,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"BeamSplitter.json",
@@ -8612,7 +8602,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Mirror":"NA",
+		"Mirror":"This describes a mirror positioned in the light path for one or more channel available for this instrument. An instrument may have several mirrors of different types, such as dichroic, beamsplitter or reflector.",
 		"BeamSplitter":"This is a mirror that reflects part of the light, regardless of wavelenght"
 	},
 	"properties": {
@@ -8842,7 +8832,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource":"NA",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
 		"GenericExcitationSource":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible."
 	},
 	"properties": {
@@ -8957,8 +8947,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_GenericExcitationSource.json",
@@ -8972,7 +8961,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource":"NA",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
 		"GenericExcitationSource":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible."
 	},
 	"properties": {
@@ -9088,8 +9077,7 @@
 		"Description",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Arc.json",
@@ -9103,7 +9091,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"LightSource":"NA",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
 		"Arc":"An Arc lamp is a lamp that produces light by an electric arc (also called a voltaic arc), which is typically generated between metal electrodes through an inert gas in a glass bulb."
 	},
 	"properties": {
@@ -9231,7 +9219,7 @@
 	"version":"1.05.3",
 	"type":"object",
 	"title":"PiezoElectricStage",
-	"description":"This is a piezoelectric stage positioning device.",
+	"description":"The optional piezoelectric stage positioning device associated with this instrument.",
 	"category":"SampleHolderAndFocusing.Focusing",
 	"image":"SampleHolderAndFocusing_Focusing_PiezoElectricStage.png",
 	"tier":3,
@@ -9239,8 +9227,8 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"Stage":"NA",
-		"Focusing":"NA",
-		"PiezoElectricStage":"This is a piezoelectric stage positioning device."
+		"Focusing":"This describes the objective lens and stage positioning device(s) available for this instrument. An instrument may have more than one of these devices of different type, such as mechanical stage, piezoelectric stage, objective turret and piezoelectric objective.",
+		"PiezoElectricStage":"The optional piezoelectric stage positioning device associated with this instrument."
 	},
 	"properties": {
 		"Resolution": {
@@ -9358,7 +9346,7 @@
 		},
 		"MovementAxes": {
 			"type":"string",
-			"description":"The axis along which this device moves.",
+			"description":"The axes or axis along which this device is capable of moving.",
 			"tier":5,
 			"default":"Z",
 			"enum": [
@@ -9373,7 +9361,7 @@
 		},
 		"XTravelRange": {
 			"type":"string",
-			"description":"The X axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the X axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -9422,7 +9410,7 @@
 		},
 		"YTravelRange": {
 			"type":"string",
-			"description":"The Y axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Y axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -9471,7 +9459,7 @@
 		},
 		"ZTravelRange": {
 			"type":"string",
-			"description":"The Z axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Z axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -9520,7 +9508,7 @@
 		},
 		"MaxVelocity": {
 			"type":"string",
-			"description":"The maximum velocity this device is capable of moving at",
+			"description":"The maximum velocity at which this device is capable of moving.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -9599,8 +9587,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PhotoMultiplier.json",
@@ -9614,7 +9601,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector":"NA",
+		"Detector":"This describes a detector available for this instrument. An instrument may have more than one detector of different types, such as photomultiplier, or camera. The Detector ID can be used as a reference within the Channel element in the Image element. The values stored in Detector represent the fixed values, variable values modified during the acquisition go in DetectorSettings.",
 		"PhotoMultiplier":"A photomultiplier tube, useful for light detection of very weak signals, is a photoemissive device in which the absorption of a photon results in the emission of an electron. These detectors work by amplifying the electrons generated by a photocathode exposed to a photon flux",
 		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
 		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
@@ -9988,7 +9975,7 @@
 	"version":"1.05.3",
 	"type":"object",
 	"title":"MechanicalStage",
-	"description":"This is a mechanical stage positioning device",
+	"description":"The mechanical stage positioning device associated with this instrument. It is not very common but can be found in simple surveying microscopes.",
 	"category":"SampleHolderAndFocusing.Focusing",
 	"image":"SampleHolderAndFocusing_Focusing_MechanicalStage.png",
 	"tier":3,
@@ -9996,8 +9983,8 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
 		"Stage":"NA",
-		"Focusing":"NA",
-		"MechanicalStage":"This is a mechanical stage positioning device"
+		"Focusing":"This describes the objective lens and stage positioning device(s) available for this instrument. An instrument may have more than one of these devices of different type, such as mechanical stage, piezoelectric stage, objective turret and piezoelectric objective.",
+		"MechanicalStage":"The mechanical stage positioning device associated with this instrument. It is not very common but can be found in simple surveying microscopes."
 	},
 	"properties": {
 		"Resolution": {
@@ -10115,7 +10102,7 @@
 		},
 		"MovementAxes": {
 			"type":"string",
-			"description":"The axis along which this device moves.",
+			"description":"The axes or axis along which this device is capable of moving.",
 			"tier":5,
 			"default":"Z",
 			"enum": [
@@ -10130,7 +10117,7 @@
 		},
 		"XTravelRange": {
 			"type":"string",
-			"description":"The X axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the X axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -10179,7 +10166,7 @@
 		},
 		"YTravelRange": {
 			"type":"string",
-			"description":"The Y axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Y axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -10228,7 +10215,7 @@
 		},
 		"ZTravelRange": {
 			"type":"string",
-			"description":"The Z axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Z axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -10277,7 +10264,7 @@
 		},
 		"MaxVelocity": {
 			"type":"string",
-			"description":"The maximum velocity this device is capable of moving at",
+			"description":"The maximum velocity at which this device is capable of moving.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -10356,8 +10343,7 @@
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"EmissionFilter.json",
@@ -10371,7 +10357,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"FIlter":"NA",
+		"FIlter":"This describes an optical filter positioned in the light path for one or more channel available for this instrument. An optical filter is a device that selectively transmits light of different wavelengths. An instrument may have several filters of different types, such as an excitation, an emission filter or an additional filter positioned in the light path for different purposes. For each fluorescence Image there should be at least one filter element specified per Channel. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 		"EmissionFilter":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an emission filter. For each fluorescence Image there should be at least one emission filter element specified per Channel.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
 	},
@@ -10601,22 +10587,21 @@
 		"TransmittanceRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AutoFocus.json",
 	"version":"1.05.3",
 	"type":"object",
 	"title":"AutoFocus",
-	"description":"This element describes the focus stabilization device(s) available for this microscope.",
+	"description":"This element describes one or more optional focus stabilization device(s) available for this instrument.",
 	"category":"SampleHolderAndFocusing.Focusing",
 	"image":"SampleHolderAndFocusing_Focusing_AutoFocus.png",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"AutoFocus":"This element describes the focus stabilization device(s) available for this microscope."
+		"AutoFocus":"This element describes one or more optional focus stabilization device(s) available for this instrument."
 	},
 	"properties": {
 		"Name": {
@@ -10712,8 +10697,8 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector":"NA",
-		"Camera":"NA",
+		"Detector":"This describes a detector available for this instrument. An instrument may have more than one detector of different types, such as photomultiplier, or camera. The Detector ID can be used as a reference within the Channel element in the Image element. The values stored in Detector represent the fixed values, variable values modified during the acquisition go in DetectorSettings.",
+		"Camera":"This describes a camera device available for this instrument. A camera is device that converts optical brightness into an electrical signal using a CCD(a semiconductor chip, which converts the intensity of light falling onto its surface at different points into a charge) and then reproduces an image of the specimen.  An instrument may have more than one camera of different types, such as EMCCD, intensified EMCCD, CMOS, or analog video.",
 		"CCD":"A charged coupled device camera",
 		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
 		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
@@ -11588,15 +11573,15 @@
 	"version":"1.05.3",
 	"type":"object",
 	"title":"AdditionalLens",
-	"description":"A lens poistioned in the light path in the light path for a given channel.",
+	"description":"Any additional lens poistioned in the light path for a given channel.",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_AdditionalLens.png",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Lens":"A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. This element describes a lens utilized in this microscope",
-		"AdditionalLens":"A lens poistioned in the light path in the light path for a given channel."
+		"Lens":"This describes a lens positioned in the light path for one or more channel available for this instrument. A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. An instrument may have several lenses with different fuctions such as, a coupling lens positioned between the light source and the microscope body, a relay lens positioned at the detector mount, or an additional lens positioned in the light path for various purposes.",
+		"AdditionalLens":"Any additional lens poistioned in the light path for a given channel."
 	},
 	"properties": {
 		"Name": {
@@ -11614,7 +11599,7 @@
 		},
 		"Type": {
 			"type":"string",
-			"description":"The general category to which this lens belongs.",
+			"description":"The general category this lens belongs to.",
 			"tier":5,
 			"enum": [
 				"Amici-Bertrand",
@@ -11629,9 +11614,26 @@
 			],
 			"category":"Lens"
 		},
+		"Magnification": {
+			"type":"string",
+			"description":"The nominal magnification provided by this lens as specified by the manufacturer.",
+			"tier":2,
+			"category":"Lens"
+		},
+		"Construction": {
+			"type":"string",
+			"description":"Whether or not this lens is simple or composite.",
+			"tier":5,
+			"enum": [
+				"Simple",
+				"Composite",
+				"Other"
+			],
+			"category":"Lens"
+		},
 		"Geometry": {
 			"type":"string",
-			"description":"The geometrical shape of the lens surfaces",
+			"description":"The geometrical shape of this lens' surface(s).",
 			"tier":5,
 			"enum": [
 				"Spherical",
@@ -11647,80 +11649,21 @@
 			],
 			"category":"Lens"
 		},
-		"Construction": {
+		"RefractiveIndex": {
 			"type":"string",
-			"description":"Whether or not the lens is simple or composite",
+			"description":"The refractive index of the material this lens is made of, as specified by the manufacturer.",
 			"tier":5,
-			"enum": [
-				"Simple",
-				"Composite",
-				"Other"
-			],
-			"category":"Lens"
-		},
-		"Magnification": {
-			"type":"string",
-			"description":"The nominal magnification provided by this lens",
-			"tier":2,
 			"category":"Lens"
 		},
 		"AttenuationCoefficient": {
 			"type":"string",
-			"description":"The attenuation coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a lens. The attenuation coefficient is often defined in units of optical density (OD), wherease OD= -log10(T), and T=Transmittance (0?T?1).",
+			"description":"The attenuation coeffieient of this lens. The attenuation coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a lens. The attenuation coefficient is often defined in units of optical density (OD), wherease OD= -log10(T), and T=Transmittance (0?T?1).",
 			"tier":5,
-			"category":"Lens"
-		},
-		"RadiusOfCurvature": {
-			"type":"string",
-			"description":"A spherical lens or mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface",
-			"tier":5,
-			"category":"Lens"
-		},
-		"RadiusOfCurvatureUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"pixel",
-				"reference frame"
-			],
 			"category":"Lens"
 		},
 		"FocalDistanceToObject": {
 			"type":"string",
-			"description":"The distance between the front principal plane of the lens and the specimen",
+			"description":"The distance between the front principal plane of this lens and the specimen plane.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -11768,7 +11711,7 @@
 		},
 		"FocalDistanceToImage": {
 			"type":"string",
-			"description":"The distance from the rear principal plane to the image",
+			"description":"The distance between the rear principal plane of this lens and the image plane.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -11816,7 +11759,7 @@
 		},
 		"FocalLength": {
 			"type":"string",
-			"description":"The distance from the rear principal plane of the lens and its focal point",
+			"description":"The distance from the rear principal plane of this lens and its focal plane.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -11862,63 +11805,9 @@
 			],
 			"category":"Lens"
 		},
-		"MaterialName": {
-			"type":"string",
-			"description":"This records the chemical composition or the nonproprietary trade designation of the glass",
-			"tier":5,
-			"enum": [
-				"alpha-Barium Borate",
-				"N-BK7 (Borosilicate Crown)",
-				"Calcium Fluoride",
-				"UV-Grade Fused Silica (UVFS)",
-				"Germanium",
-				"Magnesium Fluoride",
-				"N-SF11 (Dense Flint)",
-				"Polytetrafluoroethylene (PFTE)",
-				"Zinc Selenide (ZnSe)",
-				"Other"
-			],
-			"category":"Lens"
-		},
-		"GlassCode": {
-			"type":"string",
-			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642",
-			"tier":5,
-			"category":"Lens"
-		},
-		"RefractiveIndex": {
-			"type":"string",
-			"description":"The refractive index of the material the prism is made of",
-			"tier":5,
-			"category":"Lens"
-		},
-		"AbbeNumber": {
-			"type":"string",
-			"description":"The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion",
-			"tier":5,
-			"category":"Lens"
-		},
-		"Density": {
-			"type":"string",
-			"description":"The density of the material this lens is made of",
-			"tier":5,
-			"category":"Lens"
-		},
-		"DensityUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"enum": [
-				"kg/m3",
-				"g/ml",
-				"mg/µg",
-				"µg/ng"
-			],
-			"category":"Lens"
-		},
 		"Diameter": {
 			"type":"string",
-			"description":"The physical diamter of this lens",
+			"description":"The physical diamter of this lens.",
 			"tier":5,
 			"category":"Lens"
 		},
@@ -11961,6 +11850,102 @@
 				"pt",
 				"pixel",
 				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"AbbeNumber": {
+			"type":"string",
+			"description":"The Abbe number of this lens. The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"RadiusOfCurvature": {
+			"type":"string",
+			"description":"The radius of curvature of this lens. A spherical lens or mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"RadiusOfCurvatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"MaterialName": {
+			"type":"string",
+			"description":"This records the chemical composition or the nonproprietary trade designation of the glass this lens is made of.",
+			"tier":5,
+			"enum": [
+				"alpha-Barium Borate",
+				"N-BK7 (Borosilicate Crown)",
+				"Calcium Fluoride",
+				"UV-Grade Fused Silica (UVFS)",
+				"Germanium",
+				"Magnesium Fluoride",
+				"N-SF11 (Dense Flint)",
+				"Polytetrafluoroethylene (PFTE)",
+				"Zinc Selenide (ZnSe)",
+				"Other"
+			],
+			"category":"Lens"
+		},
+		"GlassCode": {
+			"type":"string",
+			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"Density": {
+			"type":"string",
+			"description":"The density of the material this lens is made of.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"DensityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"enum": [
+				"kg/m3",
+				"g/ml",
+				"mg/µg",
+				"µg/ng"
 			],
 			"category":"Lens"
 		},
@@ -12013,22 +11998,21 @@
 		"ID",
 		"Name",
 		"Type",
-		"Construction",
 		"Magnification",
+		"Construction",
+		"Geometry",
+		"RefractiveIndex",
 		"AttenuationCoefficient",
 		"FocalDistanceToObject",
 		"FocalDistanceToImage",
 		"FocalLength",
-		"RefractiveIndex",
-		"AbbeNumber",
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
 		"SpecsFile",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"WavelengthRange.json",
@@ -12399,195 +12383,6 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
-	"ID":"ExcitationCalibration.json",
-	"version":"1.05.3",
-	"type":"object",
-	"title":"ExcitationCalibration",
-	"description":"This procedure measures the performance and allows calibration of the wavelength and irradiance of the excitation light.",
-	"category":"Calibration",
-	"image":"Calibration_ExcitationCalibration.png",
-	"tier":3,
-	"subCategoriesOrder": {
-		"General":"General information about the element",
-		"IntensityCalibration":"NA",
-		"ExcitationCalibration":"This procedure measures the performance and allows calibration of the wavelength and irradiance of the excitation light.",
-		"IntensityCalibrationTool":"This element is a reference to the tool if any used to perform this calibratin procdure."
-	},
-	"properties": {
-		"ID": {
-			"type":"string",
-			"description":"A unique identifier for this element.",
-			"tier":3,
-			"category":"General",
-			"readonly":true
-		},
-		"Date": {
-			"type":"string",
-			"description":"The date in which this calibration procedure was performed.",
-			"tier":3,
-			"category":"IntensityCalibration"
-		},
-		"ObservedExcitationWavelenght": {
-			"type":"string",
-			"description":"Observed peak excitation wavelength.",
-			"tier":3,
-			"category":"IntensityCalibration"
-		},
-		"ObservedExcitationWavelenghtUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"nm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"pixel",
-				"reference frame"
-			],
-			"category":"IntensityCalibration"
-		},
-		"ObservedExcitationPowerAtObjective": {
-			"type":"string",
-			"description":"The observed excitation light power measured at the back of the objective.",
-			"tier":3,
-			"category":"IntensityCalibration"
-		},
-		"ObservedExcitationPowerAtObjectiveUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"W",
-			"enum": [
-				"YW",
-				"ZW",
-				"EW",
-				"PW",
-				"TW",
-				"GW",
-				"MW",
-				"kW",
-				"hW",
-				"daW",
-				"W",
-				"dW",
-				"cW",
-				"mW",
-				"µW",
-				"nW",
-				"pW",
-				"fW",
-				"aW",
-				"zW",
-				"yW"
-			],
-			"category":"IntensityCalibration"
-		},
-		"ObservedExcitationIrradiance": {
-			"type":"string",
-			"description":"Observed mean excitation light irradiance (radiant power per unit area) as measured at the sample plane over the Field of View (FOV). ",
-			"tier":3,
-			"category":"IntensityCalibration"
-		},
-		"ObservedExcitationIrradianceUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"W",
-			"enum": [
-				"YW",
-				"ZW",
-				"EW",
-				"PW",
-				"TW",
-				"GW",
-				"MW",
-				"kW",
-				"hW",
-				"daW",
-				"W",
-				"dW",
-				"cW",
-				"mW",
-				"µW",
-				"nW",
-				"pW",
-				"fW",
-				"aW",
-				"zW",
-				"yW"
-			],
-			"category":"IntensityCalibration"
-		},
-		"ObservedExcitationVariance": {
-			"type":"string",
-			"description":"Observed excitation light irradiance (radiant power per unit area) variation over the Field of View (FOV).",
-			"tier":3,
-			"category":"IntensityCalibration"
-		},
-		"IntensityCalibrationTool": {
-			"type":"array",
-			"items": {
-				"description":"This element is a reference to the tool, if any, used to perform this calibratin procdure.",
-				"type":"string",
-				"tier":3,
-				"category":"IntensityCalibrationTool",
-				"linkTo":"IntensityCalibrationTool"
-			}
-		},
-		"Description": {
-			"title":"Description",
-			"type":"string",
-			"description":"This is a simple multi-line comment or annotation describing this component.",
-			"tier":3,
-			"category":"General"
-		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":3,
-			"category":"General",
-			"readonly":true
-		}
-	},
-	"required": [
-		"ID",
-		"Date",
-		"Description"
-	]
-}
-,
-{
-	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"TransmittanceRange.json",
 	"version":"1.05.3",
 	"type":"object",
@@ -12731,7 +12526,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"FIlter":"NA",
+		"FIlter":"This describes an optical filter positioned in the light path for one or more channel available for this instrument. An optical filter is a device that selectively transmits light of different wavelengths. An instrument may have several filters of different types, such as an excitation, an emission filter or an additional filter positioned in the light path for different purposes. For each fluorescence Image there should be at least one filter element specified per Channel. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 		"ExcitationFilter":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an excitation filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
 	},
@@ -12961,8 +12756,7 @@
 		"TransmittanceRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AnalogVideo.json",
@@ -12976,8 +12770,8 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Detector":"NA",
-		"Camera":"NA",
+		"Detector":"This describes a detector available for this instrument. An instrument may have more than one detector of different types, such as photomultiplier, or camera. The Detector ID can be used as a reference within the Channel element in the Image element. The values stored in Detector represent the fixed values, variable values modified during the acquisition go in DetectorSettings.",
+		"Camera":"This describes a camera device available for this instrument. A camera is device that converts optical brightness into an electrical signal using a CCD(a semiconductor chip, which converts the intensity of light falling onto its surface at different points into a charge) and then reproduces an image of the specimen.  An instrument may have more than one camera of different types, such as EMCCD, intensified EMCCD, CMOS, or analog video.",
 		"AnalogVideo":"A device used to capture analog videos",
 		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
 		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
@@ -13704,22 +13498,21 @@
 		"WavelengthRange",
 		"Description"
 	]
-}
-,
+},
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Objective.json",
 	"version":"1.05.3",
 	"type":"object",
 	"title":"Objective",
-	"description":"A description of the microscope's objective lens. Required elements include the lens numerical aperture, and the magnification, both of which a floating point (real) numbers. The values are those that are fixed for a particular objective: either because it has been manufactured to this specification or the value has been measured on this particular objective. Correction: This is the type of correction coating applied to this lens. Immersion: This is the types of immersion medium the lens is designed to work with. It is not the same as 'Medium' in ObjectiveRef (a single type) as here Immersion can have compound values like 'Multi'. LensNA: The numerical aperture of the lens (as a float) NominalMagnification: The specified magnification e.g. x10 CalibratedMagnification: The measured magnification e.g. x10.3 WorkingDistance: WorkingDistance of the lens",
+	"description":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis.",
 	"category":"Magnification",
 	"image":"Magnification_Objective.png",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"Objective":"A description of the microscope's objective lens. Required elements include the lens numerical aperture, and the magnification, both of which a floating point (real) numbers. The values are those that are fixed for a particular objective: either because it has been manufactured to this specification or the value has been measured on this particular objective. Correction: This is the type of correction coating applied to this lens. Immersion: This is the types of immersion medium the lens is designed to work with. It is not the same as 'Medium' in ObjectiveRef (a single type) as here Immersion can have compound values like 'Multi'. LensNA: The numerical aperture of the lens (as a float) NominalMagnification: The specified magnification e.g. x10 CalibratedMagnification: The measured magnification e.g. x10.3 WorkingDistance: WorkingDistance of the lens"
+		"Objective":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis."
 	},
 	"properties": {
 		"Name": {
@@ -13737,7 +13530,7 @@
 		},
 		"Correction": {
 			"type":"string",
-			"description":"The correction applied to the lens.",
+			"description":"The type of optical correction (i.e. chromatict, flatness, etc.) associated with this objective.",
 			"tier":2,
 			"enum": [
 				"Achro",
@@ -13770,19 +13563,19 @@
 		},
 		"CalibratedMagnification": {
 			"type":"string",
-			"description":"The magnification of the lens as measured by a calibration process- i.e. '59.987' for a 60X lens.",
+			"description":"The magnification of the lens as measured via a calibration process- i.e. '59.987' for a 60X lens.",
 			"tier":5,
 			"category":"Objective"
 		},
 		"LensNA": {
 			"type":"string",
-			"description":"The numerical aperture of the lens expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
+			"description":"The numerical aperture of this objective expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
 			"tier":1,
 			"category":"Objective"
 		},
 		"NominalImmersionMedium": {
 			"type":"string",
-			"description":"The immersion medium the lens is designed for.",
+			"description":"The immersion medium this objective is designed for.",
 			"tier":2,
 			"enum": [
 				"Air",
@@ -13809,7 +13602,7 @@
 		},
 		"WorkingDistance": {
 			"type":"string",
-			"description":"The working distance of the lens expressed as a floating point (real) number.",
+			"description":"The working distance of this objective, expressed as a floating point (real) number.",
 			"tier":3,
 			"category":"Objective"
 		},

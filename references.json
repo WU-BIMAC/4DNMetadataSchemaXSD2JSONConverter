@@ -138,10 +138,6 @@ WavelengthRange
 **********
 LEDModule
 **********
-ExcitationCalibration
-IntensityCalibrationToolRef from 0 to -1
-AnnotationRef from 0 to 1
-**********
 TransmittanceRange
 **********
 ExcitationFilter

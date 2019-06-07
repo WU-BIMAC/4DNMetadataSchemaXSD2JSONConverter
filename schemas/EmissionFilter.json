@@ -11,7 +11,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"FIlter":"NA",
+		"FIlter":"This describes an optical filter positioned in the light path for one or more channel available for this instrument. An optical filter is a device that selectively transmits light of different wavelengths. An instrument may have several filters of different types, such as an excitation, an emission filter or an additional filter positioned in the light path for different purposes. For each fluorescence Image there should be at least one filter element specified per Channel. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 		"EmissionFilter":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an emission filter. For each fluorescence Image there should be at least one emission filter element specified per Channel.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
 	},
