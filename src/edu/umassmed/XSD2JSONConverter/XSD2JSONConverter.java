@@ -40,7 +40,7 @@ import com.sun.org.apache.xerces.internal.xs.XSTypeDefinition;
 
 public class XSD2JSONConverter {
 
-	public static boolean forceVersion = true;
+	public static boolean forceVersion = false;
 	public static String version = "1.05.4";
 	
 	public static boolean useProgress = true;
@@ -234,7 +234,6 @@ public class XSD2JSONConverter {
 		osw.write("[\n");
 		for (int i = 0; i < jsons.size(); i++) {
 			final String json = jsons.get(i);
-			osw.write(json);
 			osw.write(json);
 			if (i < (jsons.size() - 1)) {
 				osw.write(",\n");
