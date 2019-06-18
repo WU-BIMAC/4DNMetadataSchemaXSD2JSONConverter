@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LightGuide.json",
-	"version":"1.05.5",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"LightGuide",
 	"description":"A Light Guide coupling between the light source and the microscope generally consists of a casing enclosing a medium capable of transferring light from the illuminator to the back of the microsocpe body.",
@@ -29,7 +29,7 @@
 			"category":"LightGuide"
 		},
 		"PeakWavelength": {
-			"type":"string",
+			"type":"number",
 			"description":"The wavelength associated with the transmittance peak for this light guide.",
 			"tier":5,
 			"category":"LightGuide"
@@ -78,19 +78,19 @@
 			"category":"LightGuide"
 		},
 		"RefractiveIndex": {
-			"type":"string",
+			"type":"number",
 			"description":"The refractive index of the material this light guide is made of.",
 			"tier":5,
 			"category":"LightGuide"
 		},
 		"NumericalAperture": {
-			"type":"string",
+			"type":"number",
 			"description":"The numerical aperture of this light guide expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
 			"tier":5,
 			"category":"LightGuide"
 		},
 		"AcceptanceAngle": {
-			"type":"string",
+			"type":"number",
 			"description":"The angle within which the light beam produced by a light source may be coupled with the bound modes of this light guide.",
 			"tier":5,
 			"category":"LightGuide"
@@ -134,7 +134,7 @@
 			"category":"LightGuide"
 		},
 		"SingleMode": {
-			"type":"string",
+			"type":"boolean",
 			"description":"Whether or not this light guide is single-mode. If not, then the guide is assumend to be multi-modal.",
 			"tier":5,
 			"category":"LightGuide"
@@ -153,7 +153,7 @@
 			"category":"LightGuide"
 		},
 		"Diameter": {
-			"type":"string",
+			"type":"number",
 			"description":"The outer diameter of this light guide.",
 			"tier":5,
 			"category":"LightGuide"
@@ -215,7 +215,7 @@
 			"readonly":true
 		},
 		"Transmittance": {
-			"type":"string",
+			"type":"number",
 			"description":"The maximum amount of light this LightSourceCoupling apparatus is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
 			"tier":5,
 			"category":"LightSourceCoupling"
@@ -245,7 +245,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -270,7 +270,7 @@
 			"tier":5,
 			"properties": {
 				"CutIn": {
-					"type":"string",
+					"type":"number",
 					"description":"CutIn is the wavelength below which the response rate is below 50%.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -319,7 +319,7 @@
 					"category":"WavelengthRange"
 				},
 				"CutOut": {
-					"type":"string",
+					"type":"number",
 					"description":"CutOut is the wavelength above which the response rate is below 50%.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -368,7 +368,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"string",
+					"type":"uri",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"

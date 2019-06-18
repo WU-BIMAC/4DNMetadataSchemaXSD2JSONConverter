@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Laser.json",
-	"version":"1.05.5",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Laser",
 	"description":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
@@ -33,7 +33,7 @@
 			"category":"Laser"
 		},
 		"Pump": {
-			"type":"string",
+			"type":"boolean",
 			"description":"Wheter or not this is a pumped laser.",
 			"tier":5,
 			"category":"Laser"
@@ -82,7 +82,7 @@
 			"category":"Laser"
 		},
 		"Wavelength": {
-			"type":"string",
+			"type":"number",
 			"description":"The center Wavelength of the light emitted by this laser.",
 			"tier":2,
 			"category":"Laser"
@@ -137,7 +137,7 @@
 			"category":"Laser"
 		},
 		"Tuneable": {
-			"type":"string",
+			"type":"boolean",
 			"description":"Whether or not the laser is Tuneable.",
 			"tier":5,
 			"category":"Laser"
@@ -157,13 +157,13 @@
 			"category":"Laser"
 		},
 		"PockelCell": {
-			"type":"string",
+			"type":"boolean",
 			"description":"If true the laser has a PockelCell to rotate the polarization of the beam.",
 			"tier":5,
 			"category":"Laser"
 		},
 		"RepetitionRate": {
-			"type":"string",
+			"type":"number",
 			"description":"The is the rate in Hz at which the laser pulses if the Pulse type is 'Repetitive' hertz[Hz]",
 			"tier":5,
 			"category":"Laser"
@@ -214,7 +214,7 @@
 			"readonly":true
 		},
 		"NominalPowerOutput": {
-			"type":"string",
+			"type":"number",
 			"description":"The average nominal power output of this light-source.",
 			"tier":3,
 			"category":"LightSource"
@@ -274,7 +274,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

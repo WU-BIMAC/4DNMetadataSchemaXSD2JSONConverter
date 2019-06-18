@@ -39,12 +39,12 @@ import com.sun.org.apache.xerces.internal.xs.XSTerm;
 import com.sun.org.apache.xerces.internal.xs.XSTypeDefinition;
 
 public class XSD2JSONConverter {
-	
+
 	public static boolean forceVersion = false;
-	public static String version = "1.05.5";
+	public static String version = "1.06.5";
 
 	public static boolean useProgress = true;
-	public static String inputFileVersion = "v01-05/";
+	public static String inputFileVersion = "v01-06/";
 	public static String versionType_Stable = "stable%20version/";
 	public static String versionType_Progress = "in%20progress/";
 	public static String githubPrefix = "https://raw.githubusercontent.com/WU-BIMAC/MicroscopyMetadata4DNGuidelines/master/Model/";
@@ -59,7 +59,7 @@ public class XSD2JSONConverter {
 	public static String id_attr = "ID";
 	public static String tier_attr = "Tier";
 	public static String name_attr = "Name";
-	
+
 	public static String version_tag = "version";
 	public static String desc_tag = "description";
 
@@ -71,7 +71,7 @@ public class XSD2JSONConverter {
 	public static String microscope_main_body = "MicroscopeBody";
 
 	public static String subComponents_category = "ChildrenElement";
-	
+
 	public static String generic_cat_desc = "General information about the element";
 
 	private XSModel model;
@@ -247,12 +247,12 @@ public class XSD2JSONConverter {
 		// fw.close();
 		// bw.close();
 	}
-	
+
 	private StringBuffer checkForChangesAndSetVersion(final File f,
 			final StringBuffer sb) throws IOException {
 		final FileReader fr = new FileReader(f);
 		final BufferedReader br = new BufferedReader(fr);
-		
+
 		final StringBuffer oldSb = new StringBuffer();
 		String line = br.readLine();
 		while (line != null) {
@@ -262,14 +262,14 @@ public class XSD2JSONConverter {
 		}
 		br.close();
 		fr.close();
-		
+
 		final String[] oldString = oldSb.toString().split("\n");
 		final String[] newString = sb.toString().split("\n");
-		
+
 		if ((oldString.length != newString.length)
 				|| XSD2JSONConverter.forceVersion)
 			return sb;
-		
+
 		int versionIndex = -1;
 		for (int i = 0; i < newString.length; i++) {
 			final String s1 = oldString[i];
@@ -282,7 +282,7 @@ public class XSD2JSONConverter {
 			}
 		}
 		newString[versionIndex] = oldString[versionIndex];
-		
+
 		final StringBuffer newSb = new StringBuffer();
 		for (final String s : newString) {
 			newSb.append(s);
@@ -306,18 +306,18 @@ public class XSD2JSONConverter {
 			// final XSComplexTypeDefinition instrumentComplTypeDef =
 			// (XSComplexTypeDefinition) instrumentTypeDef;
 			final XSComplexTypeDefinition microscopeBodyComplTypeDef = (XSComplexTypeDefinition) microscopeBodyTypeDef;
-			
+
 			final List<String> attributes = new ArrayList<String>();
 			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
 					microscopeBody, attributes);
 			subCategoriesOrder.add(0, "\"" + XSD2JSONConverter.generic_cat_attr
 					+ "\"" + ":" + "\"" + XSD2JSONConverter.generic_cat_desc
 					+ "\"");
-			
+
 			final Integer tier = this.getTier(name, annotations);
 			final String desc = this.getDescription(name, annotations);
 			final String image = "Microscope_default.png";
-			
+
 			final StringBuffer sb = new StringBuffer();
 			sb.append("{\n");
 			sb.append("\t\"$schema\":\"http://json-schema.org/draft-07/schema\",\n");
@@ -396,7 +396,7 @@ public class XSD2JSONConverter {
 			} else {
 				versionedSb = sb;
 			}
-			
+
 			// final FileWriter fw = new FileWriter(f);
 			// final BufferedWriter bw = new BufferedWriter(fw);
 			final FileOutputStream fos = new FileOutputStream(f);
@@ -421,7 +421,7 @@ public class XSD2JSONConverter {
 		final String attrName = attribute.getName();
 		final Integer attrTier = this.getTier(attrName, attrAnnotations);
 		final String attrDesc = this.getDescription(attrName, attrAnnotations);
-		
+
 		final XSSimpleTypeDefinition typeDef = attribute.getTypeDefinition();
 		final StringList enums = typeDef.getLexicalEnumeration();
 		// if (!enums.isEmpty()) {
@@ -451,14 +451,18 @@ public class XSD2JSONConverter {
 			fixedValue = attributeUse.getConstraintValue();
 		}
 		String attrType;
-		if ((attributeUse.getActualVCType() == XSConstants.INTEGER_DT)
-				|| (attributeUse.getActualVCType() == XSConstants.SHORT_DT)) {
+		System.out.println(attribute.getName() + " - "
+				+ typeDef.getBuiltInKind());
+		if ((typeDef.getBuiltInKind() == XSConstants.INTEGER_DT)
+				|| (typeDef.getBuiltInKind() == XSConstants.SHORT_DT)) {
 			attrType = "integer";
-		} else if ((attributeUse.getActualVCType() == XSConstants.FLOAT_DT)
-				|| (attributeUse.getActualVCType() == XSConstants.DOUBLE_DT)) {
+		} else if ((typeDef.getBuiltInKind() == XSConstants.FLOAT_DT)
+				|| (typeDef.getBuiltInKind() == XSConstants.DOUBLE_DT)) {
 			attrType = "number";
-		} else if (attributeUse.getActualVCType() == XSConstants.BOOLEAN_DT) {
+		} else if (typeDef.getBuiltInKind() == XSConstants.BOOLEAN_DT) {
 			attrType = "boolean";
+		} else if (typeDef.getBuiltInKind() == XSConstants.ANYURI_DT) {
+			attrType = "uri";
 		} else {
 			attrType = "string";
 		}
@@ -889,7 +893,7 @@ public class XSD2JSONConverter {
 					.get(0);
 			final List<String> childrenRequired = childrenAttributesAndRequired
 					.get(1);
-			
+
 			final XSObjectList attrList = complTypeDef.getAttributeUses();
 			final List<List<String>> attributesAndRequired = this
 					.getAttributesAndRequired(null, map, attrList, 0);
@@ -922,12 +926,12 @@ public class XSD2JSONConverter {
 
 			final List<String> comps = new ArrayList<String>();
 			for (final String category : splitCategories) {
-				
+
 				final String newName = category.replaceAll("\\.", "_") + "_"
 						+ name;
-				
+
 				final String image = newName + ".png";
-				
+
 				final StringBuffer sb = new StringBuffer();
 				sb.append("{\n");
 				sb.append("\t\"$schema\":\"http://json-schema.org/draft-07/schema\",\n");
@@ -973,7 +977,7 @@ public class XSD2JSONConverter {
 						+ XSD2JSONConverter.generic_cat_attr + "\",\n");
 				sb.append("\t\t\t\"readonly\":true\n");
 				sb.append("\t\t}\n");
-				
+
 				sb.append("\t}");
 				required.addAll(childrenRequired);
 				if (required.size() > 0) {
@@ -992,12 +996,12 @@ public class XSD2JSONConverter {
 					sb.append("\n");
 				}
 				sb.append("}");
-				
+
 				this.errors.append("**********");
 				this.errors.append("\n");
 				this.references.append("**********");
 				this.references.append("\n");
-				
+
 				final File f;
 				if (isSplit) {
 					f = new File("./schemas/" + newName + ".json");
@@ -1042,7 +1046,7 @@ public class XSD2JSONConverter {
 					splitCategoriesS = splitCategoriesS.replaceAll("\\]", "");
 					splitCategoriesS = splitCategoriesS.replaceAll(" ", "");
 					splitCategoriesS = splitCategoriesS.replaceAll("\\.", "");
-					
+
 					if (splitCategoriesS.contains("null")) {
 						this.errors.append(name + " category is null");
 						this.errors.append("\n");

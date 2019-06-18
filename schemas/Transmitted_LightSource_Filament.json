@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_Filament.json",
-	"version":"1.05.5",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Filament",
 	"description":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence).",
@@ -40,7 +40,7 @@
 			"readonly":true
 		},
 		"NominalPowerOutput": {
-			"type":"string",
+			"type":"number",
 			"description":"The average nominal power output of this light-source.",
 			"tier":3,
 			"category":"LightSource"
@@ -100,7 +100,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

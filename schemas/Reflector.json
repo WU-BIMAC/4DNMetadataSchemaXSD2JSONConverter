@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Reflector.json",
-	"version":"1.05.5",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Reflector",
 	"description":"This is a total reflection mirror.",
@@ -16,7 +16,7 @@
 	},
 	"properties": {
 		"Reflectance": {
-			"type":"string",
+			"type":"number",
 			"description":"The maximum amount of light this Mirror is capable of reflecting. It is represented as a fractional value from 0.0 to 1.0.",
 			"tier":3,
 			"category":"Reflector"
@@ -35,7 +35,7 @@
 			"readonly":true
 		},
 		"AngleOfIncidence": {
-			"type":"string",
+			"type":"number",
 			"description":"This field records the optimal angle of incidence (AOI) for this mirror. TheAOI is the angle between the optical axis of the incident light and the axis normal to the surface of the mirror. In specular reflection AOI is by definition equal to the Angle Of Reflection (AOR).",
 			"tier":5,
 			"category":"Mirror"
@@ -78,7 +78,7 @@
 			"category":"Mirror"
 		},
 		"RadiusOfCurvature": {
-			"type":"string",
+			"type":"number",
 			"description":"The radius of curvature of this mirror. A spherical lens or mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface.",
 			"tier":5,
 			"category":"Mirror"
@@ -181,7 +181,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
