@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"AnalogVideo",
 	"description":"A device used to capture analog videos.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
 	"image":"Detector_Camera_AnalogVideo.png",
 	"tier":2,

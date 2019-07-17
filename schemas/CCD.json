@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"CCD",
 	"description":"A charged coupled device camera.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
 	"image":"Detector_Camera_CCD.png",
 	"tier":2,

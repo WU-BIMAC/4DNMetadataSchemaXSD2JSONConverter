@@ -95,7 +95,71 @@
 		"SerialNumber",
 		"SpecsFile"
 	]
-},
+}
+,
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"FIeldCalibration.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"FIeldCalibration",
+	"description":"This describes the procedure used to measure the field dependent variations in the pixel-to-pixel sensitivity of the detector and/or by distortions in the optical path.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_FIeldCalibration.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"FIeldCalibration":"This describes the procedure used to measure the field dependent variations in the pixel-to-pixel sensitivity of the detector and/or by distortions in the optical path.",
+		"FlatFieldImage":"An image describing field dependent variations in the pixel-to-pixel sensitivity of the detector and/or by distortions in the optical path."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Date": {
+			"type":"string",
+			"description":"The date in which this calibration procedure was performed.",
+			"tier":3,
+			"category":"FIeldCalibration"
+		},
+		"FlatFieldImage": {
+			"type":"array",
+			"items": {
+				"description":"An image describing field dependent variations in the pixel-to-pixel sensitivity of the detector and/or by distortions in the optical path.",
+				"type":"string",
+				"tier":3,
+				"category":"FlatFieldImage",
+				"linkTo":"FlatFieldImage"
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Date",
+		"FlatFieldImage",
+		"Description"
+	]
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ReflectanceRange.json",
@@ -103,6 +167,7 @@
 	"type":"object",
 	"title":"ReflectanceRange",
 	"description":"This records the range of wavelengths that are reflected by the mirror.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
 	"image":"ChildElement_ReflectanceRange.png",
 	"tier":3,
@@ -229,11 +294,1466 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"CalibrationMap.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"CalibrationMap",
+	"description":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_CalibrationMap.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"CalibrationMap":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to.",
+		"Row":"NA"
+	},
+	"properties": {
+		"MetricType": {
+			"type":"string",
+			"description":"This field captures the type of metric that was computed as part of the calibratin procedure in this instance.",
+			"tier":3,
+			"enum": [
+				"Gain",
+				"LinearOffset",
+				"DetectionLimit",
+				"LinearRangeMax",
+				"Variance",
+				"Mean",
+				"Other",
+				""
+			],
+			"category":"CalibrationMap"
+		},
+		"IlluminationIntensity": {
+			"type":"number",
+			"description":"This attribute only applies to matrices of type Variance and Mean. It represents the illumination intensity that was used to acquire the images used to contruct this matrix. The value can range from 0 (i.e. dark image) to any intenisty value experssed either as percentage or as absolute power. ",
+			"tier":3,
+			"category":"CalibrationMap"
+		},
+		"NrOfImages": {
+			"type":"string",
+			"description":"This field represents the number of images that were employed to generate this calibration matrix.",
+			"tier":3,
+			"category":"CalibrationMap"
+		},
+		"Row": {
+			"type":"array",
+			"description":"NA",
+			"tier":1,
+			"items": {
+				"properties": {
+					"RowNr": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"category":"Row"
+					}
+				},
+				"required": [
+					"RowNr"
+				]
+			}
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"MetricType",
+		"IlluminationIntensity",
+		"NrOfImages",
+		"Row"
+	]
+}
+,
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"AdditionalOptics.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"AdditionalOptics",
+	"description":"A description of additional optics placed in this light path.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Channel",
+	"image":"Channel_AdditionalOptics.png",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"AdditionalOptics":"A description of additional optics placed in this light path.",
+		"AdditionalLens":"This empty element refers to an AdditionalLens component placed in this light path.",
+		"Prims":"This empty element refers to a Prism component placed in this light path.",
+		"PolarizationOptics":"This empty element refers to a PolarizationOptics component placed in this light path.",
+		"AdditionalFilter":"This empty element refers to an AdditionalFilter component placed in this light path.",
+		"AdditionalMirror":"This empty element refers to an AdditionalMirror component placed in this light path."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		},
+		"AdditionalLens": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to an AdditionalLens component placed in this light path.",
+				"type":"string",
+				"tier":2,
+				"category":"AdditionalLens",
+				"linkTo":"AdditionalLens"
+			}
+		},
+		"Prims": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to a Prism component placed in this light path.",
+				"type":"string",
+				"tier":2,
+				"category":"Prims",
+				"linkTo":"Prims"
+			}
+		},
+		"PolarizationOptics": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to a PolarizationOptics component placed in this light path.",
+				"type":"string",
+				"tier":2,
+				"category":"PolarizationOptics",
+				"linkTo":"PolarizationOptics"
+			}
+		},
+		"AdditionalFilter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to an AdditionalFilter component placed in this light path.",
+				"type":"string",
+				"tier":2,
+				"category":"AdditionalFilter",
+				"linkTo":"AdditionalFilter"
+			}
+		},
+		"AdditionalMirror": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to an AdditionalMirror component placed in this light path.",
+				"type":"string",
+				"tier":2,
+				"category":"AdditionalMirror",
+				"linkTo":"AdditionalMirror"
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"Description"
+	]
+}
+,
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Channel.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"Channel",
+	"description":"Each Image has to have at least one Plane and one Channel. The Channel element stores information about how the each image channel was acquired. The total number of Channel elements for a given Image must equal to SizeC.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Channel",
+	"image":"Channel_Channel.png",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Channel":"Each Image has to have at least one Plane and one Channel. The Channel element stores information about how the each image channel was acquired. The total number of Channel elements for a given Image must equal to SizeC.",
+		"LightSourceSettings":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case.",
+		"LightPath":"A description of the light path.",
+		"DetectorSettingsGroup":"This element refers to the Detector used to acquire this image and it holds the settings that were applied to the Detector during this acquisition.",
+		"ExcitationCalibration":"This procedure measures the performance and allows calibration of the wavelength and irradiance of the excitation light.",
+		"FIeldCalibration":"This describes the procedure used to measure the field dependent variations in the pixel-to-pixel sensitivity of the detector and/or by distortions in the optical path."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A name for the channel that is suitable for presentation to the user.          ",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Channel.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"SamplesPerPixel": {
+			"type":"string",
+			"description":"The number of samples the detector takes to form each pixel value. [units:none] Note: This is not the same as 'Frame Averaging' - see Integration in DetectorSettings.          ",
+			"tier":5,
+			"category":"Channel"
+		},
+		"IlluminationType": {
+			"type":"string",
+			"description":"The method of illumination used to capture the channel.",
+			"tier":2,
+			"enum": [
+				"Transmitted",
+				"Epifluorescence",
+				"Confocal",
+				"TIRF",
+				"Light Sheet",
+				"NonLinear",
+				"Oblique",
+				"Other"
+			],
+			"category":"Channel"
+		},
+		"PinholeSize": {
+			"type":"number",
+			"description":"The optional PinholeSize attribute allows specifying adjustable pin-hole diameters for confocal microscopes.          ",
+			"tier":3,
+			"category":"Channel"
+		},
+		"PinholeSizeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Channel"
+		},
+		"AcquisitionMode": {
+			"type":"string",
+			"description":"AcquisitionMode describes the type of microscopy performed for each channel.          ",
+			"tier":1,
+			"enum": [
+				"WideField",
+				"LaserScanningConfocalMicroscopy",
+				"SpinningDiskConfocal",
+				"SlitScanConfocal",
+				"MultiPhotonMicroscopy",
+				"StructuredIllumination",
+				"SingleMoleculeImaging",
+				"TotalInternalReflection",
+				"FluorescenceLifetime",
+				"SpectralImaging",
+				"FluorescenceCorrelationSpectroscopy",
+				"NearFieldScanningOpticalMicroscopy",
+				"SecondHarmonicGenerationImaging",
+				"PALM",
+				"STORM",
+				"STED",
+				"TIRF",
+				"FSM",
+				"LCM",
+				"Other",
+				"BrightField",
+				"SweptFieldConfocal",
+				"SPIM"
+			],
+			"category":"Channel"
+		},
+		"ContrastMethod": {
+			"type":"string",
+			"description":"ContrastMethod describes the technique used to achieve contrast for each channel.          ",
+			"tier":1,
+			"enum": [
+				"Brightfield",
+				"Phase",
+				"DIC",
+				"HoffmanModulation",
+				"ObliqueIllumination",
+				"PolarizedLight",
+				"Darkfield",
+				"Fluorescence",
+				"Other"
+			],
+			"category":"Channel"
+		},
+		"ExcitationWavelength": {
+			"type":"number",
+			"description":"The excitation wavelength used for this channel.          ",
+			"tier":3,
+			"category":"Channel"
+		},
+		"ExcitationWavelengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Channel"
+		},
+		"EmissionWavelength": {
+			"type":"number",
+			"description":"The emission wavelength used for this channel.",
+			"tier":3,
+			"category":"Channel"
+		},
+		"EmissionWavelengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Channel"
+		},
+		"Fluorophore": {
+			"type":"string",
+			"description":"This is the name of the fluorophore used to produce this channel [plain text string].",
+			"tier":2,
+			"category":"Channel"
+		},
+		"NDFilter": {
+			"type":"number",
+			"description":"The NDfilter attribute is used to specify the combined effect of any neutral density filters used. The amount of light the filter transmits at a maximum. A fraction, as a value from 0.0 to 1.0. NOTE: This was formerly described as 'units optical density expressed as a PercentFraction'. This was how the field had been described in the schema from the beginning but all the use of it has been in the opposite direction, i.e. as a amount transmitted, not the amount blocked. This change has been made to make the model reflect this usage.          ",
+			"tier":5,
+			"category":"Channel"
+		},
+		"PockelCellSetting": {
+			"type":"string",
+			"description":"The PockelCellSetting used for this channel. This is the amount the polarization of the beam is rotated by",
+			"tier":5,
+			"category":"Channel"
+		},
+		"Color": {
+			"type":"string",
+			"description":"A color used to render this channel - encoded as RGBA. The default value '-1' is #FFFFFFFF so solid white (it is a signed 32 bit value). NOTE: Prior to the 2012-06 schema the default value was incorrect and produced a transparent red not solid white.          ",
+			"tier":1,
+			"default":"-1",
+			"category":"Channel"
+		},
+		"LightSourceSettings": {
+			"type":"array",
+			"description":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"LightSourceSettings",
+						"readonly":true
+					},
+					"Wavelength": {
+						"type":"number",
+						"description":"The nominal wavelength of the excitation light utilized in this case.              ",
+						"tier":3,
+						"category":"LightSourceSettings"
+					},
+					"WavelengthUnit": {
+						"type":"string",
+						"description":"The units of the Wavelength of the light source - default:nanometres[nm].",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"LightSourceSettings"
+					},
+					"PowerSettings": {
+						"type":"number",
+						"description":"The light power output settings utilized in this case.",
+						"tier":3,
+						"category":"LightSourceSettings"
+					},
+					"PowerSettingsUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"W",
+						"enum": [
+							"YW",
+							"ZW",
+							"EW",
+							"PW",
+							"TW",
+							"GW",
+							"MW",
+							"kW",
+							"hW",
+							"daW",
+							"W",
+							"dW",
+							"cW",
+							"mW",
+							"µW",
+							"nW",
+							"pW",
+							"fW",
+							"aW",
+							"zW",
+							"yW"
+						],
+						"category":"LightSourceSettings"
+					},
+					"Attenuation": {
+						"type":"number",
+						"description":"The observed attenuation of the excitation light power expressed as a fractional value from 0.0 to 1.0.",
+						"tier":5,
+						"category":"LightSourceSettings"
+					}
+				},
+				"required": [
+					"ID",
+					"Wavelength",
+					"PowerSettings"
+				]
+			}
+		},
+		"LightPath": {
+			"type":"object",
+			"description":"A description of the light path.",
+			"tier":2,
+			"properties": {
+				"ID": {
+					"type":"string",
+					"description":"A unique identifier for this component.",
+					"tier":2,
+					"category":"LightPath",
+					"readonly":true
+				},
+				"Name": {
+					"type":"string",
+					"description":"A user defined name for this component.",
+					"tier":2,
+					"category":"LightPath"
+				}
+			},
+			"required": [
+				"ID",
+				"Name"
+			]
+		},
+		"DetectorSettingsGroup": {
+			"type":"array",
+			"description":"This element refers to the Detector used to acquire this image and it holds the settings that were applied to the Detector during this acquisition.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"DetectorSettingsGroup",
+						"readonly":true
+					},
+					"EffectiveOffset": {
+						"type":"number",
+						"description":"This field reports the actual offset utilized for the acquisition of this image. The offset is an electronic baseline added to the output signal from the sensor to ensure that the displayed signal level is always a positive number of counts.",
+						"tier":3,
+						"category":"DetectorSettingsGroup"
+					},
+					"Integration": {
+						"type":"string",
+						"description":"This is the number of sequential frames that have been averaged to obtain this image, to improve the overall signal-to-noise ratio.",
+						"tier":3,
+						"category":"DetectorSettingsGroup"
+					},
+					"DetectorFieldOfView": {
+						"type":"number",
+						"description":"The detector field of view is the diameter of the field visible by the camera as measured in the specimen plane. It is expressed in mm and it is defined as the detector field number divided by the total effective magnification of the system. In turn the Field Number is defined as the diameter of the view field in mm measured at the intermediate image plane.",
+						"tier":3,
+						"category":"DetectorSettingsGroup"
+					},
+					"DetectorFieldOfViewUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"mm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"DetectorSettingsGroup"
+					}
+				},
+				"required": [
+					"ID",
+					"EffectiveOffset"
+				]
+			}
+		},
+		"ExcitationCalibration": {
+			"type":"array",
+			"description":"This procedure measures the performance and allows calibration of the wavelength and irradiance of the excitation light.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"ObservedExcitationWavelenght": {
+						"type":"number",
+						"description":"Observed peak excitation wavelength.",
+						"tier":3,
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationWavelenghtUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationPowerAtObjective": {
+						"type":"number",
+						"description":"The observed excitation light power measured at the back of the objective.",
+						"tier":3,
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationPowerAtObjectiveUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"W",
+						"enum": [
+							"YW",
+							"ZW",
+							"EW",
+							"PW",
+							"TW",
+							"GW",
+							"MW",
+							"kW",
+							"hW",
+							"daW",
+							"W",
+							"dW",
+							"cW",
+							"mW",
+							"µW",
+							"nW",
+							"pW",
+							"fW",
+							"aW",
+							"zW",
+							"yW"
+						],
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationIrradiance": {
+						"type":"number",
+						"description":"Observed mean excitation light irradiance (radiant power per unit area) as measured at the sample plane over the Field of View (FOV). ",
+						"tier":3,
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationIrradianceUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"W",
+						"enum": [
+							"YW",
+							"ZW",
+							"EW",
+							"PW",
+							"TW",
+							"GW",
+							"MW",
+							"kW",
+							"hW",
+							"daW",
+							"W",
+							"dW",
+							"cW",
+							"mW",
+							"µW",
+							"nW",
+							"pW",
+							"fW",
+							"aW",
+							"zW",
+							"yW"
+						],
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationVariance": {
+						"type":"number",
+						"description":"Observed excitation light irradiance (radiant power per unit area) variation over the Field of View (FOV).",
+						"tier":3,
+						"category":"ExcitationCalibration"
+					},
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"ExcitationCalibration",
+						"readonly":true
+					},
+					"Date": {
+						"type":"string",
+						"description":"The date in which this calibration procedure was performed.",
+						"tier":3,
+						"category":"ExcitationCalibration"
+					}
+				},
+				"required": [
+					"ObservedExcitationWavelenght",
+					"ObservedExcitationPowerAtObjective",
+					"ObservedExcitationIrradiance",
+					"ObservedExcitationVariance",
+					"ID",
+					"Date"
+				]
+			}
+		},
+		"FIeldCalibration": {
+			"type":"array",
+			"description":"This describes the procedure used to measure the field dependent variations in the pixel-to-pixel sensitivity of the detector and/or by distortions in the optical path.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"FIeldCalibration",
+						"readonly":true
+					},
+					"Date": {
+						"type":"string",
+						"description":"The date in which this calibration procedure was performed.",
+						"tier":3,
+						"category":"FIeldCalibration"
+					}
+				},
+				"required": [
+					"ID",
+					"Date"
+				]
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"IlluminationType",
+		"ContrastMethod",
+		"ExcitationWavelength",
+		"EmissionWavelength",
+		"Fluorophore",
+		"LightPath",
+		"Description"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Plane.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"Plane",
+	"description":"Each Image has to have at least one Plane and one Channel. The Plane element holds microscope stage and image timing data for a given channel/z-section/timepoint. The total number of Plane elements for a given Image must equal to SizeZ x SizeC x SizeT.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Image",
+	"image":"Image_Plane.png",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Plane":"Each Image has to have at least one Plane and one Channel. The Plane element holds microscope stage and image timing data for a given channel/z-section/timepoint. The total number of Plane elements for a given Image must equal to SizeZ x SizeC x SizeT.",
+		"SamplePosition":"This is used to specify the location of the sample during the acquisition of this plane with respect to the microscope's reference frame.",
+		"FocalPosition":"This element is used to record the Z-axis position of a Plane with respect to the microscope's reference frame.",
+		"MechanicalCalibration":"This describes the procedures that were used for mechanical calibration and the resulting calibration results."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Plane.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"TheZ": {
+			"type":"string",
+			"description":"The Z-section to which this plane corresponds. This is numbered from 0",
+			"tier":1,
+			"category":"Plane"
+		},
+		"TheT": {
+			"type":"string",
+			"description":"The timepoint to which this plane corresponds. This is numbered from 0",
+			"tier":1,
+			"category":"Plane"
+		},
+		"TheC": {
+			"type":"string",
+			"description":"The channel to which this plane corresponds. This is numbered from 0",
+			"tier":1,
+			"category":"Plane"
+		},
+		"Timestamp": {
+			"type":"number",
+			"description":"This records the total time intercoursed since the beginning of image acquisitoin.",
+			"tier":2,
+			"category":"Plane"
+		},
+		"TimestampUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"s",
+			"enum": [
+				"Ys",
+				"Zs",
+				"Es",
+				"Ps",
+				"Ts",
+				"Gs",
+				"Ms",
+				"ks",
+				"hs",
+				"das",
+				"s",
+				"ds",
+				"cs",
+				"ms",
+				"µs",
+				"ns",
+				"ps",
+				"fs",
+				"as",
+				"zs",
+				"ys",
+				"min",
+				"h",
+				"d"
+			],
+			"category":"Plane"
+		},
+		"ExposureTime": {
+			"type":"number",
+			"description":"The length of the exposure utilized to acquire this plane.",
+			"tier":2,
+			"category":"Plane"
+		},
+		"ExposureTimeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"s",
+			"enum": [
+				"Ys",
+				"Zs",
+				"Es",
+				"Ps",
+				"Ts",
+				"Gs",
+				"Ms",
+				"ks",
+				"hs",
+				"das",
+				"s",
+				"ds",
+				"cs",
+				"ms",
+				"µs",
+				"ns",
+				"ps",
+				"fs",
+				"as",
+				"zs",
+				"ys",
+				"min",
+				"h",
+				"d"
+			],
+			"category":"Plane"
+		},
+		"SamplePosition": {
+			"type":"object",
+			"description":"This is used to specify the location of the sample during the acquisition of this plane, with respect to the microscope's reference frame.",
+			"tier":4,
+			"properties": {
+				"ID": {
+					"type":"string",
+					"description":"A unique identified for this specific sample holder position.",
+					"tier":3,
+					"category":"SamplePosition",
+					"readonly":true
+				},
+				"Name": {
+					"type":"string",
+					"description":"A user assigned label for this specific sample holder position.",
+					"tier":3,
+					"category":"SamplePosition"
+				},
+				"SamplePositionX": {
+					"type":"number",
+					"description":"The X position of the SampleHolder within the microscope's reference frame          ",
+					"tier":4,
+					"category":"SamplePosition"
+				},
+				"SamplePositionXUnit": {
+					"type":"string",
+					"description":"NA",
+					"tier":4,
+					"default":"reference frame",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"pixel",
+						"reference frame"
+					],
+					"category":"SamplePosition"
+				},
+				"SamplePositionY": {
+					"type":"number",
+					"description":"The Y position of the SampleHolder within the microscope's reference frame",
+					"tier":4,
+					"category":"SamplePosition"
+				},
+				"SamplePositionYUnit": {
+					"type":"string",
+					"description":"NA",
+					"tier":4,
+					"default":"reference frame",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"pixel",
+						"reference frame"
+					],
+					"category":"SamplePosition"
+				},
+				"SamplePositionZ": {
+					"type":"number",
+					"description":"The Z position of the SampleHolder within the microscope's reference frame",
+					"tier":4,
+					"category":"SamplePosition"
+				},
+				"SamplePositionZUnit": {
+					"type":"string",
+					"description":"NA",
+					"tier":4,
+					"default":"reference frame",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"pixel",
+						"reference frame"
+					],
+					"category":"SamplePosition"
+				}
+			},
+			"required": [
+				"ID",
+				"Name",
+				"SamplePositionX",
+				"SamplePositionY"
+			]
+		},
+		"FocalPosition": {
+			"type":"object",
+			"description":"This element is used to record the Z-axis position of a Plane with respect to the microscope's reference frame.",
+			"tier":3,
+			"properties": {
+				"ID": {
+					"type":"string",
+					"description":"A unique identifier for this Z-axis focal position.",
+					"tier":3,
+					"category":"FocalPosition",
+					"readonly":true
+				},
+				"Name": {
+					"type":"string",
+					"description":"A user assigned name for this Z-axis focal position.",
+					"tier":3,
+					"category":"FocalPosition"
+				},
+				"StagePositionZ": {
+					"type":"number",
+					"description":"The Z-axis focal position of this plane.          ",
+					"tier":3,
+					"category":"FocalPosition"
+				},
+				"StagePositionZUnit": {
+					"type":"string",
+					"description":"NA",
+					"tier":1,
+					"default":"reference frame",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"pixel",
+						"reference frame"
+					],
+					"category":"FocalPosition"
+				}
+			},
+			"required": [
+				"ID",
+				"Name",
+				"StagePositionZ"
+			]
+		},
+		"MechanicalCalibration": {
+			"type":"array",
+			"description":"This describes the procedures that were used for mechanical calibration and the resulting calibration results.",
+			"tier":4,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":4,
+						"category":"MechanicalCalibration",
+						"readonly":true
+					},
+					"Date": {
+						"type":"string",
+						"description":"The date in which this calibration was performed.",
+						"tier":4,
+						"category":"MechanicalCalibration"
+					},
+					"MeasuredLateralDrift": {
+						"type":"number",
+						"description":"Measured shift in (x, y) position over time.",
+						"tier":4,
+						"category":"MechanicalCalibration"
+					},
+					"MeasuredLateralDriftUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":4,
+						"default":"µm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"MechanicalCalibration"
+					},
+					"MeasuredFocalDrift": {
+						"type":"number",
+						"description":"Measured shift in z position over time.",
+						"tier":4,
+						"category":"MechanicalCalibration"
+					},
+					"MeasuredFocalDriftUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":4,
+						"default":"µm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"MechanicalCalibration"
+					},
+					"MeasuredRepeatability": {
+						"type":"number",
+						"description":"Measured precision with which this device is capable of returning to a previously visited position (useful for tiling). Typically expressed in % error.",
+						"tier":4,
+						"category":"MechanicalCalibration"
+					},
+					"MeasuredSettlingTime": {
+						"type":"number",
+						"description":"Measured time it takes for this device to stabilize at the target position.",
+						"tier":4,
+						"category":"MechanicalCalibration"
+					},
+					"MeasuredSettlingTimeUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":4,
+						"default":"s",
+						"enum": [
+							"Ys",
+							"Zs",
+							"Es",
+							"Ps",
+							"Ts",
+							"Gs",
+							"Ms",
+							"ks",
+							"hs",
+							"das",
+							"s",
+							"ds",
+							"cs",
+							"ms",
+							"µs",
+							"ns",
+							"ps",
+							"fs",
+							"as",
+							"zs",
+							"ys",
+							"min",
+							"h",
+							"d"
+						],
+						"category":"MechanicalCalibration"
+					}
+				},
+				"required": [
+					"ID",
+					"Date",
+					"MeasuredLateralDrift",
+					"MeasuredFocalDrift",
+					"MeasuredRepeatability",
+					"MeasuredSettlingTime"
+				]
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"TheZ",
+		"TheT",
+		"TheC",
+		"Timestamp",
+		"ExposureTime",
+		"Description"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PiezoElectricObjectiveFocus.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"PiezoElectricObjectiveFocus",
 	"description":"An optional piezoelectric objective positioning device associated with this instrument.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Focusing",
 	"image":"SamplePositioning_Focusing_PiezoElectricObjectiveFocus.png",
 	"tier":3,
@@ -535,6 +2055,7 @@
 	"type":"object",
 	"title":"LightGuide",
 	"description":"A Light Guide coupling between the light source and the microscope generally consists of a casing enclosing a medium capable of transferring light from the illuminator to the back of the microsocpe body.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"LightSourceCoupling",
 	"image":"LightSourceCoupling_LightGuide.png",
 	"tier":4,
@@ -942,6 +2463,7 @@
 	"type":"object",
 	"title":"LightEmittingDiode",
 	"description":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Transmitted_LightSource",
 	"image":"Transmitted_LightSource_LightEmittingDiode.png",
 	"tier":1,
@@ -1301,6 +2823,7 @@
 	"type":"object",
 	"title":"LightEmittingDiode",
 	"description":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
 	"image":"Fluorescence_LightSource_LightEmittingDiode.png",
 	"tier":1,
@@ -1657,11 +3180,225 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"MechanicalCalibration.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"MechanicalCalibration",
+	"description":"This describes the procedures that were used for mechanical calibration and the resulting calibration results.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_MechanicalCalibration.png",
+	"tier":4,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"MechanicalCalibration":"This describes the procedures that were used for mechanical calibration and the resulting calibration results.",
+		"SamplePositioning":"NA",
+		"AutoFocus":"NA"
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":4,
+			"category":"General",
+			"readonly":true
+		},
+		"Date": {
+			"type":"string",
+			"description":"The date in which this calibration was performed.",
+			"tier":4,
+			"category":"MechanicalCalibration"
+		},
+		"MeasuredLateralDrift": {
+			"type":"number",
+			"description":"Measured shift in (x, y) position over time.",
+			"tier":4,
+			"category":"MechanicalCalibration"
+		},
+		"MeasuredLateralDriftUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":4,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"MechanicalCalibration"
+		},
+		"MeasuredFocalDrift": {
+			"type":"number",
+			"description":"Measured shift in z position over time.",
+			"tier":4,
+			"category":"MechanicalCalibration"
+		},
+		"MeasuredFocalDriftUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":4,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"MechanicalCalibration"
+		},
+		"MeasuredRepeatability": {
+			"type":"number",
+			"description":"Measured precision with which this device is capable of returning to a previously visited position (useful for tiling). Typically expressed in % error.",
+			"tier":4,
+			"category":"MechanicalCalibration"
+		},
+		"MeasuredSettlingTime": {
+			"type":"number",
+			"description":"Measured time it takes for this device to stabilize at the target position.",
+			"tier":4,
+			"category":"MechanicalCalibration"
+		},
+		"MeasuredSettlingTimeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":4,
+			"default":"s",
+			"enum": [
+				"Ys",
+				"Zs",
+				"Es",
+				"Ps",
+				"Ts",
+				"Gs",
+				"Ms",
+				"ks",
+				"hs",
+				"das",
+				"s",
+				"ds",
+				"cs",
+				"ms",
+				"µs",
+				"ns",
+				"ps",
+				"fs",
+				"as",
+				"zs",
+				"ys",
+				"min",
+				"h",
+				"d"
+			],
+			"category":"MechanicalCalibration"
+		},
+		"SamplePositioning": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"category":"SamplePositioning",
+			"linkTo":"SamplePositioning"
+		},
+		"AutoFocus": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"category":"AutoFocus",
+			"linkTo":"AutoFocus"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":4,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":4,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Date",
+		"MeasuredLateralDrift",
+		"MeasuredFocalDrift",
+		"MeasuredRepeatability",
+		"MeasuredSettlingTime",
+		"Description"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CouplingLens.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"CouplingLens",
 	"description":"A lens positioned at connector between this light source coupling device and the microscope body.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_CouplingLens.png",
 	"tier":5,
@@ -2108,6 +3845,7 @@
 	"type":"object",
 	"title":"MicroscopeTable",
 	"description":"This element describes the table on which this Microscope rests during acquisition.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"MicroscopyBasics",
 	"image":"MicroscopyBasics_MicroscopeTable.png",
 	"tier":4,
@@ -2305,6 +4043,7 @@
 	"type":"object",
 	"title":"AdditionalFilter",
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths. This element refers to a filter positioned along the light path in addition to the excitation and the emission filters.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_AdditionalFilter.png",
 	"tier":2,
@@ -2548,6 +4287,7 @@
 	"type":"object",
 	"title":"PolarizationOptics",
 	"description":"This describes an optical polarization device positioned in the light path for one or more channel available for this instrument. A polarization device is an optical filter that lets light waves of a specific polarization pass through while blocking light waves of other polarizations.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_PolarizationOptics.png",
 	"tier":2,
@@ -2824,6 +4564,7 @@
 	"type":"object",
 	"title":"StandardDichroic",
 	"description":"This describes a dichroic  positioned in the standard light path for one or more channel available for this instrument.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
 	"image":"LightPath_StandardDichroic.png",
 	"tier":2,
@@ -3353,11 +5094,1696 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Image.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"Image",
+	"description":"This element describes the actual image that was acquired and its meta-data. The elements that are references (ending in Ref or Settings) refer to elements defined outside of the Image element. Ref elements are simple links, while Settings elements are links with additional values. If any of the required Image attributes or elements are missing, its guaranteed to be an invalid document.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Image",
+	"image":"Image_Image.png",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Image":"This element describes the actual image that was acquired and its meta-data. The elements that are references (ending in Ref or Settings) refer to elements defined outside of the Image element. Ref elements are simple links, while Settings elements are links with additional values. If any of the required Image attributes or elements are missing, its guaranteed to be an invalid document.",
+		"Instrument":"This empty element refers to the Instrument that was utilized to acquire this image.",
+		"Experiment":"This empty element refers to the Experiment during which this Image was acquired.",
+		"Experimenter":"This empty element refers to Experimenter that performed this experiment.",
+		"ExperimenterGroup":"This empty element refers to the ExperimenterGroup that owns this Image.",
+		"MicrobeamManipulation":"NA",
+		"ROI":"NA",
+		"TIRFSettings":"Defines the TIRF settings used for this experiment.",
+		"ImagingEnvironment":"This describes the environment in which the biological sample was kept during the acquisition of this image.",
+		"MicroscopeSettings":"This element refers to the microscope used to acquire this image and it holds the settings that were applied to the microscope during this acquisition.",
+		"ObjectiveSettings":"This element refers to the objective used to acquire this image and it holds the settings that were applied to the objective during this acquisition.",
+		"OpticalCalibration":"This describes the procedure that was used for optical calibration and the resulting calibration measurements.",
+		"DetectorCalibration":"This procedure measures the performance of the dectector.",
+		"Plane":"Each Image has to have at least one Plane and one Channel. The Plane element holds microscope stage and image timing data for a given channel/z-section/timepoint. The total number of Plane elements for a given Image must equal to SizeZ x SizeC x SizeT.",
+		"Channel":"Each Image has to have at least one Plane and one Channel. The Channel element stores information about how the each image channel was acquired. The total number of Channel elements for a given Image must equal to SizeC.",
+		"BinData":"The contents of this element are base64-encoded.  These are not CDATA sections just a base64 stream.",
+		"TiffData":"This describes the location of the pixel data in a tiff file.      "
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user assigned name for this Image.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Image.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"AcquisitionDate": {
+			"type":"string",
+			"description":"The acquisition date of the Image.",
+			"tier":1,
+			"category":"Image"
+		},
+		"SizeX": {
+			"type":"string",
+			"description":"X size of the pixel data array.",
+			"tier":1,
+			"category":"Image"
+		},
+		"SizeY": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"category":"Image"
+		},
+		"SizeZ": {
+			"type":"string",
+			"description":"Dimensional size of pixel data array.",
+			"tier":1,
+			"category":"Image"
+		},
+		"SizeC": {
+			"type":"string",
+			"description":"Dimensional size of pixel data array.",
+			"tier":1,
+			"category":"Image"
+		},
+		"SizeT": {
+			"type":"string",
+			"description":"Dimensional size of pixel data array.",
+			"tier":4,
+			"category":"Image"
+		},
+		"PhysicalSizeX": {
+			"type":"number",
+			"description":"Physical width of a pixel expressed in µm.",
+			"tier":1,
+			"category":"Image"
+		},
+		"PhysicalSizeXUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Image"
+		},
+		"PhysicalSizeY": {
+			"type":"number",
+			"description":"Physical height of a pixel expressed in µm.",
+			"tier":1,
+			"category":"Image"
+		},
+		"PhysicalSizeYUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Image"
+		},
+		"PhysicalSizeZ": {
+			"type":"number",
+			"description":"Physical size of a pixel.",
+			"tier":1,
+			"category":"Image"
+		},
+		"PhysicalSizeZUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Image"
+		},
+		"TimeIncrement": {
+			"type":"number",
+			"description":"This attribute is used for time series that have a global timing specification instead of per-timepoint timing info. For example in a video stream.",
+			"tier":4,
+			"category":"Image"
+		},
+		"TimeIncrementUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":4,
+			"default":"s",
+			"enum": [
+				"Ys",
+				"Zs",
+				"Es",
+				"Ps",
+				"Ts",
+				"Gs",
+				"Ms",
+				"ks",
+				"hs",
+				"das",
+				"s",
+				"ds",
+				"cs",
+				"ms",
+				"µs",
+				"ns",
+				"ps",
+				"fs",
+				"as",
+				"zs",
+				"ys",
+				"min",
+				"h",
+				"d"
+			],
+			"category":"Image"
+		},
+		"DimensionOrder": {
+			"type":"string",
+			"description":"The order in which the individual planes of data are interleaved.",
+			"tier":2,
+			"enum": [
+				"XYZCT",
+				"XYZTC",
+				"XYCTZ",
+				"XYCZT",
+				"XYTCZ",
+				"XYTZC"
+			],
+			"category":"Image"
+		},
+		"ChannelOrder": {
+			"type":"string",
+			"description":"The order in which the channels were acquired and are stored.",
+			"tier":2,
+			"category":"Image"
+		},
+		"PixelType": {
+			"type":"string",
+			"description":"The variable type used to represent each pixel in the Image.          ",
+			"tier":3,
+			"enum": [
+				"int8",
+				"int16",
+				"int32",
+				"uint8",
+				"uint16",
+				"uint32",
+				"float",
+				"double",
+				"complex",
+				"double-complex",
+				"bit"
+			],
+			"category":"Image"
+		},
+		"SignificantBits": {
+			"type":"string",
+			"description":"The number of bits within the type storing each pixel that are significant. e.g. you can store 12 bit data within a 16 bit type. This does not reduce the storage requirements but can be a useful indicator when processing or viewing the image data.          ",
+			"tier":5,
+			"category":"Image"
+		},
+		"Interleaved": {
+			"type":"boolean",
+			"description":"How the channels are arranged within the data block: true if channels are stored RGBRGBRGB...; false if channels are stored RRR...GGG...BBB...          ",
+			"tier":3,
+			"category":"Image"
+		},
+		"BigEndian": {
+			"type":"boolean",
+			"description":"This is true if the pixels data was written in BigEndian order. If this value is present it should match the value used in BinData or TiffData. If it does not a reader should honour the value used in the BinData or TiffData. This values is useful for MetadataOnly files and is to allow for future storage solutions.          ",
+			"tier":5,
+			"category":"Image"
+		},
+		"Instrument": {
+			"type":"string",
+			"description":"This empty element refers to the Instrument that was utilized to acquire this image.",
+			"tier":1,
+			"category":"Instrument",
+			"linkTo":"Instrument"
+		},
+		"Experiment": {
+			"type":"string",
+			"description":"This empty element refers to the Experiment during which this Image was acquired.",
+			"tier":1,
+			"category":"Experiment",
+			"linkTo":"Experiment"
+		},
+		"Experimenter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to Experimenter that performed this experiment.",
+				"type":"string",
+				"tier":1,
+				"category":"Experimenter",
+				"linkTo":"Experimenter"
+			}
+		},
+		"ExperimenterGroup": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to the ExperimenterGroup that owns this Image.",
+				"type":"string",
+				"tier":1,
+				"category":"ExperimenterGroup",
+				"linkTo":"ExperimenterGroup"
+			}
+		},
+		"MicrobeamManipulation": {
+			"type":"array",
+			"items": {
+				"description":"NA",
+				"type":"string",
+				"tier":1,
+				"category":"MicrobeamManipulation",
+				"linkTo":"MicrobeamManipulation"
+			}
+		},
+		"ROI": {
+			"type":"array",
+			"items": {
+				"description":"NA",
+				"type":"string",
+				"tier":1,
+				"category":"ROI",
+				"linkTo":"ROI"
+			}
+		},
+		"TIRFSettings": {
+			"type":"array",
+			"description":"Defines the TIRF settings used for this experiment.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"TIRFSettings",
+						"readonly":true
+					},
+					"ThroughLens": {
+						"type":"boolean",
+						"description":"The TIRF modality used in this case. True=Through the lens TIRF modality. False=TIRF modality in which the laser light is not travelling through the objective lens.",
+						"tier":3,
+						"category":"TIRFSettings"
+					},
+					"TIRFAngle": {
+						"type":"number",
+						"description":"The incidence angle used in this case",
+						"tier":3,
+						"category":"TIRFSettings"
+					},
+					"TIRFAngleUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"enum": [
+							"deg",
+							"rad",
+							"gon"
+						],
+						"category":"TIRFSettings"
+					},
+					"Geometry": {
+						"type":"string",
+						"description":"The TIRF geometry used in this case",
+						"tier":3,
+						"enum": [
+							"Spot",
+							"Ring",
+							"Other"
+						],
+						"category":"TIRFSettings"
+					}
+				},
+				"required": [
+					"ID",
+					"ThroughLens",
+					"TIRFAngle",
+					"Geometry"
+				]
+			}
+		},
+		"ImagingEnvironment": {
+			"type":"array",
+			"description":"This describes the environment in which the biological sample was kept, during the acquisition of this image.",
+			"tier":4,
+			"items": {
+				"properties": {
+					"Temperature": {
+						"type":"number",
+						"description":"The Temperature at which the imaging experiment was conducted          ",
+						"tier":4,
+						"category":"ImagingEnvironment"
+					},
+					"TemperatureUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":4,
+						"default":"°C",
+						"enum": [
+							"°C",
+							"°F",
+							"K",
+							"°R"
+						],
+						"category":"ImagingEnvironment"
+					},
+					"AirPressure": {
+						"type":"number",
+						"description":"AirPressure is the define units          ",
+						"tier":4,
+						"category":"ImagingEnvironment"
+					},
+					"AirPressureUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":4,
+						"default":"mbar",
+						"enum": [
+							"YPa",
+							"ZPa",
+							"EPa",
+							"PPa",
+							"TPa",
+							"GPa",
+							"MPa",
+							"kPa",
+							"hPa",
+							"daPa",
+							"Pa",
+							"dPa",
+							"cPa",
+							"mPa",
+							"µPa",
+							"nPa",
+							"pPa",
+							"fPa",
+							"aPa",
+							"zPa",
+							"yPa",
+							"bar",
+							"Mbar",
+							"kbar",
+							"dbar",
+							"cbar",
+							"mbar",
+							"atm",
+							"psi",
+							"Torr",
+							"mTorr",
+							"mm Hg"
+						],
+						"category":"ImagingEnvironment"
+					},
+					"Humidity": {
+						"type":"number",
+						"description":"Humidity around the sample [units:none]. A fraction, as a value from 0.0 to 1.0.          ",
+						"tier":4,
+						"category":"ImagingEnvironment"
+					},
+					"CO2Percent": {
+						"type":"number",
+						"description":"Carbon Dioxide concentration around the sample [units:none]. A fraction, as a value from 0.0 to 1.0          ",
+						"tier":4,
+						"category":"ImagingEnvironment"
+					}
+				},
+				"required": [
+					"Temperature",
+					"CO2Percent"
+				]
+			}
+		},
+		"MicroscopeSettings": {
+			"type":"array",
+			"description":"This element refers to the microscope used to acquire this image and it holds the settings that were applied to the microscope during this acquisition.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"This is the unique identifier of the microscope used in this case.",
+						"tier":1,
+						"category":"MicroscopeSettings",
+						"readonly":true
+					},
+					"FieldOfView": {
+						"type":"number",
+						"description":"The Field of View defines the area of the specimen that is viewable via the eyepiece. This field caputers the measures size of the Field of View.",
+						"tier":3,
+						"category":"MicroscopeSettings"
+					},
+					"FieldOfViewUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"MicroscopeSettings"
+					},
+					"TotalEffectiveMagnification": {
+						"type":"number",
+						"description":"This is the total effective magnification used in this case. This number can be obtained by multiplying Optovar/Magnification times the Objective/NominalMagnification or even better the Objective/CalibratedMagnification if available.",
+						"tier":1,
+						"category":"MicroscopeSettings"
+					}
+				}
+			}
+		},
+		"ObjectiveSettings": {
+			"type":"array",
+			"description":"This element refers to the objective used to acquire this image and it holds the settings that were applied to the objective during this acquisition.",
+			"tier":2,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"This is the unique identifier of the objective used in this case.",
+						"tier":2,
+						"category":"ObjectiveSettings",
+						"readonly":true
+					},
+					"CorrectionCollar": {
+						"type":"number",
+						"description":"When using high numerical aperture dry objectives (numerical aperture of 0.8 or greater), cover glass thickness variations of only a few micrometers result in dramatic image degradation due to aberration, which grows worse with increasing cover glass thickness. To compensate for this error, the more highly corrected objectives are equipped with a correction collar to allow adjustment of the central lens group position to coincide with fluctuations in cover glass thickness. The CorrectionCollar is normally an adjustable ring on the objective, whose position can be modified. This field records the position of the collar during the acquisition of this image. Each correction collar has an arbitrary scale on it so the values is unit-less.",
+						"tier":5,
+						"category":"ObjectiveSettings"
+					},
+					"ImmersionMedium": {
+						"type":"string",
+						"description":"The actual immersion medium that was used for the acquisition of this image.",
+						"tier":2,
+						"enum": [
+							"Air",
+							"Glycerol",
+							"Multi",
+							"Oil",
+							"Water",
+							"WaterDripping",
+							"Other"
+						],
+						"category":"ObjectiveSettings"
+					},
+					"ImmersionRefractiveIndex": {
+						"type":"number",
+						"description":"The nominal refractive index of the immersion medium utilized in this case, as specified by the manufacturer.",
+						"tier":2,
+						"category":"ObjectiveSettings"
+					},
+					"MeasuredRefractiveIndex": {
+						"type":"number",
+						"description":"The temperature dependenent measured Refractive Index of ther immersion medium utilized in this case.",
+						"tier":4,
+						"category":"ObjectiveSettings"
+					},
+					"Temperature": {
+						"type":"number",
+						"description":"The temperature of the objective if different from the ImagingEnvironment/Temperature.",
+						"tier":4,
+						"category":"ObjectiveSettings"
+					},
+					"TemperatureUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":4,
+						"default":"°C",
+						"enum": [
+							"°C",
+							"°F",
+							"K",
+							"°R"
+						],
+						"category":"ObjectiveSettings"
+					}
+				},
+				"required": [
+					"ID",
+					"ImmersionMedium",
+					"ImmersionRefractiveIndex"
+				]
+			}
+		},
+		"OpticalCalibration": {
+			"type":"array",
+			"description":"This describes the procedure that was used for optical calibration and the resulting calibration measurements.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"OpticalCalibration",
+						"readonly":true
+					},
+					"Date": {
+						"type":"string",
+						"description":"The date in which this calibration was performed.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"MedianSpotSize_FWHM": {
+						"type":"number",
+						"description":"Observed median lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile. This is a measure of the observed resolution of the system in the xy-plane.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"MedianSpotSize_FWHMUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"OpticalCalibration"
+					},
+					"MedianTheoretical_FWHM": {
+						"type":"number",
+						"description":"Theoretical (expected) medians lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the xy-plane.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"MedianTheoretical_FWHMUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"OpticalCalibration"
+					},
+					"MinSpotSize_FWHM": {
+						"type":"number",
+						"description":"Observed minimum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile. This is a measure of the observed resolution of the system in the xy-plane.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"MinSpotSize_FWHMUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"OpticalCalibration"
+					},
+					"MinTheoretical_FWHM": {
+						"type":"number",
+						"description":"Theoretical (expected) minimum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the xy-plane.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"MinTheoretical_FWHMUnit": {
+						"type":"number",
+						"description":"Theoretical (expected) minimum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the xy-plane.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"MaxSpotSize_FWHM": {
+						"type":"number",
+						"description":"Observed maximum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile. This is a measure of the observed resolution of the system in the xy-plane.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"MaxSpotSize_FWHMUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"OpticalCalibration"
+					},
+					"MaxTheoretical_FWHM": {
+						"type":"number",
+						"description":"Theoretical (expected) maximum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the xy-plane.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"MaxTheoretical_FWHMUnit": {
+						"type":"number",
+						"description":"Theoretical (expected) maximum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the xy-plane.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"ZSpotSize_FWHM": {
+						"type":"number",
+						"description":"Observed z-axial spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile. This is a measure of the observed resolution of the system in the z-plane.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"ZSpotSize_FWHMUnit": {
+						"type":"number",
+						"description":"Observed z-axial spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile. This is a measure of the observed resolution of the system in the z-plane.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"FWHM_ZTheoretical": {
+						"type":"number",
+						"description":"Theoretical (expected) z-axial spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the z-plane.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"FWHM_ZTheoreticalUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"OpticalCalibration"
+					},
+					"Planarity": {
+						"type":"number",
+						"description":"This is a measure of the flatness of the focal plane across the Field of View (FOV). The planarity of the focal plane is calculated from the observed z-position of the best focus of each spot. It indicates focal aberrations or tilt.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"PlanarityUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"OpticalCalibration"
+					},
+					"Asymmetry": {
+						"type":"number",
+						"description":"This field reports the mean +/- standard deviation over the Field of View (FOV) of the observed Point Spread Function (PSF) Asymmetry (i.e. the ratio of the minimum lateral FWMH over the maximum lateral FWHM). It indicates the presence of optical aberrations.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"LateralChromaticShift": {
+						"type":"number",
+						"description":"The lateral offset of the observed spot position between two color channels.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"LateralChromaticShiftUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"OpticalCalibration"
+					},
+					"AxialChromaticShift": {
+						"type":"number",
+						"description":"The axial offset of the observed spot position between two color channels.",
+						"tier":3,
+						"category":"OpticalCalibration"
+					},
+					"AxialChromaticShiftUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"OpticalCalibration"
+					}
+				},
+				"required": [
+					"ID",
+					"Date"
+				]
+			}
+		},
+		"DetectorCalibration": {
+			"type":"array",
+			"description":"This procedure measures the performance of the dectector.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"Method": {
+						"type":"string",
+						"description":"This is a description of method used for this calibration procedure.",
+						"tier":3,
+						"category":"DetectorCalibration"
+					},
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"DetectorCalibration",
+						"readonly":true
+					},
+					"Date": {
+						"type":"string",
+						"description":"The date in which this calibration procedure was performed.",
+						"tier":3,
+						"category":"DetectorCalibration"
+					}
+				},
+				"required": [
+					"Method",
+					"ID",
+					"Date"
+				]
+			}
+		},
+		"Plane": {
+			"type":"array",
+			"description":"Each Image has to have at least one Plane and one Channel. The Plane element holds microscope stage and image timing data for a given channel/z-section/timepoint. The total number of Plane elements for a given Image must equal to SizeZ x SizeC x SizeT.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this Plane.",
+						"tier":1,
+						"category":"Plane",
+						"readonly":true
+					},
+					"TheZ": {
+						"type":"string",
+						"description":"The Z-section to which this plane corresponds. This is numbered from 0",
+						"tier":1,
+						"category":"Plane"
+					},
+					"TheT": {
+						"type":"string",
+						"description":"The timepoint to which this plane corresponds. This is numbered from 0",
+						"tier":1,
+						"category":"Plane"
+					},
+					"TheC": {
+						"type":"string",
+						"description":"The channel to which this plane corresponds. This is numbered from 0",
+						"tier":1,
+						"category":"Plane"
+					},
+					"Timestamp": {
+						"type":"number",
+						"description":"This records the total time intercoursed since the beginning of image acquisitoin.",
+						"tier":2,
+						"category":"Plane"
+					},
+					"TimestampUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"s",
+						"enum": [
+							"Ys",
+							"Zs",
+							"Es",
+							"Ps",
+							"Ts",
+							"Gs",
+							"Ms",
+							"ks",
+							"hs",
+							"das",
+							"s",
+							"ds",
+							"cs",
+							"ms",
+							"µs",
+							"ns",
+							"ps",
+							"fs",
+							"as",
+							"zs",
+							"ys",
+							"min",
+							"h",
+							"d"
+						],
+						"category":"Plane"
+					},
+					"ExposureTime": {
+						"type":"number",
+						"description":"The length of the exposure utilized to acquire this plane.",
+						"tier":2,
+						"category":"Plane"
+					},
+					"ExposureTimeUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"s",
+						"enum": [
+							"Ys",
+							"Zs",
+							"Es",
+							"Ps",
+							"Ts",
+							"Gs",
+							"Ms",
+							"ks",
+							"hs",
+							"das",
+							"s",
+							"ds",
+							"cs",
+							"ms",
+							"µs",
+							"ns",
+							"ps",
+							"fs",
+							"as",
+							"zs",
+							"ys",
+							"min",
+							"h",
+							"d"
+						],
+						"category":"Plane"
+					}
+				},
+				"required": [
+					"ID",
+					"TheZ",
+					"TheT",
+					"TheC",
+					"Timestamp",
+					"ExposureTime"
+				]
+			}
+		},
+		"Channel": {
+			"type":"array",
+			"description":"Each Image has to have at least one Plane and one Channel. The Channel element stores information about how the each image channel was acquired. The total number of Channel elements for a given Image must equal to SizeC.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this Channel.",
+						"tier":1,
+						"category":"Channel",
+						"readonly":true
+					},
+					"Name": {
+						"type":"string",
+						"description":"A name for the channel that is suitable for presentation to the user.          ",
+						"tier":1,
+						"category":"Channel"
+					},
+					"SamplesPerPixel": {
+						"type":"string",
+						"description":"The number of samples the detector takes to form each pixel value. [units:none] Note: This is not the same as 'Frame Averaging' - see Integration in DetectorSettings.          ",
+						"tier":5,
+						"category":"Channel"
+					},
+					"IlluminationType": {
+						"type":"string",
+						"description":"The method of illumination used to capture the channel.",
+						"tier":2,
+						"enum": [
+							"Transmitted",
+							"Epifluorescence",
+							"Confocal",
+							"TIRF",
+							"Light Sheet",
+							"NonLinear",
+							"Oblique",
+							"Other"
+						],
+						"category":"Channel"
+					},
+					"PinholeSize": {
+						"type":"number",
+						"description":"The optional PinholeSize attribute allows specifying adjustable pin-hole diameters for confocal microscopes.          ",
+						"tier":3,
+						"category":"Channel"
+					},
+					"PinholeSizeUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"µm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"Channel"
+					},
+					"AcquisitionMode": {
+						"type":"string",
+						"description":"AcquisitionMode describes the type of microscopy performed for each channel.          ",
+						"tier":1,
+						"enum": [
+							"WideField",
+							"LaserScanningConfocalMicroscopy",
+							"SpinningDiskConfocal",
+							"SlitScanConfocal",
+							"MultiPhotonMicroscopy",
+							"StructuredIllumination",
+							"SingleMoleculeImaging",
+							"TotalInternalReflection",
+							"FluorescenceLifetime",
+							"SpectralImaging",
+							"FluorescenceCorrelationSpectroscopy",
+							"NearFieldScanningOpticalMicroscopy",
+							"SecondHarmonicGenerationImaging",
+							"PALM",
+							"STORM",
+							"STED",
+							"TIRF",
+							"FSM",
+							"LCM",
+							"Other",
+							"BrightField",
+							"SweptFieldConfocal",
+							"SPIM"
+						],
+						"category":"Channel"
+					},
+					"ContrastMethod": {
+						"type":"string",
+						"description":"ContrastMethod describes the technique used to achieve contrast for each channel.          ",
+						"tier":1,
+						"enum": [
+							"Brightfield",
+							"Phase",
+							"DIC",
+							"HoffmanModulation",
+							"ObliqueIllumination",
+							"PolarizedLight",
+							"Darkfield",
+							"Fluorescence",
+							"Other"
+						],
+						"category":"Channel"
+					},
+					"ExcitationWavelength": {
+						"type":"number",
+						"description":"The excitation wavelength used for this channel.          ",
+						"tier":3,
+						"category":"Channel"
+					},
+					"ExcitationWavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"Channel"
+					},
+					"EmissionWavelength": {
+						"type":"number",
+						"description":"The emission wavelength used for this channel.",
+						"tier":3,
+						"category":"Channel"
+					},
+					"EmissionWavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"Channel"
+					},
+					"Fluorophore": {
+						"type":"string",
+						"description":"This is the name of the fluorophore used to produce this channel [plain text string].",
+						"tier":2,
+						"category":"Channel"
+					},
+					"NDFilter": {
+						"type":"number",
+						"description":"The NDfilter attribute is used to specify the combined effect of any neutral density filters used. The amount of light the filter transmits at a maximum. A fraction, as a value from 0.0 to 1.0. NOTE: This was formerly described as 'units optical density expressed as a PercentFraction'. This was how the field had been described in the schema from the beginning but all the use of it has been in the opposite direction, i.e. as a amount transmitted, not the amount blocked. This change has been made to make the model reflect this usage.          ",
+						"tier":5,
+						"category":"Channel"
+					},
+					"PockelCellSetting": {
+						"type":"string",
+						"description":"The PockelCellSetting used for this channel. This is the amount the polarization of the beam is rotated by",
+						"tier":5,
+						"category":"Channel"
+					},
+					"Color": {
+						"type":"string",
+						"description":"A color used to render this channel - encoded as RGBA. The default value '-1' is #FFFFFFFF so solid white (it is a signed 32 bit value). NOTE: Prior to the 2012-06 schema the default value was incorrect and produced a transparent red not solid white.          ",
+						"tier":1,
+						"default":"-1",
+						"category":"Channel"
+					}
+				},
+				"required": [
+					"ID",
+					"Name",
+					"IlluminationType",
+					"ContrastMethod",
+					"ExcitationWavelength",
+					"EmissionWavelength",
+					"Fluorophore"
+				]
+			}
+		},
+		"BinData": {
+			"type":"array",
+			"description":"The contents of this element are base64-encoded.  These are not CDATA sections, just a base64 stream.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"Compression": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"default":"none",
+						"enum": [
+							"zlib",
+							"bzip2",
+							"none"
+						],
+						"category":"BinData"
+					},
+					"BigEndian": {
+						"type":"boolean",
+						"description":"NA",
+						"tier":1,
+						"category":"BinData"
+					},
+					"Length": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"category":"BinData"
+					}
+				},
+				"required": [
+					"BigEndian",
+					"Length"
+				]
+			}
+		},
+		"TiffData": {
+			"type":"array",
+			"description":"This describes the location of the pixel data in a tiff file.      ",
+			"tier":1,
+			"items": {
+				"properties": {
+					"IFD": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"default":"0",
+						"category":"TiffData"
+					},
+					"FirstZ": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"default":"0",
+						"category":"TiffData"
+					},
+					"FirstT": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"default":"0",
+						"category":"TiffData"
+					},
+					"FirstC": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"default":"0",
+						"category":"TiffData"
+					},
+					"PlaneCount": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"category":"TiffData"
+					}
+				}
+			}
+		},
+		"MetadataOnly": {
+			"type":"array",
+			"description":"This place holder means there is on pixel data in this file.      ",
+			"tier":1,
+			"items": {
+				"properties": {
+				}
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"AcquisitionDate",
+		"SizeX",
+		"SizeY",
+		"SizeZ",
+		"SizeC",
+		"SizeT",
+		"PhysicalSizeX",
+		"PhysicalSizeY",
+		"PhysicalSizeZ",
+		"TimeIncrement",
+		"PixelType",
+		"Instrument",
+		"Experiment",
+		"MicroscopeSettings",
+		"ObjectiveSettings",
+		"Plane",
+		"Channel",
+		"BinData",
+		"TiffData",
+		"MetadataOnly",
+		"Description"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_Filament.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"Filament",
 	"description":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence).",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Transmitted_LightSource",
 	"image":"Transmitted_LightSource_Filament.png",
 	"tier":1,
@@ -3492,6 +6918,7 @@
 	"type":"object",
 	"title":"Filament",
 	"description":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence).",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
 	"image":"Fluorescence_LightSource_Filament.png",
 	"tier":1,
@@ -3622,11 +7049,204 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Experiment.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"Experiment",
+	"description":"Describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
+	"domain":"Experimental",
+	"category":"SamplePreparation",
+	"image":"SamplePreparation_Experiment.png",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Experiment":"Describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
+		"Experimenter":"This empty element refers to Experimenter that performed this experiment.",
+		"Sample":"A description of the sample that was imaged in this experiment.",
+		"MicrobeamManipulation":"Defines a microbeam operation and the region of the image it was applied to. The LightSourceSettingsRef element is a reference to the LightSourceSettings that were used in this case including a reference to the light source that was used for this micromanipulation experiment (e.g.  a laser used for photobleaching)."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user assigned name for this Experiment.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Experiment.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Type": {
+			"type":"string",
+			"description":"A term to describe the type of imaging experiment performed in this case.",
+			"tier":2,
+			"enum": [
+				"FourDPlus",
+				"Co-localization",
+				"Electrophysiology",
+				"FLIM",
+				"FRAP",
+				"FRET",
+				"HightThroughputScreen",
+				"IonImaging",
+				"LightSheet",
+				"OpticalTrapping",
+				"PGI-Documentation",
+				"PhotoAblation",
+				"PhotoActivation",
+				"SpectralImaging",
+				"SPIM",
+				"DeterministicSuper-Resolution",
+				"StochasticSuper-Resolution",
+				"StructuredIlluminationMicroscopy",
+				"TimeLapse",
+				"Other"
+			],
+			"category":"Experiment"
+		},
+		"LabellingMethod": {
+			"type":"string",
+			"description":"A term that describes the method used for labelling the molecular component under study in this experiment.",
+			"tier":2,
+			"enum": [
+				"BiarsenicalDye",
+				"FluorescentProtein",
+				"Immunocytochemistry",
+				"ImmunoFluorescence",
+				"SelfLabellingEnzymeTag",
+				"Aptamer",
+				"BacteriophageDerivedRNATag",
+				"ChemicalModification",
+				"ForcedIntercalation",
+				"MolecularBeacon",
+				"FISH",
+				"SingleMoleculeFISH",
+				"CASFISH",
+				"ChemicalModification",
+				"None",
+				"Other"
+			],
+			"category":"Experiment"
+		},
+		"Experimenter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to Experimenter that performed this experiment.",
+				"type":"string",
+				"tier":1,
+				"category":"Experimenter",
+				"linkTo":"Experimenter"
+			}
+		},
+		"Sample": {
+			"type":"object",
+			"description":"A description of the sample that was imaged in this experiment.",
+			"tier":1,
+			"properties": {
+				"ID": {
+					"type":"string",
+					"description":"A unique identifier for this Sample.",
+					"tier":1,
+					"category":"Sample",
+					"readonly":true
+				},
+				"Name": {
+					"type":"string",
+					"description":"A user assigned name for this Sample.",
+					"tier":1,
+					"category":"Sample"
+				},
+				"MountingMedium": {
+					"type":"string",
+					"description":"The mounting medium the sample is embedded in during acquisition.",
+					"tier":2,
+					"category":"Sample"
+				},
+				"MountingMediumRefractiveIndex": {
+					"type":"number",
+					"description":"The refractive index (RI) of the mounting medium. If possible the RI should be measured. Alternatively, please refer to the nominal RI as provided by the manufacturer.",
+					"tier":3,
+					"category":"Sample"
+				}
+			},
+			"required": [
+				"Name",
+				"MountingMedium",
+				"MountingMediumRefractiveIndex"
+			]
+		},
+		"MicrobeamManipulation": {
+			"type":"array",
+			"description":"Defines a microbeam operation and the region of the image it was applied to. The LightSourceSettingsRef element is a reference to the LightSourceSettings that were used in this case, including a reference to the light source that was used for this micromanipulation experiment (e.g.  a laser used for photobleaching).",
+			"tier":3,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"MicrobeamManipulation",
+						"readonly":true
+					},
+					"Type": {
+						"type":"string",
+						"description":"Defines the type of micromanipulation performed.",
+						"tier":3,
+						"enum": [
+							"FRAP",
+							"FLIP",
+							"InverseFRAP",
+							"Photoablation",
+							"Photoactivation",
+							"Uncaging",
+							"OpticalTrapping",
+							"Other"
+						],
+						"category":"MicrobeamManipulation"
+					}
+				},
+				"required": [
+					"ID",
+					"Type"
+				]
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"Type",
+		"LabellingMethod",
+		"Experimenter",
+		"Sample",
+		"Description"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Laser.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"Laser",
 	"description":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
 	"image":"Fluorescence_LightSource_Laser.png",
 	"tier":1,
@@ -3939,6 +7559,7 @@
 	"type":"object",
 	"title":"GenericDetector",
 	"description":"This element is used to represent a detector as a collection of key/value pairs, which are stored in a Map. One of the other detector elements should always be used in preference to this if possible.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Detector",
 	"image":"Detector_GenericDetector.png",
 	"tier":2,
@@ -4311,6 +7932,7 @@
 	"type":"object",
 	"title":"IntensifiedCCD",
 	"description":"The type of Intensified CCD camera used.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
 	"image":"Detector_Camera_IntensifiedCCD.png",
 	"tier":2,
@@ -5066,6 +8688,7 @@
 	"type":"object",
 	"title":"Reflector",
 	"description":"This is a total reflection mirror.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Mirror",
 	"image":"Mirror_Reflector.png",
 	"tier":2,
@@ -5280,6 +8903,7 @@
 	"type":"object",
 	"title":"Prism",
 	"description":"This describes a prism positioned in the light path for one or more channel available for this instrument. A prism is a block of glass or other transparent material with flat, polished surfaces, which can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. An instrument may have several prisms with different factionality such as,  reflecting, polarizing, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. Refracting prisms can be employed to bend and separate light into its component colors. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_Prism.png",
 	"tier":2,
@@ -5634,6 +9258,7 @@
 	"type":"object",
 	"title":"SampleHolder",
 	"description":"This describes an optional sample holder mounted on the microscope stage.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Stage",
 	"image":"SamplePositioning_Stage_SampleHolder.png",
 	"tier":3,
@@ -6080,6 +9705,7 @@
 	"type":"object",
 	"title":"RelayLens",
 	"description":"A lens positioned at the mount connecting a detector to the microscope body.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_RelayLens.png",
 	"tier":3,
@@ -6521,11 +10147,345 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"FocalPosition.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"FocalPosition",
+	"description":"This element is used to record the Z-axis position of a Plane with respect to the microscope's reference frame.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"SampleConditions",
+	"image":"SampleConditions_FocalPosition.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"FocalPosition":"This element is used to record the Z-axis position of a Plane with respect to the microscope's reference frame.",
+		"SamplePositioning":"NA",
+		"AutoFocus":"NA"
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user assigned name for this Z-axis focal position.",
+			"tier":3,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Z-axis focal position.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"StagePositionZ": {
+			"type":"number",
+			"description":"The Z-axis focal position of this plane.          ",
+			"tier":3,
+			"category":"FocalPosition"
+		},
+		"StagePositionZUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"reference frame",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"FocalPosition"
+		},
+		"SamplePositioning": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"category":"SamplePositioning",
+			"linkTo":"SamplePositioning"
+		},
+		"AutoFocus": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"category":"AutoFocus",
+			"linkTo":"AutoFocus"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"StagePositionZ"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ImagingEnvironment.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"ImagingEnvironment",
+	"description":"This describes the environment in which the biological sample was kept, during the acquisition of this image.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"SampleConditions",
+	"image":"SampleConditions_ImagingEnvironment.png",
+	"tier":4,
+	"subCategoriesOrder": {
+		"ImagingEnvironment":"This describes the environment in which the biological sample was kept, during the acquisition of this image."
+	},
+	"properties": {
+		"Temperature": {
+			"type":"number",
+			"description":"The Temperature at which the imaging experiment was conducted          ",
+			"tier":4,
+			"category":"ImagingEnvironment"
+		},
+		"TemperatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":4,
+			"default":"°C",
+			"enum": [
+				"°C",
+				"°F",
+				"K",
+				"°R"
+			],
+			"category":"ImagingEnvironment"
+		},
+		"AirPressure": {
+			"type":"number",
+			"description":"AirPressure is the define units          ",
+			"tier":4,
+			"category":"ImagingEnvironment"
+		},
+		"AirPressureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":4,
+			"default":"mbar",
+			"enum": [
+				"YPa",
+				"ZPa",
+				"EPa",
+				"PPa",
+				"TPa",
+				"GPa",
+				"MPa",
+				"kPa",
+				"hPa",
+				"daPa",
+				"Pa",
+				"dPa",
+				"cPa",
+				"mPa",
+				"µPa",
+				"nPa",
+				"pPa",
+				"fPa",
+				"aPa",
+				"zPa",
+				"yPa",
+				"bar",
+				"Mbar",
+				"kbar",
+				"dbar",
+				"cbar",
+				"mbar",
+				"atm",
+				"psi",
+				"Torr",
+				"mTorr",
+				"mm Hg"
+			],
+			"category":"ImagingEnvironment"
+		},
+		"Humidity": {
+			"type":"number",
+			"description":"Humidity around the sample [units:none]. A fraction, as a value from 0.0 to 1.0.          ",
+			"tier":4,
+			"category":"ImagingEnvironment"
+		},
+		"CO2Percent": {
+			"type":"number",
+			"description":"Carbon Dioxide concentration around the sample [units:none]. A fraction, as a value from 0.0 to 1.0          ",
+			"tier":4,
+			"category":"ImagingEnvironment"
+		},
+		"Map": {
+			"type":"object",
+			"description":"NA",
+			"tier":1,
+			"properties": {
+			}
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":4,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Temperature",
+		"CO2Percent"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"DetectorCalibration.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"DetectorCalibration",
+	"description":"This procedure measures the performance of the dectector.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_DetectorCalibration.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"IntensityCalibration":"This describes the procedure(s) that were used for excitation and detector calibration and the resulting calibration results.",
+		"DetectorCalibration":"This procedure measures the performance of the dectector.",
+		"IntensityCalibrationTool":"This element is a reference to the tool if any used to perform this calibratin procdure.",
+		"CalibrationMap":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to."
+	},
+	"properties": {
+		"Method": {
+			"type":"string",
+			"description":"This is a description of method used for this calibration procedure.",
+			"tier":3,
+			"category":"DetectorCalibration"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Date": {
+			"type":"string",
+			"description":"The date in which this calibration procedure was performed.",
+			"tier":3,
+			"category":"IntensityCalibration"
+		},
+		"IntensityCalibrationTool": {
+			"type":"array",
+			"items": {
+				"description":"This element is a reference to the tool, if any, used to perform this calibratin procdure.",
+				"type":"string",
+				"tier":3,
+				"category":"IntensityCalibrationTool",
+				"linkTo":"IntensityCalibrationTool"
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"CalibrationMap": {
+			"type":"object",
+			"description":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to.",
+			"tier":3,
+			"properties": {
+				"MetricType": {
+					"type":"string",
+					"description":"This field captures the type of metric that was computed as part of the calibratin procedure in this instance.",
+					"tier":3,
+					"enum": [
+						"Gain",
+						"LinearOffset",
+						"DetectionLimit",
+						"LinearRangeMax",
+						"Variance",
+						"Mean",
+						"Other",
+						""
+					],
+					"category":"CalibrationMap"
+				},
+				"IlluminationIntensity": {
+					"type":"number",
+					"description":"This attribute only applies to matrices of type Variance and Mean. It represents the illumination intensity that was used to acquire the images used to contruct this matrix. The value can range from 0 (i.e. dark image) to any intenisty value experssed either as percentage or as absolute power. ",
+					"tier":3,
+					"category":"CalibrationMap"
+				},
+				"NrOfImages": {
+					"type":"string",
+					"description":"This field represents the number of images that were employed to generate this calibration matrix.",
+					"tier":3,
+					"category":"CalibrationMap"
+				}
+			},
+			"required": [
+				"MetricType",
+				"IlluminationIntensity",
+				"NrOfImages"
+			]
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Method",
+		"ID",
+		"Date",
+		"Description",
+		"CalibrationMap"
+	]
+}
+,
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Optovar.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"Optovar",
 	"description":"Optovars are magnification changing devices originally developed by Zeiss, which provide additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification changers are placed before the tube lens within the infinity space of the optical system. Typical magnification increments are: 1.25x, 1.6x, and 2x.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Magnification",
 	"image":"Magnification_Optovar.png",
 	"tier":1,
@@ -6625,7 +10585,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ObjectiveTurretFocus.json",
@@ -6633,6 +10594,7 @@
 	"type":"object",
 	"title":"ObjectiveTurretFocus",
 	"description":"An objective turret positoning device available for this instrument.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Focusing",
 	"image":"SamplePositioning_Focusing_ObjectiveTurretFocus.png",
 	"tier":3,
@@ -6934,6 +10896,7 @@
 	"type":"object",
 	"title":"FilterSet",
 	"description":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. They might either be pre-assebled by the manufacturer and pruchased as a whole or they can be custome assembled on site depending on the needs of the user.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
 	"image":"LightPath_FilterSet.png",
 	"tier":2,
@@ -7034,14 +10997,16 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Pump.json",
-	"version":"1.05.5",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Pump",
 	"description":"The Pump element refers to a light source. It is used within the Laser element to specify the light source used as an optional laser pump.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
 	"image":"ChildElement_Pump.png",
 	"tier":5,
@@ -7074,6 +11039,7 @@
 	"type":"object",
 	"title":"IntensityCalibrationTool",
 	"description":"A tool, such as the Meta-Max calibration toold developed by the 4D Nucleome Imaging Standards Working Group, used to perform an intensity calibration procedure.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Calibration",
 	"image":"Calibration_IntensityCalibrationTool.png",
 	"tier":3,
@@ -7162,6 +11128,335 @@
 		"SpecsFile",
 		"Description"
 	]
+}
+,
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"LightPath.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"LightPath",
+	"description":"A description of the light path.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Channel",
+	"image":"Channel_LightPath.png",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"LightPath":"A description of the light path.",
+		"LightSourceCoupling":"NA",
+		"FilterSet":"NA",
+		"ExcitationFilter":"This empty element refers to an ExcitationFilter component used in this light path.",
+		"StandardDichroic":"NA",
+		"EmissionFilter":"This empty element refers to an EmissionFilter component used in this light path.",
+		"AdditionalOptics":"A description of additional optics placed in this light path."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		},
+		"LightSourceCoupling": {
+			"type":"array",
+			"items": {
+				"description":"NA",
+				"type":"string",
+				"tier":1,
+				"category":"LightSourceCoupling",
+				"linkTo":"LightSourceCoupling"
+			}
+		},
+		"FilterSet": {
+			"type":"array",
+			"items": {
+				"description":"NA",
+				"type":"string",
+				"tier":1,
+				"category":"FilterSet",
+				"linkTo":"FilterSet"
+			}
+		},
+		"ExcitationFilter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to an ExcitationFilter component used in this light path.",
+				"type":"string",
+				"tier":2,
+				"category":"ExcitationFilter",
+				"linkTo":"ExcitationFilter"
+			}
+		},
+		"StandardDichroic": {
+			"type":"array",
+			"items": {
+				"description":"NA",
+				"type":"string",
+				"tier":1,
+				"category":"StandardDichroic",
+				"linkTo":"StandardDichroic"
+			}
+		},
+		"EmissionFilter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to an EmissionFilter component used in this light path.",
+				"type":"string",
+				"tier":2,
+				"category":"EmissionFilter",
+				"linkTo":"EmissionFilter"
+			}
+		},
+		"AdditionalOptics": {
+			"type":"object",
+			"description":"A description of additional optics placed in this light path.",
+			"tier":2,
+			"properties": {
+				"ID": {
+					"type":"string",
+					"description":"A unique identifier for this component.",
+					"tier":2,
+					"category":"AdditionalOptics",
+					"readonly":true
+				},
+				"Name": {
+					"type":"string",
+					"description":"A user defined name for this component.",
+					"tier":2,
+					"category":"AdditionalOptics"
+				}
+			},
+			"required": [
+				"ID",
+				"Name"
+			]
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"Description"
+	]
+}
+,
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"MicrobeamManipulation.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"MicrobeamManipulation",
+	"description":"Defines a microbeam operation and the region of the image it was applied to. The LightSourceSettingsRef element is a reference to the LightSourceSettings that were used in this case, including a reference to the light source that was used for this micromanipulation experiment (e.g.  a laser used for photobleaching).",
+	"domain":"ImageAcquisitionSettings",
+	"category":"SampleManipulation",
+	"image":"SampleManipulation_MicrobeamManipulation.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"MicrobeamManipulation":"Defines a microbeam operation and the region of the image it was applied to. The LightSourceSettingsRef element is a reference to the LightSourceSettings that were used in this case, including a reference to the light source that was used for this micromanipulation experiment (e.g.  a laser used for photobleaching).",
+		"Experimenter":"This empty element refers to Experimenter that performed this experiment.",
+		"ROI":"NA",
+		"LightSourceSettings":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Type": {
+			"type":"string",
+			"description":"Defines the type of micromanipulation performed.",
+			"tier":3,
+			"enum": [
+				"FRAP",
+				"FLIP",
+				"InverseFRAP",
+				"Photoablation",
+				"Photoactivation",
+				"Uncaging",
+				"OpticalTrapping",
+				"Other"
+			],
+			"category":"MicrobeamManipulation"
+		},
+		"Experimenter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to Experimenter that performed this experiment.",
+				"type":"string",
+				"tier":1,
+				"category":"Experimenter",
+				"linkTo":"Experimenter"
+			}
+		},
+		"ROI": {
+			"type":"array",
+			"items": {
+				"description":"NA",
+				"type":"string",
+				"tier":1,
+				"category":"ROI",
+				"linkTo":"ROI"
+			}
+		},
+		"LightSourceSettings": {
+			"type":"array",
+			"description":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"LightSourceSettings",
+						"readonly":true
+					},
+					"Wavelength": {
+						"type":"number",
+						"description":"The nominal wavelength of the excitation light utilized in this case.              ",
+						"tier":3,
+						"category":"LightSourceSettings"
+					},
+					"WavelengthUnit": {
+						"type":"string",
+						"description":"The units of the Wavelength of the light source - default:nanometres[nm].",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"LightSourceSettings"
+					},
+					"PowerSettings": {
+						"type":"number",
+						"description":"The light power output settings utilized in this case.",
+						"tier":3,
+						"category":"LightSourceSettings"
+					},
+					"PowerSettingsUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"W",
+						"enum": [
+							"YW",
+							"ZW",
+							"EW",
+							"PW",
+							"TW",
+							"GW",
+							"MW",
+							"kW",
+							"hW",
+							"daW",
+							"W",
+							"dW",
+							"cW",
+							"mW",
+							"µW",
+							"nW",
+							"pW",
+							"fW",
+							"aW",
+							"zW",
+							"yW"
+						],
+						"category":"LightSourceSettings"
+					},
+					"Attenuation": {
+						"type":"number",
+						"description":"The observed attenuation of the excitation light power expressed as a fractional value from 0.0 to 1.0.",
+						"tier":5,
+						"category":"LightSourceSettings"
+					}
+				},
+				"required": [
+					"ID",
+					"Wavelength",
+					"PowerSettings"
+				]
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Type",
+		"ROI",
+		"LightSourceSettings",
+		"Description"
+	]
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
@@ -7170,6 +11465,7 @@
 	"type":"object",
 	"title":"AdditionalDichroic",
 	"description":"This describes an additional dichroic  positioned in the light path for one or more channel available for this instrument.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_AdditionalDichroic.png",
 	"tier":2,
@@ -7704,6 +12000,7 @@
 	"type":"object",
 	"title":"Direct",
 	"description":"A Direct coupling between the light source and the microscope consists either of a direct mount or of an optical light path that directs light across space to the back of the microscope body.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"LightSourceCoupling",
 	"image":"LightSourceCoupling_Direct.png",
 	"tier":4,
@@ -7815,6 +12112,70 @@
 		"SpecsFile",
 		"Description"
 	]
+}
+,
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Sample.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"Sample",
+	"description":"A description of the sample that was imaged in this experiment.",
+	"domain":"Experimental",
+	"category":"SamplePreparation",
+	"image":"SamplePreparation_Sample.png",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Sample":"A description of the sample that was imaged in this experiment."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user assigned name for this Sample.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Sample.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"MountingMedium": {
+			"type":"string",
+			"description":"The mounting medium the sample is embedded in during acquisition.",
+			"tier":2,
+			"category":"Sample"
+		},
+		"MountingMediumRefractiveIndex": {
+			"type":"number",
+			"description":"The refractive index (RI) of the mounting medium. If possible the RI should be measured. Alternatively, please refer to the nominal RI as provided by the manufacturer.",
+			"tier":3,
+			"category":"Sample"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Name",
+		"MountingMedium",
+		"MountingMediumRefractiveIndex",
+		"Description"
+	]
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
@@ -7823,6 +12184,7 @@
 	"type":"object",
 	"title":"CMOS",
 	"description":"A complementary metal-oxide-semiconductor camera.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
 	"image":"Detector_Camera_CMOS.png",
 	"tier":2,
@@ -8579,6 +12941,7 @@
 	"type":"object",
 	"title":"BeamSplitter",
 	"description":"This is a mirror that reflects part of the light, regardless of wavelenght.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Mirror",
 	"image":"Mirror_BeamSplitter.png",
 	"tier":2,
@@ -8807,6 +13170,7 @@
 	"type":"object",
 	"title":"GenericExcitationSource",
 	"description":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Transmitted_LightSource",
 	"image":"Transmitted_LightSource_GenericExcitationSource.png",
 	"tier":1,
@@ -8936,6 +13300,7 @@
 	"type":"object",
 	"title":"GenericExcitationSource",
 	"description":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
 	"image":"Fluorescence_LightSource_GenericExcitationSource.png",
 	"tier":1,
@@ -9061,11 +13426,581 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"OpticalCalibration.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"OpticalCalibration",
+	"description":"This describes the procedure that was used for optical calibration and the resulting calibration measurements.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_OpticalCalibration.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"OpticalCalibration":"This describes the procedure that was used for optical calibration and the resulting calibration measurements.",
+		"OpticalCalibrationImage":"An image (typically a z-stack) obtained by observing the optical standard used in this instance and acquired using the same instrument and settings employed to acquire the image this calibration refers to.",
+		"OpticalStandardGroup":"The optical standard used in this case. This might be a pre-manufactured slide such as those produced by Argolight (http://argolight.com/) Geller MicroAnalytical Laboratory (Magnification Reference Standard MRS-4 and others; http://www.gellermicro.com/mag_standards/mrs.html) Zeiss and others. Alternatively the standard might be a slide containing multi-colored beads of known size and emission characteristics. Finally slides coated with specific DNA origami patterns are increasingly being used for this purpose as well.",
+		"OpticalCalibrationReport":"This element refers to a file containing the report ouput generated by the optical calibration software."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Date": {
+			"type":"string",
+			"description":"The date in which this calibration was performed.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"MedianSpotSize_FWHM": {
+			"type":"number",
+			"description":"Observed median lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile. This is a measure of the observed resolution of the system in the xy-plane.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"MedianSpotSize_FWHMUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"OpticalCalibration"
+		},
+		"MedianTheoretical_FWHM": {
+			"type":"number",
+			"description":"Theoretical (expected) medians lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the xy-plane.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"MedianTheoretical_FWHMUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"OpticalCalibration"
+		},
+		"MinSpotSize_FWHM": {
+			"type":"number",
+			"description":"Observed minimum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile. This is a measure of the observed resolution of the system in the xy-plane.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"MinSpotSize_FWHMUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"OpticalCalibration"
+		},
+		"MinTheoretical_FWHM": {
+			"type":"number",
+			"description":"Theoretical (expected) minimum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the xy-plane.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"MinTheoretical_FWHMUnit": {
+			"type":"number",
+			"description":"Theoretical (expected) minimum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the xy-plane.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"MaxSpotSize_FWHM": {
+			"type":"number",
+			"description":"Observed maximum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile. This is a measure of the observed resolution of the system in the xy-plane.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"MaxSpotSize_FWHMUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"OpticalCalibration"
+		},
+		"MaxTheoretical_FWHM": {
+			"type":"number",
+			"description":"Theoretical (expected) maximum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the xy-plane.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"MaxTheoretical_FWHMUnit": {
+			"type":"number",
+			"description":"Theoretical (expected) maximum lateral spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the xy-plane.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"ZSpotSize_FWHM": {
+			"type":"number",
+			"description":"Observed z-axial spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile. This is a measure of the observed resolution of the system in the z-plane.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"ZSpotSize_FWHMUnit": {
+			"type":"number",
+			"description":"Observed z-axial spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile. This is a measure of the observed resolution of the system in the z-plane.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"FWHM_ZTheoretical": {
+			"type":"number",
+			"description":"Theoretical (expected) z-axial spot size expressed as the Full Width at Half Maximum (FWHM) of the fitted Point Spread Function (PSF) intensity profile, on the basis of the given optical conditions. This is a measure of the expected resolution of the system in the z-plane.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"FWHM_ZTheoreticalUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"OpticalCalibration"
+		},
+		"Planarity": {
+			"type":"number",
+			"description":"This is a measure of the flatness of the focal plane across the Field of View (FOV). The planarity of the focal plane is calculated from the observed z-position of the best focus of each spot. It indicates focal aberrations or tilt.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"PlanarityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"OpticalCalibration"
+		},
+		"Asymmetry": {
+			"type":"number",
+			"description":"This field reports the mean +/- standard deviation over the Field of View (FOV) of the observed Point Spread Function (PSF) Asymmetry (i.e. the ratio of the minimum lateral FWMH over the maximum lateral FWHM). It indicates the presence of optical aberrations.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"LateralChromaticShift": {
+			"type":"number",
+			"description":"The lateral offset of the observed spot position between two color channels.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"LateralChromaticShiftUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"OpticalCalibration"
+		},
+		"AxialChromaticShift": {
+			"type":"number",
+			"description":"The axial offset of the observed spot position between two color channels.",
+			"tier":3,
+			"category":"OpticalCalibration"
+		},
+		"AxialChromaticShiftUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"OpticalCalibration"
+		},
+		"OpticalCalibrationImage": {
+			"type":"array",
+			"items": {
+				"description":"An image (typically a z-stack) obtained by observing the optical standard used in this instance and acquired using the same instrument and settings employed to acquire the image this calibration refers to.",
+				"type":"string",
+				"tier":3,
+				"category":"OpticalCalibrationImage",
+				"linkTo":"OpticalCalibrationImage"
+			}
+		},
+		"OpticalStandardGroup": {
+			"type":"array",
+			"description":"The optical standard used in this case. This might be a pre-manufactured slide, such as those produced by Argolight (http://argolight.com/), Geller MicroAnalytical Laboratory (Magnification Reference Standard MRS-4 and others; http://www.gellermicro.com/mag_standards/mrs.html), Zeiss and others. Alternatively, the standard might be a slide containing multi-colored beads of known size and emission characteristics. Finally, slides coated with specific DNA origami patterns are increasingly being used for this purpose as well.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"OpticalStandardGroup",
+						"readonly":true
+					},
+					"Name": {
+						"type":"string",
+						"description":"A user defined name for this component.",
+						"tier":3,
+						"category":"OpticalStandardGroup"
+					},
+					"Manufacturer": {
+						"type":"string",
+						"description":"The manufacturer of this component.",
+						"tier":1,
+						"category":"OpticalStandardGroup"
+					},
+					"Model": {
+						"type":"string",
+						"description":"The model of this component.",
+						"tier":3,
+						"category":"OpticalStandardGroup"
+					},
+					"SerialNumber": {
+						"type":"string",
+						"description":"The serial number of this component",
+						"tier":5,
+						"category":"OpticalStandardGroup"
+					},
+					"LotNumber": {
+						"type":"string",
+						"description":"The lot number of this component",
+						"tier":5,
+						"category":"OpticalStandardGroup"
+					},
+					"SpecsFile": {
+						"type":"uri",
+						"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+						"tier":5,
+						"category":"OpticalStandardGroup"
+					}
+				},
+				"required": [
+					"ID",
+					"Name",
+					"Manufacturer",
+					"Model",
+					"SerialNumber",
+					"SpecsFile"
+				]
+			}
+		},
+		"OpticalCalibrationReport": {
+			"type":"array",
+			"items": {
+				"description":"This element refers to a file containing the report ouput generated by the optical calibration software.",
+				"type":"string",
+				"tier":3,
+				"category":"OpticalCalibrationReport",
+				"linkTo":"OpticalCalibrationReport"
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Date",
+		"OpticalCalibrationImage",
+		"OpticalStandardGroup",
+		"Description"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Arc.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"Arc",
 	"description":"An Arc lamp is a lamp that produces light by an electric arc (also called a voltaic arc), which is typically generated between metal electrodes through an inert gas in a glass bulb.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
 	"image":"Fluorescence_LightSource_Arc.png",
 	"tier":1,
@@ -9201,6 +14136,7 @@
 	"type":"object",
 	"title":"PiezoElectricStage",
 	"description":"This describes an optional piezoelectric stage positioning device associated with this instrument.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Stage",
 	"image":"SamplePositioning_Stage_PiezoElectricStage.png",
 	"tier":3,
@@ -9612,11 +14548,305 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"SamplePosition.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"SamplePosition",
+	"description":"This is used to specify the location of the sample during the acquisition of this plane, with respect to the microscope's reference frame.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"SampleConditions",
+	"image":"SampleConditions_SamplePosition.png",
+	"tier":4,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"SamplePosition":"This is used to specify the location of the sample during the acquisition of this plane, with respect to the microscope's reference frame.",
+		"SamplePositioning":"NA"
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user assigned label for this specific sample holder position.",
+			"tier":3,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identified for this specific sample holder position.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"SamplePositionX": {
+			"type":"number",
+			"description":"The X position of the SampleHolder within the microscope's reference frame          ",
+			"tier":4,
+			"category":"SamplePosition"
+		},
+		"SamplePositionXUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":4,
+			"default":"reference frame",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"SamplePosition"
+		},
+		"SamplePositionY": {
+			"type":"number",
+			"description":"The Y position of the SampleHolder within the microscope's reference frame",
+			"tier":4,
+			"category":"SamplePosition"
+		},
+		"SamplePositionYUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":4,
+			"default":"reference frame",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"SamplePosition"
+		},
+		"SamplePositionZ": {
+			"type":"number",
+			"description":"The Z position of the SampleHolder within the microscope's reference frame",
+			"tier":4,
+			"category":"SamplePosition"
+		},
+		"SamplePositionZUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":4,
+			"default":"reference frame",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"SamplePosition"
+		},
+		"SamplePositioning": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"category":"SamplePositioning",
+			"linkTo":"SamplePositioning"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":4,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"SamplePositionX",
+		"SamplePositionY"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"DNAOrigami.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"DNAOrigami",
+	"description":"This element describes an optical standard constructed using the DNA origani technique.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_DNAOrigami.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
+		"OpticalStandard":"The optical standard used in this case. This might be a pre-manufactured slide, such as those produced by Argolight (http://argolight.com/), Geller MicroAnalytical Laboratory (Magnification Reference Standard MRS-4 and others; http://www.gellermicro.com/mag_standards/mrs.html), Zeiss and others. Alternatively, the standard might be a slide containing multi-colored beads of known size and emission characteristics. Finally, slides coated with specific DNA origami patterns are increasingly being used for this purpose as well.",
+		"DNAOrigami":"This element describes an optical standard constructed using the DNA origani technique."
+	},
+	"properties": {
+		"Type": {
+			"type":"string",
+			"description":"This field describes the type of DNA origami-based optical standard used in this case. Currently this is fild is a simple string. However it might be substituted by an enumeration at a later stage.",
+			"tier":3,
+			"category":"DNAOrigami"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"uri",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Type",
+		"ID",
+		"Name",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"Description"
+	]
+}
+,
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PhotoMultiplier.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"PhotoMultiplier",
 	"description":"A photomultiplier tube, useful for light detection of very weak signals, is a photoemissive device in which the absorption of a photon results in the emission of an electron. These detectors work by amplifying the electrons generated by a photocathode exposed to a photon flux.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Detector",
 	"image":"Detector_PhotoMultiplier.png",
 	"tier":2,
@@ -9994,11 +15224,119 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"MicroscopeSettings.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"MicroscopeSettings",
+	"description":"This element refers to the microscope used to acquire this image and it holds the settings that were applied to the microscope during this acquisition.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_MicroscopeSettings.png",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Reference":"NA",
+		"Settings":"NA",
+		"MicroscopeSettings":"This element refers to the microscope used to acquire this image and it holds the settings that were applied to the microscope during this acquisition.",
+		"Optovar":"This empty element refers to the existing Optovar component used in this case.",
+		"Objective":"This empty element refers to the existing Objective component used in this case."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the unique identifier of the microscope used in this case.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"FieldOfView": {
+			"type":"number",
+			"description":"The Field of View defines the area of the specimen that is viewable via the eyepiece. This field caputers the measures size of the Field of View.",
+			"tier":3,
+			"category":"MicroscopeSettings"
+		},
+		"FieldOfViewUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"MicroscopeSettings"
+		},
+		"TotalEffectiveMagnification": {
+			"type":"number",
+			"description":"This is the total effective magnification used in this case. This number can be obtained by multiplying Optovar/Magnification times the Objective/NominalMagnification or even better the Objective/CalibratedMagnification if available.",
+			"tier":1,
+			"category":"MicroscopeSettings"
+		},
+		"Optovar": {
+			"type":"string",
+			"description":"This empty element refers to the existing Optovar component used in this case.",
+			"tier":3,
+			"category":"Optovar",
+			"linkTo":"Optovar"
+		},
+		"Objective": {
+			"type":"string",
+			"description":"This empty element refers to the existing Objective component used in this case.",
+			"tier":3,
+			"category":"Objective",
+			"linkTo":"Objective"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Objective"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MechanicalStage.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"MechanicalStage",
 	"description":"This describes a mechanical stage positioning device associated with this instrument. This component is not very common but can be found in simple surveying microscopes.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Stage",
 	"image":"SamplePositioning_Stage_MechanicalStage.png",
 	"tier":3,
@@ -10410,11 +15748,94 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"TIRFSettings.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"TIRFSettings",
+	"description":"Defines the TIRF settings used for this experiment.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_TIRFSettings.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Reference":"NA",
+		"Settings":"NA",
+		"TIRFSettings":"Defines the TIRF settings used for this experiment."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"ThroughLens": {
+			"type":"boolean",
+			"description":"The TIRF modality used in this case. True=Through the lens TIRF modality. False=TIRF modality in which the laser light is not travelling through the objective lens.",
+			"tier":3,
+			"category":"TIRFSettings"
+		},
+		"TIRFAngle": {
+			"type":"number",
+			"description":"The incidence angle used in this case",
+			"tier":3,
+			"category":"TIRFSettings"
+		},
+		"TIRFAngleUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			],
+			"category":"TIRFSettings"
+		},
+		"Geometry": {
+			"type":"string",
+			"description":"The TIRF geometry used in this case",
+			"tier":3,
+			"enum": [
+				"Spot",
+				"Ring",
+				"Other"
+			],
+			"category":"TIRFSettings"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"ThroughLens",
+		"TIRFAngle",
+		"Geometry",
+		"Description"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"EmissionFilter.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"EmissionFilter",
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths. This element refers to an emission filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
 	"image":"LightPath_EmissionFilter.png",
 	"tier":2,
@@ -10658,6 +16079,7 @@
 	"type":"object",
 	"title":"AutoFocus",
 	"description":"This element describes one or more optional focus stabilization device(s) available for this instrument.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Focusing",
 	"image":"SamplePositioning_Focusing_AutoFocus.png",
 	"tier":3,
@@ -10746,7 +16168,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CCD.json",
@@ -10754,6 +16177,7 @@
 	"type":"object",
 	"title":"CCD",
 	"description":"A charged coupled device camera.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
 	"image":"Detector_Camera_CCD.png",
 	"tier":2,
@@ -11505,11 +16929,383 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"LightSourceSettings.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"LightSourceSettings",
+	"description":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_LightSourceSettings.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Reference":"NA",
+		"Settings":"NA",
+		"LightSourceSettings":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Wavelength": {
+			"type":"number",
+			"description":"The nominal wavelength of the excitation light utilized in this case.              ",
+			"tier":3,
+			"category":"LightSourceSettings"
+		},
+		"WavelengthUnit": {
+			"type":"string",
+			"description":"The units of the Wavelength of the light source - default:nanometres[nm].",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"LightSourceSettings"
+		},
+		"PowerSettings": {
+			"type":"number",
+			"description":"The light power output settings utilized in this case.",
+			"tier":3,
+			"category":"LightSourceSettings"
+		},
+		"PowerSettingsUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"W",
+			"enum": [
+				"YW",
+				"ZW",
+				"EW",
+				"PW",
+				"TW",
+				"GW",
+				"MW",
+				"kW",
+				"hW",
+				"daW",
+				"W",
+				"dW",
+				"cW",
+				"mW",
+				"µW",
+				"nW",
+				"pW",
+				"fW",
+				"aW",
+				"zW",
+				"yW"
+			],
+			"category":"LightSourceSettings"
+		},
+		"Attenuation": {
+			"type":"number",
+			"description":"The observed attenuation of the excitation light power expressed as a fractional value from 0.0 to 1.0.",
+			"tier":5,
+			"category":"LightSourceSettings"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Wavelength",
+		"PowerSettings"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ColoredBeadsSlide.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"ColoredBeadsSlide",
+	"description":"This element describes the beads that were used to acquire the image.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_ColoredBeadsSlide.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
+		"OpticalStandard":"The optical standard used in this case. This might be a pre-manufactured slide, such as those produced by Argolight (http://argolight.com/), Geller MicroAnalytical Laboratory (Magnification Reference Standard MRS-4 and others; http://www.gellermicro.com/mag_standards/mrs.html), Zeiss and others. Alternatively, the standard might be a slide containing multi-colored beads of known size and emission characteristics. Finally, slides coated with specific DNA origami patterns are increasingly being used for this purpose as well.",
+		"ColoredBeadsSlide":"This element describes the beads that were used to acquire the image."
+	},
+	"properties": {
+		"BeadSize": {
+			"type":"number",
+			"description":"The size of the colred beads utilized to make this slide.",
+			"tier":3,
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadSizeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadConcentration": {
+			"type":"number",
+			"description":"The concentration of the colored beads preparation utilized to make this slide.",
+			"tier":3,
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadConcentrationUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"Units/ml",
+			"enum": [
+				"ng/µl",
+				"µg/µl",
+				"mg/ml",
+				"%(W/V)",
+				"%(V/V)",
+				"Units/ml",
+				"Other"
+			],
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadVolume": {
+			"type":"number",
+			"description":"The volume of the colored beads preparation utilized to prepare this slide.",
+			"tier":3,
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadVolumeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"µl",
+			"enum": [
+				"liter",
+				"ml",
+				"µl",
+				"cm3",
+				"Other"
+			],
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadEmissionWavelenght": {
+			"type":"string",
+			"description":"The wavelenght(s) of the light emitted by these beads.",
+			"tier":1,
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadEmissionWavelenghtUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"ColoredBeadsSlide"
+		},
+		"Type": {
+			"type":"string",
+			"description":"The type of colred beads used in this case.",
+			"tier":3,
+			"enum": [
+				"Single color",
+				"Multi-color",
+				"Other"
+			],
+			"category":"ColoredBeadsSlide"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"uri",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"BeadSize",
+		"BeadConcentration",
+		"BeadEmissionWavelenght",
+		"Type",
+		"ID",
+		"Name",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"Description"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalLens.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"AdditionalLens",
 	"description":"Any additional lens poistioned in the light path for a given channel.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_AdditionalLens.png",
 	"tier":2,
@@ -11956,6 +17752,7 @@
 	"type":"object",
 	"title":"WavelengthRange",
 	"description":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
 	"image":"ChildElement_WavelengthRange.png",
 	"tier":5,
@@ -12088,6 +17885,7 @@
 	"type":"object",
 	"title":"LEDModule",
 	"description":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
 	"image":"ChildElement_LEDModule.png",
 	"tier":2,
@@ -12319,11 +18117,205 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ExcitationCalibration.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"ExcitationCalibration",
+	"description":"This procedure measures the performance and allows calibration of the wavelength and irradiance of the excitation light.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_ExcitationCalibration.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"IntensityCalibration":"This describes the procedure(s) that were used for excitation and detector calibration and the resulting calibration results.",
+		"ExcitationCalibration":"This procedure measures the performance and allows calibration of the wavelength and irradiance of the excitation light.",
+		"IntensityCalibrationTool":"This element is a reference to the tool if any used to perform this calibratin procdure."
+	},
+	"properties": {
+		"ObservedExcitationWavelenght": {
+			"type":"number",
+			"description":"Observed peak excitation wavelength.",
+			"tier":3,
+			"category":"ExcitationCalibration"
+		},
+		"ObservedExcitationWavelenghtUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"ExcitationCalibration"
+		},
+		"ObservedExcitationPowerAtObjective": {
+			"type":"number",
+			"description":"The observed excitation light power measured at the back of the objective.",
+			"tier":3,
+			"category":"ExcitationCalibration"
+		},
+		"ObservedExcitationPowerAtObjectiveUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"W",
+			"enum": [
+				"YW",
+				"ZW",
+				"EW",
+				"PW",
+				"TW",
+				"GW",
+				"MW",
+				"kW",
+				"hW",
+				"daW",
+				"W",
+				"dW",
+				"cW",
+				"mW",
+				"µW",
+				"nW",
+				"pW",
+				"fW",
+				"aW",
+				"zW",
+				"yW"
+			],
+			"category":"ExcitationCalibration"
+		},
+		"ObservedExcitationIrradiance": {
+			"type":"number",
+			"description":"Observed mean excitation light irradiance (radiant power per unit area) as measured at the sample plane over the Field of View (FOV). ",
+			"tier":3,
+			"category":"ExcitationCalibration"
+		},
+		"ObservedExcitationIrradianceUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"W",
+			"enum": [
+				"YW",
+				"ZW",
+				"EW",
+				"PW",
+				"TW",
+				"GW",
+				"MW",
+				"kW",
+				"hW",
+				"daW",
+				"W",
+				"dW",
+				"cW",
+				"mW",
+				"µW",
+				"nW",
+				"pW",
+				"fW",
+				"aW",
+				"zW",
+				"yW"
+			],
+			"category":"ExcitationCalibration"
+		},
+		"ObservedExcitationVariance": {
+			"type":"number",
+			"description":"Observed excitation light irradiance (radiant power per unit area) variation over the Field of View (FOV).",
+			"tier":3,
+			"category":"ExcitationCalibration"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Date": {
+			"type":"string",
+			"description":"The date in which this calibration procedure was performed.",
+			"tier":3,
+			"category":"IntensityCalibration"
+		},
+		"IntensityCalibrationTool": {
+			"type":"array",
+			"items": {
+				"description":"This element is a reference to the tool, if any, used to perform this calibratin procdure.",
+				"type":"string",
+				"tier":3,
+				"category":"IntensityCalibrationTool",
+				"linkTo":"IntensityCalibrationTool"
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ObservedExcitationWavelenght",
+		"ObservedExcitationPowerAtObjective",
+		"ObservedExcitationIrradiance",
+		"ObservedExcitationVariance",
+		"ID",
+		"Date",
+		"Description"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"TransmittanceRange.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"TransmittanceRange",
 	"description":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
 	"image":"ChildElement_TransmittanceRange.png",
 	"tier":2,
@@ -12456,6 +18448,7 @@
 	"type":"object",
 	"title":"ExcitationFilter",
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an excitation filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
 	"image":"LightPath_ExcitationFilter.png",
 	"tier":2,
@@ -12699,6 +18692,7 @@
 	"type":"object",
 	"title":"AnalogVideo",
 	"description":"A device used to capture analog videos.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
 	"image":"Detector_Camera_AnalogVideo.png",
 	"tier":2,
@@ -13437,11 +19431,219 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"CalibrationSlide.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"CalibrationSlide",
+	"description":"This element describes a slide used to measure the different optical properties such as magnification, distance, and different kinds of optical distorsions.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_CalibrationSlide.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
+		"OpticalStandard":"The optical standard used in this case. This might be a pre-manufactured slide, such as those produced by Argolight (http://argolight.com/), Geller MicroAnalytical Laboratory (Magnification Reference Standard MRS-4 and others; http://www.gellermicro.com/mag_standards/mrs.html), Zeiss and others. Alternatively, the standard might be a slide containing multi-colored beads of known size and emission characteristics. Finally, slides coated with specific DNA origami patterns are increasingly being used for this purpose as well.",
+		"CalibrationSlide":"This element describes a slide used to measure the different optical properties such as magnification, distance, and different kinds of optical distorsions."
+	},
+	"properties": {
+		"Type": {
+			"type":"string",
+			"description":"The type of calibration slide used in this case. Examples include slides produced by Argolight, Geller MicroAnalytical Laboratory, Zeiss and others.",
+			"tier":3,
+			"enum": [
+				"ARGO-HM",
+				"ARGO-LM",
+				"ARGO-SIM",
+				"Geller-MRS4",
+				"Zeiss universal D=0",
+				"Other"
+			],
+			"category":"CalibrationSlide"
+		},
+		"CalibratedMeasure": {
+			"type":"string",
+			"description":"The optical characteristic this slide is used to calibrate, examples include magnification, distance, optical distorsions and others.",
+			"tier":3,
+			"enum": [
+				"Magnification",
+				"Distance",
+				"Multi",
+				"Distorsion",
+				"Other"
+			],
+			"category":"CalibrationSlide"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"uri",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Type",
+		"CalibratedMeasure",
+		"ID",
+		"Name",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"Description"
+	]
+}
+,
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ObjectiveSettings.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"ObjectiveSettings",
+	"description":"This element refers to the objective used to acquire this image and it holds the settings that were applied to the objective during this acquisition.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_ObjectiveSettings.png",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Reference":"NA",
+		"Settings":"NA",
+		"ObjectiveSettings":"This element refers to the objective used to acquire this image and it holds the settings that were applied to the objective during this acquisition."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the unique identifier of the objective used in this case.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		},
+		"CorrectionCollar": {
+			"type":"number",
+			"description":"When using high numerical aperture dry objectives (numerical aperture of 0.8 or greater), cover glass thickness variations of only a few micrometers result in dramatic image degradation due to aberration, which grows worse with increasing cover glass thickness. To compensate for this error, the more highly corrected objectives are equipped with a correction collar to allow adjustment of the central lens group position to coincide with fluctuations in cover glass thickness. The CorrectionCollar is normally an adjustable ring on the objective, whose position can be modified. This field records the position of the collar during the acquisition of this image. Each correction collar has an arbitrary scale on it so the values is unit-less.",
+			"tier":5,
+			"category":"ObjectiveSettings"
+		},
+		"ImmersionMedium": {
+			"type":"string",
+			"description":"The actual immersion medium that was used for the acquisition of this image.",
+			"tier":2,
+			"enum": [
+				"Air",
+				"Glycerol",
+				"Multi",
+				"Oil",
+				"Water",
+				"WaterDripping",
+				"Other"
+			],
+			"category":"ObjectiveSettings"
+		},
+		"ImmersionRefractiveIndex": {
+			"type":"number",
+			"description":"The nominal refractive index of the immersion medium utilized in this case, as specified by the manufacturer.",
+			"tier":2,
+			"category":"ObjectiveSettings"
+		},
+		"MeasuredRefractiveIndex": {
+			"type":"number",
+			"description":"The temperature dependenent measured Refractive Index of ther immersion medium utilized in this case.",
+			"tier":4,
+			"category":"ObjectiveSettings"
+		},
+		"Temperature": {
+			"type":"number",
+			"description":"The temperature of the objective if different from the ImagingEnvironment/Temperature.",
+			"tier":4,
+			"category":"ObjectiveSettings"
+		},
+		"TemperatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":4,
+			"default":"°C",
+			"enum": [
+				"°C",
+				"°F",
+				"K",
+				"°R"
+			],
+			"category":"ObjectiveSettings"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"ImmersionMedium",
+		"ImmersionRefractiveIndex"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Objective.json",
 	"version":"1.06.5",
 	"type":"object",
 	"title":"Objective",
 	"description":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Magnification",
 	"image":"Magnification_Objective.png",
 	"tier":1,

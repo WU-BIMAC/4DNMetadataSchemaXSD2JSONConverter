@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"StandardDichroic",
 	"description":"This describes a dichroic  positioned in the standard light path for one or more channel available for this instrument.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
 	"image":"LightPath_StandardDichroic.png",
 	"tier":2,

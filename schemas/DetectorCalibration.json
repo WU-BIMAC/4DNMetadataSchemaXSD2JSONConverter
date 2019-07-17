@@ -1,0 +1,111 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"DetectorCalibration.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"DetectorCalibration",
+	"description":"This procedure measures the performance of the dectector.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_DetectorCalibration.png",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"IntensityCalibration":"This describes the procedure(s) that were used for excitation and detector calibration and the resulting calibration results.",
+		"DetectorCalibration":"This procedure measures the performance of the dectector.",
+		"IntensityCalibrationTool":"This element is a reference to the tool if any used to perform this calibratin procdure.",
+		"CalibrationMap":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to."
+	},
+	"properties": {
+		"Method": {
+			"type":"string",
+			"description":"This is a description of method used for this calibration procedure.",
+			"tier":3,
+			"category":"DetectorCalibration"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Date": {
+			"type":"string",
+			"description":"The date in which this calibration procedure was performed.",
+			"tier":3,
+			"category":"IntensityCalibration"
+		},
+		"IntensityCalibrationTool": {
+			"type":"array",
+			"items": {
+				"description":"This element is a reference to the tool, if any, used to perform this calibratin procdure.",
+				"type":"string",
+				"tier":3,
+				"category":"IntensityCalibrationTool",
+				"linkTo":"IntensityCalibrationTool"
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"CalibrationMap": {
+			"type":"object",
+			"description":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to.",
+			"tier":3,
+			"properties": {
+				"MetricType": {
+					"type":"string",
+					"description":"This field captures the type of metric that was computed as part of the calibratin procedure in this instance.",
+					"tier":3,
+					"enum": [
+						"Gain",
+						"LinearOffset",
+						"DetectionLimit",
+						"LinearRangeMax",
+						"Variance",
+						"Mean",
+						"Other",
+						""
+					],
+					"category":"CalibrationMap"
+				},
+				"IlluminationIntensity": {
+					"type":"number",
+					"description":"This attribute only applies to matrices of type Variance and Mean. It represents the illumination intensity that was used to acquire the images used to contruct this matrix. The value can range from 0 (i.e. dark image) to any intenisty value experssed either as percentage or as absolute power. ",
+					"tier":3,
+					"category":"CalibrationMap"
+				},
+				"NrOfImages": {
+					"type":"string",
+					"description":"This field represents the number of images that were employed to generate this calibration matrix.",
+					"tier":3,
+					"category":"CalibrationMap"
+				}
+			},
+			"required": [
+				"MetricType",
+				"IlluminationIntensity",
+				"NrOfImages"
+			]
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Method",
+		"ID",
+		"Date",
+		"Description",
+		"CalibrationMap"
+	]
+}

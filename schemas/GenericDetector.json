@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"GenericDetector",
 	"description":"This element is used to represent a detector as a collection of key/value pairs, which are stored in a Map. One of the other detector elements should always be used in preference to this if possible.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Detector",
 	"image":"Detector_GenericDetector.png",
 	"tier":2,

@@ -1,10 +1,11 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LightSourceSettings.json",
-	"version":"1.05.5",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"LightSourceSettings",
 	"description":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case.",
+	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",
 	"image":"Settings_LightSourceSettings.png",
 	"tier":3,
@@ -17,13 +18,13 @@
 	"properties": {
 		"ID": {
 			"type":"string",
-			"description":"NA",
+			"description":"A unique identifier for this component.",
 			"tier":3,
 			"category":"General",
 			"readonly":true
 		},
 		"Wavelength": {
-			"type":"string",
+			"type":"number",
 			"description":"The nominal wavelength of the excitation light utilized in this case.              ",
 			"tier":3,
 			"category":"LightSourceSettings"
@@ -72,7 +73,7 @@
 			"category":"LightSourceSettings"
 		},
 		"PowerSettings": {
-			"type":"string",
+			"type":"number",
 			"description":"The light power output settings utilized in this case.",
 			"tier":3,
 			"category":"LightSourceSettings"
@@ -108,7 +109,7 @@
 			"category":"LightSourceSettings"
 		},
 		"Attenuation": {
-			"type":"string",
+			"type":"number",
 			"description":"The observed attenuation of the excitation light power expressed as a fractional value from 0.0 to 1.0.",
 			"tier":5,
 			"category":"LightSourceSettings"
@@ -123,6 +124,7 @@
 	},
 	"required": [
 		"ID",
-		"Wavelength"
+		"Wavelength",
+		"PowerSettings"
 	]
 }

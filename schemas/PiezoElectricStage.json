@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"PiezoElectricStage",
 	"description":"This describes an optional piezoelectric stage positioning device associated with this instrument.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Stage",
 	"image":"SamplePositioning_Stage_PiezoElectricStage.png",
 	"tier":3,

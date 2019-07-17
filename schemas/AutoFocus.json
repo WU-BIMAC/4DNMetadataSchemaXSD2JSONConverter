@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"AutoFocus",
 	"description":"This element describes one or more optional focus stabilization device(s) available for this instrument.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Focusing",
 	"image":"SamplePositioning_Focusing_AutoFocus.png",
 	"tier":3,

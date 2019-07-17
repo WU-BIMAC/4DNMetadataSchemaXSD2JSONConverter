@@ -44,13 +44,14 @@ public class XSD2JSONConverter {
 	public static String version = "1.06.5";
 
 	public static boolean useProgress = true;
-	public static String inputFileVersion = "v01-06/";
+	public static String inputFileVersion = "v01-07/";
 	public static String versionType_Stable = "stable%20version/";
 	public static String versionType_Progress = "in%20progress/";
 	public static String githubPrefix = "https://raw.githubusercontent.com/WU-BIMAC/MicroscopyMetadata4DNGuidelines/master/Model/";
 	public static String fileName = "4DN-OME-Microscopy%20Metadata.xsd";
 	public static String outputFile = "schema.xsd";
 
+	public static String domain = "Domain=";
 	public static String category = "Category=";
 	public static String tier = "Tier=";
 	public static String desc = "Description=";
@@ -122,7 +123,7 @@ public class XSD2JSONConverter {
 					if (annotationObj instanceof XSAnnotation) {
 						final XSAnnotation annotation = (XSAnnotation) annotationObj;
 						final String annot = annotation.getAnnotationString();
-						if (annot.contains(XSD2JSONConverter.category)) {
+						if (annot.contains(XSD2JSONConverter.domain)) {
 							this.elementList.add(element);
 						}
 					}
@@ -663,70 +664,73 @@ public class XSD2JSONConverter {
 				// required.add(attrName);
 				attributes.add(aSB.toString());
 			} else {
-				final XSComplexTypeDefinition elementComplTypeDef = (XSComplexTypeDefinition) element
-						.getTypeDefinition();
-				final XSObjectList attrList = elementComplTypeDef
-						.getAttributeUses();
-				final XSObjectList annotations = element.getAnnotations();
-				final Integer attrTier = this.getTier(elementName, annotations);
-				final String attrDesc = this.getDescription(elementName,
-						annotations);
-				final String attrName = elementName;
-				// String attrNameCat = attrName;
-				aSB.append("\t\t\"" + attrName + "\": {\n");
-				boolean isArray = false;
-				if ((max > 1) || (max == -1)) {
-					aSB.append("\t\t\t\"type\":\"array\",\n");
-					isArray = true;
+				if (!(element.getTypeDefinition() instanceof XSComplexTypeDefinition)) {
+					this.errors.append(elementName + " in " + name
+							+ " is not complex");
+					this.errors.append("\n");
+					// final XSObjectList annotations =
+					// element.getAnnotations();
+					// final Integer attrTier = this.getTier(elementName,
+					// annotations);
+					// final String attrDesc = this.getDescription(elementName,
+					// annotations);
+					// final String attrName = elementName;
+					// // String attrNameCat = attrName;
+					// aSB.append("\t\t\"" + attrName + "\": {\n");
+					// aSB.append("\t\t\t\"type\":\"object\",\n");
+					// aSB.append("\t\t\t\"description\":\"" + attrDesc +
+					// "\",\n");
+					// aSB.append("\t\t\t\"tier\":" + attrTier + ",\n");
+					// aSB.append("\t\t\t\"type\":\"object\",\n");
+					// aSB.append("\t\t\t\"description\":\"" + attrDesc +
+					// "\",\n");
+					// aSB.append("\t\t\t\"tier\":" + attrTier + ",\n");
+					// aSB.append("\t\t}");
+					// if (min == 1) {
+					// required.add(attrName);
+					// }
+					// attributes.add(aSB.toString());
 				} else {
-					aSB.append("\t\t\t\"type\":\"object\",\n");
-				}
-				aSB.append("\t\t\t\"description\":\"" + attrDesc + "\",\n");
-				aSB.append("\t\t\t\"tier\":" + attrTier + ",\n");
-				// aSB.append("\t\t\t\"schemaID\":\"" + attrName
-				// + ".json\",\n");
-				if (isArray) {
-					aSB.append("\t\t\t\"items\": {\n");
-					aSB.append("\t");
-				}
-				aSB.append("\t\t\t\"properties\": {\n");
-				final List<List<String>> attributesAndRequiredLocal = this
-						.getAttributesAndRequired(attrName, null, attrList,
-								isArray ? 3 : 2);
-				final List<String> attributesLocal = attributesAndRequiredLocal
-						.get(0);
-				final List<String> requiredLocal = attributesAndRequiredLocal
-						.get(1);
-				for (int k = 0; k < attributesLocal.size(); k++) {
-					// for (final String s : attributesLocal) {
-					final String s = attributesLocal.get(k);
-					aSB.append(s);
-					if (k < (attributesLocal.size() - 1)) {
-						aSB.append(",\n");
+					final XSComplexTypeDefinition elementComplTypeDef = (XSComplexTypeDefinition) element
+							.getTypeDefinition();
+					final XSObjectList attrList = elementComplTypeDef
+							.getAttributeUses();
+					final XSObjectList annotations = element.getAnnotations();
+					final Integer attrTier = this.getTier(elementName,
+							annotations);
+					final String attrDesc = this.getDescription(elementName,
+							annotations);
+					final String attrName = elementName;
+					// String attrNameCat = attrName;
+					aSB.append("\t\t\"" + attrName + "\": {\n");
+					boolean isArray = false;
+					if ((max > 1) || (max == -1)) {
+						aSB.append("\t\t\t\"type\":\"array\",\n");
+						isArray = true;
 					} else {
-						aSB.append("\n");
+						aSB.append("\t\t\t\"type\":\"object\",\n");
 					}
-				}
-				if (isArray) {
-					aSB.append("\t");
-				}
-				aSB.append("\t\t\t}");
-				// TODO add } only if max > 1
-				if (requiredLocal.size() > 0) {
-					aSB.append(",\n");
+					aSB.append("\t\t\t\"description\":\"" + attrDesc + "\",\n");
+					aSB.append("\t\t\t\"tier\":" + attrTier + ",\n");
+					// aSB.append("\t\t\t\"schemaID\":\"" + attrName
+					// + ".json\",\n");
 					if (isArray) {
+						aSB.append("\t\t\t\"items\": {\n");
 						aSB.append("\t");
 					}
-					aSB.append("\t\t\t\"required\": [\n");
-					// attributes.addAll(attributesLocal);
-					// required.addAll(requiredLocal);
-					for (int k = 0; k < requiredLocal.size(); k++) {
-						final String s = requiredLocal.get(k);
-						if (isArray) {
-							aSB.append("\t");
-						}
-						aSB.append("\t\t\t\t\"" + s + "\"");
-						if (k < (requiredLocal.size() - 1)) {
+					aSB.append("\t\t\t\"properties\": {\n");
+					final List<List<String>> attributesAndRequiredLocal = this
+							.getAttributesAndRequired(attrName, null, attrList,
+									isArray ? 3 : 2);
+					final List<String> attributesLocal = attributesAndRequiredLocal
+							.get(0);
+					final List<String> requiredLocal = attributesAndRequiredLocal
+							.get(1);
+					for (int k = 0; k < attributesLocal.size(); k++) {
+						// for (final String s : attributesLocal) {
+						final String s = attributesLocal.get(k);
+						aSB.append(s);
+						if (k < (attributesLocal.size() - 1)) {
 							aSB.append(",\n");
 						} else {
 							aSB.append("\n");
@@ -735,18 +739,44 @@ public class XSD2JSONConverter {
 					if (isArray) {
 						aSB.append("\t");
 					}
-					aSB.append("\t\t\t]\n");
-				} else {
-					aSB.append("\n");
+					aSB.append("\t\t\t}");
+					// TODO add } only if max > 1
+					if (requiredLocal.size() > 0) {
+						aSB.append(",\n");
+						if (isArray) {
+							aSB.append("\t");
+						}
+						aSB.append("\t\t\t\"required\": [\n");
+						// attributes.addAll(attributesLocal);
+						// required.addAll(requiredLocal);
+						for (int k = 0; k < requiredLocal.size(); k++) {
+							final String s = requiredLocal.get(k);
+							if (isArray) {
+								aSB.append("\t");
+							}
+							aSB.append("\t\t\t\t\"" + s + "\"");
+							if (k < (requiredLocal.size() - 1)) {
+								aSB.append(",\n");
+							} else {
+								aSB.append("\n");
+							}
+						}
+						if (isArray) {
+							aSB.append("\t");
+						}
+						aSB.append("\t\t\t]\n");
+					} else {
+						aSB.append("\n");
+					}
+					if (isArray) {
+						aSB.append("\t\t\t}\n");
+					}
+					aSB.append("\t\t}");
+					if (min == 1) {
+						required.add(attrName);
+					}
+					attributes.add(aSB.toString());
 				}
-				if (isArray) {
-					aSB.append("\t\t\t}\n");
-				}
-				aSB.append("\t\t}");
-				if (min == 1) {
-					required.add(attrName);
-				}
-				attributes.add(aSB.toString());
 			}
 		}
 		returns.add(attributes);
@@ -906,6 +936,7 @@ public class XSD2JSONConverter {
 			// System.out.println(element.getName() + " - " +
 			// subCategoriesOrder);
 
+			final String originalDomain = this.getDomain(name, annotations);
 			final String originalCategory = this.getCategory(name, annotations);
 			// final int index = category.lastIndexOf(".") + 1;
 			// if (index != -1) {
@@ -945,6 +976,7 @@ public class XSD2JSONConverter {
 				sb.append("\t\"type\":\"object\",\n");
 				sb.append("\t\"title\":\"" + name + "\",\n");
 				sb.append("\t\"description\":\"" + desc + "\",\n");
+				sb.append("\t\"domain\":\"" + originalDomain + "\",\n");
 				sb.append("\t\"category\":\"" + category + "\",\n");
 				if (!category.equals(XSD2JSONConverter.subComponents_category)) {
 					sb.append("\t\"image\":\"" + image + "\",\n");
@@ -1123,6 +1155,52 @@ public class XSD2JSONConverter {
 		}
 		return null;
 	}
+	
+	private String getDomain(final String name, final XSObjectList annotations) {
+		if (annotations.getLength() == 0) {
+			this.errors.append(name + " domain is missing (no annotations)");
+			this.errors.append("\n");
+		}
+		for (int y = 0; y < annotations.getLength(); y++) {
+			final XSObject annotationObj = annotations.item(y);
+			if (annotationObj instanceof XSAnnotation) {
+				final XSAnnotation annotation = (XSAnnotation) annotationObj;
+				final String annot = annotation.getAnnotationString();
+				if (annot.contains(XSD2JSONConverter.domain)) {
+					final int begin = annot.indexOf(XSD2JSONConverter.domain);
+					final int end = annot.indexOf("</", begin);
+					String domain = annot.substring(begin, end);
+					domain = domain.replace(XSD2JSONConverter.domain, "");
+					if (domain.contains("null")) {
+						this.errors.append(name + " domain is null");
+						this.errors.append("\n");
+						domain = XSD2JSONConverter.value_not_assigned;
+					}
+					if (domain.contains(" ")) {
+						this.errors.append(name + " domain contains SPACE");
+						this.errors.append("\n");
+						domain = domain.replaceAll(" ", "");
+					}
+					if (domain.contains("\t")) {
+						this.errors.append(name + " domain contains TAB");
+						this.errors.append("\n");
+						domain = domain.replaceAll("\t", "");
+					}
+					if (domain.contains("\n")) {
+						this.errors.append(name + " domain contains NEWLINE");
+						this.errors.append("\n");
+						domain = domain.replaceAll("\n", "");
+					}
+					return domain;
+				} else {
+					this.errors.append(name + " domain is missing");
+					this.errors.append("\n");
+					return XSD2JSONConverter.value_not_assigned;
+				}
+			}
+		}
+		return null;
+	}
 
 	private String getCategory(final String name, final XSObjectList annotations) {
 		if (annotations.getLength() == 0) {
@@ -1143,6 +1221,11 @@ public class XSD2JSONConverter {
 						this.errors.append(name + " category is null");
 						this.errors.append("\n");
 						category = XSD2JSONConverter.value_not_assigned;
+					}
+					if (category.contains(" ")) {
+						this.errors.append(name + " category contains SPACE");
+						this.errors.append("\n");
+						category = category.replaceAll(" ", "");
 					}
 					if (category.contains("\t")) {
 						this.errors.append(name + " category contains TAB");
@@ -1185,6 +1268,11 @@ public class XSD2JSONConverter {
 						this.errors.append(name + " tier is null");
 						this.errors.append("\n");
 						tierS = "1";
+					}
+					if (tierS.contains(" ")) {
+						this.errors.append(name + " tier contains SPACE");
+						this.errors.append("\n");
+						tierS = tierS.replaceAll(" ", "");
 					}
 					if (tierS.contains("\t")) {
 						this.errors.append(name + " tier contains TAB");

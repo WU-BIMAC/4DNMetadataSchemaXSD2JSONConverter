@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Reflector",
 	"description":"This is a total reflection mirror.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Mirror",
 	"image":"Mirror_Reflector.png",
 	"tier":2,

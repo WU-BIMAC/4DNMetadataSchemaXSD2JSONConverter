@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"MicroscopeTable",
 	"description":"This element describes the table on which this Microscope rests during acquisition.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"MicroscopyBasics",
 	"image":"MicroscopyBasics_MicroscopeTable.png",
 	"tier":4,
