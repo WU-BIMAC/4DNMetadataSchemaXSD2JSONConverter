@@ -73,7 +73,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -2014,7 +2014,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -2296,7 +2296,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -2419,7 +2419,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"uri",
+					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -2561,7 +2561,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -2780,7 +2780,7 @@
 						"category":"LEDModule"
 					},
 					"WavelenghtProfile": {
-						"type":"uri",
+						"type":"string",
 						"description":"The location of a file containing the wavelenght profile of this component.",
 						"tier":5,
 						"category":"LEDModule"
@@ -2921,7 +2921,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -3140,7 +3140,7 @@
 						"category":"LEDModule"
 					},
 					"WavelenghtProfile": {
-						"type":"uri",
+						"type":"string",
 						"description":"The location of a file containing the wavelenght profile of this component.",
 						"tier":5,
 						"category":"LEDModule"
@@ -3799,7 +3799,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -4005,7 +4005,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -4100,7 +4100,7 @@
 			"category":"FIlter"
 		},
 		"TransmittanceProfileFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"This contains the location of file in .csv or other suitable formats containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"FIlter"
@@ -4130,7 +4130,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -4409,7 +4409,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -4518,7 +4518,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"uri",
+					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -4649,13 +4649,13 @@
 			"category":"Dichroic"
 		},
 		"TransmittanceProfileFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"This contains the location of a file in .csv or other suitable formats containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"Dichroic"
 		},
 		"ReflectanceProfileFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"This contains the location of a file in .csv or other suitable formats containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"Dichroic"
@@ -4820,7 +4820,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -5560,7 +5560,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -5695,7 +5695,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -6197,7 +6197,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -6438,7 +6438,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -6547,7 +6547,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"uri",
+					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -7194,7 +7194,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -7303,7 +7303,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"uri",
+					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -7546,7 +7546,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -7780,7 +7780,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -7889,7 +7889,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"uri",
+					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -8342,7 +8342,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -8787,7 +8787,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -9237,7 +9237,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -9536,7 +9536,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -9628,7 +9628,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -9779,7 +9779,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -10231,13 +10231,13 @@
 			"category":"Dichroic"
 		},
 		"TransmittanceProfileFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"This contains the location of a file in .csv or other suitable formats containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"Dichroic"
 		},
 		"ReflectanceProfileFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"This contains the location of a file in .csv or other suitable formats containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"Dichroic"
@@ -10402,7 +10402,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -10754,7 +10754,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -11447,7 +11447,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -11556,7 +11556,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"uri",
+					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -11811,7 +11811,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -11936,7 +11936,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -12066,7 +12066,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -12625,7 +12625,7 @@
 						"category":"OpticalStandardGroup"
 					},
 					"SpecsFile": {
-						"type":"uri",
+						"type":"string",
 						"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 						"tier":5,
 						"category":"OpticalStandardGroup"
@@ -12778,7 +12778,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -13191,7 +13191,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -13488,7 +13488,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -13743,7 +13743,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -13852,7 +13852,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"uri",
+					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -14391,7 +14391,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -14573,7 +14573,7 @@
 			"category":"FIlter"
 		},
 		"TransmittanceProfileFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"This contains the location of file in .csv or other suitable formats containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"FIlter"
@@ -14603,7 +14603,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -14819,7 +14819,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -15440,7 +15440,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -15549,7 +15549,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"uri",
+					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -15945,7 +15945,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -16387,7 +16387,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -16540,7 +16540,7 @@
 			"category":"WavelengthRange"
 		},
 		"WavelenghtProfile": {
-			"type":"uri",
+			"type":"string",
 			"description":"The location of a file containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"WavelengthRange"
@@ -16775,7 +16775,7 @@
 			"category":"LEDModule"
 		},
 		"WavelenghtProfile": {
-			"type":"uri",
+			"type":"string",
 			"description":"The location of a file containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"LEDModule"
@@ -17186,7 +17186,7 @@
 			"category":"FIlter"
 		},
 		"TransmittanceProfileFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"This contains the location of file in .csv or other suitable formats containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"FIlter"
@@ -17216,7 +17216,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -17943,7 +17943,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -18052,7 +18052,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"uri",
+					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -18193,7 +18193,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -18605,7 +18605,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

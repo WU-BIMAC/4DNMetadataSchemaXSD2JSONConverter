@@ -214,7 +214,7 @@
 			"category":"LEDModule"
 		},
 		"WavelenghtProfile": {
-			"type":"uri",
+			"type":"string",
 			"description":"The location of a file containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"LEDModule"
