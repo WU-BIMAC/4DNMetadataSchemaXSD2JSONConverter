@@ -322,60 +322,6 @@
 			"tier":5,
 			"category":"Image"
 		},
-		"Instrument": {
-			"type":"string",
-			"description":"This empty element refers to the Instrument that was utilized to acquire this image.",
-			"tier":1,
-			"category":"Instrument",
-			"linkTo":"Instrument"
-		},
-		"Experiment": {
-			"type":"string",
-			"description":"This empty element refers to the Experiment during which this Image was acquired.",
-			"tier":1,
-			"category":"Experiment",
-			"linkTo":"Experiment"
-		},
-		"Experimenter": {
-			"type":"array",
-			"items": {
-				"description":"This empty element refers to Experimenter that performed this experiment.",
-				"type":"string",
-				"tier":1,
-				"category":"Experimenter",
-				"linkTo":"Experimenter"
-			}
-		},
-		"ExperimenterGroup": {
-			"type":"array",
-			"items": {
-				"description":"This empty element refers to the ExperimenterGroup that owns this Image.",
-				"type":"string",
-				"tier":1,
-				"category":"ExperimenterGroup",
-				"linkTo":"ExperimenterGroup"
-			}
-		},
-		"MicrobeamManipulation": {
-			"type":"array",
-			"items": {
-				"description":"NA",
-				"type":"string",
-				"tier":1,
-				"category":"MicrobeamManipulation",
-				"linkTo":"MicrobeamManipulation"
-			}
-		},
-		"ROI": {
-			"type":"array",
-			"items": {
-				"description":"NA",
-				"type":"string",
-				"tier":1,
-				"category":"ROI",
-				"linkTo":"ROI"
-			}
-		},
 		"TIRFSettings": {
 			"type":"array",
 			"description":"Defines the TIRF settings used for this experiment.",
