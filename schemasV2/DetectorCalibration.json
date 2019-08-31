@@ -13,8 +13,7 @@
 		"General":"General information about the element",
 		"IntensityCalibration":"This describes the procedure(s) that were used for excitation and detector calibration and the resulting calibration results.",
 		"DetectorCalibration":"This procedure measures the performance of the dectector.",
-		"IntensityCalibrationTool":"This element is a reference to the tool if any used to perform this calibratin procdure.",
-		"CalibrationMap":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to."
+		"IntensityCalibrationTool":"This element is a reference to the tool if any used to perform this calibratin procdure."
 	},
 	"properties": {
 		"Method": {
@@ -53,46 +52,6 @@
 			"tier":3,
 			"category":"General"
 		},
-		"CalibrationMap": {
-			"type":"object",
-			"description":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to.",
-			"tier":3,
-			"properties": {
-				"MetricType": {
-					"type":"string",
-					"description":"This field captures the type of metric that was computed as part of the calibratin procedure in this instance.",
-					"tier":3,
-					"enum": [
-						"Gain",
-						"LinearOffset",
-						"DetectionLimit",
-						"LinearRangeMax",
-						"Variance",
-						"Mean",
-						"Other",
-						""
-					],
-					"category":"CalibrationMap"
-				},
-				"IlluminationIntensity": {
-					"type":"number",
-					"description":"This attribute only applies to matrices of type Variance and Mean. It represents the illumination intensity that was used to acquire the images used to contruct this matrix. The value can range from 0 (i.e. dark image) to any intenisty value experssed either as percentage or as absolute power. ",
-					"tier":3,
-					"category":"CalibrationMap"
-				},
-				"NrOfImages": {
-					"type":"string",
-					"description":"This field represents the number of images that were employed to generate this calibration matrix.",
-					"tier":3,
-					"category":"CalibrationMap"
-				}
-			},
-			"required": [
-				"MetricType",
-				"IlluminationIntensity",
-				"NrOfImages"
-			]
-		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
@@ -105,7 +64,6 @@
 		"Method",
 		"ID",
 		"Date",
-		"Description",
-		"CalibrationMap"
+		"Description"
 	]
 }

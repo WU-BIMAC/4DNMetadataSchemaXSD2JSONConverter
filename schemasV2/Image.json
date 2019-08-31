@@ -10,6 +10,8 @@
 		"General":"General information about the element",
 		"General":"General information about the element",
 		"Image":"This element describes the actual image that was acquired and its meta-data. The elements that are references (ending in Ref or Settings) refer to elements defined outside of the Image element. Ref elements are simple links, while Settings elements are links with additional values. If any of the required Image attributes or elements are missing, its guaranteed to be an invalid document.",
+		"Instrument":"Name of the instrument",
+		"Instrument":"ID of the instrument",
 		"OpticalCalibration":"This describes the procedure that was used for optical calibration and the resulting calibration measurements.",
 		"DetectorCalibration":"This procedure measures the performance of the dectector."
 	},
@@ -305,6 +307,22 @@
 			"description":"This is true if the pixels data was written in BigEndian order. If this value is present it should match the value used in BinData or TiffData. If it does not a reader should honour the value used in the BinData or TiffData. This values is useful for MetadataOnly files and is to allow for future storage solutions.          ",
 			"tier":5,
 			"category":"Image"
+		},
+		"IntrumentName": {
+			"title":"IntrumentName",
+			"type":"string",
+			"description":"Name of the instrument",
+			"tier":1,
+			"category":"Instrument",
+			"readonly":true
+		},
+		"IntrumentID": {
+			"title":"IntrumentID",
+			"type":"string",
+			"description":"ID of the instrument",
+			"tier":1,
+			"category":"Instrument",
+			"readonly":true
 		},
 		"OpticalCalibration": {
 			"type":"array",
@@ -828,6 +846,8 @@
 		"PhysicalSizeZ",
 		"TimeIncrement",
 		"PixelType",
+		"IntrumentName",
+		"IntrumentName",
 		"Description"
 	]
 }

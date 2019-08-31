@@ -91,13 +91,6 @@
 			"tier":4,
 			"category":"ImagingEnvironment"
 		},
-		"Map": {
-			"type":"object",
-			"description":"NA",
-			"tier":1,
-			"properties": {
-			}
-		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",

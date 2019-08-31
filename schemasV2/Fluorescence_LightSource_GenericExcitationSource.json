@@ -102,13 +102,6 @@
 			"tier":2,
 			"category":"General"
 		},
-		"Map": {
-			"type":"object",
-			"description":"This is a Mapping of key/value pairs used to store customized metadata that describes this element.",
-			"tier":3,
-			"properties": {
-			}
-		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",

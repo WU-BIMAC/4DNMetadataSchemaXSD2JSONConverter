@@ -95,7 +95,8 @@
 		"SerialNumber",
 		"SpecsFile"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Image.json",
@@ -108,6 +109,8 @@
 		"General":"General information about the element",
 		"General":"General information about the element",
 		"Image":"This element describes the actual image that was acquired and its meta-data. The elements that are references (ending in Ref or Settings) refer to elements defined outside of the Image element. Ref elements are simple links, while Settings elements are links with additional values. If any of the required Image attributes or elements are missing, its guaranteed to be an invalid document.",
+		"Instrument":"Name of the instrument",
+		"Instrument":"ID of the instrument",
 		"OpticalCalibration":"This describes the procedure that was used for optical calibration and the resulting calibration measurements.",
 		"DetectorCalibration":"This procedure measures the performance of the dectector."
 	},
@@ -403,6 +406,22 @@
 			"description":"This is true if the pixels data was written in BigEndian order. If this value is present it should match the value used in BinData or TiffData. If it does not a reader should honour the value used in the BinData or TiffData. This values is useful for MetadataOnly files and is to allow for future storage solutions.          ",
 			"tier":5,
 			"category":"Image"
+		},
+		"IntrumentName": {
+			"title":"IntrumentName",
+			"type":"string",
+			"description":"Name of the instrument",
+			"tier":1,
+			"category":"Instrument",
+			"readonly":true
+		},
+		"IntrumentID": {
+			"title":"IntrumentID",
+			"type":"string",
+			"description":"ID of the instrument",
+			"tier":1,
+			"category":"Instrument",
+			"readonly":true
 		},
 		"OpticalCalibration": {
 			"type":"array",
@@ -926,6 +945,8 @@
 		"PhysicalSizeZ",
 		"TimeIncrement",
 		"PixelType",
+		"IntrumentName",
+		"IntrumentName",
 		"Description"
 	]
 },
@@ -990,7 +1011,8 @@
 		"FlatFieldImage",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ReflectanceRange.json",
@@ -1199,7 +1221,8 @@
 		"NrOfImages",
 		"Row"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalOptics.json",
@@ -1304,7 +1327,8 @@
 		"Name",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Channel.json",
@@ -6371,7 +6395,8 @@
 		"Sample",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Laser.json",
@@ -7025,13 +7050,6 @@
 			"tier":2,
 			"category":"General"
 		},
-		"Map": {
-			"type":"object",
-			"description":"This is a Mapping of key/value pairs used to store customized metadata that describes this element.",
-			"tier":3,
-			"properties": {
-			}
-		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
@@ -7054,8 +7072,7 @@
 		"SerialNumber",
 		"SpecsFile",
 		"WavelengthRange",
-		"Description",
-		"Map"
+		"Description"
 	]
 },
 {
@@ -9479,13 +9496,6 @@
 			"tier":4,
 			"category":"ImagingEnvironment"
 		},
-		"Map": {
-			"type":"object",
-			"description":"NA",
-			"tier":1,
-			"properties": {
-			}
-		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
@@ -9514,8 +9524,7 @@
 		"General":"General information about the element",
 		"IntensityCalibration":"This describes the procedure(s) that were used for excitation and detector calibration and the resulting calibration results.",
 		"DetectorCalibration":"This procedure measures the performance of the dectector.",
-		"IntensityCalibrationTool":"This element is a reference to the tool if any used to perform this calibratin procdure.",
-		"CalibrationMap":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to."
+		"IntensityCalibrationTool":"This element is a reference to the tool if any used to perform this calibratin procdure."
 	},
 	"properties": {
 		"Method": {
@@ -9554,46 +9563,6 @@
 			"tier":3,
 			"category":"General"
 		},
-		"CalibrationMap": {
-			"type":"object",
-			"description":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to.",
-			"tier":3,
-			"properties": {
-				"MetricType": {
-					"type":"string",
-					"description":"This field captures the type of metric that was computed as part of the calibratin procedure in this instance.",
-					"tier":3,
-					"enum": [
-						"Gain",
-						"LinearOffset",
-						"DetectionLimit",
-						"LinearRangeMax",
-						"Variance",
-						"Mean",
-						"Other",
-						""
-					],
-					"category":"CalibrationMap"
-				},
-				"IlluminationIntensity": {
-					"type":"number",
-					"description":"This attribute only applies to matrices of type Variance and Mean. It represents the illumination intensity that was used to acquire the images used to contruct this matrix. The value can range from 0 (i.e. dark image) to any intenisty value experssed either as percentage or as absolute power. ",
-					"tier":3,
-					"category":"CalibrationMap"
-				},
-				"NrOfImages": {
-					"type":"string",
-					"description":"This field represents the number of images that were employed to generate this calibration matrix.",
-					"tier":3,
-					"category":"CalibrationMap"
-				}
-			},
-			"required": [
-				"MetricType",
-				"IlluminationIntensity",
-				"NrOfImages"
-			]
-		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
@@ -9606,8 +9575,7 @@
 		"Method",
 		"ID",
 		"Date",
-		"Description",
-		"CalibrationMap"
+		"Description"
 	]
 },
 {
@@ -9717,7 +9685,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ObjectiveTurretFocus.json",
@@ -10128,7 +10097,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Pump.json",
@@ -10160,7 +10130,8 @@
 			"readonly":true
 		}
 	}
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"IntensityCalibrationTool.json",
@@ -10257,7 +10228,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LightPath.json",
@@ -10387,7 +10359,8 @@
 		"Name",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MicrobeamManipulation.json",
@@ -11216,7 +11189,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Sample.json",
@@ -11279,7 +11253,8 @@
 		"MountingMediumRefractiveIndex",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CMOS.json",
@@ -12370,13 +12345,6 @@
 			"tier":2,
 			"category":"General"
 		},
-		"Map": {
-			"type":"object",
-			"description":"This is a Mapping of key/value pairs used to store customized metadata that describes this element.",
-			"tier":3,
-			"properties": {
-			}
-		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
@@ -12499,13 +12467,6 @@
 			"description":"This is a simple multi-line comment or annotation describing this component.",
 			"tier":2,
 			"category":"General"
-		},
-		"Map": {
-			"type":"object",
-			"description":"This is a Mapping of key/value pairs used to store customized metadata that describes this element.",
-			"tier":3,
-			"properties": {
-			}
 		},
 		"Tier": {
 			"type":"integer",
@@ -13940,7 +13901,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PhotoMultiplier.json",
@@ -14929,7 +14891,8 @@
 		"Geometry",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"EmissionFilter.json",
@@ -15270,7 +15233,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CCD.json",
@@ -18644,7 +18608,8 @@
 		"SpecsFile",
 		"Description"
 	]
-},
+}
+,
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ObjectiveSettings.json",
