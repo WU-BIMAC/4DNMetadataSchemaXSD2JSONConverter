@@ -1,2 +1,5 @@
 /bin/
 .settings
+errors.json
+references.json
+schema.xsd
