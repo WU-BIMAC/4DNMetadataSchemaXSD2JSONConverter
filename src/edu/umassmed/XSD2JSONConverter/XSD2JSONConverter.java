@@ -78,6 +78,10 @@ public class XSD2JSONConverter {
 	
 	public static String generic_cat_desc = "General information about the element";
 	
+	public static String generic_cat_fullstring = "\""
+			+ XSD2JSONConverter.generic_cat_attr + "\"" + ":" + "\""
+			+ XSD2JSONConverter.generic_cat_desc + "\"";
+	
 	private XSModel model;
 	private final List<XSElementDeclaration> elementList;
 	
@@ -343,9 +347,7 @@ public class XSD2JSONConverter {
 			// final List<String> attributes = new ArrayList<String>();
 			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
 					image, attributes);
-			subCategoriesOrder.add(0, "\"" + XSD2JSONConverter.generic_cat_attr
-					+ "\"" + ":" + "\"" + XSD2JSONConverter.generic_cat_desc
-					+ "\"");
+			subCategoriesOrder.add(0, XSD2JSONConverter.generic_cat_fullstring);
 
 			final Integer tier = this.getTier(name, annotations);
 			final String desc = this.getDescription(name, annotations);
@@ -468,9 +470,7 @@ public class XSD2JSONConverter {
 			final List<String> attributes = new ArrayList<String>();
 			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
 					microscopeBody, attributes);
-			subCategoriesOrder.add(0, "\"" + XSD2JSONConverter.generic_cat_attr
-					+ "\"" + ":" + "\"" + XSD2JSONConverter.generic_cat_desc
-					+ "\"");
+			subCategoriesOrder.add(0, XSD2JSONConverter.generic_cat_fullstring);
 			
 			final Integer tier = this.getTier(name, annotations);
 			final String desc = this.getDescription(name, annotations);
@@ -1080,9 +1080,7 @@ public class XSD2JSONConverter {
 		}
 		int insertIndex = 0;
 		if (hasGeneric) {
-			subCategoriesOrder.add("\"" + XSD2JSONConverter.generic_cat_attr
-					+ "\"" + ":" + "\"" + XSD2JSONConverter.generic_cat_desc
-					+ "\"");
+			subCategoriesOrder.add(XSD2JSONConverter.generic_cat_fullstring);
 			insertIndex = 1;
 		}
 		XSTypeDefinition typeDef = element.getTypeDefinition();
