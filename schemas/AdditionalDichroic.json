@@ -7,7 +7,7 @@
 	"description":"This describes an additional dichroic  positioned in the light path for one or more channel available for this instrument.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_AdditionalDichroic.svg",
+	"image":"AdditionalOptics_AdditionalDichroic.png",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
