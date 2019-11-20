@@ -6,7 +6,7 @@
 	"type":"object",
 	"title":"Microscope",
 	"description":"This element describes the instrument used to capture the Image. It is primarily a container referring to the microscope's components list, which include the Microscope Body, Microscope Table, LightSource, LightSourceCoupling, SampleHolder, Focusing devices, Objective, Optovar, Filter, Dichroic, AdditionalOptics, Detector and CalibrationTool. The Filter element can be composed either of separate excitation, emission filters and a dichroic mirror or a single filter set. Within the Image itself, a reference is made to this one Filter element. There may be multiple light sources, detectors, objectives and filters etc. in an Instrument. Each of these has their own ID attribute, which can be referred to from Channel. It is understood that the light path configuration can be different for each channel, but cannot be different for each timepoint or each plane of an XYZ stack.",
-	"image":"Microscope_default.png",
+	"image":"Microscope_Empty_new.png",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -106,7 +106,7 @@
 	"description":"This records the range of wavelengths that are reflected by the mirror.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_ReflectanceRange.png",
+	"image":"ChildElement_ReflectanceRange.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"ReflectanceRange":"This records the range of wavelengths that are reflected by the mirror."
@@ -239,7 +239,7 @@
 	"description":"An optional piezoelectric objective positioning device associated with this instrument.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Focusing",
-	"image":"SamplePositioning_Focusing_PiezoElectricObjectiveFocus.png",
+	"image":"SamplePositioning_Focusing_PiezoElectricObjectiveFocus.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -541,7 +541,7 @@
 	"description":"A Light Guide coupling between the light source and the microscope generally consists of a casing enclosing a medium capable of transferring light from the illuminator to the back of the microsocpe body.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"LightSourceCoupling",
-	"image":"LightSourceCoupling_LightGuide.png",
+	"image":"LightSourceCoupling_LightGuide.svg",
 	"tier":4,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -949,7 +949,7 @@
 	"description":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Transmitted_LightSource",
-	"image":"Transmitted_LightSource_LightEmittingDiode.png",
+	"image":"Transmitted_LightSource_LightEmittingDiode.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -1309,7 +1309,7 @@
 	"description":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
-	"image":"Fluorescence_LightSource_LightEmittingDiode.png",
+	"image":"Fluorescence_LightSource_LightEmittingDiode.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -1672,7 +1672,7 @@
 	"description":"This element describes the table on which this Microscope rests during acquisition.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"MicroscopyBasics",
-	"image":"MicroscopyBasics_MicroscopeTable.png",
+	"image":"MicroscopyBasics_MicroscopeTable.svg",
 	"tier":4,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -1871,7 +1871,7 @@
 	"description":"This describes a dichroic  positioned in the standard light path for one or more channel available for this instrument.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
-	"image":"LightPath_StandardDichroic.png",
+	"image":"LightPath_StandardDichroic.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -2407,7 +2407,7 @@
 	"description":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence).",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Transmitted_LightSource",
-	"image":"Transmitted_LightSource_Filament.png",
+	"image":"Transmitted_LightSource_Filament.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -2542,7 +2542,7 @@
 	"description":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence).",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
-	"image":"Fluorescence_LightSource_Filament.png",
+	"image":"Fluorescence_LightSource_Filament.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -2678,7 +2678,7 @@
 	"description":"Describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
 	"domain":"Experimental",
 	"category":"SamplePreparation",
-	"image":"SamplePreparation_Experiment.png",
+	"image":"SamplePreparation_Experiment.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -2870,7 +2870,7 @@
 	"description":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
-	"image":"Fluorescence_LightSource_Laser.png",
+	"image":"Fluorescence_LightSource_Laser.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -3183,7 +3183,7 @@
 	"description":"This element is used to represent a detector as a collection of key/value pairs, which are stored in a Map. One of the other detector elements should always be used in preference to this if possible.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Detector",
-	"image":"Detector_GenericDetector.png",
+	"image":"Detector_GenericDetector.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -3556,7 +3556,7 @@
 	"description":"The type of Intensified CCD camera used.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
-	"image":"Detector_Camera_IntensifiedCCD.png",
+	"image":"Detector_Camera_IntensifiedCCD.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -4312,7 +4312,7 @@
 	"description":"This is a total reflection mirror.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Mirror",
-	"image":"Mirror_Reflector.png",
+	"image":"Mirror_Reflector.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -4528,7 +4528,7 @@
 	"description":"This describes an optional sample holder mounted on the microscope stage.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Stage",
-	"image":"SamplePositioning_Stage_SampleHolder.png",
+	"image":"SamplePositioning_Stage_SampleHolder.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -4976,7 +4976,7 @@
 	"description":"Optovars are magnification changing devices originally developed by Zeiss, which provide additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification changers are placed before the tube lens within the infinity space of the optical system. Typical magnification increments are: 1.25x, 1.6x, and 2x.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Magnification",
-	"image":"Magnification_Optovar.png",
+	"image":"Magnification_Optovar.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -5085,7 +5085,7 @@
 	"description":"An objective turret positoning device available for this instrument.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Focusing",
-	"image":"SamplePositioning_Focusing_ObjectiveTurretFocus.png",
+	"image":"SamplePositioning_Focusing_ObjectiveTurretFocus.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -5387,7 +5387,7 @@
 	"description":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. They might either be pre-assebled by the manufacturer and pruchased as a whole or they can be custome assembled on site depending on the needs of the user.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
-	"image":"LightPath_FilterSet.png",
+	"image":"LightPath_FilterSet.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -5497,7 +5497,7 @@
 	"description":"The Pump element refers to a light source. It is used within the Laser element to specify the light source used as an optional laser pump.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_Pump.png",
+	"image":"ChildElement_Pump.svg",
 	"tier":5,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -5530,7 +5530,7 @@
 	"description":"A tool, such as the Meta-Max calibration toold developed by the 4D Nucleome Imaging Standards Working Group, used to perform an intensity calibration procedure.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Calibration",
-	"image":"Calibration_IntensityCalibrationTool.png",
+	"image":"Calibration_IntensityCalibrationTool.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -5628,7 +5628,7 @@
 	"description":"A Direct coupling between the light source and the microscope consists either of a direct mount or of an optical light path that directs light across space to the back of the microscope body.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"LightSourceCoupling",
-	"image":"LightSourceCoupling_Direct.png",
+	"image":"LightSourceCoupling_Direct.svg",
 	"tier":4,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -5749,7 +5749,7 @@
 	"description":"A description of the sample that was imaged in this experiment.",
 	"domain":"Experimental",
 	"category":"SamplePreparation",
-	"image":"SamplePreparation_Sample.png",
+	"image":"SamplePreparation_Sample.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -5812,7 +5812,7 @@
 	"description":"A complementary metal-oxide-semiconductor camera.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
-	"image":"Detector_Camera_CMOS.png",
+	"image":"Detector_Camera_CMOS.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -6569,7 +6569,7 @@
 	"description":"This is a mirror that reflects part of the light, regardless of wavelenght.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Mirror",
-	"image":"Mirror_BeamSplitter.png",
+	"image":"Mirror_BeamSplitter.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -6798,7 +6798,7 @@
 	"description":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Transmitted_LightSource",
-	"image":"Transmitted_LightSource_GenericExcitationSource.png",
+	"image":"Transmitted_LightSource_GenericExcitationSource.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -6928,7 +6928,7 @@
 	"description":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
-	"image":"Fluorescence_LightSource_GenericExcitationSource.png",
+	"image":"Fluorescence_LightSource_GenericExcitationSource.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -7060,7 +7060,7 @@
 	"description":"An Arc lamp is a lamp that produces light by an electric arc (also called a voltaic arc), which is typically generated between metal electrodes through an inert gas in a glass bulb.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
-	"image":"Fluorescence_LightSource_Arc.png",
+	"image":"Fluorescence_LightSource_Arc.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -7196,7 +7196,7 @@
 	"description":"This describes an optional piezoelectric stage positioning device associated with this instrument.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Stage",
-	"image":"SamplePositioning_Stage_PiezoElectricStage.png",
+	"image":"SamplePositioning_Stage_PiezoElectricStage.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -7614,7 +7614,7 @@
 	"description":"A photomultiplier tube, useful for light detection of very weak signals, is a photoemissive device in which the absorption of a photon results in the emission of an electron. These detectors work by amplifying the electrons generated by a photocathode exposed to a photon flux.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Detector",
-	"image":"Detector_PhotoMultiplier.png",
+	"image":"Detector_PhotoMultiplier.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -7998,7 +7998,7 @@
 	"description":"This describes a mechanical stage positioning device associated with this instrument. This component is not very common but can be found in simple surveying microscopes.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Stage",
-	"image":"SamplePositioning_Stage_MechanicalStage.png",
+	"image":"SamplePositioning_Stage_MechanicalStage.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -8416,7 +8416,7 @@
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths. This element refers to an emission filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
-	"image":"LightPath_EmissionFilter.png",
+	"image":"LightPath_EmissionFilter.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -8660,7 +8660,7 @@
 	"description":"This element describes one or more optional focus stabilization device(s) available for this instrument.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Focusing",
-	"image":"SamplePositioning_Focusing_AutoFocus.png",
+	"image":"SamplePositioning_Focusing_AutoFocus.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -8758,7 +8758,7 @@
 	"description":"A charged coupled device camera.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
-	"image":"Detector_Camera_CCD.png",
+	"image":"Detector_Camera_CCD.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -9516,7 +9516,7 @@
 	"description":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_WavelengthRange.png",
+	"image":"ChildElement_WavelengthRange.svg",
 	"tier":5,
 	"subCategoriesOrder": {
 		"WavelengthRange":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used."
@@ -9649,7 +9649,7 @@
 	"description":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_LEDModule.png",
+	"image":"ChildElement_LEDModule.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
@@ -9887,7 +9887,7 @@
 	"description":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_TransmittanceRange.png",
+	"image":"ChildElement_TransmittanceRange.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
@@ -10020,7 +10020,7 @@
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an excitation filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
-	"image":"LightPath_ExcitationFilter.png",
+	"image":"LightPath_ExcitationFilter.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -10264,7 +10264,7 @@
 	"description":"A device used to capture analog videos.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
-	"image":"Detector_Camera_AnalogVideo.png",
+	"image":"Detector_Camera_AnalogVideo.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -11009,7 +11009,7 @@
 	"description":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Magnification",
-	"image":"Magnification_Objective.png",
+	"image":"Magnification_Objective.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -11339,7 +11339,7 @@
 	"description":"This describes an optical polarization device positioned in the light path for one or more channel available for this instrument. A polarization device is an optical filter that lets light waves of a specific polarization pass through while blocking light waves of other polarizations.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_PolarizationOptics.png",
+	"image":"AdditionalOptics_PolarizationOptics.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -11617,7 +11617,7 @@
 	"description":"This describes an additional dichroic  positioned in the light path for one or more channel available for this instrument.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_AdditionalDichroic.png",
+	"image":"AdditionalOptics_AdditionalDichroic.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -12153,7 +12153,7 @@
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths. This element refers to a filter positioned along the light path in addition to the excitation and the emission filters.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_AdditionalFilter.png",
+	"image":"AdditionalOptics_AdditionalFilter.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -12398,7 +12398,7 @@
 	"description":"Any additional lens poistioned in the light path for a given channel.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_AdditionalLens.png",
+	"image":"AdditionalOptics_AdditionalLens.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -12846,7 +12846,7 @@
 	"description":"A lens positioned at connector between this light source coupling device and the microscope body.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_CouplingLens.png",
+	"image":"AdditionalOptics_CouplingLens.svg",
 	"tier":5,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -13294,7 +13294,7 @@
 	"description":"This describes a prism positioned in the light path for one or more channel available for this instrument. A prism is a block of glass or other transparent material with flat, polished surfaces, which can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. An instrument may have several prisms with different factionality such as,  reflecting, polarizing, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. Refracting prisms can be employed to bend and separate light into its component colors. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_Prism.png",
+	"image":"AdditionalOptics_Prism.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -13650,7 +13650,7 @@
 	"description":"A lens positioned at the mount connecting a detector to the microscope body.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_RelayLens.png",
+	"image":"AdditionalOptics_RelayLens.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
