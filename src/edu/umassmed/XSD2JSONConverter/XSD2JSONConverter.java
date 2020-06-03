@@ -41,7 +41,7 @@ import com.sun.org.apache.xerces.internal.xs.XSTypeDefinition;
 public class XSD2JSONConverter {
 
 	public static boolean forceVersion = true;
-	public static String version = "1.07.7";
+	public static String version = "1.07.8";
 
 	public static boolean useProgress = false;
 	public static String inputFileVersionProgress = "v01-08/";
@@ -83,9 +83,9 @@ public class XSD2JSONConverter {
 			+ XSD2JSONConverter.generic_cat_attr + "\"" + ":" + "\""
 			+ XSD2JSONConverter.generic_cat_desc + "\"";
 
-	public static String outputFile = "fullSchemaV3";
+	public static String outputFile = "fullSchemaV4";
 	public static String outputFile_ext = ".json";
-	public static String outputFolder = "./schemasV3/";
+	public static String outputFolder = "./schemasV4/";
 
 	private XSModel model;
 	private final List<XSElementDeclaration> elementList;
@@ -745,6 +745,7 @@ public class XSD2JSONConverter {
 	private List<List<String>> getChildrenAttributesAndRequired(
 			final List<XSParticle> particles, final String name,
 			final XSComplexTypeDefinition complTypeDef) {
+		System.out.println("Considering " + name);
 		final List<List<String>> returns = new ArrayList<List<String>>();
 		final List<String> attributes = new ArrayList<String>();
 		final List<String> required = new ArrayList<String>();
@@ -931,6 +932,7 @@ public class XSD2JSONConverter {
 					// }
 					// attributes.add(aSB.toString());
 				} else {
+					
 					final XSComplexTypeDefinition elementComplTypeDef = (XSComplexTypeDefinition) element
 							.getTypeDefinition();
 					final XSObjectList attrList = elementComplTypeDef
@@ -941,61 +943,86 @@ public class XSD2JSONConverter {
 					final String attrDesc = this.getDescription(elementName,
 							annotations);
 					final String attrName = elementName;
-					// String attrNameCat = attrName;
-					aSB.append("\t\t\"" + attrName + "\": {\n");
-					boolean isArray = false;
-					if ((max > 1) || (max == -1)) {
-						aSB.append("\t\t\t\"type\":\"array\",\n");
-						isArray = true;
-					} else {
-						aSB.append("\t\t\t\"type\":\"object\",\n");
-					}
-					aSB.append("\t\t\t\"description\":\"" + attrDesc + "\",\n");
-					aSB.append("\t\t\t\"tier\":" + attrTier + ",\n");
-					// aSB.append("\t\t\t\"schemaID\":\"" + attrName
-					// + ".json\",\n");
-					if (isArray) {
-						aSB.append("\t\t\t\"items\": {\n");
-						aSB.append("\t");
-					}
-					aSB.append("\t\t\t\"properties\": {\n");
-					final List<List<String>> attributesAndRequiredLocal = this
-							.getAttributesAndRequired(attrName, null, attrList,
-									isArray ? 3 : 2);
-					final List<String> attributesLocal = attributesAndRequiredLocal
-							.get(0);
-					final List<String> requiredLocal = attributesAndRequiredLocal
-							.get(1);
-					for (int k = 0; k < attributesLocal.size(); k++) {
-						// for (final String s : attributesLocal) {
-						final String s = attributesLocal.get(k);
-						aSB.append(s);
-						if (k < (attributesLocal.size() - 1)) {
-							aSB.append(",\n");
+					final String category = this.getCategory(attrName,
+							annotations);
+					if ((category != null) && !category.equals("ChildElement")) {
+						System.out.println("Element not ChildElement -> "
+								+ attrName + " - " + category);
+
+						final String attrType = "string";
+						aSB.append("\t\t\"" + attrName + "\": {\n");
+						final boolean isArray = false;
+						if ((max > 1) || (max == -1)) {
+							aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
+							// FIXME temporary workaround to fix the fact lots
+							// of min/max in the xsd file are wrong
+							// aSB.append("\t\t\t\"type\":\"array\",\n");
+							// aSB.append("\t\t\t\"items\": {\n");
+							// isArray = true;
 						} else {
-							aSB.append("\n");
+							aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
 						}
-					}
-					if (isArray) {
-						aSB.append("\t");
-					}
-					aSB.append("\t\t\t}");
-					// TODO add } only if max > 1
-					if (requiredLocal.size() > 0) {
-						aSB.append(",\n");
 						if (isArray) {
 							aSB.append("\t");
 						}
-						aSB.append("\t\t\t\"required\": [\n");
-						// attributes.addAll(attributesLocal);
-						// required.addAll(requiredLocal);
-						for (int k = 0; k < requiredLocal.size(); k++) {
-							final String s = requiredLocal.get(k);
-							if (isArray) {
-								aSB.append("\t");
-							}
-							aSB.append("\t\t\t\t\"" + s + "\"");
-							if (k < (requiredLocal.size() - 1)) {
+						aSB.append("\t\t\t\"description\":\"" + attrDesc
+								+ "\",\n");
+						if (isArray) {
+							aSB.append("\t");
+							aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
+						}
+						if (isArray) {
+							aSB.append("\t");
+						}
+						aSB.append("\t\t\t\"tier\":" + attrTier + ",\n");
+						if (isArray) {
+							aSB.append("\t");
+						}
+						aSB.append("\t\t\t\"category\":\"" + attrName + "\",\n");
+						if (isArray) {
+							aSB.append("\t");
+						}
+						aSB.append("\t\t\t\"contains\":\"" + attrName + "\"\n");
+						if (isArray) {
+							aSB.append("\t\t\t}\n");
+						}
+						aSB.append("\t\t}");
+						if (min == 1) {
+							required.add(attrName);
+						}
+						attributes.add(aSB.toString());
+					} else {
+						// String attrNameCat = attrName;
+						aSB.append("\t\t\"" + attrName + "\": {\n");
+						boolean isArray = false;
+						if ((max > 1) || (max == -1)) {
+							aSB.append("\t\t\t\"type\":\"array\",\n");
+							isArray = true;
+						} else {
+							aSB.append("\t\t\t\"type\":\"object\",\n");
+						}
+						aSB.append("\t\t\t\"description\":\"" + attrDesc
+								+ "\",\n");
+						aSB.append("\t\t\t\"tier\":" + attrTier + ",\n");
+						// aSB.append("\t\t\t\"schemaID\":\"" + attrName
+						// + ".json\",\n");
+						if (isArray) {
+							aSB.append("\t\t\t\"items\": {\n");
+							aSB.append("\t");
+						}
+						aSB.append("\t\t\t\"properties\": {\n");
+						final List<List<String>> attributesAndRequiredLocal = this
+								.getAttributesAndRequired(attrName, null,
+										attrList, isArray ? 3 : 2);
+						final List<String> attributesLocal = attributesAndRequiredLocal
+								.get(0);
+						final List<String> requiredLocal = attributesAndRequiredLocal
+								.get(1);
+						for (int k = 0; k < attributesLocal.size(); k++) {
+							// for (final String s : attributesLocal) {
+							final String s = attributesLocal.get(k);
+							aSB.append(s);
+							if (k < (attributesLocal.size() - 1)) {
 								aSB.append(",\n");
 							} else {
 								aSB.append("\n");
@@ -1004,18 +1031,44 @@ public class XSD2JSONConverter {
 						if (isArray) {
 							aSB.append("\t");
 						}
-						aSB.append("\t\t\t]\n");
-					} else {
-						aSB.append("\n");
+						aSB.append("\t\t\t}");
+						// TODO add } only if max > 1
+						if (requiredLocal.size() > 0) {
+							aSB.append(",\n");
+							if (isArray) {
+								aSB.append("\t");
+							}
+							aSB.append("\t\t\t\"required\": [\n");
+							// attributes.addAll(attributesLocal);
+							// required.addAll(requiredLocal);
+							for (int k = 0; k < requiredLocal.size(); k++) {
+								final String s = requiredLocal.get(k);
+								if (isArray) {
+									aSB.append("\t");
+								}
+								aSB.append("\t\t\t\t\"" + s + "\"");
+								if (k < (requiredLocal.size() - 1)) {
+									aSB.append(",\n");
+								} else {
+									aSB.append("\n");
+								}
+							}
+							if (isArray) {
+								aSB.append("\t");
+							}
+							aSB.append("\t\t\t]\n");
+						} else {
+							aSB.append("\n");
+						}
+						if (isArray) {
+							aSB.append("\t\t\t}\n");
+						}
+						aSB.append("\t\t}");
+						if (min == 1) {
+							required.add(attrName);
+						}
+						attributes.add(aSB.toString());
 					}
-					if (isArray) {
-						aSB.append("\t\t\t}\n");
-					}
-					aSB.append("\t\t}");
-					if (min == 1) {
-						required.add(attrName);
-					}
-					attributes.add(aSB.toString());
 				}
 			}
 		}
