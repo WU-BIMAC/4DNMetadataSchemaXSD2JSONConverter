@@ -26,19 +26,19 @@
 				"h":69
 			}
 		],
-		"SamplePositioning_Stage_SampleHolder":{
+		"SamplePositioning.Stage_SampleHolder":{
 			"x":742.8558,
 			"y":477.6328,
 			"w":308.3971,
 			"h":76.1638
 		},
-		"SamplePositioning_Stage_PiezoElectricStage":{
+		"SamplePositioning.Stage_PiezoElectricStage":{
 			"x":742.8558,
 			"y":536.4818,
 			"w":309,
 			"h":24.5969
 		},
-		"SamplePositioning_Stage_MechanicalStage":{
+		"SamplePositioning.Stage_MechanicalStage":{
 			"x":742.8558,
 			"y":569.4818,
 			"w":309,
@@ -82,13 +82,13 @@
 				"h":83.033
 			}
 		],
-		"SamplePositioning_Focusing_PiezoElectricObjectiveFocus":{
+		"SamplePositioning.Focusing_PiezoElectricObjectiveFocus":{
 			"x":632.8698,
 			"y":682.2489,
 			"w":62.7396,
 			"h":50.4977
 		},
-		"SamplePositioning_Focusing_ObjectiveTurretFocus":{
+		"SamplePositioning.Focusing_ObjectiveTurretFocus":{
 			"x":744.75,
 			"y":724.1464,
 			"w":307.5002,
@@ -156,7 +156,7 @@
 			"w":53.2847,
 			"h":6.0001
 		},
-		"SamplePositioning_Focusing_AutoFocus":{
+		"SamplePositioning.Focusing_AutoFocus":{
 			"x":292.5156,
 			"y":860.25,
 			"w":110.9689,
