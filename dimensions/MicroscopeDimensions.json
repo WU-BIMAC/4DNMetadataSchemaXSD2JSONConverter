@@ -188,7 +188,7 @@
 				"h":64.5
 			}
 		],
-		"Detector_Camera":{
+		"Detector.Camera":{
 			"x":1008.585,
 			"y":636.8475,
 			"w":121.83,
@@ -243,6 +243,48 @@
 				"w":65.0108,
 				"h":69.3319
 			}
-		]
+		],
+		"AdditionalOptics_AdditionalDichroic":{
+			"x":-1,
+			"y":-1,
+			"w":100,
+			"h":100
+		},
+		"AdditionalOptics_AdditionalFilter":{
+			"x":-1,
+			"y":-1,
+			"w":100,
+			"h":100
+		},
+		"AdditionalOptics_AdditionalLens":{
+			"x":-1,
+			"y":-1,
+			"w":100,
+			"h":100
+		},
+		"AdditionalOptics_PolarizationOptics":{
+			"x":-1,
+			"y":-1,
+			"w":100,
+			"h":100
+		},
+		"AdditionalOptics_Prism":{
+			"x":-1,
+			"y":-1,
+			"w":100,
+			"h":100
+		},
+		"Mirror_Reflector":{
+			"x":-1,
+			"y":-1,
+			"w":100,
+			"h":100
+		},
+		"Mirror_BeamSplitter":{
+			"x":-1,
+			"y":-1,
+			"w":100,
+			"h":100
+		}
 	}
 }

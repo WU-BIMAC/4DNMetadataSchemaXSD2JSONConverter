@@ -27,7 +27,7 @@ Calibration_IntensityCalibrationTool:171.8469,869.2557:117.9604,29.5959
 MicroscopyBasics_MicroscopeTable:1023,934.1729:1839,42.6542
 AdditionalOptics_RelayLens:935.684,633.75:11.3679,64.5
 AdditionalOptics_RelayLens:934.184,747.75:11.3679,64.5
-Detector_Camera:1008.585,636.8475:121.83,122.085
+Detector.Camera:1008.585,636.8475:121.83,122.085
 Detector:1036.7882,747.6328:184.5212,94.5
 LightSourceCoupling_LightGuide:1011.6857,850.8076:115.6285,24.7273
 AdditionalOptics_CouplingLens:1082.9843,850.5:10.5314,69
@@ -37,3 +37,10 @@ Fluorescence_LightSource:1299.4516,849.4919:65.0108,69.3319
 Fluorescence_LightSource:1375.9516,849.4919:65.0108,69.3319
 Fluorescence_LightSource:1452.4516,849.4919:65.0108,69.3319
 Fluorescence_LightSource:1528.9516,849.4919:65.0108,69.3319
+AdditionalOptics_AdditionalDichroic:-1,-1:100,100
+AdditionalOptics_AdditionalFilter:-1,-1:100,100
+AdditionalOptics_AdditionalLens:-1,-1:100,100
+AdditionalOptics_PolarizationOptics:-1,-1:100,100
+AdditionalOptics_Prism:-1,-1:100,100
+Mirror_Reflector:-1,-1:100,100
+Mirror_BeamSplitter:-1,-1:100,100
