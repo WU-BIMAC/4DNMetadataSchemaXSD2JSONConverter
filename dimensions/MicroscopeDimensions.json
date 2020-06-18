@@ -247,44 +247,44 @@
 		"AdditionalOptics_AdditionalDichroic":{
 			"x":-1,
 			"y":-1,
-			"w":100,
-			"h":100
+			"w":46.5005,
+			"h":67.9878
 		},
 		"AdditionalOptics_AdditionalFilter":{
 			"x":-1,
 			"y":-1,
-			"w":100,
-			"h":100
+			"w":46.5005,
+			"h":67.9878
 		},
 		"AdditionalOptics_AdditionalLens":{
 			"x":-1,
 			"y":-1,
-			"w":100,
-			"h":100
+			"w":46.5005,
+			"h":67.9878
 		},
 		"AdditionalOptics_PolarizationOptics":{
 			"x":-1,
 			"y":-1,
-			"w":100,
-			"h":100
+			"w":46.5005,
+			"h":59.2661
 		},
 		"AdditionalOptics_Prism":{
 			"x":-1,
 			"y":-1,
-			"w":100,
-			"h":100
+			"w":99,
+			"h":71.1563
 		},
 		"Mirror_Reflector":{
 			"x":-1,
 			"y":-1,
-			"w":100,
-			"h":100
+			"w":46.5005,
+			"h":59.2661
 		},
 		"Mirror_BeamSplitter":{
 			"x":-1,
 			"y":-1,
-			"w":100,
-			"h":100
+			"w":82.5001,
+			"h":71.9482 
 		}
 	}
 }

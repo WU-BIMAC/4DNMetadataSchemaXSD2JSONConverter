@@ -37,10 +37,10 @@ Fluorescence_LightSource:1299.4516,849.4919:65.0108,69.3319
 Fluorescence_LightSource:1375.9516,849.4919:65.0108,69.3319
 Fluorescence_LightSource:1452.4516,849.4919:65.0108,69.3319
 Fluorescence_LightSource:1528.9516,849.4919:65.0108,69.3319
-AdditionalOptics_AdditionalDichroic:-1,-1:100,100
-AdditionalOptics_AdditionalFilter:-1,-1:100,100
-AdditionalOptics_AdditionalLens:-1,-1:100,100
-AdditionalOptics_PolarizationOptics:-1,-1:100,100
-AdditionalOptics_Prism:-1,-1:100,100
-Mirror_Reflector:-1,-1:100,100
-Mirror_BeamSplitter:-1,-1:100,100
+AdditionalOptics_AdditionalDichroic:-1,-1:46.5005,67.9878
+AdditionalOptics_AdditionalFilter:-1,-1:46.5005,67.9878
+AdditionalOptics_AdditionalLens:-1,-1:46.5005,67.9878
+AdditionalOptics_PolarizationOptics:-1,-1:46.5005,59.2661
+AdditionalOptics_Prism:-1,-1:99,71.1563
+Mirror_Reflector:-1,-1:46.5005,59.2661
+Mirror_BeamSplitter:-1,-1:82.5001,71.9482 
