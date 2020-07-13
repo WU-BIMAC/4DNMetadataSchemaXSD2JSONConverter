@@ -1,5 +1,5 @@
 Transmitted_LightSource:1026.0411,85.7161:65.0108,69.3319
-LightSourceCoupling_Direct:887.1857,87.3076:112.6286,44.943
+LightSourceCoupling:887.1857,87.3076:112.6286,44.943
 AdditionalOptics_CouplingLens:959.9843,88.5:10.5314,69
 SamplePositioning.Stage_SampleHolder:742.8558,477.6328:308.3971,76.1638
 SamplePositioning.Stage_PiezoElectricStage:742.8558,536.4818:309,24.5969
@@ -29,7 +29,7 @@ AdditionalOptics_RelayLens:935.684,633.75:11.3679,64.5
 AdditionalOptics_RelayLens:934.184,747.75:11.3679,64.5
 Detector.Camera:1008.585,636.8475:121.83,122.085
 Detector:1036.7882,747.6328:184.5212,94.5
-LightSourceCoupling_LightGuide:1011.6857,850.8076:115.6286,44.9433
+LightSourceCoupling:1011.6857,850.8076:115.6286,44.9433
 AdditionalOptics_CouplingLens:1082.9843,850.5:10.5314,69
 Fluorescence_LightSource:1146.4516,849.4919:65.0108,69.3319
 Fluorescence_LightSource:1222.9516,849.4919:65.0108,69.3319
