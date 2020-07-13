@@ -6,12 +6,20 @@
 			"w":65.0108,
 			"h":69.3319
 		},
-		"LightSourceCoupling_Direct":{
-			"x":887.1857,
-			"y":87.3076,
-			"w":112.6285,
-			"h":24.7273
-		},
+		"LightSourceCoupling":[
+			{
+				"x":887.1857,
+				"y":87.3076,
+				"w":112.6286,
+				"h":44.943
+			},
+			{
+				"x":1011.6857,
+				"y":850.8076,
+				"w":115.6286,
+				"h":44.9433
+			}
+		],
 		"AdditionalOptics_CouplingLens":[
 			{
 				"x":959.9843,
@@ -92,7 +100,7 @@
 			"x":744.75,
 			"y":724.1464,
 			"w":307.5002,
-			"h":14.2928
+			"h":29.2978
 		},
 		"Magnification_Optovar":{
 			"x":760.3125,
@@ -165,8 +173,8 @@
 		"Calibration_IntensityCalibrationTool":{
 			"x":171.8469,
 			"y":869.2557,
-			"w":117.9604,
-			"h":29.5959
+			"w":121.5,
+			"h":40.7031
 		},
 		"MicroscopyBasics_MicroscopeTable":{
 			"x":1023,
@@ -199,12 +207,6 @@
 			"y":747.6328,
 			"w":184.5212,
 			"h":94.5
-		},
-		"LightSourceCoupling_LightGuide":{
-			"x":1011.6857,
-			"y":850.8076,
-			"w":115.6285,
-			"h":24.7273
 		},
 		"Fluorescence_LightSource":[
 			{
