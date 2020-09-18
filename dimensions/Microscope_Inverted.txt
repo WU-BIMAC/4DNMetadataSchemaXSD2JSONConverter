@@ -4,7 +4,7 @@ AdditionalOptics_CouplingLens:959.5,87:14,74
 SamplePositioning.Stage_SampleHolder:742,477:310,77
 SamplePositioning.Stage_PiezoElectricStage:742,536:310,25
 SamplePositioning.Stage_MechanicalStage:742,569:310,25
-Magnification_Objective:622,638:40,84
+Magnification_Objective:622.5,638:40,84
 Magnification_Objective:691,667:40,84
 Magnification_Objective:732,667:40,84
 Magnification_Objective:774,667:40,84
@@ -12,7 +12,7 @@ Magnification_Objective:816,667:40,84
 Magnification_Objective:858,667:40,84
 SamplePositioning.Focusing_PiezoElectricObjectiveFocus:632,682:64,51
 SamplePositioning.Focusing_ObjectiveTurretFocus:744,731:309,30
-Magnification_Optovar:760,761:220,12
+Magnification_Optovar:760,761.25:220,12
 LightPath_FilterSet:468,724:85,85
 LightPath_FilterSet:468,832:85,85
 LightPath_FilterSet:568,832:85,85
@@ -28,7 +28,7 @@ MicroscopyBasics_MicroscopeTable:1023,934:1840,53
 AdditionalOptics_RelayLens:935.5,633:13,67
 AdditionalOptics_RelayLens:934.5,747:13,67
 Detector.Camera:1007.75,636:128,128
-Detector:1036.75,747:190,100
+Detector:1037,747:190,100
 LightSourceCoupling:1011,860.75:122,54
 AdditionalOptics_CouplingLens:1082.5,849:14,74
 Fluorescence_LightSource:1146,849:66,70
