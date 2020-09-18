@@ -27,9 +27,9 @@ Calibration_IntensityCalibrationTool:171,874:124,44
 MicroscopyBasics_MicroscopeTable:1023,934:1840,53
 AdditionalOptics_RelayLens:935,633:13,66
 AdditionalOptics_RelayLens:934,747:13,66
-Detector.Camera:1007,636:125,125
-Detector:1036,747:188,98
-LightSourceCoupling:1011,860:118,50
+Detector.Camera:1007.5,636:125,125
+Detector:1036.5,747:188,98
+LightSourceCoupling:1011,860.5:118,50
 AdditionalOptics_CouplingLens:1082,850:14,71
 Fluorescence_LightSource:1146,849:66,70
 Fluorescence_LightSource:1222,849:66,70
