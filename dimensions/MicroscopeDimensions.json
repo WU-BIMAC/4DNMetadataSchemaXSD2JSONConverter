@@ -10,28 +10,28 @@
 			{
 				"x":887,
 				"y":97,
-				"w":120,
-				"h":52
+				"w":122,
+				"h":54
 			},
 			{
 				"x":1011,
 				"y":860.5,
-				"w":120,
-				"h":52
+				"w":122,
+				"h":54
 			}
 		],
 		"AdditionalOptics_CouplingLens":[
 			{
 				"x":959,
-				"y":88,
+				"y":87,
 				"w":14,
-				"h":72
+				"h":74
 			},
 			{
 				"x":1082,
-				"y":850,
+				"y":849,
 				"w":14,
-				"h":72
+				"h":74
 			}
 		],
 		"SamplePositioning.Stage_SampleHolder":{
@@ -173,8 +173,8 @@
 		"Calibration_IntensityCalibrationTool":{
 			"x":171,
 			"y":874,
-			"w":125,
-			"h":45
+			"w":128,
+			"h":48
 		},
 		"MicroscopyBasics_MicroscopeTable":{
 			"x":1023,
@@ -199,14 +199,14 @@
 		"Detector.Camera":{
 			"x":1007.5,
 			"y":636,
-			"w":126,
-			"h":126
+			"w":128,
+			"h":128
 		},
 		"Detector":{
 			"x":1036.5,
 			"y":747,
-			"w":189,
-			"h":99
+			"w":190,
+			"h":100
 		},
 		"Fluorescence_LightSource":[
 			{
