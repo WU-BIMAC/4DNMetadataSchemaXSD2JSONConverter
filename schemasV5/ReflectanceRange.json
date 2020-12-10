@@ -1,0 +1,90 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ReflectanceRange.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"ReflectanceRange",
+	"description":"This element records the Range (also known as Band) of Wavelengths that are reflected by this optical componewnt. It also records the maximum amount of light reflected. Multiple of these elements can be used.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"ChildElement",
+	"image":"ChildElement_ReflectanceRange.svg",
+	"tier":3,
+	"subCategoriesOrder": {
+		"ReflectanceRange":"This element records the Range (also known as Band) of Wavelengths that are reflected by this optical componewnt. It also records the maximum amount of light reflected. Multiple of these elements can be used."
+	},
+	"properties": {
+		"Wavelength": {
+			"type":"number",
+			"description":"This field records the key Wavelength that characterizes this Reflectance Range (also known as Reflection band). In most cases, Wavelength refers to the CutOn Wavelength (i.e., below which there is less than 50% transmittance) but it might also refer to the CutOff wavelength (i.e., above which there is less than 50% transmittance) or the Center Wavelength of the Reflectance Band.",
+			"tier":3,
+			"category":"ReflectanceRange"
+		},
+		"FWHMBandwidth": {
+			"type":"number",
+			"description":"This field records the width of this Reflectance Range (also known as Reflection band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+			"tier":3,
+			"category":"ReflectanceRange"
+		},
+		"WavelengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"ReflectanceRange"
+		},
+		"Reflectance": {
+			"type":"number",
+			"description":"This field records the maximum amount of light this optical component is capable of reflecting in this Wavelength Range, at the peak Wavelength. It is represented as a fractional value from 0.0 to 1.0.",
+			"tier":3,
+			"category":"ReflectanceRange"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Wavelength",
+		"FWHMBandwidth"
+	]
+}

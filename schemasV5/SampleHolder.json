@@ -1,0 +1,71 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"SampleHolder.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"SampleHolder",
+	"description":"This element describes the device (often referred to as Sample Carrier, Container or Vessel) on which the specimen was mounted for microscopical examination. It typically is flat and it could be made of glass or plastic. Examples include Microscope slides, Petri dishes, and multi-well plates.",
+	"extension":"Basic",
+	"domain":"Experimental",
+	"category":"SamplePreparation",
+	"image":"SamplePreparation_SampleHolder.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"SampleHolder":"This element describes the device (often referred to as Sample Carrier, Container or Vessel) on which the specimen was mounted for microscopical examination. It typically is flat and it could be made of glass or plastic. Examples include Microscope slides, Petri dishes, and multi-well plates."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Type": {
+			"type":"string",
+			"description":"This field records the Type of this Sample Holder. Options include, microscope slide, Petri dish, tissue culture plate, micro-well plate, etc. (e.g. 35 mm MatTek Glass Bottom Dish).",
+			"tier":1,
+			"category":"SampleHolder"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Type",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

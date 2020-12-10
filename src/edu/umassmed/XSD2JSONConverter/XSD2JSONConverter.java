@@ -17,6 +17,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
+
 import org.w3c.dom.bootstrap.DOMImplementationRegistry;
 
 import com.sun.org.apache.xerces.internal.impl.xs.XSImplementationImpl;
@@ -39,69 +41,101 @@ import com.sun.org.apache.xerces.internal.xs.XSTerm;
 import com.sun.org.apache.xerces.internal.xs.XSTypeDefinition;
 
 public class XSD2JSONConverter {
-
+	
 	public static boolean forceVersion = true;
-	public static String version = "1.07.8";
-
-	public static boolean useProgress = false;
-	public static String inputFileVersionProgress = "v01-08/";
+	public static String version = "2.00.0";
+	
+	public static boolean useProgress = true;
+	public static String inputFileVersionProgress = "v02-00/";
 	public static String inputFileVersionStable = "v01-07/";
 	public static String versionType_Stable = "stable%20version/";
 	public static String versionType_Progress = "in%20progress/";
 	public static String githubPrefix = "https://raw.githubusercontent.com/WU-BIMAC/MicroscopyMetadata4DNGuidelines/master/Model/";
-	public static String fileName = "4DN-OME-Microscopy%20Metadata.xsd";
+	public static String fileName = "4DN-BINA-OME-Microscopy%20Metadata_CORE%2BBASIC.xsd";
+	
 	public static String tempSchemaFile = "schema.xsd";
-
+	
+	public static String extension = "Extension=";
 	public static String domain = "Domain=";
 	public static String category = "Category=";
 	public static String tier = "Tier=";
 	public static String desc = "Description=";
 	public static String split = "Split=";
-
+	
 	public static String id_attr = "ID";
 	public static String tier_attr = "Tier";
 	public static String name_attr = "Name";
-
+	
 	public static String version_tag = "version";
 	public static String desc_tag = "description";
-
+	
 	public static String value_not_assigned = "NA";
-
+	
 	public static String generic_cat_attr = "General";
-
+	
 	public static String microscope_main_instrument = "Instrument";
-	public static String microscope_main_body = "MicroscopeBody";
+	public static String microscope_main_stand = "MicroscopeStand";
 	public static String image = "Image";
 	public static String experiment = "Experiment";
-	public static String microbeamManipulation = "MicrobeamManipulation";
+	
+	public static List<String> extension_exclusion_list = new ArrayList<String>();
+	public static List<String> domain_exclusion_list = new ArrayList<String>();
+	public static List<String> category_exclusion_list = new ArrayList<String>();
+	public static List<String> element_exclusion_list = new ArrayList<String>();
+	public static List<String> attribute_exclusion_list = new ArrayList<String>();
+	static {
+		XSD2JSONConverter.extension_exclusion_list.add("Advanced+Confocal");
+		XSD2JSONConverter.extension_exclusion_list
+				.add("Calibration and Performance");
 
+		XSD2JSONConverter.domain_exclusion_list.add("VendorSpecifications");
+		
+		XSD2JSONConverter.category_exclusion_list.add("\"Reference\"");
+		XSD2JSONConverter.category_exclusion_list.add("\"Settings\"");
+		XSD2JSONConverter.category_exclusion_list.add("\"Instrument\"");
+		XSD2JSONConverter.category_exclusion_list.add("\"SpecsFile\"");
+		
+		XSD2JSONConverter.element_exclusion_list.add("BinData");
+		XSD2JSONConverter.element_exclusion_list.add("VendorBinData");
+		XSD2JSONConverter.element_exclusion_list.add("NGFFData");
+		XSD2JSONConverter.element_exclusion_list.add("TiffData");
+		XSD2JSONConverter.element_exclusion_list.add("AdditionalDimensionMap");
+		XSD2JSONConverter.element_exclusion_list
+				.add("PlaneTransformationMatrix");
+		XSD2JSONConverter.element_exclusion_list.add("MetadataOnly");
+		XSD2JSONConverter.element_exclusion_list.add("MapAnnotation");
+		XSD2JSONConverter.element_exclusion_list.add("SpecsFile");
+
+		// XSD2JSONConverter.attribute_exclusion_list.add("SpecsFile");
+	}
+	
 	public static String subComponents_category = "ChildrenElement";
-
+	
 	public static String generic_cat_desc = "General information about the element";
-
+	
 	public static String generic_cat_fullstring = "\""
 			+ XSD2JSONConverter.generic_cat_attr + "\"" + ":" + "\""
 			+ XSD2JSONConverter.generic_cat_desc + "\"";
-
-	public static String outputFile = "fullSchemaV4";
+	
+	public static String outputFile = "fullSchemaV5";
 	public static String outputFile_ext = ".json";
-	public static String outputFolder = "./schemasV4/";
-
+	public static String outputFolder = "./schemasV5/";
+	
 	private XSModel model;
 	private final List<XSElementDeclaration> elementList;
-
+	
 	private final StringBuffer errors, references;
-
+	
 	private static String image_ext_png = ".png";
 	private static String image_ext_svg = ".svg";
-
+	
 	public XSD2JSONConverter() {
 		this.model = null;
 		this.elementList = new ArrayList<XSElementDeclaration>();
 		this.errors = new StringBuffer();
 		this.references = new StringBuffer();
 	}
-
+	
 	private void createTempSchemaFile(final String fileURL,
 			final String tmpFileName) throws IOException {
 		final URL inputFileURL = new URL(fileURL);
@@ -112,7 +146,7 @@ public class XSD2JSONConverter {
 		fos.close();
 		rbc.close();
 	}
-
+	
 	private void parseXSDFile() throws ClassNotFoundException,
 			InstantiationException, IllegalAccessException, ClassCastException {
 		System.setProperty(DOMImplementationRegistry.PROPERTY,
@@ -124,7 +158,7 @@ public class XSD2JSONConverter {
 		final XSLoader schemaLoader = impl.createXSLoader(null);
 		this.model = schemaLoader.loadURI(XSD2JSONConverter.tempSchemaFile);
 	}
-
+	
 	private void retrieveElementList() {
 		final XSNamedMap map = this.model
 				.getComponents(XSConstants.ELEMENT_DECLARATION);
@@ -146,7 +180,7 @@ public class XSD2JSONConverter {
 			}
 		}
 	}
-
+	
 	private Map<String, String> parseElement(final XSTypeDefinition typeDef,
 			final Map<String, String> attributeMap) {
 		if ((typeDef instanceof XSComplexTypeDefinition)
@@ -172,9 +206,9 @@ public class XSD2JSONConverter {
 			return newAttributeMap;
 		} else
 			return attributeMap;
-
+		
 	}
-
+	
 	private Map<XSElementDeclaration, Map<String, String>> parseElements() {
 		final Map<XSElementDeclaration, Map<String, String>> elementAttributeCategoryMap = new LinkedHashMap<XSElementDeclaration, Map<String, String>>();
 		for (final XSElementDeclaration element : this.elementList) {
@@ -203,47 +237,59 @@ public class XSD2JSONConverter {
 			// for (final String key : attributeMap.keySet()) {
 			// System.out.println(key + " - " + attributeMap.get(key));
 			// }
-
+			
 		}
 		return elementAttributeCategoryMap;
-
+		
 	}
-
+	
 	private void writeJSONFiles(
 			final Map<XSElementDeclaration, Map<String, String>> map)
 			throws IOException {
 		XSElementDeclaration instrument = null;
-		XSElementDeclaration microscopeBody = null;
 		XSElementDeclaration image = null;
 		final List<String> jsons = new ArrayList<String>();
 		for (final XSElementDeclaration element : map.keySet()) {
-			if (element.getName().equals(
-					XSD2JSONConverter.microscope_main_instrument)) {
+			final String elementName = element.getName();
+			if (elementName
+					.equals(XSD2JSONConverter.microscope_main_instrument)) {
 				instrument = element;
-			} else if (element.getName().equals(
-					XSD2JSONConverter.microscope_main_body)) {
-				microscopeBody = element;
-			} else if (element.getName().equals(XSD2JSONConverter.image)) {
+				// } else if (elementName
+				// .equals(XSD2JSONConverter.microscope_main_stand)) {
+				// microscopeBody = element;
+			} else if (elementName.equals(XSD2JSONConverter.image)) {
 				image = element;
 			} else {
+				final XSObjectList annotations = element.getAnnotations();
+				if (XSD2JSONConverter.element_exclusion_list
+						.contains(elementName)
+						|| XSD2JSONConverter.extension_exclusion_list
+								.contains(this.getExtension(elementName,
+										annotations))
+						|| XSD2JSONConverter.domain_exclusion_list
+								.contains(this.getDomain(elementName,
+										annotations))) {
+					continue;
+				}
 				final List<String> compsJson = this.writeComponentJSONFile(
 						element, map.get(element));
 				jsons.addAll(compsJson);
 			}
 		}
-
-		if ((instrument != null) && (microscopeBody != null)) {
+		
+		if ((instrument != null) /* && (microscopeBody != null) */) {
 			final Map<String, String> microscopeMap = new LinkedHashMap<String, String>();
 			final Map<String, String> instrumentMap = map.get(instrument);
 			microscopeMap.putAll(instrumentMap);
-			final Map<String, String> microscopeBodyMap = map
-					.get(microscopeBody);
-			microscopeMap.putAll(microscopeBodyMap);
+			// final Map<String, String> microscopeBodyMap = map
+			// .get(microscopeBody);
+			// microscopeMap.putAll(microscopeBodyMap);
 			final String micJson = this.writeMicroscopeJSONFile(instrument,
-					microscopeBody, microscopeMap);
+			/* microscopeBody, */microscopeMap);
 			jsons.add(0, micJson);
 		}
-
+		boolean isErrorOrTerminated = false;
+		
 		if (image != null) {
 			// final Map<String, String> reviewImageMap = new
 			// LinkedHashMap<String, String>();
@@ -251,8 +297,16 @@ public class XSD2JSONConverter {
 			final Map<String, String> imageMap = map.get(image);
 			final String imageJson = this
 					.writeImageAndTopLevelSettingsJsonFiles(image, imageMap);
-			jsons.add(1, imageJson);
+			if (imageJson != null) {
+				jsons.add(1, imageJson);
+			} else {
+				// ERROR OR TERMINATED
+				isErrorOrTerminated = true;
+			}
 		}
+		
+		if (isErrorOrTerminated)
+			return;
 		
 		final File f = new File(XSD2JSONConverter.outputFile
 				+ XSD2JSONConverter.outputFile_ext);
@@ -277,12 +331,12 @@ public class XSD2JSONConverter {
 		// fw.close();
 		// bw.close();
 	}
-
+	
 	private StringBuffer checkForChangesAndSetVersion(final File f,
 			final StringBuffer sb) throws IOException {
 		final FileReader fr = new FileReader(f);
 		final BufferedReader br = new BufferedReader(fr);
-
+		
 		final StringBuffer oldSb = new StringBuffer();
 		String line = br.readLine();
 		while (line != null) {
@@ -292,14 +346,14 @@ public class XSD2JSONConverter {
 		}
 		br.close();
 		fr.close();
-
+		
 		final String[] oldString = oldSb.toString().split("\n");
 		final String[] newString = sb.toString().split("\n");
-
+		
 		if ((oldString.length != newString.length)
 				|| XSD2JSONConverter.forceVersion)
 			return sb;
-
+		
 		int versionIndex = -1;
 		for (int i = 0; i < newString.length; i++) {
 			final String s1 = oldString[i];
@@ -312,7 +366,7 @@ public class XSD2JSONConverter {
 			}
 		}
 		newString[versionIndex] = oldString[versionIndex];
-
+		
 		final StringBuffer newSb = new StringBuffer();
 		for (final String s : newString) {
 			newSb.append(s);
@@ -320,7 +374,7 @@ public class XSD2JSONConverter {
 		}
 		return newSb;
 	}
-
+	
 	private String writeImageAndTopLevelSettingsJsonFiles(
 			final XSElementDeclaration image, final Map<String, String> map)
 			throws IOException {
@@ -332,13 +386,13 @@ public class XSD2JSONConverter {
 			
 			final List<XSParticle> particles = this
 					.getChildrenParticleList(imageComplTypeDef);
-
+			
 			this.errors.append(name);
 			this.errors.append("\n");
-
+			
 			this.references.append(name);
 			this.references.append("\n");
-
+			
 			final List<List<String>> childrenAttributesAndRequired = this
 					.getChildrenAttributesAndRequired(particles, name,
 							imageComplTypeDef);
@@ -358,6 +412,16 @@ public class XSD2JSONConverter {
 			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
 					image, attributes);
 			subCategoriesOrder.add(0, XSD2JSONConverter.generic_cat_fullstring);
+			
+			final List<String> toRemove = new ArrayList<String>();
+			for (final String categoryToExclude : XSD2JSONConverter.category_exclusion_list) {
+				for (final String category : subCategoriesOrder) {
+					if (category.startsWith(categoryToExclude)) {
+						toRemove.add(category);
+					}
+				}
+			}
+			subCategoriesOrder.removeAll(toRemove);
 			
 			final Integer tier = this.getTier(name, annotations);
 			final String desc = this.getDescription(name, annotations);
@@ -434,7 +498,7 @@ public class XSD2JSONConverter {
 				sb.append("\n");
 			}
 			sb.append("}");
-
+			
 			this.errors.append("**********");
 			this.errors.append("\n");
 			this.references.append("**********");
@@ -448,7 +512,7 @@ public class XSD2JSONConverter {
 			} else {
 				versionedSb = sb;
 			}
-
+			
 			// final FileWriter fw = new FileWriter(f);
 			// final BufferedWriter bw = new BufferedWriter(fw);
 			final FileOutputStream fos = new FileOutputStream(f);
@@ -461,33 +525,47 @@ public class XSD2JSONConverter {
 		}
 		return null;
 	}
-
+	
 	private String writeMicroscopeJSONFile(
 			final XSElementDeclaration instrument,
-			final XSElementDeclaration microscopeBody,
+			// final XSElementDeclaration microscopeBody,
 			final Map<String, String> map) throws IOException {
 		final XSObjectList annotations = instrument.getAnnotations();
 		final XSTypeDefinition instrumentTypeDef = instrument
 				.getTypeDefinition();
-		final XSTypeDefinition microscopeBodyTypeDef = microscopeBody
-				.getTypeDefinition();
+		// final XSTypeDefinition microscopeBodyTypeDef = microscopeBody
+		// .getTypeDefinition();
 		final String name = instrument.getName();
 		if ((instrumentTypeDef instanceof XSComplexTypeDefinition)
-				&& (microscopeBodyTypeDef instanceof XSComplexTypeDefinition)) {
-			// final XSComplexTypeDefinition instrumentComplTypeDef =
-			// (XSComplexTypeDefinition) instrumentTypeDef;
-			final XSComplexTypeDefinition microscopeBodyComplTypeDef = (XSComplexTypeDefinition) microscopeBodyTypeDef;
-
+		// && (microscopeBodyTypeDef instanceof XSComplexTypeDefinition)
+		) {
+			final XSComplexTypeDefinition instrumentComplTypeDef = (XSComplexTypeDefinition) instrumentTypeDef;
+			// final XSComplexTypeDefinition microscopeBodyComplTypeDef =
+			// (XSComplexTypeDefinition) microscopeBodyTypeDef;
+			
 			final List<String> attributes = new ArrayList<String>();
+			// final List<String> subCategoriesOrder = new ArrayList<String>();
 			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
-					microscopeBody, attributes);
+					instrument, attributes);
+			// final List<String> subCategoriesOrder =
+			// this.getSubCategoriesOrder(microscopeBody, attributes);
 			subCategoriesOrder.add(0, XSD2JSONConverter.generic_cat_fullstring);
-
+			
+			final List<String> toRemove = new ArrayList<String>();
+			for (final String categoryToExclude : XSD2JSONConverter.category_exclusion_list) {
+				for (final String category : subCategoriesOrder) {
+					if (category.startsWith(categoryToExclude)) {
+						toRemove.add(category);
+					}
+				}
+			}
+			subCategoriesOrder.removeAll(toRemove);
+			
 			final Integer tier = this.getTier(name, annotations);
 			final String desc = this.getDescription(name, annotations);
-			final String image = "Microscope_Empty_new"
-					+ XSD2JSONConverter.image_ext_svg;
-
+			// final String image = "Microscope_Empty_new" +
+			// XSD2JSONConverter.image_ext_svg;
+			
 			final StringBuffer sb = new StringBuffer();
 			sb.append("{\n");
 			sb.append("\t\"$schema\":\"http://json-schema.org/draft-07/schema\",\n");
@@ -497,7 +575,7 @@ public class XSD2JSONConverter {
 			sb.append("\t\"type\":\"object\",\n");
 			sb.append("\t\"title\":\"Microscope\",\n");
 			sb.append("\t\"description\":\"" + desc + "\",\n");
-			sb.append("\t\"image\":\"" + image + "\",\n");
+			sb.append("\t\"image\":\"" + XSD2JSONConverter.image + "\",\n");
 			sb.append("\t\"tier\":" + tier + ",\n");
 			sb.append("\t\"subCategoriesOrder\": {\n");
 			for (int i = 0; i < subCategoriesOrder.size(); i++) {
@@ -510,7 +588,7 @@ public class XSD2JSONConverter {
 			}
 			sb.append("\t},\n");
 			sb.append("\t\"properties\": {\n");
-			final XSObjectList attrList = microscopeBodyComplTypeDef
+			final XSObjectList attrList = instrumentComplTypeDef
 					.getAttributeUses();
 			final List<String> required = new ArrayList<String>();
 			int currentIndex = sb.length();
@@ -567,7 +645,7 @@ public class XSD2JSONConverter {
 			} else {
 				versionedSb = sb;
 			}
-
+			
 			// final FileWriter fw = new FileWriter(f);
 			// final BufferedWriter bw = new BufferedWriter(fw);
 			final FileOutputStream fos = new FileOutputStream(f);
@@ -580,7 +658,7 @@ public class XSD2JSONConverter {
 		}
 		return null;
 	}
-
+	
 	private boolean getAttribute(final XSAttributeUse attributeUse,
 			final StringBuffer aSB, final String catName,
 			final Map<String, String> attrCategories,
@@ -592,13 +670,13 @@ public class XSD2JSONConverter {
 		final String attrName = attribute.getName();
 		final Integer attrTier = this.getTier(attrName, attrAnnotations);
 		final String attrDesc = this.getDescription(attrName, attrAnnotations);
-
+		
 		final XSSimpleTypeDefinition typeDef = attribute.getTypeDefinition();
 		final StringList enums = typeDef.getLexicalEnumeration();
 		// if (!enums.isEmpty()) {
 		// System.out.println(enums);
 		// }
-
+		
 		final String attrCategory;
 		if (catName != null) {
 			attrCategory = catName;
@@ -709,7 +787,7 @@ public class XSD2JSONConverter {
 		aSB.append("\t\t}");
 		return insert;
 	}
-
+	
 	private List<XSParticle> getAllParticles(final XSParticle containerParticle) {
 		final List<XSParticle> list = new ArrayList<XSParticle>();
 		final XSTerm containerTerm = containerParticle.getTerm();
@@ -717,6 +795,8 @@ public class XSD2JSONConverter {
 			list.add(containerParticle);
 			return list;
 		}
+		if (!(containerTerm instanceof XSModelGroup))
+			return list;
 		final XSModelGroup containerGroup = (XSModelGroup) containerTerm;
 		final XSObjectList particles = containerGroup.getParticles();
 		for (int i = 0; i < particles.size(); i++) {
@@ -725,7 +805,7 @@ public class XSD2JSONConverter {
 		}
 		return list;
 	}
-
+	
 	private List<XSParticle> getChildrenParticleList(
 			final XSComplexTypeDefinition complTypeDef) {
 		final List<XSParticle> list = new ArrayList<XSParticle>();
@@ -733,6 +813,8 @@ public class XSD2JSONConverter {
 			return list;
 		final XSParticle containerParticle = complTypeDef.getParticle();
 		final XSTerm containerTerm = containerParticle.getTerm();
+		if (!(containerTerm instanceof XSModelGroup))
+			return list;
 		final XSModelGroup containerGroup = (XSModelGroup) containerTerm;
 		final XSObjectList particles = containerGroup.getParticles();
 		for (int i = 0; i < particles.size(); i++) {
@@ -741,7 +823,7 @@ public class XSD2JSONConverter {
 		}
 		return list;
 	}
-
+	
 	private List<List<String>> getChildrenAttributesAndRequired(
 			final List<XSParticle> particles, final String name,
 			final XSComplexTypeDefinition complTypeDef) {
@@ -828,28 +910,29 @@ public class XSD2JSONConverter {
 					.equals(XSD2JSONConverter.image)))) {
 				// TODO special case create separate json with only array of
 				// these elements, but how ?
-			} else if ((elementName.endsWith("ImagingEnvironment")
-					|| elementName.endsWith("ObjectiveSettings")
-					|| elementName.endsWith("TIRFSettings") || elementName
-						.endsWith("MicroscopeSettings"))
-					&& name.equals(XSD2JSONConverter.image)) {
-				// TODO special case needs to be discarded because we have
-				// single files for these, needs to be double checked if more
-				// stuff here
-			} else if ((elementName.endsWith("ExperimenterRef")
-					|| elementName.endsWith("ExperimenterGroupRef")
-					|| elementName.endsWith("ROIRef")
-					|| elementName.endsWith("BinData")
-					|| elementName.endsWith("TiffData") || elementName
-						.endsWith("MetadataOnly"))
-					&& (name.equals(XSD2JSONConverter.image)
-							|| name.equals(XSD2JSONConverter.experiment) || name
-								.equals(XSD2JSONConverter.microbeamManipulation))) {
+			}
+			// else if ((elementName.endsWith("ImagingEnvironment")
+			// || elementName.endsWith("ObjectiveSettings")
+			// || elementName.endsWith("TIRFSettings") || elementName
+			// .endsWith("MicroscopeSettings"))
+			// && name.equals(XSD2JSONConverter.image)) {
+			// // TODO special case needs to be discarded because we have
+			// // single files for these, needs to be double checked if more
+			// // stuff here
+			// }
+			else if (elementName.endsWith("TheAdditionalDimension")
+					&& name.equals("Plane")) {
+				// FIXME temporary exclusion case
+			} else if (XSD2JSONConverter.category_exclusion_list
+					.contains(elementName)
+					|| XSD2JSONConverter.element_exclusion_list
+							.contains(elementName)) {
 				// TODO all the special cases that are completely disregarded
 				// at the moment
 			} else if (elementName.endsWith("Map")) {
 				// TODO unknown case
 			} else if (elementName.endsWith("Ref")) {
+				// FIXME this need to be double checked
 				final XSObjectList annotations = element.getAnnotations();
 				final Integer attrTier = this.getTier(elementName, annotations);
 				final String attrDesc = this.getDescription(elementName,
@@ -904,6 +987,9 @@ public class XSD2JSONConverter {
 				// aSB.append("\t\t\t\"category\":\"" + attrName + "\"");
 				// required.add(attrName);
 				attributes.add(aSB.toString());
+			} else if (elementName.endsWith("TransmittanceProfileFile")
+					|| elementName.endsWith("ReflectanceProfileFile")) {
+				// FIXME build special case for this
 			} else {
 				if (!(element.getTypeDefinition() instanceof XSComplexTypeDefinition)) {
 					this.errors.append(elementName + " in " + name
@@ -946,51 +1032,56 @@ public class XSD2JSONConverter {
 					final String category = this.getCategory(attrName,
 							annotations);
 					if ((category != null) && !category.equals("ChildElement")) {
+						
+						// FIXME need to extrapolate all these classes instead
+						// of wrap them
 						System.out.println("Element not ChildElement -> "
 								+ attrName + " - " + category);
-
-						final String attrType = "string";
-						aSB.append("\t\t\"" + attrName + "\": {\n");
-						final boolean isArray = false;
-						if ((max > 1) || (max == -1)) {
-							aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
-							// FIXME temporary workaround to fix the fact lots
-							// of min/max in the xsd file are wrong
-							// aSB.append("\t\t\t\"type\":\"array\",\n");
-							// aSB.append("\t\t\t\"items\": {\n");
-							// isArray = true;
-						} else {
-							aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
-						}
-						if (isArray) {
-							aSB.append("\t");
-						}
-						aSB.append("\t\t\t\"description\":\"" + attrDesc
-								+ "\",\n");
-						if (isArray) {
-							aSB.append("\t");
-							aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
-						}
-						if (isArray) {
-							aSB.append("\t");
-						}
-						aSB.append("\t\t\t\"tier\":" + attrTier + ",\n");
-						if (isArray) {
-							aSB.append("\t");
-						}
-						aSB.append("\t\t\t\"category\":\"" + attrName + "\",\n");
-						if (isArray) {
-							aSB.append("\t");
-						}
-						aSB.append("\t\t\t\"contains\":\"" + attrName + "\"\n");
-						if (isArray) {
-							aSB.append("\t\t\t}\n");
-						}
-						aSB.append("\t\t}");
-						if (min == 1) {
-							required.add(attrName);
-						}
-						attributes.add(aSB.toString());
+						
+						// final String attrType = "string";
+						// aSB.append("\t\t\"" + attrName + "\": {\n");
+						// final boolean isArray = false;
+						// if ((max > 1) || (max == -1)) {
+						// aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
+						// // FIXME temporary workaround to fix the fact lots
+						// // of min/max in the xsd file are wrong
+						// // aSB.append("\t\t\t\"type\":\"array\",\n");
+						// // aSB.append("\t\t\t\"items\": {\n");
+						// // isArray = true;
+						// } else {
+						// aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
+						// }
+						// if (isArray) {
+						// aSB.append("\t");
+						// }
+						// aSB.append("\t\t\t\"description\":\"" + attrDesc
+						// + "\",\n");
+						// if (isArray) {
+						// aSB.append("\t");
+						// aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
+						// }
+						// if (isArray) {
+						// aSB.append("\t");
+						// }
+						// aSB.append("\t\t\t\"tier\":" + attrTier + ",\n");
+						// if (isArray) {
+						// aSB.append("\t");
+						// }
+						// aSB.append("\t\t\t\"category\":\"" + attrName +
+						// "\",\n");
+						// if (isArray) {
+						// aSB.append("\t");
+						// }
+						// aSB.append("\t\t\t\"contains\":\"" + attrName +
+						// "\"\n");
+						// if (isArray) {
+						// aSB.append("\t\t\t}\n");
+						// }
+						// aSB.append("\t\t}");
+						// if (min == 1) {
+						// required.add(attrName);
+						// }
+						// attributes.add(aSB.toString());
 					} else {
 						// String attrNameCat = attrName;
 						aSB.append("\t\t\"" + attrName + "\": {\n");
@@ -1076,7 +1167,7 @@ public class XSD2JSONConverter {
 		returns.add(required);
 		return returns;
 	}
-
+	
 	private List<List<String>> getAttributesAndRequired(final String catName,
 			final Map<String, String> attrCategories,
 			final XSObjectList attrList, final Integer extraTabs) {
@@ -1108,7 +1199,7 @@ public class XSD2JSONConverter {
 		returns.add(required);
 		return returns;
 	}
-
+	
 	private List<String> getSubCategoriesOrder(
 			final XSElementDeclaration element, final List<String> attributes) {
 		final List<String> subCategoriesOrder = new ArrayList<String>();
@@ -1156,10 +1247,19 @@ public class XSD2JSONConverter {
 		if (eleDesc == null) {
 			eleDesc = "";
 		}
+		
 		if (typeDef instanceof XSComplexTypeDefinition) {
 			typeDef = typeDef.getBaseType();
 			while ((typeDef instanceof XSComplexTypeDefinition)
 					&& !typeDef.getName().equals("anyType")) {
+				final String typeDefName = typeDef.getName();
+				if (XSD2JSONConverter.category_exclusion_list
+						.contains(typeDefName)
+						|| XSD2JSONConverter.element_exclusion_list
+								.contains(typeDefName)) {
+					typeDef = typeDef.getBaseType();
+					continue;
+				}
 				final XSObjectList annotations = ((XSComplexTypeDefinition) typeDef)
 						.getAnnotations();
 				String description = this.getDescription(typeDef.getName(),
@@ -1187,26 +1287,26 @@ public class XSD2JSONConverter {
 		subCategoriesOrder.addAll(categoriesNeeded);
 		return subCategoriesOrder;
 	}
-
+	
 	private List<String> writeComponentJSONFile(
 			final XSElementDeclaration element, final Map<String, String> map)
 			throws IOException {
-
+		
 		final XSObjectList annotations = element.getAnnotations();
 		final XSTypeDefinition typeDef = element.getTypeDefinition();
 		final String name = element.getName();
 		if (typeDef instanceof XSComplexTypeDefinition) {
 			final XSComplexTypeDefinition complTypeDef = (XSComplexTypeDefinition) typeDef;
-
+			
 			final List<XSParticle> particles = this
 					.getChildrenParticleList(complTypeDef);
-
+			
 			this.errors.append(name);
 			this.errors.append("\n");
-
+			
 			this.references.append(name);
 			this.references.append("\n");
-
+			
 			final List<List<String>> childrenAttributesAndRequired = this
 					.getChildrenAttributesAndRequired(particles, name,
 							complTypeDef);
@@ -1217,19 +1317,31 @@ public class XSD2JSONConverter {
 			if (childrenRequired.contains("Description")) {
 				System.out.println(childrenRequired);
 			}
-
+			
 			final XSObjectList attrList = complTypeDef.getAttributeUses();
 			final List<List<String>> attributesAndRequired = this
 					.getAttributesAndRequired(null, map, attrList, 0);
 			final List<String> attributes = attributesAndRequired.get(0);
 			final List<String> required = attributesAndRequired.get(1);
 			attributes.addAll(childrenAttributes);
-
+			
 			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
 					element, attributes);
+			
+			final List<String> toRemove = new ArrayList<String>();
+			for (final String categoryToExclude : XSD2JSONConverter.category_exclusion_list) {
+				for (final String category : subCategoriesOrder) {
+					if (category.startsWith(categoryToExclude)) {
+						toRemove.add(category);
+					}
+				}
+			}
+			subCategoriesOrder.removeAll(toRemove);
 			// System.out.println(element.getName() + " - " +
 			// subCategoriesOrder);
-
+			
+			final String originalExtension = this.getExtension(name,
+					annotations);
 			final String originalDomain = this.getDomain(name, annotations);
 			final String originalCategory = this.getCategory(name, annotations);
 			// final int index = category.lastIndexOf(".") + 1;
@@ -1238,25 +1350,25 @@ public class XSD2JSONConverter {
 			// }
 			final Integer tier = this.getTier(name, annotations);
 			final String desc = this.getDescription(name, annotations);
-
+			
 			String[] splitCategories = this.getSplitCategories(name,
 					annotations);
-
+			
 			boolean isSplit = true;
 			if (splitCategories == null) {
 				splitCategories = new String[1];
 				splitCategories[0] = originalCategory;
 				isSplit = false;
 			}
-
+			
 			final List<String> comps = new ArrayList<String>();
 			for (final String category : splitCategories) {
-
+				
 				final String newName = category.replaceAll("\\.", "_") + "_"
 						+ name;
-
+				
 				final String image = newName + XSD2JSONConverter.image_ext_svg;
-
+				
 				final StringBuffer sb = new StringBuffer();
 				sb.append("{\n");
 				sb.append("\t\"$schema\":\"http://json-schema.org/draft-07/schema\",\n");
@@ -1270,6 +1382,7 @@ public class XSD2JSONConverter {
 				sb.append("\t\"type\":\"object\",\n");
 				sb.append("\t\"title\":\"" + name + "\",\n");
 				sb.append("\t\"description\":\"" + desc + "\",\n");
+				sb.append("\t\"extension\":\"" + originalExtension + "\",\n");
 				sb.append("\t\"domain\":\"" + originalDomain + "\",\n");
 				sb.append("\t\"category\":\"" + category + "\",\n");
 				if (!category.equals(XSD2JSONConverter.subComponents_category)) {
@@ -1303,7 +1416,7 @@ public class XSD2JSONConverter {
 						+ XSD2JSONConverter.generic_cat_attr + "\",\n");
 				sb.append("\t\t\t\"readonly\":true\n");
 				sb.append("\t\t}\n");
-
+				
 				sb.append("\t}");
 				required.addAll(childrenRequired);
 				if (required.size() > 0) {
@@ -1322,12 +1435,12 @@ public class XSD2JSONConverter {
 					sb.append("\n");
 				}
 				sb.append("}");
-
+				
 				this.errors.append("**********");
 				this.errors.append("\n");
 				this.references.append("**********");
 				this.references.append("\n");
-
+				
 				final File f;
 				if (isSplit) {
 					f = new File(XSD2JSONConverter.outputFolder + newName
@@ -1356,7 +1469,7 @@ public class XSD2JSONConverter {
 		}
 		return null;
 	}
-
+	
 	private String[] getSplitCategories(final String name,
 			final XSObjectList annotations) {
 		for (int y = 0; y < annotations.getLength(); y++) {
@@ -1374,7 +1487,7 @@ public class XSD2JSONConverter {
 					splitCategoriesS = splitCategoriesS.replaceAll("\\]", "");
 					splitCategoriesS = splitCategoriesS.replaceAll(" ", "");
 					splitCategoriesS = splitCategoriesS.replaceAll("\\.", "");
-
+					
 					if (splitCategoriesS.contains("null")) {
 						this.errors.append(name + " category is null");
 						this.errors.append("\n");
@@ -1400,7 +1513,7 @@ public class XSD2JSONConverter {
 		}
 		return null;
 	}
-
+	
 	private String getDescription(final String name,
 			final XSObjectList annotations) {
 		if (annotations.getLength() == 0) {
@@ -1444,6 +1557,55 @@ public class XSD2JSONConverter {
 					return description;
 				} else {
 					this.errors.append(name + " description is missing");
+					this.errors.append("\n");
+					return XSD2JSONConverter.value_not_assigned;
+				}
+			}
+		}
+		return null;
+	}
+	
+	private String getExtension(final String name,
+			final XSObjectList annotations) {
+		if (annotations.getLength() == 0) {
+			this.errors.append(name + " extension is missing (no annotations)");
+			this.errors.append("\n");
+		}
+		for (int y = 0; y < annotations.getLength(); y++) {
+			final XSObject annotationObj = annotations.item(y);
+			if (annotationObj instanceof XSAnnotation) {
+				final XSAnnotation annotation = (XSAnnotation) annotationObj;
+				final String annot = annotation.getAnnotationString();
+				if (annot.contains(XSD2JSONConverter.extension)) {
+					final int begin = annot
+							.indexOf(XSD2JSONConverter.extension);
+					final int end = annot.indexOf("</", begin);
+					String domain = annot.substring(begin, end);
+					domain = domain.replace(XSD2JSONConverter.extension, "");
+					if (domain.contains("null")) {
+						this.errors.append(name + " extension is null");
+						this.errors.append("\n");
+						domain = XSD2JSONConverter.value_not_assigned;
+					}
+					if (domain.contains(" ")) {
+						this.errors.append(name + " extension contains SPACE");
+						this.errors.append("\n");
+						domain = domain.replaceAll(" ", "");
+					}
+					if (domain.contains("\t")) {
+						this.errors.append(name + " extension contains TAB");
+						this.errors.append("\n");
+						domain = domain.replaceAll("\t", "");
+					}
+					if (domain.contains("\n")) {
+						this.errors
+								.append(name + " extension contains NEWLINE");
+						this.errors.append("\n");
+						domain = domain.replaceAll("\n", "");
+					}
+					return domain;
+				} else {
+					this.errors.append(name + " extension is missing");
 					this.errors.append("\n");
 					return XSD2JSONConverter.value_not_assigned;
 				}
@@ -1497,7 +1659,7 @@ public class XSD2JSONConverter {
 		}
 		return null;
 	}
-
+	
 	private String getCategory(final String name, final XSObjectList annotations) {
 		if (annotations.getLength() == 0) {
 			this.errors.append(name + " category is missing (no annotations)");
@@ -1543,7 +1705,7 @@ public class XSD2JSONConverter {
 		}
 		return null;
 	}
-
+	
 	private Integer getTier(final String name, final XSObjectList annotations) {
 		if (annotations.getLength() == 0) {
 			this.errors.append(name + " tier is missing (no annotations)");
@@ -1590,7 +1752,7 @@ public class XSD2JSONConverter {
 		}
 		return null;
 	}
-
+	
 	public void writeLogs() throws IOException {
 		final File errorsFile = new File("./errors.json");
 		FileWriter fw = new FileWriter(errorsFile);
@@ -1605,7 +1767,7 @@ public class XSD2JSONConverter {
 		bw.close();
 		fw.close();
 	}
-
+	
 	public static void main(final String[] args) {
 		final String versionFolder = (XSD2JSONConverter.useProgress
 				? XSD2JSONConverter.versionType_Progress
@@ -1616,6 +1778,25 @@ public class XSD2JSONConverter {
 		final String fileURL = XSD2JSONConverter.githubPrefix + versionFolder
 				+ versionTag + XSD2JSONConverter.fileName;
 		final XSD2JSONConverter conv = new XSD2JSONConverter();
+
+		final File dir = new File(XSD2JSONConverter.outputFolder);
+		if (!dir.exists()) {
+			dir.mkdir();
+		} else {
+			// ASK TO EMPTY ?
+			final int input = JOptionPane.showConfirmDialog(null,
+					"Clear directory: " + XSD2JSONConverter.outputFolder + "?",
+					"WARNING", JOptionPane.YES_NO_OPTION,
+					JOptionPane.WARNING_MESSAGE);
+			if (input == 0) {
+				final File[] files = dir.listFiles();
+				for (final File f : files) {
+					f.delete();
+				}
+			} else
+				return;
+		}
+
 		try {
 			final File f = new File(XSD2JSONConverter.tempSchemaFile);
 			if (f.exists()) {

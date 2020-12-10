@@ -1,0 +1,272 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ColoredBeadsSlide.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"ColoredBeadsSlide",
+	"description":"This element describes a Slide coated with Multicolor Fluorescent Microspheres (also known as Multicolored Beads) used for assessing the Optical properties of the Microscope that was used to acquire this experimental Image. These Slides can be used to measure Optical properties such as resolution, chromatic registration, and different kinds of optical distorsions.",
+	"extension":"CalibrationandPerformance",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationSample",
+	"image":"CalibrationSample_ColoredBeadsSlide.svg",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"OpticalCalibrationStandard":"The optical standard used in this case. This might be a pre-manufactured slide, such as those produced by Argolight (http://argolight.com/), Geller MicroAnalytical Laboratory (Magnification Reference Standard MRS-4 and others; http://www.gellermicro.com/mag_standards/mrs.html), Zeiss and others. Alternatively, the standard might be a slide containing multi-colored beads of known size and emission characteristics. Finally, slides coated with specific DNA origami patterns are increasingly being used for this purpose as well.",
+		"ColoredBeadsSlide":"This element describes a Slide coated with Multicolor Fluorescent Microspheres (also known as Multicolored Beads) used for assessing the Optical properties of the Microscope that was used to acquire this experimental Image. These Slides can be used to measure Optical properties such as resolution, chromatic registration, and different kinds of optical distorsions.",
+		"WavelengthRange":"This element records a range of Wavelengths this component is designed for according to the Manufacturer. Multiple of this element may be used."
+	},
+	"properties": {
+		"Date": {
+			"type":"string",
+			"description":"This field captures the Date in which this Colored Beads Slide was prepared.",
+			"tier":2,
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadVolume": {
+			"type":"number",
+			"description":"This field captures the Volume of the Multi Color Microspheres preparation that was utilized to prepare this Slide.",
+			"tier":2,
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadVolumeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"µl",
+			"enum": [
+				"liter",
+				"ml",
+				"µl",
+				"cm3",
+				"Other"
+			],
+			"category":"ColoredBeadsSlide"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A User-defined Name for this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A User-defined Name for this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		},
+		"Method": {
+			"type":"string",
+			"description":"This field records a Description of Method that was employed to prepare this Optical Calibration Standard Sample.",
+			"tier":2,
+			"category":"OpticalCalibrationStandard"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"WavelengthRange": {
+			"type":"array",
+			"description":"This element records a range of Wavelengths this component is designed for, according to the Manufacturer. Multiple of this element may be used.",
+			"tier":2,
+			"items": {
+				"properties": {
+					"PeakWavelength": {
+						"type":"number",
+						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"tier":2,
+						"category":"WavelengthRange"
+					},
+					"PeakWavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"CutOn": {
+						"type":"number",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"tier":2,
+						"category":"WavelengthRange"
+					},
+					"CutOnUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"CutOff": {
+						"type":"number",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"tier":2,
+						"category":"WavelengthRange"
+					},
+					"CutOffUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					}
+				},
+				"required": [
+					"PeakWavelength",
+					"CutOn",
+					"CutOff"
+				]
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

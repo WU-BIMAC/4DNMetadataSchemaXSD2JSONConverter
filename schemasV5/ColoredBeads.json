@@ -1,0 +1,314 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ColoredBeads.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"ColoredBeads",
+	"description":"This element describes a preparation of Multi-colored Fluorescent Beads (also referred to as Microspheres) used to facilitate the optical calibration of fluorescence microscopes, and associated image-processing equipments. These Microspheres are usually made of glass or plastic and they stained with one or more fluorescent dyes.",
+	"extension":"CalibrationandPerformance",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationSamples",
+	"image":"CalibrationSamples_ColoredBeads.svg",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"ColoredBeads":"This element describes a preparation of Multi-colored Fluorescent Beads (also referred to as Microspheres) used to facilitate the optical calibration of fluorescence microscopes, and associated image-processing equipments. These Microspheres are usually made of glass or plastic and they stained with one or more fluorescent dyes.",
+		"WavelengthRange":"This element records a range of Wavelengths this component is designed for according to the Manufacturer. Multiple of this element may be used."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field captures the Diameter of these Colored Beads.",
+			"tier":2,
+			"category":"ColoredBeads"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"ColoredBeads"
+		},
+		"Concentration": {
+			"type":"number",
+			"description":"This field captures the concentration of these Colored Beads.",
+			"tier":2,
+			"category":"ColoredBeads"
+		},
+		"ConcentrationUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"Units/ml",
+			"enum": [
+				"ng/µl",
+				"µg/µl",
+				"mg/ml",
+				"%(W/V)",
+				"%(V/V)",
+				"Units/ml",
+				"Other"
+			],
+			"category":"ColoredBeads"
+		},
+		"Type": {
+			"type":"string",
+			"description":"This field captures the type of these Colored Beads.",
+			"tier":2,
+			"enum": [
+				"Single color",
+				"Multi-color",
+				"Other"
+			],
+			"category":"ColoredBeads"
+		},
+		"Material": {
+			"type":"string",
+			"description":"This field capture the Material that is used to construct these Colored Beads.",
+			"tier":2,
+			"category":"ColoredBeads"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"WavelengthRange": {
+			"type":"object",
+			"description":"This element records a range of Wavelengths this component is designed for, according to the Manufacturer. Multiple of this element may be used.",
+			"tier":2,
+			"properties": {
+				"PeakWavelength": {
+					"type":"number",
+					"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+					"tier":2,
+					"category":"WavelengthRange"
+				},
+				"PeakWavelengthUnit": {
+					"type":"string",
+					"description":"NA",
+					"tier":2,
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"Pixel",
+						"reference frame"
+					],
+					"category":"WavelengthRange"
+				},
+				"CutOn": {
+					"type":"number",
+					"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+					"tier":2,
+					"category":"WavelengthRange"
+				},
+				"CutOnUnit": {
+					"type":"string",
+					"description":"NA",
+					"tier":2,
+					"default":"nm",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"Pixel",
+						"reference frame"
+					],
+					"category":"WavelengthRange"
+				},
+				"CutOff": {
+					"type":"number",
+					"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+					"tier":2,
+					"category":"WavelengthRange"
+				},
+				"CutOffUnit": {
+					"type":"string",
+					"description":"NA",
+					"tier":2,
+					"default":"nm",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"Pixel",
+						"reference frame"
+					],
+					"category":"WavelengthRange"
+				}
+			},
+			"required": [
+				"PeakWavelength",
+				"CutOn",
+				"CutOff"
+			]
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Diameter",
+		"Concentration",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber",
+		"WavelengthRange"
+	]
+}

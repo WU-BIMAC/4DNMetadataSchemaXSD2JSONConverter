@@ -1,0 +1,36 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Pump.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"Pump",
+	"description":"The Pump element is a reference to a Light Source. It is used as a sub-Element of a Laser element to specify the Light Source for this Laser's pump (if any).",
+	"extension":"NA",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"ChildElement",
+	"image":"ChildElement_Pump.svg",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Pump":"The Pump element is a reference to a Light Source. It is used as a sub-Element of a Laser element to specify the Light Source for this Laser's pump (if any)."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the Light Source used in this case.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID"
+	]
+}
