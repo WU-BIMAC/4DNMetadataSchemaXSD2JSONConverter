@@ -1,19 +1,19 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
-	"ID":"UprightdMicroscopeStand.json",
+	"ID":"UprightMicroscopeStand.json",
 	"version":"2.00.0",
 	"type":"object",
-	"title":"UprightdMicroscopeStand",
+	"title":"UprightMicroscopeStand",
 	"description":"This is a Microscope in which the object is observed from above the stage.",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"MicroscopyEssentials",
-	"image":"MicroscopyEssentials_UprightdMicroscopeStand.svg",
+	"image":"MicroscopyEssentials_UprightMicroscopeStand.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
-		"UprightdMicroscopeStand":"This is a Microscope in which the object is observed from above the stage."
+		"UprightMicroscopeStand":"This is a Microscope in which the object is observed from above the stage."
 	},
 	"properties": {
 		"Name": {
@@ -40,7 +40,7 @@
 				"Stereomicroscope",
 				"Other"
 			],
-			"category":"UprightdMicroscopeStand"
+			"category":"UprightMicroscopeStand"
 		},
 		"Origin": {
 			"type":"string",
@@ -51,13 +51,13 @@
 				"Commercial-custom modified",
 				"Custom-built"
 			],
-			"category":"UprightdMicroscopeStand"
+			"category":"UprightMicroscopeStand"
 		},
 		"EyePieceFieldNumber": {
 			"type":"number",
 			"description":"The Field Number represents the diaphragm size of the Microscope eyepiece expressed in mm.",
 			"tier":3,
-			"category":"UprightdMicroscopeStand"
+			"category":"UprightMicroscopeStand"
 		},
 		"Manufacturer": {
 			"type":"string",
