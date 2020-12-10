@@ -21,7 +21,7 @@ public class TXT2JSONDimensionConverter {
 
 	public void writeDimensionsFile() throws IOException {
 		final FileWriter fw = new FileWriter(
-				"./dimensions/MicroscopeDimensions.json");
+				"./dimensionsV2/MicroscopeDimensions.json");
 		final BufferedWriter bw = new BufferedWriter(fw);
 		bw.write("{\n");
 		int counter1 = 0;
@@ -94,7 +94,7 @@ public class TXT2JSONDimensionConverter {
 	}
 	
 	public void parseDimensionsFile(final String type) throws IOException {
-		final String f = "./dimensions/" + type + ".txt";
+		final String f = "./dimensionsV2/" + type + ".txt";
 		final FileReader fr = new FileReader(f);
 		final BufferedReader br = new BufferedReader(fr);
 
@@ -143,7 +143,7 @@ public class TXT2JSONDimensionConverter {
 	public static void main(final String[] args) {
 		final TXT2JSONDimensionConverter conv = new TXT2JSONDimensionConverter();
 		try {
-			conv.parseDimensionsFile("Microscope_Inverted");
+			conv.parseDimensionsFile("InvertedMicroscopeStand");
 			conv.writeDimensionsFile();
 		} catch (final IOException ex) {
 			ex.printStackTrace();
