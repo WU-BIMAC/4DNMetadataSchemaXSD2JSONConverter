@@ -79,7 +79,13 @@
 				"x":-170.7813,
 				"y":-0.0461,
 				"w":65.0108,
-				"h":69.3319 Fluorescence_LightSource_Laser#Fluorescence_LightSource_MultiLaserEngine
+				"h":69.3319 
+			},
+			{
+				"x":-94.2813,
+				"y":-0.0461,
+				"w":65.0108,
+				"h":69.3319
 			},
 			{
 				"x":-17.7813,

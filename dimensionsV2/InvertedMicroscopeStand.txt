@@ -31,7 +31,8 @@ Fluorescence_LightSource:1843.8116,954.968:65.0108,69.3319
 
 
 Fluorescence_LightSource_MultiLaserEngine:1631.7171,777.6215:518.6992,105
-Fluorescence_LightSource_Laser#Fluorescence_LightSource_MultiLaserEngine:-170.7813,-0.0461:65.0108,69.3319 Fluorescence_LightSource_Laser#Fluorescence_LightSource_MultiLaserEngine:-94.2813,-0.0461:65.0108,69.3319
+Fluorescence_LightSource_Laser#Fluorescence_LightSource_MultiLaserEngine:-170.7813,-0.0461:65.0108,69.3319 
+Fluorescence_LightSource_Laser#Fluorescence_LightSource_MultiLaserEngine:-94.2813,-0.0461:65.0108,69.3319
 Fluorescence_LightSource_Laser#Fluorescence_LightSource_MultiLaserEngine:-17.7813,-0.0461:65.0108,69.3319
 Fluorescence_LightSource_Laser#Fluorescence_LightSource_MultiLaserEngine:58.7187,-0.0461:65.0108,69.3319
 Fluorescence_LightSource_Laser#Fluorescence_LightSource_MultiLaserEngine:135.2187,-0.0461:65.0108,69.3319
