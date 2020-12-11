@@ -242,7 +242,7 @@ Detector.Camera:248.8238,955.3236:121.83,122.085
 //Detector.PointDetector.PhotoDiode
 //Detector.PointDetector.PhotoMultiplierTube
 
-Detector:280.6207,775.1089:184.5212,94.5
+Detector.PointDetector:280.6207,775.1089:184.5212,94.5
 
 //Menu position 18 --> Calibration
 //--------------------------------------------
