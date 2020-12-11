@@ -266,7 +266,7 @@
 				"y":0.1256,
 				"w":9.3863,
 				"h":45.1842 
-			}
+			},
 			"Holders.ExcitationFilterSlider":[
 				{
 					"x":-50.0063,
@@ -304,7 +304,7 @@
 					"w":9.3861,
 					"h":45.1842
 				}
-			]
+			],
 			"Holders.ExcitationFilterWheel":[
 				{
 					"x":-7.6478,
@@ -350,7 +350,7 @@
 				"y":33.5904,
 				"w":45.1842,
 				"h":9.3863
-			}
+			},
 			"Holders.EmissionFilterWheel":[
 				{
 					"x":1.5506,
@@ -388,7 +388,7 @@
 					"w":45.1842,
 					"h":9.3869
 				}
-			]
+			],
 			"Holders.EmissionFilterSlider":[
 				{
 					"x":-31.114,
@@ -434,7 +434,7 @@
 				"y":1.0929,
 				"w":37.0594,
 				"h":38.2954
-			}
+			},
 			"Holders.DichroicFilterSlider":[
 				{
 					"x":-44.0055,
@@ -472,7 +472,7 @@
 					"w":37.2202,
 					"h":38.4254
 				}
-			]
+			],
 			"Holders.DichroicFilterWheel":[
 				{
 					"x":6.8749,
@@ -606,13 +606,13 @@
 				"y":-1,
 				"w":33.2588,
 				"h":60.7821
-			}
+			},
 			"OpticalAssemblies.MicroscopeTube":{
 				"x":176.1065,
 				"y":0,
 				"w":33.2588,
 				"h":60.7821
-			}
+			},
 			"OpticalAssemblies.Condenser":[
 				{
 					"x":-68.6066,
@@ -734,7 +734,7 @@
 				"y":-1,
 				"w":33.1797,
 				"h":62.0013 
-			}
+			},
 			"OpticalAssemblies.MicroscopeTube":{
 				"x":106.5629,
 				"y":0,
@@ -864,7 +864,7 @@
 				"y":955.9761,
 				"w":10.5314,
 				"h":69
-			}
+			},
 			"Fluorescence_LightSource.MultiLaserEngine":{
 				"x":-233.8225,
 				"y":0.8933,
