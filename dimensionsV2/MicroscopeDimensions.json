@@ -888,7 +888,7 @@
 				"h":60.7821 
 			}
 		},
-		"AdditionalOptics.Prisms":{
+		"AdditionalOptics.Prism":{
 			"OpticalAssemblies.MicroscopeTube":{
 				"x":51.2263,
 				"y":0,

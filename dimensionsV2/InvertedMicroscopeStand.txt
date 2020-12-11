@@ -217,7 +217,7 @@ Lenses.CondenserLens#OpticalAssemblies.Condenser:66.8489,-6.8828:33.2588,60.7821
 //AdditionalOptics.Prism
 
 AdditionalOptics.PolarizationOptics#OpticalAssemblies.MicroscopeTube:106.5629,0:33.2588,60.7821 
-AdditionalOptics.Prisms#OpticalAssemblies.MicroscopeTube:51.2263,0:77.0372,55.3705 
+AdditionalOptics.Prism#OpticalAssemblies.MicroscopeTube:51.2263,0:77.0372,55.3705 
 
 
 //Menu position 15 --> Detector
