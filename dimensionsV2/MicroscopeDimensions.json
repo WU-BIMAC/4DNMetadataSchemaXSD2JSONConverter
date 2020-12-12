@@ -622,7 +622,7 @@
 				"h":73
 			}
 		},
-		"OpticalAssemblies.Collimator":{
+		"OpticalAssemblies.BeamCollimator":{
 			"General":{
 				"x":-1,
 				"y":-1,
