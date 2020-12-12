@@ -812,7 +812,7 @@
 				}
 			]
 		},
-		"Mirrors.Beamsplitter":{
+		"Mirrors.BeamSplitter":{
 			"OpticalAssemblies.MicroscopeTube":[
 				{
 					"x":-156.2518,

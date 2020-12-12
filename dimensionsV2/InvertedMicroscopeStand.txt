@@ -197,8 +197,8 @@ Mirrors.GenericDichroic:-1,-1:33.2588,60.7821
 Mirrors.ReflectingMirror#OpticalAssemblies.MicroscopeTube:-211.2675,8.3752:33.2588,60.7821
 Mirrors.ReflectingMirror#OpticalAssemblies.MicroscopeTube:-80.6431,8.3752:33.2588,60.7821
 
-Mirrors.Beamsplitter#OpticalAssemblies.MicroscopeTube:-156.2518,0:70.1611,56.9366 
-Mirrors.Beamsplitter#OpticalAssemblies.MicroscopeTube:-26.0487,0:70.1611,56.9366 
+Mirrors.BeamSplitter#OpticalAssemblies.MicroscopeTube:-156.2518,0:70.1611,56.9366 
+Mirrors.BeamSplitter#OpticalAssemblies.MicroscopeTube:-26.0487,0:70.1611,56.9366 
 
 
 //Menu position 13 --> Lenses
