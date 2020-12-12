@@ -207,9 +207,9 @@ Lenses.TubeLens#OpticalAssemblies.MicroscopeTube:203.6787,0:10.5314,69
 Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:-37.1837,-3.3375:33.2588,60.7821
 Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:4.8855,-3.3375:33.2588,60.7821
 Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:46.7793,-3.3375:33.2588,60.7821
-Lenses.BeamCollimatorLens#OpticalAssemblies.Collimator:-37.1837,-3.3375:33.2588,60.7821
-Lenses.BeamCollimatorLens#OpticalAssemblies.Collimator:4.8855,-3.3375:33.2588,60.7821
-Lenses.BeamCollimatorLens#OpticalAssemblies.Collimator:46.7793,-3.3375:33.2588,60.7821
+Lenses.BeamCollimatorLens#OpticalAssemblies.BeamCollimator:-37.1837,-3.3375:33.2588,60.7821
+Lenses.BeamCollimatorLens#OpticalAssemblies.BeamCollimator:4.8855,-3.3375:33.2588,60.7821
+Lenses.BeamCollimatorLens#OpticalAssemblies.BeamCollimator:46.7793,-3.3375:33.2588,60.7821
 Lenses.GenericLens:-1,-1:33.2588,60.7821
 Lenses.RelayLens:590.7555,775.034:10.8346,54.5
 Lenses.RelayLens:557.4831,951.2278:10.8346,54.5

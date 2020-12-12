@@ -859,7 +859,7 @@
 			]
 		},
 		"Lenses.BeamCollimatorLens":{
-			"OpticalAssemblies.Collimator":[
+			"OpticalAssemblies.BeamCollimator":[
 				{
 					"x":-37.1837,
 					"y":-3.3375,
