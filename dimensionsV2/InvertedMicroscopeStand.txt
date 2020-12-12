@@ -31,12 +31,19 @@ Fluorescence_LightSource:1843.8116,954.968:65.0108,69.3319
 
 
 Fluorescence_LightSource.MultiLaserEngine:1631.7171,777.6215:518.6992,105
+
 Fluorescence_LightSource.Laser#Fluorescence_LightSource.MultiLaserEngine:-170.7813,-0.0461:65.0108,69.3319 
 Fluorescence_LightSource.Laser#Fluorescence_LightSource.MultiLaserEngine:-94.2813,-0.0461:65.0108,69.3319
 Fluorescence_LightSource.Laser#Fluorescence_LightSource.MultiLaserEngine:-17.7813,-0.0461:65.0108,69.3319
 Fluorescence_LightSource.Laser#Fluorescence_LightSource.MultiLaserEngine:58.7187,-0.0461:65.0108,69.3319
 Fluorescence_LightSource.Laser#Fluorescence_LightSource.MultiLaserEngine:135.2187,-0.0461:65.0108,69.3319
 Fluorescence_LightSource.Laser#Fluorescence_LightSource.MultiLaserEngine:211.7187,-0.0461:65.0108,69.3319
+Fluorescence_LightSource.Laser:1461.3116,954.968:65.0108,69.3319
+Fluorescence_LightSource.Laser:1537.8116,954.968:65.0108,69.3319
+Fluorescence_LightSource.Laser:1614.3116,954.968:65.0108,69.3319
+Fluorescence_LightSource.Laser:1690.8116,954.968:65.0108,69.3319
+Fluorescence_LightSource.Laser:1767.3116,954.968:65.0108,69.3319
+Fluorescence_LightSource.Laser:1843.8116,954.968:65.0108,69.3319
 
 
 //Menu position 3 --> Light Source Coupling
