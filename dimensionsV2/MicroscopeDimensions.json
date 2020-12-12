@@ -9,19 +9,27 @@
 			}
 		},
 		"MicroscopyEssentials.AcquisitionSoftware":{
-			"General":{
-				"x":2313.8659,
-				"y":893.275,
-				"w":281.0426,
-				"h":246.6847
-			}
+			"General":[
+				{
+					"x":2313.8659,
+					"y":893.275,
+					"w":281.0426,
+					"h":246.6847
+				},
+				{
+					"x":-1,
+					"y":-1,
+					"w":281.0426,
+					"h":246.6847
+				}
+			]
 		},
 		"MicroscopyEssentials.MicroscopeTable":{
 			"General":{
-				"x":1613.8218,
-				"y":1072.649,
-				"w":3118.4736,
-				"h":42.6542
+				"x":1613.7446,
+				"y":1072.818,
+				"w":3118.29,
+				"h":43.0292 
 			}
 		},
 		"MicroscopyEssentials.EnvironmentalControlDevice":{
@@ -647,32 +655,32 @@
 			},
 			"OpticalAssemblies.MicroscopeTube":{
 				"x":176.1065,
-				"y":0,
+				"y":8.3752,
 				"w":33.2588,
 				"h":60.7821
 			},
 			"OpticalAssemblies.Condenser":[
 				{
 					"x":-68.6066,
-					"y":-6.8828,
+					"y":1.0314,
 					"w":33.2588,
 					"h":60.7821
 				},
 				{
 					"x":-34.591,
-					"y":-6.8828,
+					"y":1.0314,
 					"w":33.2588,
 					"h":60.7821
 				},
 				{
 					"x":0.0798,
-					"y":-6.8828,
+					"y":1.0314,
 					"w":33.2588,
 					"h":60.7821
 				},
 				{
 					"x":34.5848,
-					"y":-6.8828,
+					"y":1.0314,
 					"w":33.2588,
 					"h":60.7821
 				}
@@ -686,7 +694,7 @@
 				"h":60
 			}
 		},
-		"Holders.EmissionFilterSlider":{
+		"Holders.DichroicFilterSlider":{
 			"General":{
 				"x":711.4616,
 				"y":671.8141,
@@ -694,7 +702,7 @@
 				"h":60
 			}
 		},
-		"Holders.DichroicFilterSlider":{
+		"Holders.EmissionFilterSlider":{
 			"General":{
 				"x":711.4616,
 				"y":736.1704,
@@ -775,7 +783,7 @@
 			},
 			"OpticalAssemblies.MicroscopeTube":{
 				"x":106.5629,
-				"y":0,
+				"y":8.3752,
 				"w":33.2588,
 				"h":60.7821
 			}
@@ -792,13 +800,13 @@
 			"OpticalAssemblies.MicroscopeTube":[
 				{
 					"x":-211.2675,
-					"y":0,
+					"y":8.3752,
 					"w":33.2588,
 					"h":60.7821
 				},
 				{
 					"x":-80.6431,
-					"y":0,
+					"y":8.3752,
 					"w":33.2588,
 					"h":60.7821
 				}
@@ -832,19 +840,19 @@
 			"OpticalAssemblies.BeamExpander":[
 				{
 					"x":-37.1837,
-					"y":-11.5556,
+					"y":-3.3375,
 					"w":33.2588,
 					"h":60.7821
 				},
 				{
 					"x":4.8855,
-					"y":-11.5556,
+					"y":-3.3375,
 					"w":33.2588,
 					"h":60.7821
 				},
 				{
 					"x":46.7793,
-					"y":-11.5556,
+					"y":-3.3375,
 					"w":33.2588,
 					"h":60.7821
 				}
@@ -854,19 +862,19 @@
 			"OpticalAssemblies.Collimator":[
 				{
 					"x":-37.1837,
-					"y":-11.5556,
+					"y":-3.3375,
 					"w":33.2588,
 					"h":60.7821
 				},
 				{
 					"x":4.8855,
-					"y":-11.5556,
+					"y":-3.3375,
 					"w":33.2588,
 					"h":60.7821
 				},
 				{
 					"x":46.7793,
-					"y":-11.5556,
+					"y":-3.3375,
 					"w":33.2588,
 					"h":60.7821
 				}
@@ -913,15 +921,15 @@
 		"Lenses.CondenserLens":{
 			"OpticalAssemblies.Condenser":{
 				"x":66.8489,
-				"y":-6.8828,
+				"y":1.0314,
 				"w":33.2588,
 				"h":60.7821
 			}
 		},
 		"AdditionalOptics.PolarizationOptics":{
 			"OpticalAssemblies.MicroscopeTube":{
-				"x":106.5629,
-				"y":0,
+				"x":141.8691,
+				"y":8.3752,
 				"w":33.2588,
 				"h":60.7821 
 			}
