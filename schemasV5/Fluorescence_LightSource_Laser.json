@@ -15,9 +15,7 @@
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"LightSource":"This element describes one or more Light Source(s) available for this Instrument. An Instrument may have several Light Sources of different types (Laser, Light Emitting Diode, Filament, Arc etc.). A typical fluorescence Microscope has two Light Sources, one for Transmitted light and one for Fluorescence light.",
 		"Laser":"This element describes a Light Source, which emits coherent radiation at high spectral concentrations of radiance and minimal solid angles. This includes proper Light Amplification by Stimulated Emission of Radiation (LASER) sources that emit light through a process of optical amplification based on the stimulated emission of electromagnetic radiation. It also includes Optical Parametric Oscillator (OPO) sources that use a kind of LASER resonator but based on optical gain from parametric amplification in a nonlinear crystal rather than from stimulated emission.",
-		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits according to the Manufacturer. Multiple of this element may be used.",
-		"AcoustoOpticalDevice":"This empty element refers to an Acousto-Optical Device component used to modulate the Power of this Laser.",
-		"Pump":"The Pump element is a reference to a Light Source. It is used as a sub-Element of a Laser element to specify the Light Source for this Laser's pump (if any)."
+		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits according to the Manufacturer. Multiple of this element may be used."
 	},
 	"properties": {
 		"Type": {
@@ -475,32 +473,18 @@
 				]
 			}
 		},
-		"AcoustoOpticalDevice": {
-			"type":"array",
-			"items": {
-				"description":"This empty element refers to an Acousto-Optical Device component used to modulate the Power of this Laser.",
-				"type":"string",
-				"tier":2,
-				"category":"AcoustoOpticalDevice",
-				"linkTo":"AcoustoOpticalDevice"
-			}
-		},
 		"Pump": {
 			"type":"object",
-			"description":"The Pump element is a reference to a Light Source. It is used as a sub-Element of a Laser element to specify the Light Source for this Laser's pump (if any).",
+			"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
 			"tier":3,
 			"properties": {
-				"ID": {
+				"Laser": {
 					"type":"string",
-					"description":"This is the Unique Identifier of the Light Source used in this case.",
+					"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
 					"tier":3,
-					"category":"Pump",
-					"readonly":true
-				}
-			},
-			"required": [
-				"ID"
-			]
+					"category":"General",
+					"linkTo":"Laser"
+				}			}
 		},
 		"Tier": {
 			"type":"integer",

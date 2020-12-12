@@ -11,9 +11,9 @@
 	"image":"ChildElement_IlluminationWavelengthRange.svg",
 	"tier":1,
 	"subCategoriesOrder": {
+		"General":"General information about the element",
 		"WavelengthRangeType":"NA",
-		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits, according to the Manufacturer. Multiple of this element may be used.",
-		"WavelengthProfileFile":"This element consists of a file containing the Wavelength profile of this hardware component."
+		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits, according to the Manufacturer. Multiple of this element may be used."
 	},
 	"properties": {
 		"IlluminationPower": {
@@ -204,7 +204,16 @@
 			"tier":3,
 			"items": {
 				"properties": {
-					"ID": {
+				"Annotation": {
+					"type":"array",
+					"items": {
+						"description":"This element consists of a file containing the Wavelength profile of this hardware component.",
+						"type":"string",
+						"tier":3,
+						"category":"General",
+						"linkTo":"Annotation"
+					}
+				}					"ID": {
 						"type":"string",
 						"description":"A Unique Identifier for this element.",
 						"tier":3,

@@ -4,7 +4,7 @@
 	"version":"2.00.0",
 	"type":"object",
 	"title":"AcquisitionSoftware",
-	"description":"This is a commercial, or open-source Software, script, macro, plugin or module utilized for any aspets of the Image Acquisition process.",
+	"description":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for driving this Instrument during Image Acquisition.",
 	"extension":"Basic",
 	"domain":"MicroscopeSpecifications",
 	"category":"MicroscopyEssentials",
@@ -13,7 +13,8 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
-		"AcquisitionSoftware":"This is a commercial, or open-source Software, script, macro, plugin or module utilized for any aspets of the Image Acquisition process."
+		"AcquisitionSoftware":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for driving this Instrument during Image Acquisition.",
+		"Software":"This empty element refers to any existing Software that was used during the Acquisition of this Image."
 	},
 	"properties": {
 		"Name": {
@@ -112,6 +113,16 @@
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
+		},
+		"Software": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to any existing Software that was used during the Acquisition of this Image.",
+				"type":"string",
+				"tier":1,
+				"category":"Software",
+				"linkTo":"Software"
+			}
 		},
 		"Description": {
 			"title":"Description",

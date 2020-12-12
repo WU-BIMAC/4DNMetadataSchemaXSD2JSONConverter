@@ -106,7 +106,7 @@
 		},
 		"ContrastModulation": {
 			"type":"string",
-			"description":"This field specifies the presence in this Objective of a contrast modulation device, such as a Phase Ring (Ph1, Ph2, Ph3), a Hoffman modulator, a VAREL modulator, or similar.",
+			"description":"This field specifies the presence in this Objective of a contrast modulation device, such as a Phase Ring (Ph1, Ph2, Ph3), a Hoffman modulator, a Varel modulator, or similar.",
 			"tier":1,
 			"enum": [
 				"None",

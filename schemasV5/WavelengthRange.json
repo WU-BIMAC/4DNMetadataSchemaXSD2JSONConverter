@@ -11,8 +11,8 @@
 	"image":"ChildElement_WavelengthRange.svg",
 	"tier":2,
 	"subCategoriesOrder": {
-		"WavelengthRange":"This element records a range of Wavelengths this component is designed for, according to the Manufacturer. Multiple of this element may be used.",
-		"WavelengthProfileFile":"This element consists of a file containing the Wavelength profile of this hardware component."
+		"General":"General information about the element",
+		"WavelengthRange":"This element records a range of Wavelengths this component is designed for, according to the Manufacturer. Multiple of this element may be used."
 	},
 	"properties": {
 		"PeakWavelength": {
@@ -167,7 +167,16 @@
 			"tier":3,
 			"items": {
 				"properties": {
-					"ID": {
+				"Annotation": {
+					"type":"array",
+					"items": {
+						"description":"This element consists of a file containing the Wavelength profile of this hardware component.",
+						"type":"string",
+						"tier":3,
+						"category":"General",
+						"linkTo":"Annotation"
+					}
+				}					"ID": {
 						"type":"string",
 						"description":"A Unique Identifier for this element.",
 						"tier":3,
