@@ -4,7 +4,7 @@
 	"version":"2.00.0",
 	"type":"object",
 	"title":"Fluorophore",
-	"description":"This element describes the Fluorescent Label whose Emission is recorded by this Channel.",
+	"description":"This element describes the Fluorophore whose Emission is used to produce this Channel. [plain text string].",
 	"extension":"Basic",
 	"domain":"Experimental",
 	"category":"SamplePreparation",
@@ -13,7 +13,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
-		"Fluorophore":"This element describes the Fluorescent Label whose Emission is recorded by this Channel."
+		"Fluorophore":"This element describes the Fluorophore whose Emission is used to produce this Channel. [plain text string]."
 	},
 	"properties": {
 		"Name": {

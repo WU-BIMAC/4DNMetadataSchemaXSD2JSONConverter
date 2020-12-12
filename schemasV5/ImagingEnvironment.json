@@ -9,7 +9,7 @@
 	"domain":"ImageAcquisitionSettings",
 	"category":"SampleConditions",
 	"image":"SampleConditions_ImagingEnvironment.svg",
-	"tier":2,
+	"tier":1,
 	"subCategoriesOrder": {
 		"ImagingEnvironment":"This element describes the environment in which the biological sample was maintained during the Acquisition of this Image."
 	},
@@ -101,7 +101,7 @@
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
-			"tier":2,
+			"tier":1,
 			"category":"General",
 			"readonly":true
 		}

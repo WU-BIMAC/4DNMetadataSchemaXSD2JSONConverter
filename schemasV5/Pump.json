@@ -11,17 +11,16 @@
 	"image":"ChildElement_Pump.svg",
 	"tier":3,
 	"subCategoriesOrder": {
-		"Pump":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
-		"Laser":"This empty element refers to a Laser component used to as a Pump for the primary Laser."
+		"Pump":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it."
 	},
 	"properties": {
 		"Laser": {
 			"type":"string",
 			"description":"This empty element refers to a Laser component used to as a Pump for the primary Laser.",
 			"tier":3,
-			"category":"Laser",
+			"category":"Pump",
 			"linkTo":"Laser"
-		},
+		}
 	},
 	"required": [
 		"Laser"

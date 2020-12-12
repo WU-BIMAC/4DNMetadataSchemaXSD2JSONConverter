@@ -25,6 +25,12 @@
 			"category":"General",
 			"readonly":true
 		},
+		"TotalEffectiveMagnification": {
+			"type":"number",
+			"description":"This fields records the Total Effective Magnification used in this case. This number can be obtained by multiplying Magnification Changer:Magnification times the Objective:NominalMagnification or even better the Objective:CalibratedMagnification if available.",
+			"tier":2,
+			"category":"MicroscopeSettings"
+		},
 		"FieldOfView": {
 			"type":"number",
 			"description":"The Field of View defines the area of the specimen that is viewable via the eyepiece. This field caputers the measures size of the Field of View.",
@@ -71,12 +77,6 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"MicroscopeSettings"
-		},
-		"TotalEffectiveMagnification": {
-			"type":"number",
-			"description":"This fields records the Total Effective Magnification used in this case. This number can be obtained by multiplying Magnification Changer:Magnification times the Objective:NominalMagnification or even better the Objective:CalibratedMagnification if available.",
-			"tier":2,
 			"category":"MicroscopeSettings"
 		},
 		"Objective": {

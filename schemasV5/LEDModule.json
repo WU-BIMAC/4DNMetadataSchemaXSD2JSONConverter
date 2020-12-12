@@ -35,7 +35,7 @@
 			"type":"number",
 			"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
 			"tier":1,
-			"category":"IlluminationWavelengthRangeType"
+			"category":"LEDModule"
 		},
 		"IlluminationPowerUnit": {
 			"type":"string",
@@ -65,13 +65,13 @@
 				"zW",
 				"yW"
 			],
-			"category":"IlluminationWavelengthRangeType"
+			"category":"LEDModule"
 		},
 		"PeakWavelength": {
 			"type":"number",
 			"description":"This field records the Wavelength associated with the peak response rate of this device. ",
 			"tier":2,
-			"category":"WavelengthRangeType"
+			"category":"LEDModule"
 		},
 		"PeakWavelengthUnit": {
 			"type":"string",
@@ -113,13 +113,13 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"WavelengthRangeType"
+			"category":"LEDModule"
 		},
 		"CutOn": {
 			"type":"number",
 			"description":"CutOn is the Wavelength below which the response rate is below 50%.",
 			"tier":2,
-			"category":"WavelengthRangeType"
+			"category":"LEDModule"
 		},
 		"CutOnUnit": {
 			"type":"string",
@@ -162,13 +162,13 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"WavelengthRangeType"
+			"category":"LEDModule"
 		},
 		"CutOff": {
 			"type":"number",
 			"description":"CutOff is the Wavelength above which the response rate is below 50%.",
 			"tier":2,
-			"category":"WavelengthRangeType"
+			"category":"LEDModule"
 		},
 		"CutOffUnit": {
 			"type":"string",
@@ -211,8 +211,8 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"WavelengthRangeType"
-		},
+			"category":"LEDModule"
+		}
 	},
 	"required": [
 		"IlluminationPower",

@@ -159,7 +159,7 @@
 				"reference frame"
 			],
 			"category":"WavelengthRange"
-		},
+		}
 	},
 	"required": [
 		"PeakWavelength",

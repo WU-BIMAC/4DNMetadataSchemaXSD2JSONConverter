@@ -82,6 +82,7 @@ public class XSD2JSONConverter {
 	public static List<String> domain_exclusion_list = new ArrayList<String>();
 	public static List<String> category_exclusion_list = new ArrayList<String>();
 	public static List<String> element_exclusion_list = new ArrayList<String>();
+	public static List<String> elementRef_exclusion_list = new ArrayList<String>();
 	public static List<String> attribute_exclusion_list = new ArrayList<String>();
 	static {
 		XSD2JSONConverter.extension_exclusion_list.add("Advanced+Confocal");
@@ -101,6 +102,7 @@ public class XSD2JSONConverter {
 		XSD2JSONConverter.category_exclusion_list
 				.add("\"WavelengthRangeType\"");
 
+		// FIXME excludere category imagedimensions + data
 		XSD2JSONConverter.element_exclusion_list.add("BinData");
 		XSD2JSONConverter.element_exclusion_list.add("VendorBinData");
 		XSD2JSONConverter.element_exclusion_list.add("NGFFData");
@@ -122,6 +124,9 @@ public class XSD2JSONConverter {
 		XSD2JSONConverter.element_exclusion_list.add("AcoustoOpticalDeviceRef");
 		
 		// XSD2JSONConverter.attribute_exclusion_list.add("SpecsFile");
+		for (final String s : XSD2JSONConverter.element_exclusion_list) {
+			XSD2JSONConverter.elementRef_exclusion_list.add(s + "Ref");
+		}
 	}
 
 	public static String subComponents_category = "ChildrenElement";
@@ -399,6 +404,11 @@ public class XSD2JSONConverter {
 		if (imageTypeDef instanceof XSComplexTypeDefinition) {
 			final XSComplexTypeDefinition imageComplTypeDef = (XSComplexTypeDefinition) imageTypeDef;
 
+			final String originalExtension = this.getExtension(name,
+					annotations);
+			final String originalDomain = this.getDomain(name, annotations);
+			final String originalCategory = this.getCategory(name, annotations);
+
 			final List<XSParticle> particles = this
 					.getChildrenParticleList(imageComplTypeDef);
 
@@ -410,15 +420,20 @@ public class XSD2JSONConverter {
 
 			final List<List<String>> childrenAttributesAndRequired = this
 					.getChildrenAttributesAndRequired(particles, name,
-							imageComplTypeDef);
+							imageComplTypeDef, originalCategory);
 			final List<String> childrenAttributes = childrenAttributesAndRequired
 					.get(0);
 			final List<String> childrenRequired = childrenAttributesAndRequired
 					.get(1);
 
 			final XSObjectList attrList = imageComplTypeDef.getAttributeUses();
+			String catName = null;
+			if (originalCategory.equals("ChildElement")) {
+				catName = name;
+			}
+
 			final List<List<String>> attributesAndRequired = this
-					.getAttributesAndRequired(null, map, attrList, 0);
+					.getAttributesAndRequired(catName, map, attrList, 0);
 			final List<String> attributes = attributesAndRequired.get(0);
 			final List<String> required = attributesAndRequired.get(1);
 			attributes.addAll(childrenAttributes);
@@ -449,6 +464,9 @@ public class XSD2JSONConverter {
 			sb.append("\t\"type\":\"object\",\n");
 			sb.append("\t\"title\":\"Image\",\n");
 			sb.append("\t\"description\":\"" + desc + "\",\n");
+			sb.append("\t\"extension\":\"" + originalExtension + "\",\n");
+			sb.append("\t\"domain\":\"" + originalDomain + "\",\n");
+			sb.append("\t\"category\":\"" + originalCategory + "\",\n");
 			sb.append("\t\"tier\":" + tier + ",\n");
 			sb.append("\t\"subCategoriesOrder\": {\n");
 			for (int i = 0; i < subCategoriesOrder.size(); i++) {
@@ -841,7 +859,8 @@ public class XSD2JSONConverter {
 
 	private List<List<String>> getChildrenAttributesAndRequired(
 			final List<XSParticle> particles, final String name,
-			final XSComplexTypeDefinition complTypeDef) {
+			final XSComplexTypeDefinition complTypeDef,
+			final String parentCategory) {
 		System.out.println("Considering " + name);
 		final List<List<String>> returns = new ArrayList<List<String>>();
 		final List<String> attributes = new ArrayList<String>();
@@ -866,13 +885,16 @@ public class XSD2JSONConverter {
 						annotations);
 				final String attrName = "Description";
 				final String attrType = "string";
+				String attrCategory = XSD2JSONConverter.generic_cat_attr;
+				if (parentCategory.equals("ChildElement")) {
+					attrCategory = name;
+				}
 				aSB.append("\t\t\"" + attrName + "\": {\n");
 				aSB.append("\t\t\t\"title\":\"" + attrName + "\",\n");
 				aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
 				aSB.append("\t\t\t\"description\":\"" + attrDesc + "\",\n");
 				aSB.append("\t\t\t\"tier\":" + attrTier + ",\n");
-				aSB.append("\t\t\t\"category\":\""
-						+ XSD2JSONConverter.generic_cat_attr + "\"");
+				aSB.append("\t\t\t\"category\":\"" + attrCategory + "\"");
 				aSB.append("\n");
 				aSB.append("\t\t}");
 				// required.add(attrName);
@@ -883,14 +905,17 @@ public class XSD2JSONConverter {
 				// be filled in the app
 				final String attrName = "IntrumentName";
 				final String attrType = "string";
-				final String category = "Instrument";
+				String attrCategory = "Instrument";
+				if (parentCategory.equals("ChildElement")) {
+					attrCategory = name;
+				}
 				aSB.append("\t\t\"" + attrName + "\": {\n");
 				aSB.append("\t\t\t\"title\":\"" + attrName + "\",\n");
 				aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
 				aSB.append("\t\t\t\"description\":\""
 						+ "Name of the instrument" + "\",\n");
 				aSB.append("\t\t\t\"tier\":" + 1 + ",\n");
-				aSB.append("\t\t\t\"category\":\"" + category + "\",\n");
+				aSB.append("\t\t\t\"category\":\"" + attrCategory + "\",\n");
 				aSB.append("\t\t\t\"readonly\":true");
 				aSB.append("\n");
 				aSB.append("\t\t}");
@@ -904,7 +929,7 @@ public class XSD2JSONConverter {
 				aSB.append("\t\t\t\"description\":\"" + "ID of the instrument"
 						+ "\",\n");
 				aSB.append("\t\t\t\"tier\":" + 1 + ",\n");
-				aSB.append("\t\t\t\"category\":\"" + category + "\",\n");
+				aSB.append("\t\t\t\"category\":\"" + attrCategory + "\",\n");
 				aSB.append("\t\t\t\"readonly\":true");
 				aSB.append("\n");
 				aSB.append("\t\t}");
@@ -939,13 +964,18 @@ public class XSD2JSONConverter {
 					&& name.equals("Plane")) {
 				// FIXME temporary exclusion case
 			} else if (XSD2JSONConverter.element_exclusion_list
-					.contains(elementName)) {
+					.contains(elementName)
+					|| XSD2JSONConverter.elementRef_exclusion_list
+							.contains(elementName)) {
 				// TODO all the special cases that are completely disregarded
 				// at the moment
+			} else if (elementName.endsWith("ProfileFile")
+					|| elementName.endsWith("ProfileFileRef")) {
+				// FIXME build special case for this
 			} else if (elementName.endsWith("Map")) {
 				// TODO unknown case
 			} else if (elementName.endsWith("Ref")) {
-
+				
 				// FIXME this need to be double checked
 				final XSObjectList annotations = element.getAnnotations();
 				final Integer attrTier = this.getTier(elementName, annotations);
@@ -955,8 +985,8 @@ public class XSD2JSONConverter {
 				final String attrName = elementName.substring(0,
 						elementName.length() - 3);
 				String attrCategory = attrName;
-				if (XSD2JSONConverter.category.equals("ChildElement")) {
-					attrCategory = "General";
+				if (parentCategory.equals("ChildElement")) {
+					attrCategory = name;
 				}
 				final String attrType = "string";
 				aSB.append("\t\t\"" + attrName + "\": {\n");
@@ -1005,16 +1035,14 @@ public class XSD2JSONConverter {
 				// aSB.append("\t\t\t\"category\":\"" + attrName + "\"");
 				// required.add(attrName);
 				attributes.add(aSB.toString());
-			} else if (elementName.endsWith("ProfileFile")) {
-				// FIXME build special case for this
 			} else {
 				if (!(element.getTypeDefinition() instanceof XSComplexTypeDefinition)) {
 					this.errors.append(elementName + " in " + name
 							+ " is not complex");
 					this.errors.append("\n");
-
+					
 					// CREATE FIELD WITH CONTAINSELEMENT similar to linkTo
-
+					
 					// final XSObjectList annotations =
 					// element.getAnnotations();
 					// final Integer attrTier = this.getTier(elementName,
@@ -1038,7 +1066,7 @@ public class XSD2JSONConverter {
 					// }
 					// attributes.add(aSB.toString());
 				} else {
-
+					
 					final XSComplexTypeDefinition elementComplTypeDef = (XSComplexTypeDefinition) element
 							.getTypeDefinition();
 					final XSObjectList attrList = elementComplTypeDef
@@ -1052,12 +1080,12 @@ public class XSD2JSONConverter {
 					final String category = this.getCategory(attrName,
 							annotations);
 					if ((category != null) && !category.equals("ChildElement")) {
-
+						
 						// FIXME need to extrapolate all these classes instead
 						// of wrap them
 						System.out.println("Element not ChildElement -> "
 								+ attrName + " - " + category);
-
+						
 						// final String attrType = "string";
 						// aSB.append("\t\t\"" + attrName + "\": {\n");
 						// final boolean isArray = false;
@@ -1240,8 +1268,13 @@ public class XSD2JSONConverter {
 								}
 							}
 						}
+						String catName = attrName;
+						if (parentCategory.equals("ChildElement")) {
+							catName = parentCategory;
+						}
+
 						final List<List<String>> attributesAndRequiredLocal = this
-								.getAttributesAndRequired(attrName, null,
+								.getAttributesAndRequired(catName, null,
 										attrList, isArray ? 3 : 2);
 						final List<String> attributesLocal = attributesAndRequiredLocal
 								.get(0);
@@ -1436,6 +1469,11 @@ public class XSD2JSONConverter {
 		if (typeDef instanceof XSComplexTypeDefinition) {
 			final XSComplexTypeDefinition complTypeDef = (XSComplexTypeDefinition) typeDef;
 
+			final String originalExtension = this.getExtension(name,
+					annotations);
+			final String originalDomain = this.getDomain(name, annotations);
+			final String originalCategory = this.getCategory(name, annotations);
+
 			final List<XSParticle> particles = this
 					.getChildrenParticleList(complTypeDef);
 
@@ -1447,7 +1485,7 @@ public class XSD2JSONConverter {
 
 			final List<List<String>> childrenAttributesAndRequired = this
 					.getChildrenAttributesAndRequired(particles, name,
-							complTypeDef);
+							complTypeDef, originalCategory);
 			final List<String> childrenAttributes = childrenAttributesAndRequired
 					.get(0);
 			final List<String> childrenRequired = childrenAttributesAndRequired
@@ -1457,8 +1495,12 @@ public class XSD2JSONConverter {
 			}
 
 			final XSObjectList attrList = complTypeDef.getAttributeUses();
+			String catName = null;
+			if (originalCategory.equals("ChildElement")) {
+				catName = name;
+			}
 			final List<List<String>> attributesAndRequired = this
-					.getAttributesAndRequired(null, map, attrList, 0);
+					.getAttributesAndRequired(catName, map, attrList, 0);
 			final List<String> attributes = attributesAndRequired.get(0);
 			final List<String> required = attributesAndRequired.get(1);
 			attributes.addAll(childrenAttributes);
@@ -1478,10 +1520,6 @@ public class XSD2JSONConverter {
 			// System.out.println(element.getName() + " - " +
 			// subCategoriesOrder);
 
-			final String originalExtension = this.getExtension(name,
-					annotations);
-			final String originalDomain = this.getDomain(name, annotations);
-			final String originalCategory = this.getCategory(name, annotations);
 			// final int index = category.lastIndexOf(".") + 1;
 			// if (index != -1) {
 			// category = category.substring(index);
@@ -1541,12 +1579,22 @@ public class XSD2JSONConverter {
 				// sb.append(references);
 				// sb.append(",\n");
 				sb.append("\t\"properties\": {\n");
+				
+				int c = 0;
 				for (final String s : attributes) {
 					sb.append(s);
-					sb.append(",\n");
+					if (c < (attributes.size() - 1)) {
+						sb.append(",\n");
+					}
+					// else {
+					// sb.append("\n");
+					// }
+
+					c++;
 				}
 				// TODO is this needed for subComponents?
 				if (!category.equals("ChildElement")) {
+					sb.append(",\n");
 					sb.append("\t\t\"Tier\": {\n");
 					sb.append("\t\t\t\"type\":\"integer\",\n");
 					sb.append("\t\t\t\"description\":\"The tier level of this component.\",\n");
@@ -1555,6 +1603,8 @@ public class XSD2JSONConverter {
 							+ XSD2JSONConverter.generic_cat_attr + "\",\n");
 					sb.append("\t\t\t\"readonly\":true\n");
 					sb.append("\t\t}\n");
+				} else {
+					sb.append("\n");
 				}
 
 				sb.append("\t}");

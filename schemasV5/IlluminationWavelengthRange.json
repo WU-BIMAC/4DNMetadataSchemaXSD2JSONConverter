@@ -54,7 +54,7 @@
 			"type":"number",
 			"description":"This field records the Wavelength associated with the peak response rate of this device. ",
 			"tier":2,
-			"category":"WavelengthRangeType"
+			"category":"IlluminationWavelengthRange"
 		},
 		"PeakWavelengthUnit": {
 			"type":"string",
@@ -96,13 +96,13 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"WavelengthRangeType"
+			"category":"IlluminationWavelengthRange"
 		},
 		"CutOn": {
 			"type":"number",
 			"description":"CutOn is the Wavelength below which the response rate is below 50%.",
 			"tier":2,
-			"category":"WavelengthRangeType"
+			"category":"IlluminationWavelengthRange"
 		},
 		"CutOnUnit": {
 			"type":"string",
@@ -145,13 +145,13 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"WavelengthRangeType"
+			"category":"IlluminationWavelengthRange"
 		},
 		"CutOff": {
 			"type":"number",
 			"description":"CutOff is the Wavelength above which the response rate is below 50%.",
 			"tier":2,
-			"category":"WavelengthRangeType"
+			"category":"IlluminationWavelengthRange"
 		},
 		"CutOffUnit": {
 			"type":"string",
@@ -194,8 +194,8 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"WavelengthRangeType"
-		},
+			"category":"IlluminationWavelengthRange"
+		}
 	},
 	"required": [
 		"IlluminationPower",

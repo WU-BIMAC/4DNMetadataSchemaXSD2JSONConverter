@@ -105,12 +105,6 @@
 			],
 			"category":"Channel"
 		},
-		"Fluorophore": {
-			"type":"string",
-			"description":"This field records the Name of the Fluorophore used to produce this Channel. [plain text string].",
-			"tier":1,
-			"category":"Channel"
-		},
 		"Color": {
 			"type":"string",
 			"description":"This field records the Color used to render this Channel - encoded as RGBA. The default value is -1 corresponding #FFFFFFFF, so solid white (it is a signed 32 bit value).",
@@ -144,7 +138,6 @@
 		"Name",
 		"ImagingMethod",
 		"IlluminationType",
-		"ContrastMethod",
-		"Fluorophore"
+		"ContrastMethod"
 	]
 }

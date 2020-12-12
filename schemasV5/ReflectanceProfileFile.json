@@ -11,7 +11,6 @@
 	"image":"ChildElement_ReflectanceProfileFile.svg",
 	"tier":3,
 	"subCategoriesOrder": {
-		"General":"General information about the element",
 		"ReflectanceProfileFile":"This element represents a file in .csv or other suitable formats containing the Reflectance profile of this optical component."
 	},
 	"properties": {
@@ -19,28 +18,28 @@
 			"type":"string",
 			"description":"A Unique Identifier for this element.",
 			"tier":3,
-			"category":"General",
+			"category":"ReflectanceProfileFile",
 			"readonly":true
 		},
 		"Namespace": {
 			"type":"string",
 			"description":"We recommend the inclusion of a namespace for annotations you define. If it is absent then we assume the annotation is to use our (OME's) default interpretation for this type.",
 			"tier":3,
-			"category":"Annotation"
+			"category":"ReflectanceProfileFile"
 		},
 		"Annotator": {
 			"type":"string",
 			"description":"The Annotator is the person who attached this annotation.e.g. If UserA annotates something with TagB, owned by UserB, UserA is still the Annotator.",
 			"tier":3,
-			"category":"Annotation"
+			"category":"ReflectanceProfileFile"
 		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
 			"description":"This element holds a simple multi-line comment or annotation describing this component.",
 			"tier":1,
-			"category":"General"
-		},
+			"category":"ReflectanceProfileFile"
+		}
 	},
 	"required": [
 		"ID",
