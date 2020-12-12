@@ -4,7 +4,8 @@ InvertedMicroscopeStand:-1,-1:3199.25,1150.9761
 //Menu position 1 --> Microscopy Essentials
 //-----------------------------------------
 MicroscopyEssentials.AcquisitionSoftware:2313.8659,893.275:281.0426,246.6847
-MicroscopyEssentials.MicroscopeTable:1613.8218,1072.649:3118.4736,42.6542
+MicroscopyEssentials.AcquisitionSoftware:-1,-1:281.0426,246.6847
+MicroscopyEssentials.MicroscopeTable:1613.7446,1072.818:3118.29,43.0292 
 MicroscopyEssentials.EnvironmentalControlDevice:2093.4117,913.9234:110.9688,50.778
 
 
@@ -156,17 +157,17 @@ OpticalAssemblies.MicroscopeTube:887.6322,947.3734:509.7976,130.8837
 
 Apertures:-1,-1:33.2588,60.7821
 
-Apertures#OpticalAssemblies.MicroscopeTube:176.1065,0:33.2588,60.7821
-Apertures#OpticalAssemblies.Condenser:-68.6066,-6.8828:33.2588,60.7821
-Apertures#OpticalAssemblies.Condenser:-34.591,-6.8828:33.2588,60.7821
-Apertures#OpticalAssemblies.Condenser:0.0798,-6.8828:33.2588,60.7821
-Apertures#OpticalAssemblies.Condenser:34.5848,-6.8828:33.2588,60.7821
+Apertures#OpticalAssemblies.MicroscopeTube:176.1065,8.3752:33.2588,60.7821
+Apertures#OpticalAssemblies.Condenser:-68.6066,1.0314:33.2588,60.7821
+Apertures#OpticalAssemblies.Condenser:-34.591,1.0314:33.2588,60.7821
+Apertures#OpticalAssemblies.Condenser:0.0798,1.0314:33.2588,60.7821
+Apertures#OpticalAssemblies.Condenser:34.5848,1.0314:33.2588,60.7821
 
 //Menu position 10 --> Holders
 //----------------------------
 Holders.ExcitationFilterSlider:711.4616,607.6113:165.4861,60
-Holders.EmissionFilterSlider:711.4616,671.8141:165.4861,60
-Holders.DichroicFilterSlider:711.4616,736.1704:165.4861,60
+Holders.DichroicFilterSlider:711.4616,671.8141:165.4861,60
+Holders.EmissionFilterSlider:711.4616,736.1704:165.4861,60
 
 Holders.ExcitationFilterWheel:1225.3426,779.5355:75.8027,152.367 
 Holders.ExcitationFilterWheel:1225.4033,956.1075:75.8027,152.367
@@ -187,14 +188,14 @@ Holders.OpticsTurret:-1,-1:226.3076,20.2735
 //Filters.NeutralDensityFilter
 
 Filters:-1,-1:33.1797,62.0013 
-Filters#OpticalAssemblies.MicroscopeTube:106.5629,0:33.2588,60.7821
+Filters#OpticalAssemblies.MicroscopeTube:106.5629,8.3752:33.2588,60.7821
 
 
 //Menu position 12 --> Mirrors
 //----------------------------
 Mirrors.GenericDichroic:-1,-1:33.2588,60.7821 
-Mirrors.ReflectingMirror#OpticalAssemblies.MicroscopeTube:-211.2675,0:33.2588,60.7821
-Mirrors.ReflectingMirror#OpticalAssemblies.MicroscopeTube:-80.6431,0:33.2588,60.7821
+Mirrors.ReflectingMirror#OpticalAssemblies.MicroscopeTube:-211.2675,8.3752:33.2588,60.7821
+Mirrors.ReflectingMirror#OpticalAssemblies.MicroscopeTube:-80.6431,8.3752:33.2588,60.7821
 
 Mirrors.Beamsplitter#OpticalAssemblies.MicroscopeTube:-156.2518,0:70.1611,56.9366 
 Mirrors.Beamsplitter#OpticalAssemblies.MicroscopeTube:-26.0487,0:70.1611,56.9366 
@@ -203,12 +204,12 @@ Mirrors.Beamsplitter#OpticalAssemblies.MicroscopeTube:-26.0487,0:70.1611,56.9366
 //Menu position 13 --> Lenses
 //---------------------------
 Lenses.TubeLens#OpticalAssemblies.MicroscopeTube:203.6787,0:10.5314,69 
-Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:-37.1837,-11.5556:33.2588,60.7821
-Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:4.8855,-11.5556:33.2588,60.7821
-Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:46.7793,-11.5556:33.2588,60.7821
-Lenses.BeamCollimatorLens#OpticalAssemblies.Collimator:-37.1837,-11.5556:33.2588,60.7821
-Lenses.BeamCollimatorLens#OpticalAssemblies.Collimator:4.8855,-11.5556:33.2588,60.7821
-Lenses.BeamCollimatorLens#OpticalAssemblies.Collimator:46.7793,-11.5556:33.2588,60.7821
+Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:-37.1837,-3.3375:33.2588,60.7821
+Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:4.8855,-3.3375:33.2588,60.7821
+Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:46.7793,-3.3375:33.2588,60.7821
+Lenses.BeamCollimatorLens#OpticalAssemblies.Collimator:-37.1837,-3.3375:33.2588,60.7821
+Lenses.BeamCollimatorLens#OpticalAssemblies.Collimator:4.8855,-3.3375:33.2588,60.7821
+Lenses.BeamCollimatorLens#OpticalAssemblies.Collimator:46.7793,-3.3375:33.2588,60.7821
 Lenses.GenericLens:-1,-1:33.2588,60.7821
 Lenses.RelayLens:590.7555,775.034:10.8346,54.5
 Lenses.RelayLens:557.4831,951.2278:10.8346,54.5
@@ -216,14 +217,14 @@ Lenses.RelayLens:557.4831,951.2278:10.8346,54.5
 Lenses.CouplingLens:1397.8444,955.9761:10.5314,69
 Lenses.CouplingLens#Fluorescence_LightSource.MultiLaserEngine:-233.8225,0.8933:10.5314,69 
 
-Lenses.CondenserLens#OpticalAssemblies.Condenser:66.8489,-6.8828:33.2588,60.7821
+Lenses.CondenserLens#OpticalAssemblies.Condenser:66.8489,1.0314:33.2588,60.7821
 
 //Menu position 14 --> Additional Optics
 //--------------------------------------
 //AdditionalOptics.PolarizationOptics 
 //AdditionalOptics.Prism
 
-AdditionalOptics.PolarizationOptics#OpticalAssemblies.MicroscopeTube:106.5629,0:33.2588,60.7821 
+AdditionalOptics.PolarizationOptics#OpticalAssemblies.MicroscopeTube:141.8691,8.3752:33.2588,60.7821 
 AdditionalOptics.Prism#OpticalAssemblies.MicroscopeTube:51.2263,0:77.0372,55.3705 
 
 
