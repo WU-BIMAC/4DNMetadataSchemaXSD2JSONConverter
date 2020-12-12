@@ -15,7 +15,8 @@
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"LightSource":"This element describes one or more Light Source(s) available for this Instrument. An Instrument may have several Light Sources of different types (Laser, Light Emitting Diode, Filament, Arc etc.). A typical fluorescence Microscope has two Light Sources, one for Transmitted light and one for Fluorescence light.",
 		"Laser":"This element describes a Light Source, which emits coherent radiation at high spectral concentrations of radiance and minimal solid angles. This includes proper Light Amplification by Stimulated Emission of Radiation (LASER) sources that emit light through a process of optical amplification based on the stimulated emission of electromagnetic radiation. It also includes Optical Parametric Oscillator (OPO) sources that use a kind of LASER resonator but based on optical gain from parametric amplification in a nonlinear crystal rather than from stimulated emission.",
-		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits according to the Manufacturer. Multiple of this element may be used."
+		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits according to the Manufacturer. Multiple of this element may be used.",
+		"Pump":"In case the primary Laser is Pumped this element describe a secondary Laser positioned upstream of the primary Laser and used to pump it."
 	},
 	"properties": {
 		"Type": {
@@ -482,9 +483,10 @@
 					"type":"string",
 					"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
 					"tier":3,
-					"category":"General",
+					"category":"Pump",
 					"linkTo":"Laser"
-				}			}
+				}
+			}
 		},
 		"Tier": {
 			"type":"integer",

@@ -75,13 +75,6 @@
 			"tier":3,
 			"category":"ReflectanceRange"
 		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":3,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"Wavelength",

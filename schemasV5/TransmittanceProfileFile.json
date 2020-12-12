@@ -12,8 +12,6 @@
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"Annotation":"NA",
-		"TypeAnnotation":"NA",
 		"TransmittanceProfileFile":"This element represents a file in .csv or other suitable formats containing the Transmittance profile of this optical component."
 	},
 	"properties": {
@@ -43,13 +41,6 @@
 			"tier":1,
 			"category":"General"
 		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":3,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"ID",

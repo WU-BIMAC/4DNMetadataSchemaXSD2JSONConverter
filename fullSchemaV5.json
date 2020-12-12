@@ -551,9 +551,6 @@
 	"image":"ChildElement_LEDModule.svg",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General":"General information about the element",
-		"WavelengthRangeType":"NA",
-		"IlluminationWavelengthRangeType":"NA",
 		"LEDModule":"A Light Emitting Diode (LED) Light Source is often composed of multiple modules each with its own wavelength characteristics. This element describes an individual LED module. Multiple of this elements may be used."
 	},
 	"properties": {
@@ -756,54 +753,6 @@
 			],
 			"category":"WavelengthRangeType"
 		},
-		"WavelengthProfileFile": {
-			"type":"array",
-			"description":"This element consists of a file containing the Wavelength profile of this hardware component.",
-			"tier":3,
-			"items": {
-				"properties": {
-				"Annotation": {
-					"type":"array",
-					"items": {
-						"description":"This element consists of a file containing the Wavelength profile of this hardware component.",
-						"type":"string",
-						"tier":3,
-						"category":"General",
-						"linkTo":"Annotation"
-					}
-				}					"ID": {
-						"type":"string",
-						"description":"A Unique Identifier for this element.",
-						"tier":3,
-						"category":"WavelengthProfileFile",
-						"readonly":true
-					},
-					"Namespace": {
-						"type":"string",
-						"description":"We recommend the inclusion of a namespace for annotations you define. If it is absent then we assume the annotation is to use our (OME's) default interpretation for this type.",
-						"tier":3,
-						"category":"WavelengthProfileFile"
-					},
-					"Annotator": {
-						"type":"string",
-						"description":"The Annotator is the person who attached this annotation.e.g. If UserA annotates something with TagB, owned by UserB, UserA is still the Annotator.",
-						"tier":3,
-						"category":"WavelengthProfileFile"
-					}
-				},
-				"required": [
-					"ID",
-					"Namespace"
-				]
-			}
-		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":1,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"IlluminationPower",
@@ -975,8 +924,6 @@
 	"image":"ChildElement_IlluminationWavelengthRange.svg",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General":"General information about the element",
-		"WavelengthRangeType":"NA",
 		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits, according to the Manufacturer. Multiple of this element may be used."
 	},
 	"properties": {
@@ -1162,54 +1109,6 @@
 			],
 			"category":"WavelengthRangeType"
 		},
-		"WavelengthProfileFile": {
-			"type":"array",
-			"description":"This element consists of a file containing the Wavelength profile of this hardware component.",
-			"tier":3,
-			"items": {
-				"properties": {
-				"Annotation": {
-					"type":"array",
-					"items": {
-						"description":"This element consists of a file containing the Wavelength profile of this hardware component.",
-						"type":"string",
-						"tier":3,
-						"category":"General",
-						"linkTo":"Annotation"
-					}
-				}					"ID": {
-						"type":"string",
-						"description":"A Unique Identifier for this element.",
-						"tier":3,
-						"category":"WavelengthProfileFile",
-						"readonly":true
-					},
-					"Namespace": {
-						"type":"string",
-						"description":"We recommend the inclusion of a namespace for annotations you define. If it is absent then we assume the annotation is to use our (OME's) default interpretation for this type.",
-						"tier":3,
-						"category":"WavelengthProfileFile"
-					},
-					"Annotator": {
-						"type":"string",
-						"description":"The Annotator is the person who attached this annotation.e.g. If UserA annotates something with TagB, owned by UserB, UserA is still the Annotator.",
-						"tier":3,
-						"category":"WavelengthProfileFile"
-					}
-				},
-				"required": [
-					"ID",
-					"Namespace"
-				]
-			}
-		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":1,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"IlluminationPower",
@@ -1232,8 +1131,6 @@
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"Annotation":"NA",
-		"TypeAnnotation":"NA",
 		"ReflectanceProfileFile":"This element represents a file in .csv or other suitable formats containing the Reflectance profile of this optical component."
 	},
 	"properties": {
@@ -1263,13 +1160,6 @@
 			"tier":1,
 			"category":"General"
 		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":3,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"ID",
@@ -2769,7 +2659,6 @@
 	"image":"ChildElement_WavelengthRange.svg",
 	"tier":2,
 	"subCategoriesOrder": {
-		"General":"General information about the element",
 		"WavelengthRange":"This element records a range of Wavelengths this component is designed for, according to the Manufacturer. Multiple of this element may be used."
 	},
 	"properties": {
@@ -2919,54 +2808,6 @@
 			],
 			"category":"WavelengthRange"
 		},
-		"WavelengthProfileFile": {
-			"type":"array",
-			"description":"This element consists of a file containing the Wavelength profile of this hardware component.",
-			"tier":3,
-			"items": {
-				"properties": {
-				"Annotation": {
-					"type":"array",
-					"items": {
-						"description":"This element consists of a file containing the Wavelength profile of this hardware component.",
-						"type":"string",
-						"tier":3,
-						"category":"General",
-						"linkTo":"Annotation"
-					}
-				}					"ID": {
-						"type":"string",
-						"description":"A Unique Identifier for this element.",
-						"tier":3,
-						"category":"WavelengthProfileFile",
-						"readonly":true
-					},
-					"Namespace": {
-						"type":"string",
-						"description":"We recommend the inclusion of a namespace for annotations you define. If it is absent then we assume the annotation is to use our (OME's) default interpretation for this type.",
-						"tier":3,
-						"category":"WavelengthProfileFile"
-					},
-					"Annotator": {
-						"type":"string",
-						"description":"The Annotator is the person who attached this annotation.e.g. If UserA annotates something with TagB, owned by UserB, UserA is still the Annotator.",
-						"tier":3,
-						"category":"WavelengthProfileFile"
-					}
-				},
-				"required": [
-					"ID",
-					"Namespace"
-				]
-			}
-		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":2,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"PeakWavelength",
@@ -4997,8 +4838,6 @@
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"Annotation":"NA",
-		"TypeAnnotation":"NA",
 		"TransmittanceProfileFile":"This element represents a file in .csv or other suitable formats containing the Transmittance profile of this optical component."
 	},
 	"properties": {
@@ -5028,13 +4867,6 @@
 			"tier":1,
 			"category":"General"
 		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":3,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"ID",
@@ -8938,13 +8770,6 @@
 			"tier":2,
 			"category":"TransmittanceRange"
 		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":1,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"Wavelength",
@@ -15503,13 +15328,6 @@
 			"category":"Laser",
 			"linkTo":"Laser"
 		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":3,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"Laser"
@@ -18039,8 +17857,6 @@
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"Annotation":"NA",
-		"TypeAnnotation":"NA",
 		"WavelengthProfileFile":"This element consists of a file containing the Wavelength profile of this hardware component."
 	},
 	"properties": {
@@ -18070,13 +17886,6 @@
 			"tier":1,
 			"category":"General"
 		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":3,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"ID",
@@ -18284,7 +18093,8 @@
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"LightSource":"This element describes one or more Light Source(s) available for this Instrument. An Instrument may have several Light Sources of different types (Laser, Light Emitting Diode, Filament, Arc etc.). A typical fluorescence Microscope has two Light Sources, one for Transmitted light and one for Fluorescence light.",
 		"Laser":"This element describes a Light Source, which emits coherent radiation at high spectral concentrations of radiance and minimal solid angles. This includes proper Light Amplification by Stimulated Emission of Radiation (LASER) sources that emit light through a process of optical amplification based on the stimulated emission of electromagnetic radiation. It also includes Optical Parametric Oscillator (OPO) sources that use a kind of LASER resonator but based on optical gain from parametric amplification in a nonlinear crystal rather than from stimulated emission.",
-		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits according to the Manufacturer. Multiple of this element may be used."
+		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits according to the Manufacturer. Multiple of this element may be used.",
+		"Pump":"In case the primary Laser is Pumped this element describe a secondary Laser positioned upstream of the primary Laser and used to pump it."
 	},
 	"properties": {
 		"Type": {
@@ -18751,9 +18561,10 @@
 					"type":"string",
 					"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
 					"tier":3,
-					"category":"General",
+					"category":"Pump",
 					"linkTo":"Laser"
-				}			}
+				}
+			}
 		},
 		"Tier": {
 			"type":"integer",
@@ -20106,13 +19917,6 @@
 			"tier":3,
 			"category":"ReflectanceRange"
 		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":3,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"Wavelength",

@@ -11,9 +11,6 @@
 	"image":"ChildElement_LEDModule.svg",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General":"General information about the element",
-		"WavelengthRangeType":"NA",
-		"IlluminationWavelengthRangeType":"NA",
 		"LEDModule":"A Light Emitting Diode (LED) Light Source is often composed of multiple modules each with its own wavelength characteristics. This element describes an individual LED module. Multiple of this elements may be used."
 	},
 	"properties": {
@@ -216,54 +213,6 @@
 			],
 			"category":"WavelengthRangeType"
 		},
-		"WavelengthProfileFile": {
-			"type":"array",
-			"description":"This element consists of a file containing the Wavelength profile of this hardware component.",
-			"tier":3,
-			"items": {
-				"properties": {
-				"Annotation": {
-					"type":"array",
-					"items": {
-						"description":"This element consists of a file containing the Wavelength profile of this hardware component.",
-						"type":"string",
-						"tier":3,
-						"category":"General",
-						"linkTo":"Annotation"
-					}
-				}					"ID": {
-						"type":"string",
-						"description":"A Unique Identifier for this element.",
-						"tier":3,
-						"category":"WavelengthProfileFile",
-						"readonly":true
-					},
-					"Namespace": {
-						"type":"string",
-						"description":"We recommend the inclusion of a namespace for annotations you define. If it is absent then we assume the annotation is to use our (OME's) default interpretation for this type.",
-						"tier":3,
-						"category":"WavelengthProfileFile"
-					},
-					"Annotator": {
-						"type":"string",
-						"description":"The Annotator is the person who attached this annotation.e.g. If UserA annotates something with TagB, owned by UserB, UserA is still the Annotator.",
-						"tier":3,
-						"category":"WavelengthProfileFile"
-					}
-				},
-				"required": [
-					"ID",
-					"Namespace"
-				]
-			}
-		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":1,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"IlluminationPower",

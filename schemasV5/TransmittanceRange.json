@@ -75,13 +75,6 @@
 			"tier":2,
 			"category":"TransmittanceRange"
 		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":1,
-			"category":"General",
-			"readonly":true
-		}
 	},
 	"required": [
 		"Wavelength",
