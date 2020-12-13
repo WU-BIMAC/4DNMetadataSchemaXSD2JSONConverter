@@ -259,7 +259,7 @@
 			]
 		},
 		"Magnification.MagnificationChanger":{
-			"OpticalAssemblies.MicroscopeTube":{
+			"OpticalAssembly.MicroscopeTube":{
 				"x":-106.0527,
 				"y":0,
 				"w":15.0733,
@@ -313,7 +313,7 @@
 				"w":9.3863,
 				"h":45.1842 
 			},
-			"Holders.ExcitationFilterSlider":[
+			"OpticsHolder.ExcitationFilterSlider":[
 				{
 					"x":-50.0063,
 					"y":-0.2393,
@@ -351,7 +351,7 @@
 					"h":45.1842
 				}
 			],
-			"Holders.ExcitationFilterWheel":[
+			"OpticsHolder.ExcitationFilterWheel":[
 				{
 					"x":-7.6478,
 					"y":-35.7669,
@@ -397,7 +397,7 @@
 				"w":45.1842,
 				"h":9.3863
 			},
-			"Holders.EmissionFilterWheel":[
+			"OpticsHolder.EmissionFilterWheel":[
 				{
 					"x":1.5506,
 					"y":-38.0062,
@@ -435,7 +435,7 @@
 					"h":9.3869
 				}
 			],
-			"Holders.EmissionFilterSlider":[
+			"OpticsHolder.EmissionFilterSlider":[
 				{
 					"x":-31.114,
 					"y":-13.231,
@@ -481,7 +481,7 @@
 				"w":37.0594,
 				"h":38.2954
 			},
-			"Holders.DichroicFilterSlider":[
+			"OpticsHolder.DichroicFilterSlider":[
 				{
 					"x":-44.0055,
 					"y":0,
@@ -519,7 +519,7 @@
 					"h":38.4254
 				}
 			],
-			"Holders.DichroicFilterWheel":[
+			"OpticsHolder.DichroicFilterWheel":[
 				{
 					"x":6.8749,
 					"y":-44.4315,
@@ -614,7 +614,7 @@
 				"h":50.778 
 			}
 		},
-		"OpticalAssemblies.BeamExpander":{
+		"OpticalAssembly.BeamExpander":{
 			"General":{
 				"x":-1,
 				"y":-1,
@@ -622,7 +622,7 @@
 				"h":73
 			}
 		},
-		"OpticalAssemblies.BeamCollimator":{
+		"OpticalAssembly.BeamCollimator":{
 			"General":{
 				"x":-1,
 				"y":-1,
@@ -630,7 +630,7 @@
 				"h":73
 			}
 		},
-		"OpticalAssemblies.Condenser":{
+		"OpticalAssembly.Condenser":{
 			"General":{
 				"x":968.1279,
 				"y":346.04,
@@ -638,7 +638,7 @@
 				"h":130.605
 			}
 		},
-		"OpticalAssemblies.MicroscopeTube":{
+		"OpticalAssembly.MicroscopeTube":{
 			"General":{
 				"x":887.6322,
 				"y":947.3734,
@@ -646,20 +646,20 @@
 				"h":130.8837 
 			}
 		},
-		"Apertures":{
+		"Aperture":{
 			"General":{
 				"x":-1,
 				"y":-1,
 				"w":33.2588,
 				"h":60.7821
 			},
-			"OpticalAssemblies.MicroscopeTube":{
+			"OpticalAssembly.MicroscopeTube":{
 				"x":176.1065,
 				"y":8.3752,
 				"w":33.2588,
 				"h":60.7821
 			},
-			"OpticalAssemblies.Condenser":[
+			"OpticalAssembly.Condenser":[
 				{
 					"x":-68.6066,
 					"y":1.0314,
@@ -686,7 +686,7 @@
 				}
 			]
 		},
-		"Holders.ExcitationFilterSlider":{
+		"OpticsHolder.ExcitationFilterSlider":{
 			"General":{
 				"x":711.4616,
 				"y":607.6113,
@@ -694,7 +694,7 @@
 				"h":60
 			}
 		},
-		"Holders.DichroicFilterSlider":{
+		"OpticsHolder.DichroicFilterSlider":{
 			"General":{
 				"x":711.4616,
 				"y":671.8141,
@@ -702,7 +702,7 @@
 				"h":60
 			}
 		},
-		"Holders.EmissionFilterSlider":{
+		"OpticsHolder.EmissionFilterSlider":{
 			"General":{
 				"x":711.4616,
 				"y":736.1704,
@@ -710,7 +710,7 @@
 				"h":60
 			}
 		},
-		"Holders.ExcitationFilterWheel":{
+		"OpticsHolder.ExcitationFilterWheel":{
 			"General":[
 				{
 					"x":1225.3426,
@@ -726,7 +726,7 @@
 				}
 			]
 		},
-		"Holders.EmissionFilterWheel":{
+		"OpticsHolder.EmissionFilterWheel":{
 			"General":[
 				{
 					"x":436.0627,
@@ -742,7 +742,7 @@
 				}
 			]
 		},
-		"Holders.DichroicFilterWheel":{
+		"OpticsHolder.DichroicFilterWheel":{
 			"General":[
 				{
 					"x":531.4082,
@@ -758,7 +758,7 @@
 				}
 			]
 		},
-		"Holders.FilterCubeTurret":{
+		"OpticsHolder.FilterCubeTurret":{
 			"General":{
 				"x":886.8766,
 				"y":860.0793,
@@ -766,7 +766,7 @@
 				"h":18.4325  
 			}
 		},
-		"Holders.OpticsTurret":{
+		"OpticsHolder.OpticsTurret":{
 			"General":{
 				"x":-1,
 				"y":-1,
@@ -774,14 +774,14 @@
 				"h":20.2735
 			}
 		},
-		"Filters":{
+		"Filter":{
 			"General":{
 				"x":-1,
 				"y":-1,
 				"w":33.1797,
 				"h":62.0013 
 			},
-			"OpticalAssemblies.MicroscopeTube":{
+			"OpticalAssembly.MicroscopeTube":{
 				"x":106.5629,
 				"y":8.3752,
 				"w":33.2588,
@@ -797,7 +797,7 @@
 			}
 		},
 		"Mirrors.ReflectingMirror":{
-			"OpticalAssemblies.MicroscopeTube":[
+			"OpticalAssembly.MicroscopeTube":[
 				{
 					"x":-211.2675,
 					"y":8.3752,
@@ -813,7 +813,7 @@
 			]
 		},
 		"Mirrors.BeamSplitter":{
-			"OpticalAssemblies.MicroscopeTube":[
+			"OpticalAssembly.MicroscopeTube":[
 				{
 					"x":-156.2518,
 					"y":0,
@@ -828,16 +828,16 @@
 				}
 			]
 		},
-		"Lenses.TubeLens":{
-			"OpticalAssemblies.MicroscopeTube":{
+		"Lens.TubeLens":{
+			"OpticalAssembly.MicroscopeTube":{
 				"x":203.6787,
 				"y":0,
 				"w":10.5314,
 				"h":69 
 			}
 		},
-		"Lenses.BeamExpanderLens":{
-			"OpticalAssemblies.BeamExpander":[
+		"Lens.BeamExpanderLens":{
+			"OpticalAssembly.BeamExpander":[
 				{
 					"x":-37.1837,
 					"y":-3.3375,
@@ -858,8 +858,8 @@
 				}
 			]
 		},
-		"Lenses.BeamCollimatorLens":{
-			"OpticalAssemblies.BeamCollimator":[
+		"Lens.BeamCollimatorLens":{
+			"OpticalAssembly.BeamCollimator":[
 				{
 					"x":-37.1837,
 					"y":-3.3375,
@@ -880,7 +880,7 @@
 				}
 			]
 		},
-		"Lenses.GenericLens":{
+		"Lens.GenericLens":{
 			"General":{
 				"x":-1,
 				"y":-1,
@@ -888,7 +888,7 @@
 				"h":60.7821
 			}
 		},
-		"Lenses.RelayLens":{
+		"Lens.RelayLens":{
 			"General":[
 				{
 					"x":590.7555,
@@ -904,7 +904,7 @@
 				}
 			]
 		},
-		"Lenses.CouplingLens":{
+		"Lens.CouplingLens":{
 			"General":{
 				"x":1397.8444,
 				"y":955.9761,
@@ -918,8 +918,8 @@
 				"h":69 
 			}
 		},
-		"Lenses.CondenserLens":{
-			"OpticalAssemblies.Condenser":{
+		"Lens.CondenserLens":{
+			"OpticalAssembly.Condenser":{
 				"x":66.8489,
 				"y":1.0314,
 				"w":33.2588,
@@ -927,7 +927,7 @@
 			}
 		},
 		"AdditionalOptics.PolarizationOptics":{
-			"OpticalAssemblies.MicroscopeTube":{
+			"OpticalAssembly.MicroscopeTube":{
 				"x":141.8691,
 				"y":8.3752,
 				"w":33.2588,
@@ -935,7 +935,7 @@
 			}
 		},
 		"AdditionalOptics.Prism":{
-			"OpticalAssemblies.MicroscopeTube":{
+			"OpticalAssembly.MicroscopeTube":{
 				"x":51.2263,
 				"y":0,
 				"w":77.0372,
