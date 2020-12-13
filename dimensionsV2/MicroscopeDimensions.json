@@ -788,7 +788,7 @@
 				"h":60.7821
 			}
 		},
-		"Mirrors.GenericDichroic":{
+		"MirroringDevice.GenericDichroic":{
 			"General":{
 				"x":-1,
 				"y":-1,
@@ -796,7 +796,7 @@
 				"h":60.7821 
 			}
 		},
-		"Mirrors.ReflectingMirror":{
+		"MirroringDevice.ReflectingMirror":{
 			"OpticalAssembly.MicroscopeTube":[
 				{
 					"x":-211.2675,
@@ -812,7 +812,7 @@
 				}
 			]
 		},
-		"Mirrors.BeamSplitter":{
+		"MirroringDevice.BeamSplitter":{
 			"OpticalAssembly.MicroscopeTube":[
 				{
 					"x":-156.2518,

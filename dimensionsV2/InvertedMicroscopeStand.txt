@@ -191,14 +191,14 @@ Filter:-1,-1:33.1797,62.0013
 Filter#OpticalAssembly.MicroscopeTube:106.5629,8.3752:33.2588,60.7821
 
 
-//Menu position 12 --> Mirrors
+//Menu position 12 --> MirroringDevice
 //----------------------------
-Mirrors.GenericDichroic:-1,-1:33.2588,60.7821 
-Mirrors.ReflectingMirror#OpticalAssembly.MicroscopeTube:-211.2675,8.3752:33.2588,60.7821
-Mirrors.ReflectingMirror#OpticalAssembly.MicroscopeTube:-80.6431,8.3752:33.2588,60.7821
+MirroringDevice.GenericDichroic:-1,-1:33.2588,60.7821 
+MirroringDevice.ReflectingMirror#OpticalAssembly.MicroscopeTube:-211.2675,8.3752:33.2588,60.7821
+MirroringDevice.ReflectingMirror#OpticalAssembly.MicroscopeTube:-80.6431,8.3752:33.2588,60.7821
 
-Mirrors.BeamSplitter#OpticalAssembly.MicroscopeTube:-156.2518,0:70.1611,56.9366 
-Mirrors.BeamSplitter#OpticalAssembly.MicroscopeTube:-26.0487,0:70.1611,56.9366 
+MirroringDevice.BeamSplitter#OpticalAssembly.MicroscopeTube:-156.2518,0:70.1611,56.9366 
+MirroringDevice.BeamSplitter#OpticalAssembly.MicroscopeTube:-26.0487,0:70.1611,56.9366 
 
 
 //Menu position 13 --> Lens
