@@ -7,8 +7,8 @@
 	"description":"An optical Filter is a device designed to selectively control the Wavelengths, color temperature, vibration direction, and/or intensity of the radiation which it transmits or reflects. This element refers to an optical Filter whose purpose is to attenuate the intensity of the transmitted Light independent of the Wavelength.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Filters",
-	"image":"Filters_NeutralDensityFilter.svg",
+	"category":"Filter",
+	"image":"Filter_NeutralDensityFilter.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

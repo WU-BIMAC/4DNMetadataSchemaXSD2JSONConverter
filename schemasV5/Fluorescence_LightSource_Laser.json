@@ -506,6 +506,7 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"IlluminationWavelengthRange"
+		"IlluminationWavelengthRange",
+		"Laser"
 	]
 }

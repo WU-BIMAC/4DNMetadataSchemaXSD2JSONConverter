@@ -7,8 +7,8 @@
 	"description":"This element describes a total reflection Mirror.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Mirrors",
-	"image":"Mirrors_ReflectingMirror.svg",
+	"category":"MirroringDevice",
+	"image":"MirroringDevice_ReflectingMirror.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

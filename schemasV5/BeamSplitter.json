@@ -7,8 +7,8 @@
 	"description":"This element describes a Mirror that reflects part of the light, regardless of wavelength.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Mirrors",
-	"image":"Mirrors_BeamSplitter.svg",
+	"category":"MirroringDevice",
+	"image":"MirroringDevice_BeamSplitter.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

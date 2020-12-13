@@ -7,8 +7,8 @@
 	"description":"This element represents a stop (i.e., opaque structure) shaped like a ring sector, which is used on the illumination side, to permit unilateral inclined illumination. It was developed to work in combination with Phase Objectives to yield contrast even when light passes through birefringent materials, such as plastic Petri dishes.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Apertures",
-	"image":"Apertures_VarelRing.svg",
+	"category":"Aperture",
+	"image":"Aperture_VarelRing.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

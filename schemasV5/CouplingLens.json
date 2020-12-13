@@ -7,8 +7,8 @@
 	"description":"This element refers to a Lens positioned at the mount connecting the Light Source Coupling device and the Microscope Stand.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Lenses",
-	"image":"Lenses_CouplingLens.svg",
+	"category":"Lens",
+	"image":"Lens_CouplingLens.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

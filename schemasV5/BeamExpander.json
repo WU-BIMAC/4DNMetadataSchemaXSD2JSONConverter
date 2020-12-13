@@ -7,8 +7,8 @@
 	"description":"Beam Expanders are Lens Systems whose role is to increase the diameter of a collimated input beam to a larger collimated output beam. Beam Expanders typically are afocal systems in which object rays enter and exit parallel to the optical axis. As such a Beam Expander does not have a focal length. In most cases, Beam Expanders are realized as optical telescopes consisting of two lenses. Beam Expanders can be custom built or they are also available as pre-assembled optical devices.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"OpticalAssemblies",
-	"image":"OpticalAssemblies_BeamExpander.svg",
+	"category":"OpticalAssembly",
+	"image":"OpticalAssembly_BeamExpander.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

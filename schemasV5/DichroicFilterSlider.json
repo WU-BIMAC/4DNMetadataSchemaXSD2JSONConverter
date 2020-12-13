@@ -7,8 +7,8 @@
 	"description":"This element represents a linear holder for multiple individual Dichroics.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Holders",
-	"image":"Holders_DichroicFilterSlider.svg",
+	"category":"OpticsHolder",
+	"image":"OpticsHolder_DichroicFilterSlider.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -81,12 +81,6 @@
 			"description":"This field records how many Slots this Optics Holder has.",
 			"tier":3,
 			"default":"6",
-			"category":"OpticsHolder"
-		},
-		"FilterCube": {
-			"type":"boolean",
-			"description":"This field records whether or not this holder holds Filter Cubes (True) or individual Filters (False).",
-			"tier":3,
 			"category":"OpticsHolder"
 		},
 		"Manufacturer": {

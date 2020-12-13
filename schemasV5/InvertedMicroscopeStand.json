@@ -7,8 +7,8 @@
 	"description":"This is a Microscope in which the object is observed from beneath the stage.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"MicroscopyEssentials",
-	"image":"MicroscopyEssentials_InvertedMicroscopeStand.svg",
+	"category":"MicroscopeStand",
+	"image":"MicroscopeStand_InvertedMicroscopeStand.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

@@ -7,8 +7,8 @@
 	"description":"This is a Microscope in which the object is observed from above the stage.",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"MicroscopyEssentials",
-	"image":"MicroscopyEssentials_UprightMicroscopeStand.svg",
+	"category":"MicroscopeStand",
+	"image":"MicroscopeStand_UprightMicroscopeStand.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

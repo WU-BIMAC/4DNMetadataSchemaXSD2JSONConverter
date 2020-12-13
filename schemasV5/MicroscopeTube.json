@@ -7,8 +7,8 @@
 	"description":"Illumination Tubes are Lens systems, which might be embedded within the Microscope Stand and therefore not immediately accessible. They are essential for infinity-correction and should be regarded as integral parts of the Objective Lens System when magnification and correction are considered.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"OpticalAssemblies",
-	"image":"OpticalAssemblies_MicroscopeTube.svg",
+	"category":"OpticalAssembly",
+	"image":"OpticalAssembly_MicroscopeTube.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

@@ -7,8 +7,8 @@
 	"description":"This element refers to any additional Generic Lens positioned in the Light Path for a given Channel.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Lenses",
-	"image":"Lenses_GenericLens.svg",
+	"category":"Lens",
+	"image":"Lens_GenericLens.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

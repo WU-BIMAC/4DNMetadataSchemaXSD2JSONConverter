@@ -19,7 +19,7 @@
 		"ROI":"NA",
 		"StageInsert":"This empty element refers to the optional Stage Insert device that was used for the Acquisition of this Image.",
 		"FocusStabilization":" This empty element refers to the optional Focus Stabilization Device that was used for the Acquisition of the experimental Image this Mechanical Calibration procedure refers to.",
-		"Software":"This empty element refers to any existing Software that was used during the Acquisition of this Image."
+		"AcquisitionSoftware":"This empty element refers to the Software that was used to drive the Microscope during the Image Acquisition."
 	},
 	"properties": {
 		"Name": {
@@ -111,14 +111,14 @@
 				"linkTo":"FocusStabilization"
 			}
 		},
-		"Software": {
+		"AcquisitionSoftware": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to any existing Software that was used during the Acquisition of this Image.",
+				"description":"This empty element refers to the Software that was used to drive the Microscope during the Image Acquisition.",
 				"type":"string",
 				"tier":1,
-				"category":"Software",
-				"linkTo":"Software"
+				"category":"AcquisitionSoftware",
+				"linkTo":"AcquisitionSoftware"
 			}
 		},
 		"Description": {
@@ -142,6 +142,6 @@
 		"IntrumentName",
 		"IntrumentName",
 		"Sample",
-		"Software"
+		"AcquisitionSoftware"
 	]
 }

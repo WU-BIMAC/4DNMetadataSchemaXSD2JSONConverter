@@ -66,7 +66,7 @@ Magnification.Objective:1004.8708,669.4926:38.1097,83.033
 Magnification.Objective:1046.8708,669.4926:38.1097,83.033
 Magnification.Objective:1088.8708,669.4926:38.1097,83.033
 
-Magnification.MagnificationChanger#OpticalAssemblies.MicroscopeTube:-106.0527,0:15.0733,70.702
+Magnification.MagnificationChanger#OpticalAssembly.MicroscopeTube:-106.0527,0:15.0733,70.702
 
 
 //Menu position 5 --> Fluorescence Light Path
@@ -81,47 +81,47 @@ FluorescenceLightPath.ExcitationFilter#FluorescenceLightPath.FilterCube:34.4772,
 FluorescenceLightPath.EmissionFilter#FluorescenceLightPath.FilterCube:0.3151,33.5904:45.1842,9.3863
 FluorescenceLightPath.StandardDichroic#FluorescenceLightPath.FilterCube:0.9794,1.0929:37.0594,38.2954
 
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterSlider:-50.0063,-0.2393:9.3861,45.1842
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterSlider:-30.5397,-0.2393:9.3861,45.1842
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterSlider:-10.0063,-0.2393:9.3861,45.1842
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterSlider:9.9937,-0.2393:9.3861,45.1842
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterSlider:29.4603,-0.2393:9.3861,45.1842
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterSlider:49.9937,-0.2393:9.3861,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterSlider:-50.0063,-0.2393:9.3861,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterSlider:-30.5397,-0.2393:9.3861,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterSlider:-10.0063,-0.2393:9.3861,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterSlider:9.9937,-0.2393:9.3861,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterSlider:29.4603,-0.2393:9.3861,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterSlider:49.9937,-0.2393:9.3861,45.1842
 
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterWheel:-7.6478,-35.7669:9.3863,45.1842
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterWheel:-7.6478,14.2331:9.3863,45.1842
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterWheel:3.8522,-35.7669:9.3863,45.1842
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterWheel:3.8522,14.2331:9.3863,45.1842
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterWheel:15.3522,-35.7669:9.3863,45.1842
-FluorescenceLightPath.ExcitationFilter#Holders.ExcitationFilterWheel:15.3522,14.2331:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:-7.6478,-35.7669:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:-7.6478,14.2331:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:3.8522,-35.7669:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:3.8522,14.2331:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:15.3522,-35.7669:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:15.3522,14.2331:9.3863,45.1842
 
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterWheel:1.5506,-38.0062:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterWheel:1.5506,-26.7041:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterWheel:1.5506,-14.3345:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterWheel:1.5506,-3.0324:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterWheel:1.5506,9.3367:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterWheel:1.5506,21.1726:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-38.0062:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-26.7041:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-14.3345:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-3.0324:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,9.3367:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,21.1726:45.1842,9.3869
 
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterSlider:-31.114,-13.231:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterSlider:-31.114,0.6045:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterSlider:-31.114,14.4401:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterSlider:29.886,-13.231:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterSlider:29.886,0.6045:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#Holders.EmissionFilterSlider:29.886,14.4401:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterSlider:-31.114,-13.231:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterSlider:-31.114,0.6045:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterSlider:-31.114,14.4401:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterSlider:29.886,-13.231:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterSlider:29.886,0.6045:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterSlider:29.886,14.4401:45.1842,9.3869
 
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterSlider:-44.0055,0:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterSlider:-26.671,0:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterSlider:-9.3366,0:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterSlider:7.9979,0:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterSlider:25.3324,0:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterSlider:42.6668,0:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterSlider:-44.0055,0:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterSlider:-26.671,0:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterSlider:-9.3366,0:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterSlider:7.9979,0:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterSlider:25.3324,0:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterSlider:42.6668,0:37.2202,38.4254
 
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterWheel:6.8749,-44.4315:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterWheel:4.8749,-31.0315:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterWheel:2.8749,-17.63146:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterWheel:0.8749,-4.2315:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterWheel:-1.1251,9.1685:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#Holders.DichroicFilterWheel:-3.1251,22.5685:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:6.8749,-44.4315:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:4.8749,-31.0315:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:2.8749,-17.63146:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:0.8749,-4.2315:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:-1.1251,9.1685:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:-3.1251,22.5685:37.2202,38.4254
 
 
 //Menu position 6 --> SamplePositioning.Stage
@@ -139,93 +139,93 @@ SamplePositioning.Focusing.TurretObjectiveFocusing:975.6967,734.048:307.5,29.297
 SamplePositioning.Focusing.Z-Drive:2093.9711,855.3333:110.9688,50.778 
 
 
-//Menu position 8 --> OpticalAssemblies
+//Menu position 8 --> OpticalAssembly
 //-------------------------------------
-OpticalAssemblies.BeamExpander:-1,-1:191.3512,73
-OpticalAssemblies.BeamCollimator:-1,-1:191.3512,73
-OpticalAssemblies.Condenser:968.1279,346.04:174.5964,130.605
-OpticalAssemblies.MicroscopeTube:887.6322,947.3734:509.7976,130.8837 
+OpticalAssembly.BeamExpander:-1,-1:191.3512,73
+OpticalAssembly.BeamCollimator:-1,-1:191.3512,73
+OpticalAssembly.Condenser:968.1279,346.04:174.5964,130.605
+OpticalAssembly.MicroscopeTube:887.6322,947.3734:509.7976,130.8837 
 
 
-//Menu position 9 --> Apertures
+//Menu position 9 --> Aperture
 //-----------------------------
-//Apertures.DarkFieldStop
-//Apertures.HoffmanPlate
-//Apertures.IrisDiaphragm
-//Apertures.PhaseRing
-//Apertures.VarelRing
+//Aperture.DarkFieldStop
+//Aperture.HoffmanPlate
+//Aperture.IrisDiaphragm
+//Aperture.PhaseRing
+//Aperture.VarelRing
 
-Apertures:-1,-1:33.2588,60.7821
+Aperture:-1,-1:33.2588,60.7821
 
-Apertures#OpticalAssemblies.MicroscopeTube:176.1065,8.3752:33.2588,60.7821
-Apertures#OpticalAssemblies.Condenser:-68.6066,1.0314:33.2588,60.7821
-Apertures#OpticalAssemblies.Condenser:-34.591,1.0314:33.2588,60.7821
-Apertures#OpticalAssemblies.Condenser:0.0798,1.0314:33.2588,60.7821
-Apertures#OpticalAssemblies.Condenser:34.5848,1.0314:33.2588,60.7821
+Aperture#OpticalAssembly.MicroscopeTube:176.1065,8.3752:33.2588,60.7821
+Aperture#OpticalAssembly.Condenser:-68.6066,1.0314:33.2588,60.7821
+Aperture#OpticalAssembly.Condenser:-34.591,1.0314:33.2588,60.7821
+Aperture#OpticalAssembly.Condenser:0.0798,1.0314:33.2588,60.7821
+Aperture#OpticalAssembly.Condenser:34.5848,1.0314:33.2588,60.7821
 
-//Menu position 10 --> Holders
+//Menu position 10 --> OpticsHolder
 //----------------------------
-Holders.ExcitationFilterSlider:711.4616,607.6113:165.4861,60
-Holders.DichroicFilterSlider:711.4616,671.8141:165.4861,60
-Holders.EmissionFilterSlider:711.4616,736.1704:165.4861,60
+OpticsHolder.ExcitationFilterSlider:711.4616,607.6113:165.4861,60
+OpticsHolder.DichroicFilterSlider:711.4616,671.8141:165.4861,60
+OpticsHolder.EmissionFilterSlider:711.4616,736.1704:165.4861,60
 
-Holders.ExcitationFilterWheel:1225.3426,779.5355:75.8027,152.367 
-Holders.ExcitationFilterWheel:1225.4033,956.1075:75.8027,152.367
+OpticsHolder.ExcitationFilterWheel:1225.3426,779.5355:75.8027,152.367 
+OpticsHolder.ExcitationFilterWheel:1225.4033,956.1075:75.8027,152.367
 
-Holders.EmissionFilterWheel:436.0627,772.0829:75.8027,152.367 
-Holders.EmissionFilterWheel:383.9206,954.898:75.8027,152.367
+OpticsHolder.EmissionFilterWheel:436.0627,772.0829:75.8027,152.367 
+OpticsHolder.EmissionFilterWheel:383.9206,954.898:75.8027,152.367
 
-Holders.DichroicFilterWheel:531.4082,772.0829:75.8027,152.367
-Holders.DichroicFilterWheel:479.2661,954.898:75.8027,152.367
+OpticsHolder.DichroicFilterWheel:531.4082,772.0829:75.8027,152.367
+OpticsHolder.DichroicFilterWheel:479.2661,954.898:75.8027,152.367
 
-Holders.FilterCubeTurret:886.8766,860.0793:527.3666,18.4325  
-Holders.OpticsTurret:-1,-1:226.3076,20.2735
+OpticsHolder.FilterCubeTurret:886.8766,860.0793:527.3666,18.4325  
+OpticsHolder.OpticsTurret:-1,-1:226.3076,20.2735
 
 
-//Menu position 11 --> Filters
+//Menu position 11 --> Filter
 //----------------------------
-//Filters.GenericFilter 
-//Filters.NeutralDensityFilter
+//Filter.GenericFilter 
+//Filter.NeutralDensityFilter
 
-Filters:-1,-1:33.1797,62.0013 
-Filters#OpticalAssemblies.MicroscopeTube:106.5629,8.3752:33.2588,60.7821
+Filter:-1,-1:33.1797,62.0013 
+Filter#OpticalAssembly.MicroscopeTube:106.5629,8.3752:33.2588,60.7821
 
 
 //Menu position 12 --> Mirrors
 //----------------------------
 Mirrors.GenericDichroic:-1,-1:33.2588,60.7821 
-Mirrors.ReflectingMirror#OpticalAssemblies.MicroscopeTube:-211.2675,8.3752:33.2588,60.7821
-Mirrors.ReflectingMirror#OpticalAssemblies.MicroscopeTube:-80.6431,8.3752:33.2588,60.7821
+Mirrors.ReflectingMirror#OpticalAssembly.MicroscopeTube:-211.2675,8.3752:33.2588,60.7821
+Mirrors.ReflectingMirror#OpticalAssembly.MicroscopeTube:-80.6431,8.3752:33.2588,60.7821
 
-Mirrors.BeamSplitter#OpticalAssemblies.MicroscopeTube:-156.2518,0:70.1611,56.9366 
-Mirrors.BeamSplitter#OpticalAssemblies.MicroscopeTube:-26.0487,0:70.1611,56.9366 
+Mirrors.BeamSplitter#OpticalAssembly.MicroscopeTube:-156.2518,0:70.1611,56.9366 
+Mirrors.BeamSplitter#OpticalAssembly.MicroscopeTube:-26.0487,0:70.1611,56.9366 
 
 
-//Menu position 13 --> Lenses
+//Menu position 13 --> Lens
 //---------------------------
-Lenses.TubeLens#OpticalAssemblies.MicroscopeTube:203.6787,0:10.5314,69 
-Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:-37.1837,-3.3375:33.2588,60.7821
-Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:4.8855,-3.3375:33.2588,60.7821
-Lenses.BeamExpanderLens#OpticalAssemblies.BeamExpander:46.7793,-3.3375:33.2588,60.7821
-Lenses.BeamCollimatorLens#OpticalAssemblies.BeamCollimator:-37.1837,-3.3375:33.2588,60.7821
-Lenses.BeamCollimatorLens#OpticalAssemblies.BeamCollimator:4.8855,-3.3375:33.2588,60.7821
-Lenses.BeamCollimatorLens#OpticalAssemblies.BeamCollimator:46.7793,-3.3375:33.2588,60.7821
-Lenses.GenericLens:-1,-1:33.2588,60.7821
-Lenses.RelayLens:590.7555,775.034:10.8346,54.5
-Lenses.RelayLens:557.4831,951.2278:10.8346,54.5
+Lens.TubeLens#OpticalAssembly.MicroscopeTube:203.6787,0:10.5314,69 
+Lens.BeamExpanderLens#OpticalAssembly.BeamExpander:-37.1837,-3.3375:33.2588,60.7821
+Lens.BeamExpanderLens#OpticalAssembly.BeamExpander:4.8855,-3.3375:33.2588,60.7821
+Lens.BeamExpanderLens#OpticalAssembly.BeamExpander:46.7793,-3.3375:33.2588,60.7821
+Lens.BeamCollimatorLens#OpticalAssembly.BeamCollimator:-37.1837,-3.3375:33.2588,60.7821
+Lens.BeamCollimatorLens#OpticalAssembly.BeamCollimator:4.8855,-3.3375:33.2588,60.7821
+Lens.BeamCollimatorLens#OpticalAssembly.BeamCollimator:46.7793,-3.3375:33.2588,60.7821
+Lens.GenericLens:-1,-1:33.2588,60.7821
+Lens.RelayLens:590.7555,775.034:10.8346,54.5
+Lens.RelayLens:557.4831,951.2278:10.8346,54.5
 
-Lenses.CouplingLens:1397.8444,955.9761:10.5314,69
-Lenses.CouplingLens#Fluorescence_LightSource.MultiLaserEngine:-233.8225,0.8933:10.5314,69 
+Lens.CouplingLens:1397.8444,955.9761:10.5314,69
+Lens.CouplingLens#Fluorescence_LightSource.MultiLaserEngine:-233.8225,0.8933:10.5314,69 
 
-Lenses.CondenserLens#OpticalAssemblies.Condenser:66.8489,1.0314:33.2588,60.7821
+Lens.CondenserLens#OpticalAssembly.Condenser:66.8489,1.0314:33.2588,60.7821
 
 //Menu position 14 --> Additional Optics
 //--------------------------------------
 //AdditionalOptics.PolarizationOptics 
 //AdditionalOptics.Prism
 
-AdditionalOptics.PolarizationOptics#OpticalAssemblies.MicroscopeTube:141.8691,8.3752:33.2588,60.7821 
-AdditionalOptics.Prism#OpticalAssemblies.MicroscopeTube:51.2263,0:77.0372,55.3705 
+AdditionalOptics.PolarizationOptics#OpticalAssembly.MicroscopeTube:141.8691,8.3752:33.2588,60.7821 
+AdditionalOptics.Prism#OpticalAssembly.MicroscopeTube:51.2263,0:77.0372,55.3705 
 
 
 //Menu position 15 --> Detector

@@ -7,8 +7,8 @@
 	"description":"This element represents a Diaphragm, positioned trasversally to the optical axis bounded by multiple leaves, usually metal, arranged so as to provide an opening of variable size, which is adjustable by means of a mechanical control.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Apertures",
-	"image":"Apertures_IrisDiaphragm.svg",
+	"category":"Aperture",
+	"image":"Aperture_IrisDiaphragm.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

@@ -13,8 +13,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
-		"SoftwareModule":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for any Image Acquisition, Image Analysis or Quality Control task.",
-		"Software":"This empty element refers to any existing Software that was used during the Acquisition of this Image."
+		"SoftwareModule":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for any Image Acquisition, Image Analysis or Quality Control task."
 	},
 	"properties": {
 		"Name": {
@@ -114,14 +113,14 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
-		"Software": {
+		"SoftwareModule": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to any existing Software that was used during the Acquisition of this Image.",
+				"description":"This empty element refers to any existing Software Module that was used in association with this Instrument.",
 				"type":"string",
 				"tier":1,
-				"category":"Software",
-				"linkTo":"Software"
+				"category":"SoftwareModule",
+				"linkTo":"SoftwareModule"
 			}
 		},
 		"Description": {

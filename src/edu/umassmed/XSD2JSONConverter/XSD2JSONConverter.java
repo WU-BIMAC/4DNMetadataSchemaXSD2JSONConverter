@@ -437,6 +437,7 @@ public class XSD2JSONConverter {
 			final List<String> attributes = attributesAndRequired.get(0);
 			final List<String> required = attributesAndRequired.get(1);
 			attributes.addAll(childrenAttributes);
+			required.addAll(childrenRequired);
 
 			// final List<String> attributes = new ArrayList<String>();
 			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
@@ -513,8 +514,7 @@ public class XSD2JSONConverter {
 			sb.append("\t\t\t\"readonly\":true\n");
 			sb.append("\t\t}\n");
 			sb.append("\t}");
-
-			required.addAll(childrenRequired);
+			
 			if (required.size() > 0) {
 				sb.append(",\n");
 				sb.append("\t\"required\": [\n");
@@ -1158,7 +1158,7 @@ public class XSD2JSONConverter {
 								final XSParticle subParticle = subParticles
 										.get(k);
 								final XSTerm subTerm = subParticle.getTerm();
-								subParticle.getMinOccurs();
+								final int subMin = subParticle.getMinOccurs();
 								final int subMax = subParticle.getMaxOccurs();
 								String.valueOf(subMax);
 								final XSElementDeclaration subElement = (XSElementDeclaration) subTerm;
@@ -1257,7 +1257,7 @@ public class XSD2JSONConverter {
 										aSB.append("\t\t\t\t\t}\n");
 									}
 									aSB.append("\t\t\t\t}");
-									if (min == 1) {
+									if (subMin == 1) {
 										required.add(subAttrName);
 									}
 									if (k < (subParticles.size() - 1)) {
@@ -1504,6 +1504,7 @@ public class XSD2JSONConverter {
 			final List<String> attributes = attributesAndRequired.get(0);
 			final List<String> required = attributesAndRequired.get(1);
 			attributes.addAll(childrenAttributes);
+			required.addAll(childrenRequired);
 
 			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
 					element, attributes);
@@ -1608,7 +1609,7 @@ public class XSD2JSONConverter {
 				}
 
 				sb.append("\t}");
-				required.addAll(childrenRequired);
+
 				if (required.size() > 0) {
 					sb.append(",\n");
 					sb.append("\t\"required\": [\n");

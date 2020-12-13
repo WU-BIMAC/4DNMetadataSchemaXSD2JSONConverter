@@ -59,7 +59,7 @@
 		"ROI":"NA",
 		"StageInsert":"This empty element refers to the optional Stage Insert device that was used for the Acquisition of this Image.",
 		"FocusStabilization":" This empty element refers to the optional Focus Stabilization Device that was used for the Acquisition of the experimental Image this Mechanical Calibration procedure refers to.",
-		"Software":"This empty element refers to any existing Software that was used during the Acquisition of this Image."
+		"AcquisitionSoftware":"This empty element refers to the Software that was used to drive the Microscope during the Image Acquisition."
 	},
 	"properties": {
 		"Name": {
@@ -151,14 +151,14 @@
 				"linkTo":"FocusStabilization"
 			}
 		},
-		"Software": {
+		"AcquisitionSoftware": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to any existing Software that was used during the Acquisition of this Image.",
+				"description":"This empty element refers to the Software that was used to drive the Microscope during the Image Acquisition.",
 				"type":"string",
 				"tier":1,
-				"category":"Software",
-				"linkTo":"Software"
+				"category":"AcquisitionSoftware",
+				"linkTo":"AcquisitionSoftware"
 			}
 		},
 		"Description": {
@@ -182,7 +182,7 @@
 		"IntrumentName",
 		"IntrumentName",
 		"Sample",
-		"Software"
+		"AcquisitionSoftware"
 	]
 },
 {
@@ -405,8 +405,8 @@
 	"description":"This element represents a circular holder for multiple individual Emission Filters.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Holders",
-	"image":"Holders_EmissionFilterWheel.svg",
+	"category":"OpticsHolder",
+	"image":"OpticsHolder_EmissionFilterWheel.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -479,12 +479,6 @@
 			"description":"This field records how many Slots this Optics Holder has.",
 			"tier":3,
 			"default":"6",
-			"category":"OpticsHolder"
-		},
-		"FilterCube": {
-			"type":"boolean",
-			"description":"This field records whether or not this holder holds Filter Cubes (True) or individual Filters (False).",
-			"tier":3,
 			"category":"OpticsHolder"
 		},
 		"Manufacturer": {
@@ -773,8 +767,8 @@
 	"description":"This is a Microscope in which the object is observed from above the stage.",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"MicroscopyEssentials",
-	"image":"MicroscopyEssentials_UprightMicroscopeStand.svg",
+	"category":"MicroscopeStand",
+	"image":"MicroscopeStand_UprightMicroscopeStand.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -1861,8 +1855,8 @@
 	"description":"Beam Collimators are Lens Systems that transform a strongly diverging light beam into a collimated beam, i.e., a beam where light propagates essentially only in one direction, and the beam divergence is weak. Beam Collimators typically contain some kind of Focusing Lens, or sometimes a curved Mirror, and usually some opto-mechanics for stable mounting and possibly adjustment. Beam Expanders can be custom built or they are also available as pre-assembled optical devices.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"OpticalAssemblies",
-	"image":"OpticalAssemblies_BeamCollimator.svg",
+	"category":"OpticalAssembly",
+	"image":"OpticalAssembly_BeamCollimator.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -2012,7 +2006,7 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"AcquisitionSoftware":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for driving this Instrument during Image Acquisition.",
-		"Software":"This empty element refers to any existing Software that was used during the Acquisition of this Image."
+		"SoftwareModule":"This empty element refers to any existing Software Module that was used in association with this Instrument."
 	},
 	"properties": {
 		"Name": {
@@ -2112,14 +2106,14 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
-		"Software": {
+		"SoftwareModule": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to any existing Software that was used during the Acquisition of this Image.",
+				"description":"This empty element refers to any existing Software Module that was used in association with this Instrument.",
 				"type":"string",
 				"tier":1,
-				"category":"Software",
-				"linkTo":"Software"
+				"category":"SoftwareModule",
+				"linkTo":"SoftwareModule"
 			}
 		},
 		"Description": {
@@ -3463,8 +3457,8 @@
 	"description":"This element represents a Plate that contains an off-axis slit aperture positioned in the front focal plane of the Condenser. It is used alongside a Hoffman contrast modulator (i.e., optical amplitude spatial filter) present in the back focal plane of the objective or in a succeeding conjugate plane to produce contrast modulation as described by Hoffman (i.e., Hoffman Contrast Modulation, HMC). Hoffman modulation contrast is not hampered by the use of birefringent materials (such as plastic Petri dishes) in the optical pathway, so the technique is more useful for examining specimens in containers constructed with polymeric materials.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Apertures",
-	"image":"Apertures_HoffmanPlate.svg",
+	"category":"Aperture",
+	"image":"Aperture_HoffmanPlate.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -4243,8 +4237,8 @@
 	"description":"A Dichroic Mirror (also often referred to as Dichroic Beamsplitter or simply as Dichroic) is a Mirror that spectrally separate light by transmitting and reflecting light as a function of wavelength. In the context of fluorescence microscopy, they are typically used to reflect the excitation light, but transmit the emitted fluorescence. Dichroic Mirrors can be categorized in different manners. However, the most important criteria for choosing a Dichoric Mirror are the Transmittance and the Reflectance Wavelength ranges. This element describes a generic Additional Dichroic positioned in the Light Path for one or more Channel available for this Instrument.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Mirrors",
-	"image":"Mirrors_AdditionalDichroic.svg",
+	"category":"MirroringDevice",
+	"image":"MirroringDevice_AdditionalDichroic.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -4785,8 +4779,8 @@
 	"description":"This element represents a stop (i.e., opaque structure) shaped like a ring sector, which is used on the illumination side, to permit unilateral inclined illumination. It was developed to work in combination with Phase Objectives to yield contrast even when light passes through birefringent materials, such as plastic Petri dishes.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Apertures",
-	"image":"Apertures_VarelRing.svg",
+	"category":"Aperture",
+	"image":"Aperture_VarelRing.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -4967,8 +4961,8 @@
 	"description":"This element refers to any additional Generic Lens positioned in the Light Path for a given Channel.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Lenses",
-	"image":"Lenses_GenericLens.svg",
+	"category":"Lens",
+	"image":"Lens_GenericLens.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -6967,8 +6961,8 @@
 	"description":"A Beam Collimator Lens is a Lens designed to work in combination with other optical components to form a Beam Collimator device. As such, its role is to transform a strongly diverging light beam into a collimated beam, i.e., a beam where light propagates mainly only in one direction, and the beam divergence is weak.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Lenses",
-	"image":"Lenses_BeamCollimatorLens.svg",
+	"category":"Lens",
+	"image":"Lens_BeamCollimatorLens.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -7520,8 +7514,8 @@
 	"description":"Beam Expanders are Lens Systems whose role is to increase the diameter of a collimated input beam to a larger collimated output beam. Beam Expanders typically are afocal systems in which object rays enter and exit parallel to the optical axis. As such a Beam Expander does not have a focal length. In most cases, Beam Expanders are realized as optical telescopes consisting of two lenses. Beam Expanders can be custom built or they are also available as pre-assembled optical devices.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"OpticalAssemblies",
-	"image":"OpticalAssemblies_BeamExpander.svg",
+	"category":"OpticalAssembly",
+	"image":"OpticalAssembly_BeamExpander.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -8704,12 +8698,6 @@
 			"default":"6",
 			"category":"OpticsHolder"
 		},
-		"FilterCube": {
-			"type":"boolean",
-			"description":"This field records whether or not this holder holds Filter Cubes (True) or individual Filters (False).",
-			"tier":3,
-			"category":"OpticsHolder"
-		},
 		"Manufacturer": {
 			"type":"string",
 			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
@@ -9803,8 +9791,8 @@
 	"description":"This element represents a Diaphragm, positioned trasversally to the optical axis bounded by multiple leaves, usually metal, arranged so as to provide an opening of variable size, which is adjustable by means of a mechanical control.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Apertures",
-	"image":"Apertures_IrisDiaphragm.svg",
+	"category":"Aperture",
+	"image":"Aperture_IrisDiaphragm.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -10314,8 +10302,8 @@
 	"description":"This element represents a circular holder for multiple Filter Cubes.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Holders",
-	"image":"Holders_FilterCubeTurret.svg",
+	"category":"OpticsHolder",
+	"image":"OpticsHolder_FilterCubeTurret.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -10389,12 +10377,6 @@
 			"default":"6",
 			"category":"OpticsHolder"
 		},
-		"FilterCube": {
-			"type":"boolean",
-			"description":"This field records whether or not this holder holds Filter Cubes (True) or individual Filters (False).",
-			"tier":3,
-			"category":"OpticsHolder"
-		},
 		"Manufacturer": {
 			"type":"string",
 			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
@@ -10461,8 +10443,8 @@
 	"description":"This element represents a circular holder for multiple optical elements.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Holders",
-	"image":"Holders_OpticsTurret.svg",
+	"category":"OpticsHolder",
+	"image":"OpticsHolder_OpticsTurret.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -10538,12 +10520,6 @@
 			"description":"This field records how many Slots this Optics Holder has.",
 			"tier":3,
 			"default":"6",
-			"category":"OpticsHolder"
-		},
-		"FilterCube": {
-			"type":"boolean",
-			"description":"This field records whether or not this holder holds Filter Cubes (True) or individual Filters (False).",
-			"tier":3,
 			"category":"OpticsHolder"
 		},
 		"Manufacturer": {
@@ -13135,8 +13111,8 @@
 	"description":"This element refers to a Lens positioned at the mount connecting the Light Source Coupling device and the Microscope Stand.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Lenses",
-	"image":"Lenses_CouplingLens.svg",
+	"category":"Lens",
+	"image":"Lens_CouplingLens.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -13688,8 +13664,8 @@
 	"description":"Illumination Tubes are Lens systems, which might be embedded within the Microscope Stand and therefore not immediately accessible. They are essential for infinity-correction and should be regarded as integral parts of the Objective Lens System when magnification and correction are considered.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"OpticalAssemblies",
-	"image":"OpticalAssemblies_MicroscopeTube.svg",
+	"category":"OpticalAssembly",
+	"image":"OpticalAssembly_MicroscopeTube.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -14489,8 +14465,8 @@
 	"description":"A Beam Expander Lens is a Lens designed to work in combination with other optical components to form a Beam Expander device. As such, its role is to increase the diameter of a collimated input beam to a larger collimated output beam.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Lenses",
-	"image":"Lenses_BeamExpanderLens.svg",
+	"category":"Lens",
+	"image":"Lens_BeamExpanderLens.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -15042,8 +15018,8 @@
 	"description":"Condensers are Lens Systems located above the Light Source and under the sample in an Upright Microscope, and above the stage and below the Light Source in an Inverted Microscope. They act to gather light from the Light Source and concentrate it into a cone of light that illuminates the specimen. They typically include a Turret system and Diaphragms. The aperture and angle of the light cone must be adjusted (via the size of the Diaphragm) for each different Objective.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"OpticalAssemblies",
-	"image":"OpticalAssemblies_Condenser.svg",
+	"category":"OpticalAssembly",
+	"image":"OpticalAssembly_Condenser.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -16245,8 +16221,8 @@
 	"description":"This element refers to a central circular stop (i.e., opaque disk) usually used in dark-field microscopy and placed in the front focal Plane of a Condenser to occlude all the direct light which would fall within the aperture of the objective.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Apertures",
-	"image":"Apertures_DarkFieldStop.svg",
+	"category":"Aperture",
+	"image":"Aperture_DarkFieldStop.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -16497,8 +16473,8 @@
 	"description":"This element (also called Phase Annulus) refers to an annular (ring-like) slit used to produce contrast modulation following Zernike, in which the Image contrast of a phase object is enhanced by altering the phase and amplitude of the direct light with respect to those of the diffracted light. This illuminating aperture Diaphragm is placed in the front focal Plane of the Condenser and acts in conjunction with an appropriate phase plate, usually in the form of an annulus, placed in the back focal Plane of the objective (or in a succeeding Plane conjugate with this).",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Apertures",
-	"image":"Apertures_PhaseRing.svg",
+	"category":"Aperture",
+	"image":"Aperture_PhaseRing.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -16816,8 +16792,8 @@
 	"description":"This element describes a Mirror that reflects part of the light, regardless of wavelength.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Mirrors",
-	"image":"Mirrors_BeamSplitter.svg",
+	"category":"MirroringDevice",
+	"image":"MirroringDevice_BeamSplitter.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -17309,8 +17285,8 @@
 	"description":"A Condenser Lens renders a divergent beam from a point source into a parallel or converging beam to illuminate an object. It acts to gather light from the Light Source and concentrate it into a cone of light that illuminates the specimen. The aperture and angle of the light cone must be adjusted (via the size of the diaphragm) for each different objective Lens with different numerical apertures. Conserser Lenses are typically housed within a specific component of the Microscope called the Condenser.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Lenses",
-	"image":"Lenses_CondenserLens.svg",
+	"category":"Lens",
+	"image":"Lens_CondenserLens.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -18733,7 +18709,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"IlluminationWavelengthRange"
+		"IlluminationWavelengthRange",
+		"Laser"
 	]
 },
 {
@@ -19730,7 +19707,6 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"LEDModule",
 		"LEDModule"
 	]
 },
@@ -21867,8 +21843,8 @@
 	"description":"An optical Filter is a device designed to selectively control the Wavelengths, color temperature, vibration direction, and/or intensity of the radiation which it transmits or reflects. This element refers to a Generic Filter positioned along the Light Path in addition to the canonical fluorescence Excitation and the Emission Filters.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Filters",
-	"image":"Filters_GenericFilter.svg",
+	"category":"Filter",
+	"image":"Filter_GenericFilter.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -22226,8 +22202,8 @@
 	"description":"This element describes a Shutter available for this Instrument. Shutters are devices that open and close, and they may be mechanically or electro-mechanically controlled. Shutters are typically used to control the Light that raches the sample (i.e., to limit phototoxicity and photobleaching especially in case of live specimens), or the Detecrtor at any one time. They can also be used for Excitation or Emission Wavelength selection.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Apertures",
-	"image":"Apertures_Shutter.svg",
+	"category":"Aperture",
+	"image":"Aperture_Shutter.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -22507,8 +22483,8 @@
 	"description":"A Relay Lens is often used in combination with other Lenses for transferring an Image into a different optical plane. A typical example of Relay Lens is the Lens positioned at the mount connecting a Detector with the Microscope Stand.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Lenses",
-	"image":"Lenses_RelayLens.svg",
+	"category":"Lens",
+	"image":"Lens_RelayLens.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -24755,8 +24731,8 @@
 	"description":"This element represents a linear holder for multiple individual Excitation Filters.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Holders",
-	"image":"Holders_ExcitationFilterSlider.svg",
+	"category":"OpticsHolder",
+	"image":"OpticsHolder_ExcitationFilterSlider.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -24829,12 +24805,6 @@
 			"description":"This field records how many Slots this Optics Holder has.",
 			"tier":3,
 			"default":"6",
-			"category":"OpticsHolder"
-		},
-		"FilterCube": {
-			"type":"boolean",
-			"description":"This field records whether or not this holder holds Filter Cubes (True) or individual Filters (False).",
-			"tier":3,
 			"category":"OpticsHolder"
 		},
 		"Manufacturer": {
@@ -25575,8 +25545,8 @@
 	"description":"An optical Filter is a device designed to selectively control the Wavelengths, color temperature, vibration direction, and/or intensity of the radiation which it transmits or reflects. This element refers to an optical Filter whose purpose is to attenuate the intensity of the transmitted Light independent of the Wavelength.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Filters",
-	"image":"Filters_NeutralDensityFilter.svg",
+	"category":"Filter",
+	"image":"Filter_NeutralDensityFilter.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -26117,8 +26087,8 @@
 	"description":"This element describes a total reflection Mirror.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Mirrors",
-	"image":"Mirrors_ReflectingMirror.svg",
+	"category":"MirroringDevice",
+	"image":"MirroringDevice_ReflectingMirror.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -26374,8 +26344,8 @@
 	"description":"This element represents a circular holder for multiple individual Excitation Filters.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Holders",
-	"image":"Holders_ExcitationFilterWheel.svg",
+	"category":"OpticsHolder",
+	"image":"OpticsHolder_ExcitationFilterWheel.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -26448,12 +26418,6 @@
 			"description":"This field records how many Slots this Optics Holder has.",
 			"tier":3,
 			"default":"6",
-			"category":"OpticsHolder"
-		},
-		"FilterCube": {
-			"type":"boolean",
-			"description":"This field records whether or not this holder holds Filter Cubes (True) or individual Filters (False).",
-			"tier":3,
 			"category":"OpticsHolder"
 		},
 		"Manufacturer": {
@@ -26946,8 +26910,8 @@
 	"description":"This element represents a linear holder for multiple individual Dichroics.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Holders",
-	"image":"Holders_DichroicFilterSlider.svg",
+	"category":"OpticsHolder",
+	"image":"OpticsHolder_DichroicFilterSlider.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -27020,12 +26984,6 @@
 			"description":"This field records how many Slots this Optics Holder has.",
 			"tier":3,
 			"default":"6",
-			"category":"OpticsHolder"
-		},
-		"FilterCube": {
-			"type":"boolean",
-			"description":"This field records whether or not this holder holds Filter Cubes (True) or individual Filters (False).",
-			"tier":3,
 			"category":"OpticsHolder"
 		},
 		"Manufacturer": {
@@ -27277,8 +27235,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
-		"SoftwareModule":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for any Image Acquisition, Image Analysis or Quality Control task.",
-		"Software":"This empty element refers to any existing Software that was used during the Acquisition of this Image."
+		"SoftwareModule":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for any Image Acquisition, Image Analysis or Quality Control task."
 	},
 	"properties": {
 		"Name": {
@@ -27378,14 +27335,14 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
-		"Software": {
+		"SoftwareModule": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to any existing Software that was used during the Acquisition of this Image.",
+				"description":"This empty element refers to any existing Software Module that was used in association with this Instrument.",
 				"type":"string",
 				"tier":1,
-				"category":"Software",
-				"linkTo":"Software"
+				"category":"SoftwareModule",
+				"linkTo":"SoftwareModule"
 			}
 		},
 		"Description": {
@@ -27423,8 +27380,8 @@
 	"description":"A Tube Lens is an intermediate Lens, located within the Microscope's Illumination Tube, which is designed to operate as an essential component of infinity-corrected Objectives, and which should be regarded as an integral part of the Objective lens system when magnification and correction are considered. In some Microscope Tubes, Lenses might be located within the Microscope Stand and might not be immediately accessible.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Lenses",
-	"image":"Lenses_TubeLens.svg",
+	"category":"Lens",
+	"image":"Lens_TubeLens.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -27976,8 +27933,8 @@
 	"description":"This element represents a linear holder for multiple individual Emission Filters.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Holders",
-	"image":"Holders_EmissionFilterSlider.svg",
+	"category":"OpticsHolder",
+	"image":"OpticsHolder_EmissionFilterSlider.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -28052,12 +28009,6 @@
 			"default":"6",
 			"category":"OpticsHolder"
 		},
-		"FilterCube": {
-			"type":"boolean",
-			"description":"This field records whether or not this holder holds Filter Cubes (True) or individual Filters (False).",
-			"tier":3,
-			"category":"OpticsHolder"
-		},
 		"Manufacturer": {
 			"type":"string",
 			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
@@ -28121,8 +28072,8 @@
 	"description":"This element represents a circular holder for multiple individual Dichroics.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Holders",
-	"image":"Holders_DichroicFilterWheel.svg",
+	"category":"OpticsHolder",
+	"image":"OpticsHolder_DichroicFilterWheel.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -28197,12 +28148,6 @@
 			"default":"6",
 			"category":"OpticsHolder"
 		},
-		"FilterCube": {
-			"type":"boolean",
-			"description":"This field records whether or not this holder holds Filter Cubes (True) or individual Filters (False).",
-			"tier":3,
-			"category":"OpticsHolder"
-		},
 		"Manufacturer": {
 			"type":"string",
 			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
@@ -28266,8 +28211,8 @@
 	"description":"This is a Microscope in which the object is observed from beneath the stage.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"MicroscopyEssentials",
-	"image":"MicroscopyEssentials_InvertedMicroscopeStand.svg",
+	"category":"MicroscopeStand",
+	"image":"MicroscopeStand_InvertedMicroscopeStand.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

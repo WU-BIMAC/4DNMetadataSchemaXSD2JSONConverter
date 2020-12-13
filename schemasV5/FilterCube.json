@@ -90,12 +90,6 @@
 			"default":"6",
 			"category":"OpticsHolder"
 		},
-		"FilterCube": {
-			"type":"boolean",
-			"description":"This field records whether or not this holder holds Filter Cubes (True) or individual Filters (False).",
-			"tier":3,
-			"category":"OpticsHolder"
-		},
 		"Manufacturer": {
 			"type":"string",
 			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
