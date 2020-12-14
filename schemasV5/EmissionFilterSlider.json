@@ -115,11 +115,14 @@
 			"category":"General"
 		},
 		"EmissionFilter": {
-			"type":"string",
-			"description":"This field refers to an available Emission Filter, which is part of this Filter Cube.",
-			"tier":1,
-			"category":"EmissionFilter",
-			"linkTo":"EmissionFilter"
+			"type":"array",
+			"items": {
+				"description":"This field refers to an available Emission Filter, which is part of this Filter Cube.",
+				"type":"string",
+				"tier":1,
+				"category":"EmissionFilter",
+				"linkTo":"EmissionFilter"
+			}
 		},
 		"Tier": {
 			"type":"integer",

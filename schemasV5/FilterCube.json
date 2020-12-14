@@ -154,7 +154,6 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber",
-		"StandardDichroic"
+		"CatalogNumber"
 	]
 }

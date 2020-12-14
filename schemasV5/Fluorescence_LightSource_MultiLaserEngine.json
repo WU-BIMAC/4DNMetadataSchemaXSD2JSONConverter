@@ -14,7 +14,8 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"LightSource":"This element describes one or more Light Source(s) available for this Instrument. An Instrument may have several Light Sources of different types (Laser, Light Emitting Diode, Filament, Arc etc.). A typical fluorescence Microscope has two Light Sources, one for Transmitted light and one for Fluorescence light.",
-		"MultiLaserEngine":"This element describes a Light Source device that contains multiple Lasers built into a single box. This element contains Reference(s) to individual Laser components built separately and assembled as part of this device."
+		"MultiLaserEngine":"This element describes a Light Source device that contains multiple Lasers built into a single box. This element contains Reference(s) to individual Laser components built separately and assembled as part of this device.",
+		"Laser":"This empty element refers to an existing Laser component."
 	},
 	"properties": {
 		"SingleMode": {
@@ -130,6 +131,16 @@
 			"tier":1,
 			"category":"General"
 		},
+		"Laser": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to an existing Laser component.",
+				"type":"string",
+				"tier":2,
+				"category":"Laser",
+				"linkTo":"Laser"
+			}
+		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
@@ -142,6 +153,7 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Laser"
 	]
 }

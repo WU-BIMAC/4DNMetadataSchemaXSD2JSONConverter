@@ -115,11 +115,14 @@
 			"category":"General"
 		},
 		"ExcitationFilter": {
-			"type":"string",
-			"description":"This field refers to an available Excitation Filter, which is part of this Filter Cube.",
-			"tier":1,
-			"category":"ExcitationFilter",
-			"linkTo":"ExcitationFilter"
+			"type":"array",
+			"items": {
+				"description":"This field refers to an available Excitation Filter, which is part of this Filter Cube.",
+				"type":"string",
+				"tier":1,
+				"category":"ExcitationFilter",
+				"linkTo":"ExcitationFilter"
+			}
 		},
 		"Tier": {
 			"type":"integer",

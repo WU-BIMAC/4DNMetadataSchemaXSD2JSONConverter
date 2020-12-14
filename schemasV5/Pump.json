@@ -16,8 +16,8 @@
 	"properties": {
 		"Laser": {
 			"type":"string",
-			"description":"This empty element refers to a Laser component used to as a Pump for the primary Laser.",
-			"tier":3,
+			"description":"This empty element refers to an existing Laser component.",
+			"tier":2,
 			"category":"Pump",
 			"linkTo":"Laser"
 		}
