@@ -3,13 +3,16 @@ InvertedMicroscopeStand:-1,-1:3199.25,1150.9761
 
 //Menu position 1 --> Microscopy Essentials
 //-----------------------------------------
-MicroscopyEssentials.AcquisitionSoftware:2313.8659,893.275:281.0426,246.6847
-MicroscopyEssentials.AcquisitionSoftware:-1,-1:281.0426,246.6847
+
 MicroscopyEssentials.MicroscopeTable:1613.7446,1072.818:3118.29,43.0292 
 MicroscopyEssentials.EnvironmentalControlDevice:2093.4117,913.9234:110.9688,50.778
 
+//Menu position 2 --> Software
+//-----------------------------------------
+Software.AcquisitionSoftware:2313.8659,893.275:281.0426,246.6847
+Software.SoftwareModule:-1,-1:281.0426,246.6847
 
-//Menu position 2 --> Light Source
+//Menu position 3 --> Light Source
 //--------------------------------
 //Transmitted_LightSource.Filament
 //Transmitted_LightSource.GenericExcitationSource
@@ -47,7 +50,7 @@ Fluorescence_LightSource.Laser:1767.3116,954.968:65.0108,69.3319
 Fluorescence_LightSource.Laser:1843.8116,954.968:65.0108,69.3319
 
 
-//Menu position 3 --> Light Source Coupling
+//Menu position 4 --> Light Source Coupling
 //-----------------------------------------
 LightSourceCoupling.LightGuide:1088.4031,98.9386:112.96,43.0788
 LightSourceCoupling.LightGuide:1325.0388,788.2197:112.96,43.0788
@@ -57,7 +60,7 @@ LightSourceCoupling.FreeBeam:1088.2908,99.3756:112.6286,43.9431
 LightSourceCoupling.FreeBeam:1324.8789,788.6012:112.6286,43.9431
 LightSourceCoupling.FreeBeam:1324.5526,965.7144:112.6286,43.9431
 
-//Menu position 4 --> Magnification
+//Menu position 5 --> Magnification
 //---------------------------------
 Magnification.Objective:853.3708,640.9926:38.1097,83.033
 Magnification.Objective:921.3708,669.4926:38.1097,83.033
@@ -69,7 +72,7 @@ Magnification.Objective:1088.8708,669.4926:38.1097,83.033
 Magnification.MagnificationChanger#OpticalAssembly.MicroscopeTube:-106.0527,0:15.0733,70.702
 
 
-//Menu position 5 --> Fluorescence Light Path
+//Menu position 6 --> Fluorescence Light Path
 //-------------------------------------------
 FluorescenceLightPath.FilterCube:675.2171,812.7536:70.4543,69.9062
 FluorescenceLightPath.FilterCube:759.6131,812.7536:70.4543,69.9062
@@ -124,14 +127,14 @@ FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:-1.1251,
 FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:-3.1251,22.5685:37.2202,38.4254
 
 
-//Menu position 6 --> SamplePositioning.Stage
+//Menu position 7 --> SamplePositioning.Stage
 //-------------------------------------------
 SamplePositioning.Stage.MechanicalStage:973.7159,571.9579:309,24.5969
 SamplePositioning.Stage.PiezoElectricStage:973.7159,538.9579:309,24.5969
 SamplePositioning.Stage.StageInsert:973.7159,480.1089:308.3971,76.1638
 
 
-//Menu position 7 --> SamplePositioning.Focusing
+//Menu position 8 --> SamplePositioning.Focusing
 //----------------------------------------------
 SamplePositioning.Focusing.FocusStabilizationDevice:2093.615,979.726:110.9689,64.5002
 SamplePositioning.Focusing.IndividualObjectiveFocusing:863.735,684.725:62.75,50.4977
@@ -139,7 +142,7 @@ SamplePositioning.Focusing.TurretObjectiveFocusing:975.6967,734.048:307.5,29.297
 SamplePositioning.Focusing.Z-Drive:2093.9711,855.3333:110.9688,50.778 
 
 
-//Menu position 8 --> OpticalAssembly
+//Menu position 9 --> OpticalAssembly
 //-------------------------------------
 OpticalAssembly.BeamExpander:-1,-1:191.3512,73
 OpticalAssembly.BeamCollimator:-1,-1:191.3512,73
@@ -147,7 +150,7 @@ OpticalAssembly.Condenser:968.1279,346.04:174.5964,130.605
 OpticalAssembly.MicroscopeTube:887.6322,947.3734:509.7976,130.8837 
 
 
-//Menu position 9 --> Aperture
+//Menu position 10 --> Aperture
 //-----------------------------
 //Aperture.DarkFieldStop
 //Aperture.HoffmanPlate
@@ -163,7 +166,7 @@ Aperture#OpticalAssembly.Condenser:-34.591,1.0314:33.2588,60.7821
 Aperture#OpticalAssembly.Condenser:0.0798,1.0314:33.2588,60.7821
 Aperture#OpticalAssembly.Condenser:34.5848,1.0314:33.2588,60.7821
 
-//Menu position 10 --> OpticsHolder
+//Menu position 11 --> OpticsHolder
 //----------------------------
 OpticsHolder.ExcitationFilterSlider:711.4616,607.6113:165.4861,60
 OpticsHolder.DichroicFilterSlider:711.4616,671.8141:165.4861,60
@@ -182,7 +185,7 @@ OpticsHolder.FilterCubeTurret:886.8766,860.0793:527.3666,18.4325
 OpticsHolder.OpticsTurret:-1,-1:226.3076,20.2735
 
 
-//Menu position 11 --> Filter
+//Menu position 12 --> Filter
 //----------------------------
 //Filter.GenericFilter 
 //Filter.NeutralDensityFilter
@@ -191,7 +194,7 @@ Filter:-1,-1:33.1797,62.0013
 Filter#OpticalAssembly.MicroscopeTube:106.5629,8.3752:33.2588,60.7821
 
 
-//Menu position 12 --> MirroringDevice
+//Menu position 13 --> MirroringDevice
 //----------------------------
 MirroringDevice.GenericDichroic:-1,-1:33.2588,60.7821 
 MirroringDevice.ReflectingMirror#OpticalAssembly.MicroscopeTube:-211.2675,8.3752:33.2588,60.7821
@@ -201,7 +204,7 @@ MirroringDevice.BeamSplitter#OpticalAssembly.MicroscopeTube:-156.2518,0:70.1611,
 MirroringDevice.BeamSplitter#OpticalAssembly.MicroscopeTube:-26.0487,0:70.1611,56.9366 
 
 
-//Menu position 13 --> Lens
+//Menu position 14 --> Lens
 //---------------------------
 Lens.TubeLens#OpticalAssembly.MicroscopeTube:203.6787,0:10.5314,69 
 Lens.BeamExpanderLens#OpticalAssembly.BeamExpander:-37.1837,-3.3375:33.2588,60.7821
@@ -219,7 +222,7 @@ Lens.CouplingLens#Fluorescence_LightSource.MultiLaserEngine:-233.8225,0.8933:10.
 
 Lens.CondenserLens#OpticalAssembly.Condenser:66.8489,1.0314:33.2588,60.7821
 
-//Menu position 14 --> Additional Optics
+//Menu position 15 --> Additional Optics
 //--------------------------------------
 //AdditionalOptics.PolarizationOptics 
 //AdditionalOptics.Prism
@@ -228,13 +231,13 @@ AdditionalOptics.PolarizationOptics#OpticalAssembly.MicroscopeTube:141.8691,8.37
 AdditionalOptics.Prism#OpticalAssembly.MicroscopeTube:51.2263,0:77.0372,55.3705 
 
 
-//Menu position 15 --> Detector
+//Menu position 16 --> Detector
 //-----------------------------
 //Detector.GenericDetector
 
 Detector:280.6207,775.1089:184.5212,94.5
 
-//Menu position 16 --> Detector.Camera
+//Menu position 17 --> Detector.Camera
 //------------------------------------
 //Detector.Camera.AnalogVideo 
 //Detector.Camera.CCD 
@@ -244,7 +247,7 @@ Detector:280.6207,775.1089:184.5212,94.5
 Detector.Camera:248.8238,955.3236:121.83,122.085
 
 
-//Menu position 17 --> Detector.Point Detector
+//Menu position 18 --> Detector.Point Detector
 //--------------------------------------------
 //Detector.PointDetector.HybridPhotoDetector 
 //Detector.PointDetector.PhotoDiode
@@ -252,6 +255,6 @@ Detector.Camera:248.8238,955.3236:121.83,122.085
 
 Detector.PointDetector:280.6207,775.1089:184.5212,94.5
 
-//Menu position 18 --> Calibration
+//Menu position 20 --> Calibration Tools
 //--------------------------------------------
 Calibration.IntensityCalibrationTool:1963.7673,1001.8739:121.5,40.7034

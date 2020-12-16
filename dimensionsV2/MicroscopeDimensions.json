@@ -8,22 +8,6 @@
 				"h":1150.9761
 			}
 		},
-		"MicroscopyEssentials.AcquisitionSoftware":{
-			"General":[
-				{
-					"x":2313.8659,
-					"y":893.275,
-					"w":281.0426,
-					"h":246.6847
-				},
-				{
-					"x":-1,
-					"y":-1,
-					"w":281.0426,
-					"h":246.6847
-				}
-			]
-		},
 		"MicroscopyEssentials.MicroscopeTable":{
 			"General":{
 				"x":1613.7446,
@@ -38,6 +22,22 @@
 				"y":913.9234,
 				"w":110.9688,
 				"h":50.778
+			}
+		},
+		"Software.AcquisitionSoftware":{
+			"General":{
+				"x":2313.8659,
+				"y":893.275,
+				"w":281.0426,
+				"h":246.6847
+			}
+		},
+		"Software.SoftwareModule":{
+			"General":{
+				"x":-1,
+				"y":-1,
+				"w":281.0426,
+				"h":246.6847
 			}
 		},
 		"Transmitted_LightSource":{
