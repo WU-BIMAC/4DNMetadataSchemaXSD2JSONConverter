@@ -7,8 +7,8 @@
 	"description":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for driving this Instrument during Image Acquisition.",
 	"extension":"Basic",
 	"domain":"MicroscopeSpecifications",
-	"category":"MicroscopyEssentials",
-	"image":"MicroscopyEssentials_AcquisitionSoftware.svg",
+	"category":"Software",
+	"image":"Software_AcquisitionSoftware.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
