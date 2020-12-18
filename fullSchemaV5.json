@@ -1,10 +1,10 @@
 [
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
-	"ID":"Microscope.json",
+	"ID":"Instrument.json",
 	"version":"2.00.0",
 	"type":"object",
-	"title":"Microscope",
+	"title":"Instrument",
 	"description":"This element describes the Instrument used to capture the Image. It is primarily a container referring to the list of hardware components included in a given Microscope. The list consists of the Microscope Stand, Microscope Table, Light Source, Light Source Coupling, Sample Holder, Focusing, Objective, Filter, Dichroic, Additional Lens (including a commonly used Magnification Changer, also known as Optovar), Additional Mirroring Device, Polarization Optics, Prism, Optical Aperture, Optical Device, Detector and Calibration Tool. The Filter element can be either composed of separate Excitation, Emission filters, and Dichroic mirrors or a single Filter Set. An Instrument might have multiple Light Sources, Detectors, Objectives, and Filters, etc. Each of these has its own ID attribute, which can be referred to from the Image, Plane or more commonly Channel elements associated with a given Image Acquisition session. It is understood that the Light Path configuration can be different for each Channel, but cannot be different for each timepoint or each Plane of an XYZ stack.",
 	"image":"Image",
 	"tier":1,
@@ -483,7 +483,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -616,6 +616,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":2,
+			"default":"nm",
 			"enum": [
 				"Ym",
 				"Zm",
@@ -823,7 +824,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -972,6 +973,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":2,
+			"default":"nm",
 			"enum": [
 				"Ym",
 				"Zm",
@@ -1306,7 +1308,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -1387,6 +1389,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":2,
+						"default":"nm",
 						"enum": [
 							"Ym",
 							"Zm",
@@ -1606,7 +1609,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -1687,6 +1690,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":2,
+						"default":"nm",
 						"enum": [
 							"Ym",
 							"Zm",
@@ -1865,12 +1869,12 @@
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"OpticalAssembly":"This is a device that might include one or more Lenses, other Optics and Optics Holders. Optical Devices might be custom built or they might also be available as pre-assembled units. Such devices might be embedded within the Microscope Stand or exist as independent units. Examples include the Condenser and the Microscope Tube.",
 		"BeamCollimator":"Beam Collimators are Lens Systems that transform a strongly diverging light beam into a collimated beam, i.e., a beam where light propagates essentially only in one direction, and the beam divergence is weak. Beam Collimators typically contain some kind of Focusing Lens, or sometimes a curved Mirror, and usually some opto-mechanics for stable mounting and possibly adjustment. Beam Expanders can be custom built or they are also available as pre-assembled optical devices.",
-		"Lens":"This refers to an available Lens which is part of this Optical Device.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Device.",
-		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Device.",
-		"Prism":"This empty element refers to a Prism compoent available for this Instrument and which is placed in the Light Path for this Image Acquisition.",
-		"Filter":"This refers to an available Filter which is part of this Optical Device.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Device."
+		"Filter":"This refers to an available Filter which is part of this Optical Assembly.",
+		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
+		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly.",
+		"Prism":"This refers to an available Prism which is part of this Optical Assembly."
 	},
 	"properties": {
 		"Name": {
@@ -1888,7 +1892,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -1910,20 +1914,40 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"Filter": {
+			"type":"array",
+			"items": {
+				"description":"This refers to an available Filter, which is part of this Optical Assembly.",
+				"type":"string",
+				"tier":2,
+				"category":"Filter",
+				"linkTo":"Filter"
+			}
+		},
 		"Lens": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Lens, which is part of this Optical Device.",
+				"description":"This refers to an available Lens, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Lens",
 				"linkTo":"Lens"
 			}
 		},
+		"MirrorringDevice": {
+			"type":"array",
+			"items": {
+				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
+				"type":"string",
+				"tier":2,
+				"category":"MirrorringDevice",
+				"linkTo":"MirrorringDevice"
+			}
+		},
 		"OpticalAperture": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Optical Aperture, which is part of this Optical Device.",
+				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"OpticalAperture",
@@ -1933,7 +1957,7 @@
 		"PolarizationOptics": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Polarization Optics, which is part of this Optical Device.",
+				"description":"This refers to an available Polarization Optics, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"PolarizationOptics",
@@ -1943,31 +1967,11 @@
 		"Prism": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to a Prism compoent available for this Instrument and, which is placed in the Light Path for this Image Acquisition.",
+				"description":"This refers to an available Prism, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Prism",
 				"linkTo":"Prism"
-			}
-		},
-		"Filter": {
-			"type":"array",
-			"items": {
-				"description":"This refers to an available Filter, which is part of this Optical Device.",
-				"type":"string",
-				"tier":2,
-				"category":"Filter",
-				"linkTo":"Filter"
-			}
-		},
-		"MirrorringDevice": {
-			"type":"array",
-			"items": {
-				"description":"This refers to an available Mirroring Device, which is part of this Optical Device.",
-				"type":"string",
-				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
 			}
 		},
 		"Description": {
@@ -2006,7 +2010,6 @@
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"AcquisitionSoftware":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for driving this Instrument during Image Acquisition.",
 		"SoftwareModule":"This empty element refers to any existing Software Module that was used in association with this Instrument."
 	},
@@ -2030,9 +2033,9 @@
 			"tier":1,
 			"category":"AcquisitionSoftware"
 		},
-		"Author": {
+		"Developer": {
 			"type":"string",
-			"description":"This field records the developer of this Software. This could be the Manufacturer if this is a commercial proprietary sofware or the Author(s) if this is an open-source software.",
+			"description":"This field records the Developer(s) of this Software. In case this is a non-commercial, open-source Software, this refers to the name of the individual or consortium who developed the Software. In the case of a commercial Software, this might refer to the Commercial entity but it can also be used to refer to the individual developer, if knonw.",
 			"tier":1,
 			"category":"AcquisitionSoftware"
 		},
@@ -2084,30 +2087,6 @@
 			"tier":3,
 			"category":"AcquisitionSoftware"
 		},
-		"Manufacturer": {
-			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
-			"tier":1,
-			"category":"ManufacturerSpec"
-		},
-		"Model": {
-			"type":"string",
-			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
-			"tier":1,
-			"category":"ManufacturerSpec"
-		},
-		"CatalogNumber": {
-			"type":"string",
-			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
-			"tier":1,
-			"category":"ManufacturerSpec"
-		},
-		"LotNumber": {
-			"type":"string",
-			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
-			"tier":3,
-			"category":"ManufacturerSpec"
-		},
 		"SoftwareModule": {
 			"type":"array",
 			"items": {
@@ -2137,11 +2116,8 @@
 		"ID",
 		"Name",
 		"Version",
-		"Author",
-		"WebsiteURL",
-		"Manufacturer",
-		"Model",
-		"CatalogNumber"
+		"Developer",
+		"WebsiteURL"
 	]
 },
 {
@@ -2285,7 +2261,7 @@
 	"version":"2.00.0",
 	"type":"object",
 	"title":"EnvironmentalControlDevice",
-	"description":"This element describes an Environmental Control Device available for this Instrument.",
+	"description":"This element describes an Environmental Control Device available for this Instrument to maintain a controlled Imaging Environment during Imaging Environment.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"MicroscopyEssentials",
@@ -2294,7 +2270,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
-		"EnvironmentalControlDevice":"This element describes an Environmental Control Device available for this Instrument."
+		"EnvironmentalControlDevice":"This element describes an Environmental Control Device available for this Instrument to maintain a controlled Imaging Environment during Imaging Environment."
 	},
 	"properties": {
 		"Name": {
@@ -2310,11 +2286,12 @@
 			"category":"General",
 			"readonly":true
 		},
-		"Type": {
+		"TemperatureControl": {
 			"type":"string",
-			"description":"This field captures the general category of this Environmental Control Device.",
+			"description":"This field captures whether this Environmental Control Device provides Temperature control and what type of control it provides. If no Temperature control is provided please enter 'None'.",
 			"tier":1,
 			"enum": [
+				"None",
 				"Cage-incubator enclosure",
 				"Objective heather",
 				"Stage-top chamber",
@@ -2448,7 +2425,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -2487,7 +2464,7 @@
 	},
 	"required": [
 		"ID",
-		"Type",
+		"TemperatureControl",
 		"HumidityControl",
 		"CO2Control",
 		"O2Control",
@@ -2687,7 +2664,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -2754,6 +2731,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":2,
+			"default":"nm",
 			"enum": [
 				"Ym",
 				"Zm",
@@ -3070,35 +3048,6 @@
 			"tier":2,
 			"category":"Objective"
 		},
-		"DippingMedium": {
-			"type":"string",
-			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
-			"tier":2,
-			"enum": [
-				"Water-based",
-				"Organic-based",
-				"Other"
-			],
-			"category":"Objective"
-		},
-		"CorrectionCollar": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
-			"tier":2,
-			"category":"Objective"
-		},
-		"CorrectionCollarType": {
-			"type":"string",
-			"description":"This field records the type of Correction Collar with which this Objective is fitted.",
-			"tier":2,
-			"enum": [
-				"Coverglass Thickness",
-				"Immersion Liquid",
-				"Numerical Aperture",
-				"Temperature"
-			],
-			"category":"Objective"
-		},
 		"WorkingDistanceUnit": {
 			"type":"string",
 			"description":"NA",
@@ -3139,6 +3088,35 @@
 				"pt",
 				"Pixel",
 				"reference frame"
+			],
+			"category":"Objective"
+		},
+		"DippingMedium": {
+			"type":"string",
+			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
+			"tier":2,
+			"enum": [
+				"Water-based",
+				"Organic-based",
+				"Other"
+			],
+			"category":"Objective"
+		},
+		"CorrectionCollar": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
+			"tier":2,
+			"category":"Objective"
+		},
+		"CorrectionCollarType": {
+			"type":"string",
+			"description":"This field records the type of Correction Collar with which this Objective is fitted.",
+			"tier":2,
+			"enum": [
+				"Coverglass Thickness",
+				"Immersion Liquid",
+				"Numerical Aperture",
+				"Temperature"
 			],
 			"category":"Objective"
 		},
@@ -3395,7 +3373,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -3438,7 +3416,6 @@
 		"Correction",
 		"LensNA",
 		"Magnification",
-		"LightType",
 		"DIC",
 		"ContrastModulation",
 		"InfinityCorrected",
@@ -3550,7 +3527,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -3902,7 +3879,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -4185,7 +4162,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -4319,7 +4296,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -4456,15 +4433,15 @@
 			"tier":1,
 			"category":"Lens"
 		},
-		"Infinity": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
-			"tier":2,
-			"category":"Lens"
-		},
 		"RefractiveIndex": {
 			"type":"number",
 			"description":"This field records the Refractive Index of the material this Lens is made of, as specified by the Manufacturer. The Refractive Index is the ratio of the speed of light (more precisely, the phase velocity) in a vacuum versus that in a given medium.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"Infinity": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
 			"tier":2,
 			"category":"Lens"
 		},
@@ -4479,6 +4456,54 @@
 			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
 			"tier":2,
 			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field records the physical diameter of this Lens.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
 			"enum": [
 				"Ym",
 				"Zm",
@@ -4560,7 +4585,7 @@
 		},
 		"AttenuationCoefficient": {
 			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Lens. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
 			"tier":3,
 			"category":"Lens"
 		},
@@ -4760,54 +4785,6 @@
 			],
 			"category":"Lens"
 		},
-		"Diameter": {
-			"type":"number",
-			"description":"This field records the physical diameter of this Lens.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"DiameterUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
 		"AbbeNumber": {
 			"type":"number",
 			"description":"This field records the Abbe number of this Lens. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
@@ -4912,7 +4889,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -4952,10 +4929,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"LensNA",
-		"Infinity",
 		"RefractiveIndex",
-		"WorkingDistance",
+		"Diameter",
 		"Type",
 		"Composite",
 		"Geometry",
@@ -5014,6 +4989,12 @@
 			"tier":2,
 			"category":"PolarizationOptics"
 		},
+		"DIC": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this PolarizationOptics is used for Differential Interference Contrast (DIC) microscopy.",
+			"tier":2,
+			"category":"PolarizationOptics"
+		},
 		"BeamSplitter": {
 			"type":"boolean",
 			"description":"This field records whether (True) or not (False) this is PolarizationOptics has a beam splitter function.",
@@ -5023,12 +5004,6 @@
 		"FaradayIsolator": {
 			"type":"boolean",
 			"description":"This field records whether (True) or not (False) this PolarizationOptics is a Fraday Isolator. A Faraday Isolator is an optical component which allows light to pass through in only ONE direction and therefore protects laser systems against back reflection. It uses the Faraday magneto-optical effect to turn the polarization of light between various polarizers.",
-			"tier":2,
-			"category":"PolarizationOptics"
-		},
-		"DIC": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this PolarizationOptics is used for Differential Interference Contrast (DIC) microscopy.",
 			"tier":2,
 			"category":"PolarizationOptics"
 		},
@@ -5097,7 +5072,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -5302,6 +5277,9 @@
 	},
 	"required": [
 		"ID",
+		"Function",
+		"CrossPolarizer",
+		"DIC",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber"
@@ -5764,7 +5742,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -6183,8 +6161,14 @@
 			"category":"SamplePositioning"
 		},
 		"ZReproducibility": {
-			"type":"string",
+			"type":"number",
 			"description":"This field captures the expected Precision with which this this Sample Positioning Device is capable of maintaining a given Z-axis Position over time during as specified by the Manufacturer. This metric is generally referred to as Reproducibility and it might also be referred to as Focal Drift. This metric is particularly relevant for Stereology systems and for the calibration of Sample Positioning devices.",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"ZReproducibilityUnit": {
+			"type":"string",
+			"description":"NA",
 			"tier":2,
 			"enum": [
 				"Ym",
@@ -6222,12 +6206,6 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"SamplePositioning"
-		},
-		"ZReproducibilityUnit": {
-			"type":"number",
-			"description":"NA",
-			"tier":2,
 			"category":"SamplePositioning"
 		},
 		"ZSettlingTime": {
@@ -6361,7 +6339,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -6402,11 +6380,9 @@
 		"ID",
 		"Encoded",
 		"Motorized",
+		"ZRepetability",
 		"MovementAxes",
 		"BuiltIn",
-		"ZReproducibility",
-		"ZSettlingTime",
-		"ZResolution",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber"
@@ -6456,15 +6432,15 @@
 			"tier":1,
 			"category":"Lens"
 		},
-		"Infinity": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
-			"tier":2,
-			"category":"Lens"
-		},
 		"RefractiveIndex": {
 			"type":"number",
 			"description":"This field records the Refractive Index of the material this Lens is made of, as specified by the Manufacturer. The Refractive Index is the ratio of the speed of light (more precisely, the phase velocity) in a vacuum versus that in a given medium.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"Infinity": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
 			"tier":2,
 			"category":"Lens"
 		},
@@ -6479,6 +6455,54 @@
 			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
 			"tier":2,
 			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field records the physical diameter of this Lens.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
 			"enum": [
 				"Ym",
 				"Zm",
@@ -6560,7 +6584,7 @@
 		},
 		"AttenuationCoefficient": {
 			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Lens. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
 			"tier":3,
 			"category":"Lens"
 		},
@@ -6760,54 +6784,6 @@
 			],
 			"category":"Lens"
 		},
-		"Diameter": {
-			"type":"number",
-			"description":"This field records the physical diameter of this Lens.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"DiameterUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
 		"AbbeNumber": {
 			"type":"number",
 			"description":"This field records the Abbe number of this Lens. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
@@ -6912,7 +6888,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -6952,10 +6928,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"LensNA",
-		"Infinity",
 		"RefractiveIndex",
-		"WorkingDistance",
+		"Diameter",
 		"Type",
 		"Composite",
 		"Geometry",
@@ -6982,12 +6956,12 @@
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"OpticalAssembly":"This is a device that might include one or more Lenses, other Optics and Optics Holders. Optical Devices might be custom built or they might also be available as pre-assembled units. Such devices might be embedded within the Microscope Stand or exist as independent units. Examples include the Condenser and the Microscope Tube.",
 		"BeamExpander":"Beam Expanders are Lens Systems whose role is to increase the diameter of a collimated input beam to a larger collimated output beam. Beam Expanders typically are afocal systems in which object rays enter and exit parallel to the optical axis. As such a Beam Expander does not have a focal length. In most cases, Beam Expanders are realized as optical telescopes consisting of two lenses. Beam Expanders can be custom built or they are also available as pre-assembled optical devices.",
-		"Lens":"This refers to an available Lens which is part of this Optical Device.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Device.",
-		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Device.",
-		"Prism":"This empty element refers to a Prism compoent available for this Instrument and which is placed in the Light Path for this Image Acquisition.",
-		"Filter":"This refers to an available Filter which is part of this Optical Device.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Device."
+		"Filter":"This refers to an available Filter which is part of this Optical Assembly.",
+		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
+		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly.",
+		"Prism":"This refers to an available Prism which is part of this Optical Assembly."
 	},
 	"properties": {
 		"Configuration": {
@@ -7016,7 +6990,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -7038,20 +7012,40 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"Filter": {
+			"type":"array",
+			"items": {
+				"description":"This refers to an available Filter, which is part of this Optical Assembly.",
+				"type":"string",
+				"tier":2,
+				"category":"Filter",
+				"linkTo":"Filter"
+			}
+		},
 		"Lens": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Lens, which is part of this Optical Device.",
+				"description":"This refers to an available Lens, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Lens",
 				"linkTo":"Lens"
 			}
 		},
+		"MirrorringDevice": {
+			"type":"array",
+			"items": {
+				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
+				"type":"string",
+				"tier":2,
+				"category":"MirrorringDevice",
+				"linkTo":"MirrorringDevice"
+			}
+		},
 		"OpticalAperture": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Optical Aperture, which is part of this Optical Device.",
+				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"OpticalAperture",
@@ -7061,7 +7055,7 @@
 		"PolarizationOptics": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Polarization Optics, which is part of this Optical Device.",
+				"description":"This refers to an available Polarization Optics, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"PolarizationOptics",
@@ -7071,31 +7065,11 @@
 		"Prism": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to a Prism compoent available for this Instrument and, which is placed in the Light Path for this Image Acquisition.",
+				"description":"This refers to an available Prism, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Prism",
 				"linkTo":"Prism"
-			}
-		},
-		"Filter": {
-			"type":"array",
-			"items": {
-				"description":"This refers to an available Filter, which is part of this Optical Device.",
-				"type":"string",
-				"tier":2,
-				"category":"Filter",
-				"linkTo":"Filter"
-			}
-		},
-		"MirrorringDevice": {
-			"type":"array",
-			"items": {
-				"description":"This refers to an available Mirroring Device, which is part of this Optical Device.",
-				"type":"string",
-				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
 			}
 		},
 		"Description": {
@@ -7297,7 +7271,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -7349,6 +7323,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":2,
+						"default":"nm",
 						"enum": [
 							"Ym",
 							"Zm",
@@ -7557,15 +7532,15 @@
 			"tier":1,
 			"category":"Lens"
 		},
-		"Infinity": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
-			"tier":2,
-			"category":"Lens"
-		},
 		"RefractiveIndex": {
 			"type":"number",
 			"description":"This field records the Refractive Index of the material this Lens is made of, as specified by the Manufacturer. The Refractive Index is the ratio of the speed of light (more precisely, the phase velocity) in a vacuum versus that in a given medium.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"Infinity": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
 			"tier":2,
 			"category":"Lens"
 		},
@@ -7580,6 +7555,54 @@
 			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
 			"tier":2,
 			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field records the physical diameter of this Lens.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
 			"enum": [
 				"Ym",
 				"Zm",
@@ -7661,7 +7684,7 @@
 		},
 		"AttenuationCoefficient": {
 			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Lens. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
 			"tier":3,
 			"category":"Lens"
 		},
@@ -7861,54 +7884,6 @@
 			],
 			"category":"Lens"
 		},
-		"Diameter": {
-			"type":"number",
-			"description":"This field records the physical diameter of this Lens.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"DiameterUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
 		"AbbeNumber": {
 			"type":"number",
 			"description":"This field records the Abbe number of this Lens. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
@@ -8013,7 +7988,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -8053,10 +8028,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"LensNA",
-		"Infinity",
 		"RefractiveIndex",
-		"WorkingDistance",
+		"Diameter",
 		"Type",
 		"Composite",
 		"Geometry",
@@ -8160,7 +8133,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -9007,8 +8980,14 @@
 			"category":"SamplePositioning"
 		},
 		"ZReproducibility": {
-			"type":"string",
+			"type":"number",
 			"description":"This field captures the expected Precision with which this this Sample Positioning Device is capable of maintaining a given Z-axis Position over time during as specified by the Manufacturer. This metric is generally referred to as Reproducibility and it might also be referred to as Focal Drift. This metric is particularly relevant for Stereology systems and for the calibration of Sample Positioning devices.",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"ZReproducibilityUnit": {
+			"type":"string",
+			"description":"NA",
 			"tier":2,
 			"enum": [
 				"Ym",
@@ -9046,12 +9025,6 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"SamplePositioning"
-		},
-		"ZReproducibilityUnit": {
-			"type":"number",
-			"description":"NA",
-			"tier":2,
 			"category":"SamplePositioning"
 		},
 		"ZSettlingTime": {
@@ -9185,7 +9158,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -9223,19 +9196,15 @@
 		}
 	},
 	"required": [
+		"XYRepetability",
 		"XTravelRange",
 		"YTravelRange",
-		"XYReproducibility",
-		"XYSettlingTime",
-		"XYResolution",
 		"ID",
 		"Encoded",
 		"Motorized",
+		"ZRepetability",
 		"MovementAxes",
 		"BuiltIn",
-		"ZReproducibility",
-		"ZSettlingTime",
-		"ZResolution",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber"
@@ -9392,7 +9361,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -9838,7 +9807,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -9910,11 +9879,12 @@
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"OpticsHolder":"This element represents a Holder for Filters, Dichroic and other Optical Element that is associated with this Instrument. These Holders come in different arrangements such as Cubes, Sliders, Turrets, and Wheels. While some of these Holders, such as Filter Cubes, might be pre-assebled by the Manufacturer and pruchased as a whole, in the majority of cases they are assembled on site depending on the needs of the user.",
 		"OpticsTurret":"This element represents a circular holder for multiple optical elements.",
-		"Lens":"This refers to an available Lens which is part of this Optical Device.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Device.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Device.",
-		"Prism":"This empty element refers to a Prism compoent available for this Instrument and which is placed in the Light Path for this Image Acquisition.",
-		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Device."
+		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
+		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"Filter":"This empty element refers to any Generic or Neutral Density Filter component placed in this Light Path.",
+		"Prism":"This refers to an available Prism which is part of this Optical Assembly.",
+		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly."
 	},
 	"properties": {
 		"Name": {
@@ -9983,7 +9953,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -10015,7 +9985,7 @@
 		"Lens": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Lens, which is part of this Optical Device.",
+				"description":"This refers to an available Lens, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Lens",
@@ -10025,7 +9995,7 @@
 		"MirrorringDevice": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Mirroring Device, which is part of this Optical Device.",
+				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":2,
 				"category":"MirrorringDevice",
@@ -10035,17 +10005,27 @@
 		"OpticalAperture": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Optical Aperture, which is part of this Optical Device.",
+				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"OpticalAperture",
 				"linkTo":"OpticalAperture"
 			}
 		},
+		"Filter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to any Generic or Neutral Density Filter component placed in this Light Path.",
+				"type":"string",
+				"tier":2,
+				"category":"Filter",
+				"linkTo":"Filter"
+			}
+		},
 		"Prism": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to a Prism compoent available for this Instrument and, which is placed in the Light Path for this Image Acquisition.",
+				"description":"This refers to an available Prism, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Prism",
@@ -10055,7 +10035,7 @@
 		"PolarizationOptics": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Polarization Optics, which is part of this Optical Device.",
+				"description":"This refers to an available Polarization Optics, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"PolarizationOptics",
@@ -10565,7 +10545,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -10646,6 +10626,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":2,
+						"default":"nm",
 						"enum": [
 							"Ym",
 							"Zm",
@@ -11275,7 +11256,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -11603,7 +11584,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -11748,7 +11729,7 @@
 		},
 		"CO2Percent": {
 			"type":"number",
-			"description":"This field records the Carbon Dioxide concentration around the sample [units:none] during the Acquisition of this Image. Expressed as a percentage fraction as a value from 0.0 to 1.0.",
+			"description":"This field records the Carbon Dioxide concentration (expressed as a % value) around the sample during Acquisition.",
 			"tier":1,
 			"category":"ImagingEnvironment"
 		},
@@ -11818,7 +11799,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -12344,7 +12325,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -12617,15 +12598,15 @@
 			"tier":1,
 			"category":"Lens"
 		},
-		"Infinity": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
-			"tier":2,
-			"category":"Lens"
-		},
 		"RefractiveIndex": {
 			"type":"number",
 			"description":"This field records the Refractive Index of the material this Lens is made of, as specified by the Manufacturer. The Refractive Index is the ratio of the speed of light (more precisely, the phase velocity) in a vacuum versus that in a given medium.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"Infinity": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
 			"tier":2,
 			"category":"Lens"
 		},
@@ -12640,6 +12621,54 @@
 			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
 			"tier":2,
 			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field records the physical diameter of this Lens.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
 			"enum": [
 				"Ym",
 				"Zm",
@@ -12721,7 +12750,7 @@
 		},
 		"AttenuationCoefficient": {
 			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Lens. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
 			"tier":3,
 			"category":"Lens"
 		},
@@ -12921,54 +12950,6 @@
 			],
 			"category":"Lens"
 		},
-		"Diameter": {
-			"type":"number",
-			"description":"This field records the physical diameter of this Lens.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"DiameterUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
 		"AbbeNumber": {
 			"type":"number",
 			"description":"This field records the Abbe number of this Lens. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
@@ -13073,7 +13054,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -13113,10 +13094,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"LensNA",
-		"Infinity",
 		"RefractiveIndex",
-		"WorkingDistance",
+		"Diameter",
 		"Type",
 		"Composite",
 		"Geometry",
@@ -13143,12 +13122,12 @@
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"OpticalAssembly":"This is a device that might include one or more Lenses, other Optics and Optics Holders. Optical Devices might be custom built or they might also be available as pre-assembled units. Such devices might be embedded within the Microscope Stand or exist as independent units. Examples include the Condenser and the Microscope Tube.",
 		"MicroscopeTube":"Illumination Tubes are Lens systems, which might be embedded within the Microscope Stand and therefore not immediately accessible. They are essential for infinity-correction and should be regarded as integral parts of the Objective Lens System when magnification and correction are considered.",
-		"Lens":"This refers to an available Lens which is part of this Optical Device.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Device.",
-		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Device.",
-		"Prism":"This empty element refers to a Prism compoent available for this Instrument and which is placed in the Light Path for this Image Acquisition.",
-		"Filter":"This refers to an available Filter which is part of this Optical Device.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Device."
+		"Filter":"This refers to an available Filter which is part of this Optical Assembly.",
+		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
+		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly.",
+		"Prism":"This refers to an available Prism which is part of this Optical Assembly."
 	},
 	"properties": {
 		"Type": {
@@ -13280,7 +13259,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -13302,20 +13281,40 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"Filter": {
+			"type":"array",
+			"items": {
+				"description":"This refers to an available Filter, which is part of this Optical Assembly.",
+				"type":"string",
+				"tier":2,
+				"category":"Filter",
+				"linkTo":"Filter"
+			}
+		},
 		"Lens": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Lens, which is part of this Optical Device.",
+				"description":"This refers to an available Lens, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Lens",
 				"linkTo":"Lens"
 			}
 		},
+		"MirrorringDevice": {
+			"type":"array",
+			"items": {
+				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
+				"type":"string",
+				"tier":2,
+				"category":"MirrorringDevice",
+				"linkTo":"MirrorringDevice"
+			}
+		},
 		"OpticalAperture": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Optical Aperture, which is part of this Optical Device.",
+				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"OpticalAperture",
@@ -13325,7 +13324,7 @@
 		"PolarizationOptics": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Polarization Optics, which is part of this Optical Device.",
+				"description":"This refers to an available Polarization Optics, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"PolarizationOptics",
@@ -13335,31 +13334,11 @@
 		"Prism": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to a Prism compoent available for this Instrument and, which is placed in the Light Path for this Image Acquisition.",
+				"description":"This refers to an available Prism, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Prism",
 				"linkTo":"Prism"
-			}
-		},
-		"Filter": {
-			"type":"array",
-			"items": {
-				"description":"This refers to an available Filter, which is part of this Optical Device.",
-				"type":"string",
-				"tier":2,
-				"category":"Filter",
-				"linkTo":"Filter"
-			}
-		},
-		"MirrorringDevice": {
-			"type":"array",
-			"items": {
-				"description":"This refers to an available Mirroring Device, which is part of this Optical Device.",
-				"type":"string",
-				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
 			}
 		},
 		"Description": {
@@ -13464,22 +13443,22 @@
 			],
 			"category":"Dichroic"
 		},
-		"AttenuationCoefficient": {
-			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Dichroic. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
-			"tier":2,
-			"category":"Dichroic"
-		},
 		"AttenuationMethod": {
 			"type":"string",
 			"description":"This field records the mean by which this optical element achieves out-of-band transmission attenuation.",
-			"tier":3,
+			"tier":2,
 			"enum": [
 				"Absorption",
 				"Reflection",
 				"Rifraction",
 				"Other"
 			],
+			"category":"Dichroic"
+		},
+		"AttenuationCoefficient": {
+			"type":"number",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"tier":3,
 			"category":"Dichroic"
 		},
 		"Thickness": {
@@ -13728,7 +13707,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -13917,8 +13896,8 @@
 		"Type",
 		"CoatingMethod",
 		"LightPathLocation",
-		"AttenuationCoefficient",
 		"AttenuationMethod",
+		"AttenuationCoefficient",
 		"ID",
 		"MirrorType",
 		"Manufacturer",
@@ -13971,15 +13950,15 @@
 			"tier":1,
 			"category":"Lens"
 		},
-		"Infinity": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
-			"tier":2,
-			"category":"Lens"
-		},
 		"RefractiveIndex": {
 			"type":"number",
 			"description":"This field records the Refractive Index of the material this Lens is made of, as specified by the Manufacturer. The Refractive Index is the ratio of the speed of light (more precisely, the phase velocity) in a vacuum versus that in a given medium.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"Infinity": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
 			"tier":2,
 			"category":"Lens"
 		},
@@ -13994,6 +13973,54 @@
 			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
 			"tier":2,
 			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field records the physical diameter of this Lens.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
 			"enum": [
 				"Ym",
 				"Zm",
@@ -14075,7 +14102,7 @@
 		},
 		"AttenuationCoefficient": {
 			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Lens. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
 			"tier":3,
 			"category":"Lens"
 		},
@@ -14275,54 +14302,6 @@
 			],
 			"category":"Lens"
 		},
-		"Diameter": {
-			"type":"number",
-			"description":"This field records the physical diameter of this Lens.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"DiameterUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
 		"AbbeNumber": {
 			"type":"number",
 			"description":"This field records the Abbe number of this Lens. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
@@ -14427,7 +14406,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -14467,10 +14446,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"LensNA",
-		"Infinity",
 		"RefractiveIndex",
-		"WorkingDistance",
+		"Diameter",
 		"Type",
 		"Composite",
 		"Geometry",
@@ -14497,12 +14474,12 @@
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"OpticalAssembly":"This is a device that might include one or more Lenses, other Optics and Optics Holders. Optical Devices might be custom built or they might also be available as pre-assembled units. Such devices might be embedded within the Microscope Stand or exist as independent units. Examples include the Condenser and the Microscope Tube.",
 		"Condenser":"Condensers are Lens Systems located above the Light Source and under the sample in an Upright Microscope, and above the stage and below the Light Source in an Inverted Microscope. They act to gather light from the Light Source and concentrate it into a cone of light that illuminates the specimen. They typically include a Turret system and Diaphragms. The aperture and angle of the light cone must be adjusted (via the size of the Diaphragm) for each different Objective.",
-		"Lens":"This refers to an available Lens which is part of this Optical Device.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Device.",
-		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Device.",
-		"Prism":"This empty element refers to a Prism compoent available for this Instrument and which is placed in the Light Path for this Image Acquisition.",
-		"Filter":"This refers to an available Filter which is part of this Optical Device.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Device."
+		"Filter":"This refers to an available Filter which is part of this Optical Assembly.",
+		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
+		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly.",
+		"Prism":"This refers to an available Prism which is part of this Optical Assembly."
 	},
 	"properties": {
 		"Correction": {
@@ -14551,7 +14528,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -14573,20 +14550,40 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"Filter": {
+			"type":"array",
+			"items": {
+				"description":"This refers to an available Filter, which is part of this Optical Assembly.",
+				"type":"string",
+				"tier":2,
+				"category":"Filter",
+				"linkTo":"Filter"
+			}
+		},
 		"Lens": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Lens, which is part of this Optical Device.",
+				"description":"This refers to an available Lens, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Lens",
 				"linkTo":"Lens"
 			}
 		},
+		"MirrorringDevice": {
+			"type":"array",
+			"items": {
+				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
+				"type":"string",
+				"tier":2,
+				"category":"MirrorringDevice",
+				"linkTo":"MirrorringDevice"
+			}
+		},
 		"OpticalAperture": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Optical Aperture, which is part of this Optical Device.",
+				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"OpticalAperture",
@@ -14596,7 +14593,7 @@
 		"PolarizationOptics": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Polarization Optics, which is part of this Optical Device.",
+				"description":"This refers to an available Polarization Optics, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"PolarizationOptics",
@@ -14606,31 +14603,11 @@
 		"Prism": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to a Prism compoent available for this Instrument and, which is placed in the Light Path for this Image Acquisition.",
+				"description":"This refers to an available Prism, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Prism",
 				"linkTo":"Prism"
-			}
-		},
-		"Filter": {
-			"type":"array",
-			"items": {
-				"description":"This refers to an available Filter, which is part of this Optical Device.",
-				"type":"string",
-				"tier":2,
-				"category":"Filter",
-				"linkTo":"Filter"
-			}
-		},
-		"MirrorringDevice": {
-			"type":"array",
-			"items": {
-				"description":"This refers to an available Mirroring Device, which is part of this Optical Device.",
-				"type":"string",
-				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
 			}
 		},
 		"Description": {
@@ -15020,22 +14997,22 @@
 			],
 			"category":"Filter"
 		},
-		"AttenuationCoefficient": {
-			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Filter. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
-			"tier":2,
-			"category":"Filter"
-		},
 		"AttenuationMethod": {
 			"type":"string",
 			"description":"This field records the mean by which this optical element achieves out-of-band transmission attenuation.",
-			"tier":3,
+			"tier":2,
 			"enum": [
 				"Absorption",
 				"Reflection",
 				"Rifraction",
 				"Other"
 			],
+			"category":"Filter"
+		},
+		"AttenuationCoefficient": {
+			"type":"number",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"tier":3,
 			"category":"Filter"
 		},
 		"Diameter": {
@@ -15165,7 +15142,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -15281,8 +15258,8 @@
 		"Type",
 		"CoatingMethod",
 		"LightPathLocation",
-		"AttenuationCoefficient",
 		"AttenuationMethod",
+		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -15460,7 +15437,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -15821,7 +15798,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -16135,7 +16112,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -16333,22 +16310,22 @@
 			],
 			"category":"Dichroic"
 		},
-		"AttenuationCoefficient": {
-			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Dichroic. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
-			"tier":2,
-			"category":"Dichroic"
-		},
 		"AttenuationMethod": {
 			"type":"string",
 			"description":"This field records the mean by which this optical element achieves out-of-band transmission attenuation.",
-			"tier":3,
+			"tier":2,
 			"enum": [
 				"Absorption",
 				"Reflection",
 				"Rifraction",
 				"Other"
 			],
+			"category":"Dichroic"
+		},
+		"AttenuationCoefficient": {
+			"type":"number",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"tier":3,
 			"category":"Dichroic"
 		},
 		"Thickness": {
@@ -16597,7 +16574,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -16786,8 +16763,8 @@
 		"Type",
 		"CoatingMethod",
 		"LightPathLocation",
-		"AttenuationCoefficient",
 		"AttenuationMethod",
+		"AttenuationCoefficient",
 		"ID",
 		"MirrorType",
 		"Manufacturer",
@@ -17036,7 +17013,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -17250,7 +17227,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -17333,15 +17310,15 @@
 			"tier":1,
 			"category":"Lens"
 		},
-		"Infinity": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
-			"tier":2,
-			"category":"Lens"
-		},
 		"RefractiveIndex": {
 			"type":"number",
 			"description":"This field records the Refractive Index of the material this Lens is made of, as specified by the Manufacturer. The Refractive Index is the ratio of the speed of light (more precisely, the phase velocity) in a vacuum versus that in a given medium.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"Infinity": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
 			"tier":2,
 			"category":"Lens"
 		},
@@ -17356,6 +17333,54 @@
 			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
 			"tier":2,
 			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field records the physical diameter of this Lens.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
 			"enum": [
 				"Ym",
 				"Zm",
@@ -17437,7 +17462,7 @@
 		},
 		"AttenuationCoefficient": {
 			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Lens. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
 			"tier":3,
 			"category":"Lens"
 		},
@@ -17637,54 +17662,6 @@
 			],
 			"category":"Lens"
 		},
-		"Diameter": {
-			"type":"number",
-			"description":"This field records the physical diameter of this Lens.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"DiameterUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
 		"AbbeNumber": {
 			"type":"number",
 			"description":"This field records the Abbe number of this Lens. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
@@ -17789,7 +17766,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -17829,10 +17806,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"LensNA",
-		"Infinity",
 		"RefractiveIndex",
-		"WorkingDistance",
+		"Diameter",
 		"Type",
 		"Composite",
 		"Geometry",
@@ -18464,7 +18439,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -18545,6 +18520,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":2,
+						"default":"nm",
 						"enum": [
 							"Ym",
 							"Zm",
@@ -18713,6 +18689,9 @@
 		}
 	},
 	"required": [
+		"Tuneable",
+		"ModulationMechanism",
+		"Pulse",
 		"IsPumped",
 		"IsPump",
 		"RepetitionRate",
@@ -18816,22 +18795,22 @@
 			],
 			"category":"Filter"
 		},
-		"AttenuationCoefficient": {
-			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Filter. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
-			"tier":2,
-			"category":"Filter"
-		},
 		"AttenuationMethod": {
 			"type":"string",
 			"description":"This field records the mean by which this optical element achieves out-of-band transmission attenuation.",
-			"tier":3,
+			"tier":2,
 			"enum": [
 				"Absorption",
 				"Reflection",
 				"Rifraction",
 				"Other"
 			],
+			"category":"Filter"
+		},
+		"AttenuationCoefficient": {
+			"type":"number",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"tier":3,
 			"category":"Filter"
 		},
 		"Diameter": {
@@ -18961,7 +18940,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -19077,8 +19056,8 @@
 		"Type",
 		"CoatingMethod",
 		"LightPathLocation",
-		"AttenuationCoefficient",
 		"AttenuationMethod",
+		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -19144,7 +19123,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -19242,6 +19221,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":2,
+						"default":"nm",
 						"enum": [
 							"Ym",
 							"Zm",
@@ -19463,7 +19443,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -19561,6 +19541,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":2,
+						"default":"nm",
 						"enum": [
 							"Ym",
 							"Zm",
@@ -20252,8 +20233,14 @@
 			"category":"SamplePositioning"
 		},
 		"ZReproducibility": {
-			"type":"string",
+			"type":"number",
 			"description":"This field captures the expected Precision with which this this Sample Positioning Device is capable of maintaining a given Z-axis Position over time during as specified by the Manufacturer. This metric is generally referred to as Reproducibility and it might also be referred to as Focal Drift. This metric is particularly relevant for Stereology systems and for the calibration of Sample Positioning devices.",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"ZReproducibilityUnit": {
+			"type":"string",
+			"description":"NA",
 			"tier":2,
 			"enum": [
 				"Ym",
@@ -20291,12 +20278,6 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"SamplePositioning"
-		},
-		"ZReproducibilityUnit": {
-			"type":"number",
-			"description":"NA",
-			"tier":2,
 			"category":"SamplePositioning"
 		},
 		"ZSettlingTime": {
@@ -20430,7 +20411,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -20471,11 +20452,9 @@
 		"ID",
 		"Encoded",
 		"Motorized",
+		"ZRepetability",
 		"MovementAxes",
 		"BuiltIn",
-		"ZReproducibility",
-		"ZSettlingTime",
-		"ZResolution",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber"
@@ -20824,7 +20803,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -21537,7 +21516,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -21937,22 +21916,22 @@
 			],
 			"category":"Filter"
 		},
-		"AttenuationCoefficient": {
-			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Filter. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
-			"tier":2,
-			"category":"Filter"
-		},
 		"AttenuationMethod": {
 			"type":"string",
 			"description":"This field records the mean by which this optical element achieves out-of-band transmission attenuation.",
-			"tier":3,
+			"tier":2,
 			"enum": [
 				"Absorption",
 				"Reflection",
 				"Rifraction",
 				"Other"
 			],
+			"category":"Filter"
+		},
+		"AttenuationCoefficient": {
+			"type":"number",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"tier":3,
 			"category":"Filter"
 		},
 		"Diameter": {
@@ -22082,7 +22061,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -22198,8 +22177,8 @@
 		"Type",
 		"CoatingMethod",
 		"LightPathLocation",
-		"AttenuationCoefficient",
 		"AttenuationMethod",
+		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -22442,7 +22421,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -22531,15 +22510,15 @@
 			"tier":1,
 			"category":"Lens"
 		},
-		"Infinity": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
-			"tier":2,
-			"category":"Lens"
-		},
 		"RefractiveIndex": {
 			"type":"number",
 			"description":"This field records the Refractive Index of the material this Lens is made of, as specified by the Manufacturer. The Refractive Index is the ratio of the speed of light (more precisely, the phase velocity) in a vacuum versus that in a given medium.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"Infinity": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
 			"tier":2,
 			"category":"Lens"
 		},
@@ -22554,6 +22533,54 @@
 			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
 			"tier":2,
 			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field records the physical diameter of this Lens.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
 			"enum": [
 				"Ym",
 				"Zm",
@@ -22635,7 +22662,7 @@
 		},
 		"AttenuationCoefficient": {
 			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Lens. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
 			"tier":3,
 			"category":"Lens"
 		},
@@ -22835,54 +22862,6 @@
 			],
 			"category":"Lens"
 		},
-		"Diameter": {
-			"type":"number",
-			"description":"This field records the physical diameter of this Lens.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"DiameterUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
 		"AbbeNumber": {
 			"type":"number",
 			"description":"This field records the Abbe number of this Lens. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
@@ -22987,7 +22966,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -23027,10 +23006,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"LensNA",
-		"Infinity",
 		"RefractiveIndex",
-		"WorkingDistance",
+		"Diameter",
 		"Type",
 		"Composite",
 		"Geometry",
@@ -23205,7 +23182,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -23410,7 +23387,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -23553,6 +23530,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":3,
+			"default":"deg",
 			"enum": [
 				"deg",
 				"rad",
@@ -23570,6 +23548,25 @@
 			"type":"string",
 			"description":"NA",
 			"tier":3,
+			"default":"deg",
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			],
+			"category":"Prism"
+		},
+		"PrismAngle": {
+			"type":"number",
+			"description":"This field records the Angle between two surfaces of this Prism.",
+			"tier":3,
+			"category":"Prism"
+		},
+		"PrismAngleUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"deg",
 			"enum": [
 				"deg",
 				"rad",
@@ -23606,23 +23603,6 @@
 				"Pellin–Broca",
 				"Triangular",
 				"Other"
-			],
-			"category":"Prism"
-		},
-		"PrismAngle": {
-			"type":"number",
-			"description":"This field records the Angle between two surfaces of this Prism.",
-			"tier":3,
-			"category":"Prism"
-		},
-		"PrismAngleUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"deg",
-				"rad",
-				"gon"
 			],
 			"category":"Prism"
 		},
@@ -23675,7 +23655,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -23885,10 +23865,6 @@
 		"OilObjective",
 		"RefractiveIndex",
 		"Reflectance",
-		"AngleOfIncidence",
-		"AngleOfIncidenceUnit",
-		"DeviationAngle",
-		"DevianceAngleUnit",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber"
@@ -23956,7 +23932,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -24501,8 +24477,14 @@
 			"category":"SamplePositioning"
 		},
 		"ZReproducibility": {
-			"type":"string",
+			"type":"number",
 			"description":"This field captures the expected Precision with which this this Sample Positioning Device is capable of maintaining a given Z-axis Position over time during as specified by the Manufacturer. This metric is generally referred to as Reproducibility and it might also be referred to as Focal Drift. This metric is particularly relevant for Stereology systems and for the calibration of Sample Positioning devices.",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"ZReproducibilityUnit": {
+			"type":"string",
+			"description":"NA",
 			"tier":2,
 			"enum": [
 				"Ym",
@@ -24540,12 +24522,6 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"SamplePositioning"
-		},
-		"ZReproducibilityUnit": {
-			"type":"number",
-			"description":"NA",
-			"tier":2,
 			"category":"SamplePositioning"
 		},
 		"ZSettlingTime": {
@@ -24679,7 +24655,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -24717,19 +24693,15 @@
 		}
 	},
 	"required": [
+		"XYRepetability",
 		"XTravelRange",
 		"YTravelRange",
-		"XYReproducibility",
-		"XYSettlingTime",
-		"XYResolution",
 		"ID",
 		"Encoded",
 		"Motorized",
+		"ZRepetability",
 		"MovementAxes",
 		"BuiltIn",
-		"ZReproducibility",
-		"ZSettlingTime",
-		"ZResolution",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber"
@@ -24822,7 +24794,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -25323,7 +25295,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -25659,22 +25631,22 @@
 			],
 			"category":"Filter"
 		},
-		"AttenuationCoefficient": {
-			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Filter. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
-			"tier":2,
-			"category":"Filter"
-		},
 		"AttenuationMethod": {
 			"type":"string",
 			"description":"This field records the mean by which this optical element achieves out-of-band transmission attenuation.",
-			"tier":3,
+			"tier":2,
 			"enum": [
 				"Absorption",
 				"Reflection",
 				"Rifraction",
 				"Other"
 			],
+			"category":"Filter"
+		},
+		"AttenuationCoefficient": {
+			"type":"number",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"tier":3,
 			"category":"Filter"
 		},
 		"Diameter": {
@@ -25804,7 +25776,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -25922,8 +25894,8 @@
 		"Type",
 		"CoatingMethod",
 		"LightPathLocation",
-		"AttenuationCoefficient",
 		"AttenuationMethod",
+		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -25984,7 +25956,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -26056,7 +26028,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -26305,7 +26277,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -26438,7 +26410,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -26690,8 +26662,14 @@
 			"category":"SamplePositioning"
 		},
 		"ZReproducibility": {
-			"type":"string",
+			"type":"number",
 			"description":"This field captures the expected Precision with which this this Sample Positioning Device is capable of maintaining a given Z-axis Position over time during as specified by the Manufacturer. This metric is generally referred to as Reproducibility and it might also be referred to as Focal Drift. This metric is particularly relevant for Stereology systems and for the calibration of Sample Positioning devices.",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"ZReproducibilityUnit": {
+			"type":"string",
+			"description":"NA",
 			"tier":2,
 			"enum": [
 				"Ym",
@@ -26729,12 +26707,6 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"SamplePositioning"
-		},
-		"ZReproducibilityUnit": {
-			"type":"number",
-			"description":"NA",
-			"tier":2,
 			"category":"SamplePositioning"
 		},
 		"ZSettlingTime": {
@@ -26868,7 +26840,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -26910,11 +26882,9 @@
 		"ID",
 		"Encoded",
 		"Motorized",
+		"ZRepetability",
 		"MovementAxes",
 		"BuiltIn",
-		"ZReproducibility",
-		"ZSettlingTime",
-		"ZResolution",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber"
@@ -27007,7 +26977,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -27078,7 +27048,8 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"LightSource":"This element describes one or more Light Source(s) available for this Instrument. An Instrument may have several Light Sources of different types (Laser, Light Emitting Diode, Filament, Arc etc.). A typical fluorescence Microscope has two Light Sources, one for Transmitted light and one for Fluorescence light.",
-		"GenericExcitationSource":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible."
+		"GenericExcitationSource":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible.",
+		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits according to the Manufacturer. Multiple of this element may be used."
 	},
 	"properties": {
 		"Name": {
@@ -27108,7 +27079,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -27136,6 +27107,204 @@
 			"description":"This element holds a simple multi-line comment or annotation describing this component.",
 			"tier":1,
 			"category":"General"
+		},
+		"IlluminationWavelengthRange": {
+			"type":"array",
+			"description":"This element records a range of Wavelengths at which this Light Source emits, according to the Manufacturer. Multiple of this element may be used.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"IlluminationPower": {
+						"type":"number",
+						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"tier":1,
+						"category":"IlluminationWavelengthRange"
+					},
+					"IlluminationPowerUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"default":"W",
+						"enum": [
+							"YW",
+							"ZW",
+							"EW",
+							"PW",
+							"TW",
+							"GW",
+							"MW",
+							"kW",
+							"hW",
+							"daW",
+							"W",
+							"dW",
+							"cW",
+							"mW",
+							"µW",
+							"nW",
+							"pW",
+							"fW",
+							"aW",
+							"zW",
+							"yW"
+						],
+						"category":"IlluminationWavelengthRange"
+					},
+					"PeakWavelength": {
+						"type":"number",
+						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"tier":2,
+						"category":"IlluminationWavelengthRange"
+					},
+					"PeakWavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOn": {
+						"type":"number",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"tier":2,
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOnUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOff": {
+						"type":"number",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"tier":2,
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOffUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"IlluminationWavelengthRange"
+					}
+				},
+				"required": [
+					"IlluminationPower",
+					"PeakWavelength",
+					"CutOn",
+					"CutOff"
+				]
+			}
 		},
 		"Tier": {
 			"type":"integer",
@@ -27168,7 +27337,8 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"LightSource":"This element describes one or more Light Source(s) available for this Instrument. An Instrument may have several Light Sources of different types (Laser, Light Emitting Diode, Filament, Arc etc.). A typical fluorescence Microscope has two Light Sources, one for Transmitted light and one for Fluorescence light.",
-		"GenericExcitationSource":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible."
+		"GenericExcitationSource":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible.",
+		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits according to the Manufacturer. Multiple of this element may be used."
 	},
 	"properties": {
 		"Name": {
@@ -27198,7 +27368,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -27226,6 +27396,204 @@
 			"description":"This element holds a simple multi-line comment or annotation describing this component.",
 			"tier":1,
 			"category":"General"
+		},
+		"IlluminationWavelengthRange": {
+			"type":"array",
+			"description":"This element records a range of Wavelengths at which this Light Source emits, according to the Manufacturer. Multiple of this element may be used.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"IlluminationPower": {
+						"type":"number",
+						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"tier":1,
+						"category":"IlluminationWavelengthRange"
+					},
+					"IlluminationPowerUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"default":"W",
+						"enum": [
+							"YW",
+							"ZW",
+							"EW",
+							"PW",
+							"TW",
+							"GW",
+							"MW",
+							"kW",
+							"hW",
+							"daW",
+							"W",
+							"dW",
+							"cW",
+							"mW",
+							"µW",
+							"nW",
+							"pW",
+							"fW",
+							"aW",
+							"zW",
+							"yW"
+						],
+						"category":"IlluminationWavelengthRange"
+					},
+					"PeakWavelength": {
+						"type":"number",
+						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"tier":2,
+						"category":"IlluminationWavelengthRange"
+					},
+					"PeakWavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOn": {
+						"type":"number",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"tier":2,
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOnUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOff": {
+						"type":"number",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"tier":2,
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOffUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"IlluminationWavelengthRange"
+					}
+				},
+				"required": [
+					"IlluminationPower",
+					"PeakWavelength",
+					"CutOn",
+					"CutOff"
+				]
+			}
 		},
 		"Tier": {
 			"type":"integer",
@@ -27256,7 +27624,6 @@
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"SoftwareModule":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for any Image Acquisition, Image Analysis or Quality Control task."
 	},
 	"properties": {
@@ -27279,9 +27646,9 @@
 			"tier":1,
 			"category":"SoftwareModule"
 		},
-		"Author": {
+		"Developer": {
 			"type":"string",
-			"description":"This field records the developer of this Software. This could be the Manufacturer if this is a commercial proprietary sofware or the Author(s) if this is an open-source software.",
+			"description":"This field records the Developer(s) of this Software. In case this is a non-commercial, open-source Software, this refers to the name of the individual or consortium who developed the Software. In the case of a commercial Software, this might refer to the Commercial entity but it can also be used to refer to the individual developer, if knonw.",
 			"tier":1,
 			"category":"SoftwareModule"
 		},
@@ -27333,30 +27700,6 @@
 			"tier":3,
 			"category":"SoftwareModule"
 		},
-		"Manufacturer": {
-			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
-			"tier":1,
-			"category":"ManufacturerSpec"
-		},
-		"Model": {
-			"type":"string",
-			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
-			"tier":1,
-			"category":"ManufacturerSpec"
-		},
-		"CatalogNumber": {
-			"type":"string",
-			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
-			"tier":1,
-			"category":"ManufacturerSpec"
-		},
-		"LotNumber": {
-			"type":"string",
-			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
-			"tier":3,
-			"category":"ManufacturerSpec"
-		},
 		"SoftwareModule": {
 			"type":"array",
 			"items": {
@@ -27386,11 +27729,8 @@
 		"ID",
 		"Name",
 		"Version",
-		"Author",
-		"WebsiteURL",
-		"Manufacturer",
-		"Model",
-		"CatalogNumber"
+		"Developer",
+		"WebsiteURL"
 	]
 },
 {
@@ -27437,15 +27777,15 @@
 			"tier":1,
 			"category":"Lens"
 		},
-		"Infinity": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
-			"tier":2,
-			"category":"Lens"
-		},
 		"RefractiveIndex": {
 			"type":"number",
 			"description":"This field records the Refractive Index of the material this Lens is made of, as specified by the Manufacturer. The Refractive Index is the ratio of the speed of light (more precisely, the phase velocity) in a vacuum versus that in a given medium.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"Infinity": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
 			"tier":2,
 			"category":"Lens"
 		},
@@ -27460,6 +27800,54 @@
 			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
 			"tier":2,
 			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field records the physical diameter of this Lens.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
 			"enum": [
 				"Ym",
 				"Zm",
@@ -27541,7 +27929,7 @@
 		},
 		"AttenuationCoefficient": {
 			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Lens. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
 			"tier":3,
 			"category":"Lens"
 		},
@@ -27741,54 +28129,6 @@
 			],
 			"category":"Lens"
 		},
-		"Diameter": {
-			"type":"number",
-			"description":"This field records the physical diameter of this Lens.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"DiameterUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
 		"AbbeNumber": {
 			"type":"number",
 			"description":"This field records the Abbe number of this Lens. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
@@ -27893,7 +28233,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -27933,10 +28273,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"LensNA",
-		"Infinity",
 		"RefractiveIndex",
-		"WorkingDistance",
+		"Diameter",
 		"Type",
 		"Composite",
 		"Geometry",
@@ -28033,7 +28371,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -28175,7 +28513,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -28292,7 +28630,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -28355,8 +28693,8 @@
 		"ExcitationFilter":"This field refers to an available Excitation Filter which is part of this Filter Cube.",
 		"StandardDichroic":"This field refers to an available Dichroic Mirror which is part of this Filter Cube.",
 		"EmissionFilter":"This field refers to an available Emission Filter which is part of this Filter Cube.",
-		"AdditionalFilter":"This empty element refers to an additional Generic Filter component placed in this Light Path.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Device.",
+		"GenericFilter":"This empty element refers to any additional Generic Filter component placed in this Light Path.",
+		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
 		"OpticalAssembly":"This empty element refers to an Optical Assembly component placed in this Light Path.",
 		"PolarizationOptics":"This empty element refers to a PolarizationOptics component placed in this light path."
 	},
@@ -28414,20 +28752,20 @@
 				"linkTo":"EmissionFilter"
 			}
 		},
-		"AdditionalFilter": {
+		"GenericFilter": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to an additional Generic Filter component placed in this Light Path.",
+				"description":"This empty element refers to any additional Generic Filter component placed in this Light Path.",
 				"type":"string",
 				"tier":2,
-				"category":"AdditionalFilter",
-				"linkTo":"AdditionalFilter"
+				"category":"GenericFilter",
+				"linkTo":"GenericFilter"
 			}
 		},
 		"OpticalAperture": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Optical Aperture, which is part of this Optical Device.",
+				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"OpticalAperture",

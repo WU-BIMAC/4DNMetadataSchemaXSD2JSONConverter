@@ -171,35 +171,6 @@
 			"tier":2,
 			"category":"Objective"
 		},
-		"DippingMedium": {
-			"type":"string",
-			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
-			"tier":2,
-			"enum": [
-				"Water-based",
-				"Organic-based",
-				"Other"
-			],
-			"category":"Objective"
-		},
-		"CorrectionCollar": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
-			"tier":2,
-			"category":"Objective"
-		},
-		"CorrectionCollarType": {
-			"type":"string",
-			"description":"This field records the type of Correction Collar with which this Objective is fitted.",
-			"tier":2,
-			"enum": [
-				"Coverglass Thickness",
-				"Immersion Liquid",
-				"Numerical Aperture",
-				"Temperature"
-			],
-			"category":"Objective"
-		},
 		"WorkingDistanceUnit": {
 			"type":"string",
 			"description":"NA",
@@ -240,6 +211,35 @@
 				"pt",
 				"Pixel",
 				"reference frame"
+			],
+			"category":"Objective"
+		},
+		"DippingMedium": {
+			"type":"string",
+			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
+			"tier":2,
+			"enum": [
+				"Water-based",
+				"Organic-based",
+				"Other"
+			],
+			"category":"Objective"
+		},
+		"CorrectionCollar": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
+			"tier":2,
+			"category":"Objective"
+		},
+		"CorrectionCollarType": {
+			"type":"string",
+			"description":"This field records the type of Correction Collar with which this Objective is fitted.",
+			"tier":2,
+			"enum": [
+				"Coverglass Thickness",
+				"Immersion Liquid",
+				"Numerical Aperture",
+				"Temperature"
 			],
 			"category":"Objective"
 		},
@@ -496,7 +496,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -539,7 +539,6 @@
 		"Correction",
 		"LensNA",
 		"Magnification",
-		"LightType",
 		"DIC",
 		"ContrastModulation",
 		"InfinityCorrected",

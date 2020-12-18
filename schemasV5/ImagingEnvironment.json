@@ -88,7 +88,7 @@
 		},
 		"CO2Percent": {
 			"type":"number",
-			"description":"This field records the Carbon Dioxide concentration around the sample [units:none] during the Acquisition of this Image. Expressed as a percentage fraction as a value from 0.0 to 1.0.",
+			"description":"This field records the Carbon Dioxide concentration (expressed as a % value) around the sample during Acquisition.",
 			"tier":1,
 			"category":"ImagingEnvironment"
 		},
