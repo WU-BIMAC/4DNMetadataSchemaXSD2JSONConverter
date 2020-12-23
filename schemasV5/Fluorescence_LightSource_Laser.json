@@ -476,21 +476,11 @@
 			}
 		},
 		"Pump": {
-			"type":"object",
+			"type":"string",
 			"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
 			"tier":3,
-			"properties": {
-				"ID": {
-					"type":"string",
-					"description":"A Unique Identifier for this component.",
-					"tier":1,
-					"category":"Pump",
-					"readonly":true
-				}
-			},
-			"required": [
-				"ID"
-			]
+			"category":"Pump",
+			"linkTo":"Fluorescence_LightSource_Laser"
 		},
 		"Tier": {
 			"type":"integer",

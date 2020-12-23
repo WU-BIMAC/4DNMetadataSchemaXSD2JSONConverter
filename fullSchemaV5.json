@@ -2170,16 +2170,26 @@
 			"tier":1,
 			"category":"Sample"
 		},
+		"SampleType": {
+			"type":"string",
+			"description":"If of Biological Origin, this field records a term that describes the general category of this Sample.",
+			"tier":1,
+			"enum": [
+				"WholeOrganism",
+				"Organism part",
+				"Organ",
+				"Tissue",
+				"Cell",
+				"Sub-Cellular structure",
+				"Organoid",
+				" Other"
+			],
+			"category":"Sample"
+		},
 		"LiveSample": {
 			"type":"boolean",
 			"description":"This field captures whether (True) or not (False) this Sample was living during Image Acquisition.",
 			"tier":1,
-			"category":"Sample"
-		},
-		"MetrologySample": {
-			"type":"boolean",
-			"description":"This field captures whether (True) or not (False) this is a Metrology Sample (i.e., a Sample that is used specifcially to calibrate and assess the performance of the Instrument utilized for this experimental Image Acquisition.",
-			"tier":2,
 			"category":"Sample"
 		},
 		"Organism": {
@@ -2192,22 +2202,6 @@
 			"type":"string",
 			"description":"This field records the Accession ID for the term used to describe the Organism. The use of the NCBITaxon ontology (http://purl.obolibrary.org/obo/NCBITaxon_1) is recommended.",
 			"tier":1,
-			"category":"Sample"
-		},
-		"SampleType": {
-			"type":"string",
-			"description":"This field records a term that describes the general category of this Sample.",
-			"tier":1,
-			"enum": [
-				"WholeOrganism",
-				"Organism part",
-				"Organ",
-				"Tissue",
-				"Cell",
-				"Sub-Cellular structure",
-				"Organoid",
-				" Other"
-			],
 			"category":"Sample"
 		},
 		"OrganismPart": {
@@ -2232,6 +2226,12 @@
 			"type":"string",
 			"description":"This field records the the Accession ID for the term used to describe method that was used to prepare this sample. A subclass of the Fbbi:00000001 (http://purl.obolibrary.org/obo/FBbi_00000001) term from the Biological Imaging Methods Ontology (FBbi; https://www.ebi.ac.uk/ols/ontologies/fbbi) is recommended.",
 			"tier":1,
+			"category":"Sample"
+		},
+		"MetrologySample": {
+			"type":"boolean",
+			"description":"This field captures whether (True) or not (False) this is a Metrology Sample (i.e., a Sample that is used specifcially to calibrate and assess the performance of the Instrument utilized for this experimental Image Acquisition.",
+			"tier":2,
 			"category":"Sample"
 		},
 		"FacingTheObjective": {
@@ -2264,9 +2264,10 @@
 		"ID",
 		"Name",
 		"BiologicalOrigin",
+		"SampleType",
 		"LiveSample",
-		"MetrologySample",
 		"Organism",
+		"MetrologySample",
 		"Tier"
 	]
 },
@@ -2923,20 +2924,16 @@
 			"category":"General",
 			"readonly":true
 		},
-		"ImmersionType": {
-			"type":"string",
-			"description":"According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water or glycerol) specified as suitable for use in the space between the front of an immersion lens and the object NOTE Because the immersion liquid is considered in the computing of corrections to be part of the lens, its refractive index and dispersion (or Abbe number) are critical. Please refer to ISO 8036-1 for more details on Immersion Oil. This field describes the general category of the Immersion Liquid this Objective is designed for, according to the Manufacturer. If the general category is not Air, the actual Immersion Liquid that was used during the Acquisition of a specific Image must be specified in Objective Settings.",
+		"LensNA": {
+			"type":"number",
+			"description":"This field captures the nominal Numerical Aperture (NA) of this Objective as specified by the Manufactuer, expressed as a floating-point (real) number (e.g. 1.27 NA). NA is a number that was defined initially by Abbe to characterize Objectives and Condensers. NA can be calculated by the expression n sin alpha, where n is the Refractive Index of the medium between the Lens and the Sample, and alpha is half the Angular Aperture of the Lens. NA is a measure of how much of the illumination that leaves the specimen actually passes through the Lens. The larger the NA, the more information the lens can transmit. Expected range 0.02 - 1.5.",
 			"tier":1,
-			"enum": [
-				"Air",
-				"Dipping",
-				"Glycerol",
-				"Multi",
-				"Mineral Oil",
-				"Silicone Oil",
-				"Water",
-				"Other"
-			],
+			"category":"Objective"
+		},
+		"Magnification": {
+			"type":"number",
+			"description":"This field captures the Magnification of the Objective as specified by the Manufacturer - i.e., 60 represents a 60X lens.",
+			"tier":1,
 			"category":"Objective"
 		},
 		"Correction": {
@@ -2969,35 +2966,6 @@
 			],
 			"category":"Objective"
 		},
-		"LensNA": {
-			"type":"number",
-			"description":"This field captures the nominal Numerical Aperture (NA) of this Objective as specified by the Manufactuer, expressed as a floating-point (real) number (e.g. 1.27 NA). NA is a number that was defined initially by Abbe to characterize Objectives and Condensers. NA can be calculated by the expression n sin alpha, where n is the Refractive Index of the medium between the Lens and the Sample, and alpha is half the Angular Aperture of the Lens. NA is a measure of how much of the illumination that leaves the specimen actually passes through the Lens. The larger the NA, the more information the lens can transmit. Expected range 0.02 - 1.5.",
-			"tier":1,
-			"category":"Objective"
-		},
-		"Magnification": {
-			"type":"number",
-			"description":"This field captures the Magnification of the Objective as specified by the Manufacturer - i.e., 60 represents a 60X lens.",
-			"tier":1,
-			"category":"Objective"
-		},
-		"LightType": {
-			"type":"string",
-			"description":"This field specifies whether this Objective is designed for a special Light application (e.g., IR or UV).",
-			"tier":1,
-			"enum": [
-				"Infrared",
-				"Ultraviolet",
-				"Visible"
-			],
-			"category":"Objective"
-		},
-		"DIC": {
-			"type":"boolean",
-			"description":"This field specifies whether (True) the Objective is designed for Differential Interference Contrast (DIC) or not (False). DIC is a contrast modality due to double-beam interference in which two waves that fall on the object Plane or Image Plane are separated laterally by a distance similar to the minimum resolvable distance.",
-			"tier":1,
-			"category":"Objective"
-		},
 		"ContrastModulation": {
 			"type":"string",
 			"description":"This field specifies the presence in this Objective of a contrast modulation device, such as a Phase Ring (Ph1, Ph2, Ph3), a Hoffman modulator, a Varel modulator, or similar.",
@@ -3013,44 +2981,44 @@
 			],
 			"category":"Objective"
 		},
+		"DIC": {
+			"type":"boolean",
+			"description":"This field specifies whether (True) the Objective is designed for Differential Interference Contrast (DIC) or not (False). DIC is a contrast modality due to double-beam interference in which two waves that fall on the object Plane or Image Plane are separated laterally by a distance similar to the minimum resolvable distance.",
+			"tier":1,
+			"category":"Objective"
+		},
+		"LightType": {
+			"type":"string",
+			"description":"This field specifies whether this Objective is designed for a special Light application (e.g., IR or UV).",
+			"tier":1,
+			"default":"Visible",
+			"enum": [
+				"Infrared",
+				"Ultraviolet",
+				"Visible"
+			],
+			"category":"Objective"
+		},
+		"ImmersionType": {
+			"type":"string",
+			"description":"According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water or glycerol) specified as suitable for use in the space between the front of an immersion lens and the object NOTE Because the immersion liquid is considered in the computing of corrections to be part of the lens, its refractive index and dispersion (or Abbe number) are critical. Please refer to ISO 8036-1 for more details on Immersion Oil. This field describes the general category of the Immersion Liquid this Objective is designed for, according to the Manufacturer. If the general category is not Air, the actual Immersion Liquid that was used during the Acquisition of a specific Image must be specified in Objective Settings.",
+			"tier":1,
+			"enum": [
+				"Air",
+				"Dipping",
+				"Glycerol",
+				"Multi",
+				"Mineral Oil",
+				"Silicone Oil",
+				"Water",
+				"Other"
+			],
+			"category":"Objective"
+		},
 		"InfinityCorrected": {
 			"type":"boolean",
 			"description":"This field records whether (True) or not (False) this Objective is infinity corrected. An Infinity-corrected Objective is corrected for an infinite sample to primary image distance and needs to be used with a Tube Lens of appropriate focal length to obtains its nominal magnification.",
 			"tier":1,
-			"category":"Objective"
-		},
-		"PhaseContrastDesignation": {
-			"type":"string",
-			"description":"If the Objective is designed for Phase, this field specifies the Phase Contrast type designation (see: https://www.microscopyu.com/techniques/phase-contrast/phase-contrast-Microscope-configuration).",
-			"tier":2,
-			"enum": [
-				"Phase",
-				"PHACO",
-				"PC",
-				"PhL",
-				"Ph1",
-				"Ph2",
-				"Ph3",
-				"Ph4",
-				"DL",
-				"DLL",
-				"DM",
-				"ADL",
-				"PL",
-				"PLL",
-				"PM",
-				"PH",
-				"NL",
-				"NM",
-				"BM",
-				"NH"
-			],
-			"category":"Objective"
-		},
-		"CalibratedMagnification": {
-			"type":"number",
-			"description":"This field captures the Magnification of the Objective as measured via a calibration process- i.e., '59.987' for a 60x lens.",
-			"tier":2,
 			"category":"Objective"
 		},
 		"Iris": {
@@ -3108,17 +3076,6 @@
 			],
 			"category":"Objective"
 		},
-		"DippingMedium": {
-			"type":"string",
-			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
-			"tier":2,
-			"enum": [
-				"Water-based",
-				"Organic-based",
-				"Other"
-			],
-			"category":"Objective"
-		},
 		"CorrectionCollar": {
 			"type":"boolean",
 			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
@@ -3137,9 +3094,60 @@
 			],
 			"category":"Objective"
 		},
+		"PhaseContrastDesignation": {
+			"type":"string",
+			"description":"If the Objective is designed for Phase, this field specifies the Phase Contrast type designation (see: https://www.microscopyu.com/techniques/phase-contrast/phase-contrast-Microscope-configuration).",
+			"tier":2,
+			"enum": [
+				"Phase",
+				"PHACO",
+				"PC",
+				"PhL",
+				"Ph1",
+				"Ph2",
+				"Ph3",
+				"Ph4",
+				"DL",
+				"DLL",
+				"DM",
+				"ADL",
+				"PL",
+				"PLL",
+				"PM",
+				"PH",
+				"NL",
+				"NM",
+				"BM",
+				"NH"
+			],
+			"category":"Objective"
+		},
+		"DippingMedium": {
+			"type":"string",
+			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
+			"tier":2,
+			"enum": [
+				"Water-based",
+				"Organic-based",
+				"Other"
+			],
+			"category":"Objective"
+		},
+		"CalibratedMagnification": {
+			"type":"number",
+			"description":"This field captures the Magnification of the Objective as measured via a calibration process- i.e., '59.987' for a 60x lens.",
+			"tier":2,
+			"category":"Objective"
+		},
 		"ImageDistance": {
 			"type":"number",
 			"description":"This field records the distance in air between the rear principal Plane of this Objective and the primary Image Plane.",
+			"tier":3,
+			"category":"Objective"
+		},
+		"ObjectiveViewField": {
+			"type":"number",
+			"description":"This field records the maximal diameter of the view field allowed by this Objective, expressed in mm, and measured at the intermediate Image Plane. NB: The field of view is influenced by the magnification and diameter of the ocular (eyepiece) field diaphragm, but also by the limits imposed by the design of the Objective.",
 			"tier":3,
 			"category":"Objective"
 		},
@@ -3382,12 +3390,6 @@
 			],
 			"category":"Objective"
 		},
-		"ObjectiveViewField": {
-			"type":"number",
-			"description":"This field records the maximal diameter of the view field allowed by this Objective, expressed in mm, and measured at the intermediate Image Plane. NB: The field of view is influenced by the magnification and diameter of the ocular (eyepiece) field diaphragm, but also by the limits imposed by the design of the Objective.",
-			"tier":3,
-			"category":"Objective"
-		},
 		"Manufacturer": {
 			"type":"string",
 			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
@@ -3429,12 +3431,12 @@
 	},
 	"required": [
 		"ID",
-		"ImmersionType",
-		"Correction",
 		"LensNA",
 		"Magnification",
-		"DIC",
+		"Correction",
 		"ContrastModulation",
+		"DIC",
+		"ImmersionType",
 		"InfinityCorrected",
 		"Iris",
 		"WorkingDistance",
@@ -11661,7 +11663,7 @@
 				"type":"string",
 				"tier":2,
 				"category":"Laser",
-				"linkTo":"Laser"
+				"linkTo":"Fluorescence_LightSource_Laser"
 			}
 		},
 		"Tier": {
@@ -11694,9 +11696,17 @@
 	"image":"SampleConditions_ImagingEnvironment.svg",
 	"tier":1,
 	"subCategoriesOrder": {
+		"General":"General information about the element",
 		"ImagingEnvironment":"This element describes the environment in which the biological sample was maintained during the Acquisition of this Image."
 	},
 	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the Environmental Control Device used in this case.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
 		"Temperature": {
 			"type":"number",
 			"description":"The field records the Temperature the Acquisition of this Image was performed at.",
@@ -18734,21 +18744,11 @@
 			}
 		},
 		"Pump": {
-			"type":"object",
+			"type":"string",
 			"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
 			"tier":3,
-			"properties": {
-				"ID": {
-					"type":"string",
-					"description":"A Unique Identifier for this component.",
-					"tier":1,
-					"category":"Pump",
-					"readonly":true
-				}
-			},
-			"required": [
-				"ID"
-			]
+			"category":"Pump",
+			"linkTo":"Fluorescence_LightSource_Laser"
 		},
 		"Tier": {
 			"type":"integer",

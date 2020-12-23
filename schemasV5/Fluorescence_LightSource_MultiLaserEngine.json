@@ -138,7 +138,7 @@
 				"type":"string",
 				"tier":2,
 				"category":"Laser",
-				"linkTo":"Laser"
+				"linkTo":"Fluorescence_LightSource_Laser"
 			}
 		},
 		"Tier": {
