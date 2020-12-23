@@ -480,14 +480,17 @@
 			"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
 			"tier":3,
 			"properties": {
-				"Laser": {
+				"ID": {
 					"type":"string",
-					"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
-					"tier":3,
+					"description":"A Unique Identifier for this component.",
+					"tier":1,
 					"category":"Pump",
-					"linkTo":"Laser"
+					"readonly":true
 				}
-			}
+			},
+			"required": [
+				"ID"
+			]
 		},
 		"Tier": {
 			"type":"integer",
@@ -511,6 +514,6 @@
 		"Model",
 		"CatalogNumber",
 		"IlluminationWavelengthRange",
-		"Laser"
+		"Tier"
 	]
 }

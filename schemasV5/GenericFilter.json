@@ -354,6 +354,7 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"TransmittanceRange"
+		"TransmittanceRange",
+		"Tier"
 	]
 }

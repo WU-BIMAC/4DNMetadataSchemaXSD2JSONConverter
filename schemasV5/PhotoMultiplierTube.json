@@ -564,6 +564,7 @@
 		"DarkCurrentRate",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

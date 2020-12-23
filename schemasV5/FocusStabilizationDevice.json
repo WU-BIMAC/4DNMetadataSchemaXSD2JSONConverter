@@ -102,6 +102,7 @@
 		"Mechanism",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

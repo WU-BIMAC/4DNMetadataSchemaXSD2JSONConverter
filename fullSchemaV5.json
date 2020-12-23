@@ -35,7 +35,8 @@
 	},
 	"required": [
 		"ID",
-		"Name"
+		"Name",
+		"Tier"
 	]
 },
 {
@@ -182,7 +183,8 @@
 		"IntrumentName",
 		"IntrumentName",
 		"Sample",
-		"AcquisitionSoftware"
+		"AcquisitionSoftware",
+		"Tier"
 	]
 },
 {
@@ -393,7 +395,8 @@
 		"FrameRate",
 		"ID",
 		"AnalogGain",
-		"AmplificationGain"
+		"AmplificationGain",
+		"Tier"
 	]
 },
 {
@@ -534,7 +537,8 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -798,6 +802,8 @@
 			"tier":1,
 			"enum": [
 				"Compound",
+				"Custom made",
+				"Dissection",
 				"Electrophysiology",
 				"Light sheet",
 				"Stereomicroscope",
@@ -863,9 +869,11 @@
 	},
 	"required": [
 		"ID",
+		"Type",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -908,7 +916,8 @@
 	},
 	"required": [
 		"ID",
-		"Floating"
+		"Floating",
+		"Tier"
 	]
 },
 {
@@ -1548,7 +1557,8 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -1849,7 +1859,9 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier",
+		"Tier"
 	]
 },
 {
@@ -1993,7 +2005,8 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -2117,7 +2130,8 @@
 		"Name",
 		"Version",
 		"Developer",
-		"WebsiteURL"
+		"WebsiteURL",
+		"Tier"
 	]
 },
 {
@@ -2252,7 +2266,8 @@
 		"BiologicalOrigin",
 		"LiveSample",
 		"MetrologySample",
-		"Organism"
+		"Organism",
+		"Tier"
 	]
 },
 {
@@ -2474,7 +2489,8 @@
 		"MinTemberature",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -2702,7 +2718,8 @@
 		"EmissionWavelength",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -3424,7 +3441,8 @@
 		"CorrectionCollar",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -3569,7 +3587,8 @@
 		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -4100,7 +4119,8 @@
 		"DarkCurrentRate",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -4204,7 +4224,8 @@
 		"TemperatureControlled",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -4338,7 +4359,8 @@
 		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -4937,7 +4959,8 @@
 		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -5282,7 +5305,8 @@
 		"DIC",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -5968,7 +5992,8 @@
 		"DarkCurrentRate",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -6385,7 +6410,8 @@
 		"BuiltIn",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -6936,7 +6962,8 @@
 		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -7091,7 +7118,8 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -7485,7 +7513,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"WavelengthRange"
+		"WavelengthRange",
+		"Tier"
 	]
 },
 {
@@ -8036,7 +8065,8 @@
 		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -8195,7 +8225,8 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -8477,7 +8508,8 @@
 		}
 	},
 	"required": [
-		"ID"
+		"ID",
+		"Tier"
 	]
 },
 {
@@ -9207,7 +9239,8 @@
 		"BuiltIn",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -9403,7 +9436,8 @@
 		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -9718,7 +9752,8 @@
 		"PhysicalSizeY",
 		"PhysicalSizeZ",
 		"TimeIncrement",
-		"PixelType"
+		"PixelType",
+		"Tier"
 	]
 },
 {
@@ -9859,7 +9894,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"FilterCube"
+		"FilterCube",
+		"Tier"
 	]
 },
 {
@@ -10054,7 +10090,8 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -10399,7 +10436,8 @@
 		"TheC",
 		"Timestamp",
 		"ExposureTime",
-		"PixelDwellTime"
+		"PixelDwellTime",
+		"Tier"
 	]
 },
 {
@@ -10785,7 +10823,8 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -10934,7 +10973,8 @@
 		"ID",
 		"Wavelength",
 		"IlluminationIntensity",
-		"IntensityReportingPosition"
+		"IntensityReportingPosition",
+		"Tier"
 	]
 },
 {
@@ -11477,7 +11517,8 @@
 		"DarkCurrentRate",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -11636,7 +11677,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"Laser"
+		"Laser",
+		"Tier"
 	]
 },
 {
@@ -11750,7 +11792,8 @@
 	"required": [
 		"Temperature",
 		"Humidity",
-		"CO2Percent"
+		"CO2Percent",
+		"Tier"
 	]
 },
 {
@@ -11835,7 +11878,8 @@
 		"RefractiveIndex",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -12551,7 +12595,8 @@
 		"DarkCurrentRate",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -13102,7 +13147,8 @@
 		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -13361,7 +13407,8 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -13903,7 +13950,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"TransmittanceRange"
+		"TransmittanceRange",
+		"Tier"
 	]
 },
 {
@@ -14454,7 +14502,8 @@
 		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -14630,7 +14679,8 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -14733,7 +14783,8 @@
 	},
 	"required": [
 		"ID",
-		"OpenDuringZMovement"
+		"OpenDuringZMovement",
+		"Tier"
 	]
 },
 {
@@ -14876,7 +14927,8 @@
 		"Name",
 		"ImagingMethod",
 		"IlluminationType",
-		"ContrastMethod"
+		"ContrastMethod",
+		"Tier"
 	]
 },
 {
@@ -14895,16 +14947,16 @@
 		"Pump":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it."
 	},
 	"properties": {
-		"Laser": {
+		"ID": {
 			"type":"string",
-			"description":"This empty element refers to an existing Laser component.",
-			"tier":2,
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
 			"category":"Pump",
-			"linkTo":"Laser"
+			"readonly":true
 		}
 	},
 	"required": [
-		"Laser"
+		"ID"
 	]
 },
 {
@@ -15263,7 +15315,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"TransmittanceRange"
+		"TransmittanceRange",
+		"Tier"
 	]
 },
 {
@@ -15657,7 +15710,8 @@
 		"DarkCurrentRate",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -15840,7 +15894,8 @@
 		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -15909,7 +15964,8 @@
 	"required": [
 		"ID",
 		"AnalogGain",
-		"AmplificationGain"
+		"AmplificationGain",
+		"Tier"
 	]
 },
 {
@@ -16155,7 +16211,8 @@
 		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -16228,7 +16285,8 @@
 		}
 	},
 	"required": [
-		"ID"
+		"ID",
+		"Tier"
 	]
 },
 {
@@ -16770,7 +16828,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"TransmittanceRange"
+		"TransmittanceRange",
+		"Tier"
 	]
 },
 {
@@ -17057,7 +17116,8 @@
 		"MirrorType",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -17171,7 +17231,8 @@
 		}
 	},
 	"required": [
-		"Objective"
+		"Objective",
+		"Tier"
 	]
 },
 {
@@ -17263,7 +17324,8 @@
 		"RefractiveIndex",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -17814,7 +17876,8 @@
 		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -17954,7 +18017,8 @@
 		"ID",
 		"Purpose",
 		"LabellingMethod",
-		"Experimenter"
+		"Experimenter",
+		"Tier"
 	]
 },
 {
@@ -18187,7 +18251,10 @@
 			"category":"General",
 			"readonly":true
 		}
-	}
+	},
+	"required": [
+		"Tier"
+	]
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
@@ -18671,14 +18738,17 @@
 			"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
 			"tier":3,
 			"properties": {
-				"Laser": {
+				"ID": {
 					"type":"string",
-					"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
-					"tier":3,
+					"description":"A Unique Identifier for this component.",
+					"tier":1,
 					"category":"Pump",
-					"linkTo":"Laser"
+					"readonly":true
 				}
-			}
+			},
+			"required": [
+				"ID"
+			]
 		},
 		"Tier": {
 			"type":"integer",
@@ -18702,7 +18772,7 @@
 		"Model",
 		"CatalogNumber",
 		"IlluminationWavelengthRange",
-		"Laser"
+		"Tier"
 	]
 },
 {
@@ -19061,7 +19131,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"TransmittanceRange"
+		"TransmittanceRange",
+		"Tier"
 	]
 },
 {
@@ -19381,7 +19452,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"LEDModule"
+		"LEDModule",
+		"Tier"
 	]
 },
 {
@@ -19701,7 +19773,9 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"LEDModule"
+		"LEDModule",
+		"Tier",
+		"Tier"
 	]
 },
 {
@@ -19871,7 +19945,8 @@
 		}
 	},
 	"required": [
-		"ID"
+		"ID",
+		"Tier"
 	]
 },
 {
@@ -19913,7 +19988,8 @@
 		}
 	},
 	"required": [
-		"ID"
+		"ID",
+		"Tier"
 	]
 },
 {
@@ -19956,7 +20032,8 @@
 	},
 	"required": [
 		"ID",
-		"Function"
+		"Function",
+		"Tier"
 	]
 },
 {
@@ -20457,7 +20534,8 @@
 		"BuiltIn",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -21026,7 +21104,8 @@
 		"DarkCurrentRate",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -21744,7 +21823,8 @@
 		"DarkCurrentRate",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -21823,7 +21903,8 @@
 		}
 	},
 	"required": [
-		"ID"
+		"ID",
+		"Tier"
 	]
 },
 {
@@ -22182,7 +22263,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"TransmittanceRange"
+		"TransmittanceRange",
+		"Tier"
 	]
 },
 {
@@ -22463,7 +22545,8 @@
 		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -23014,7 +23097,8 @@
 		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -23126,7 +23210,8 @@
 		"Voltage",
 		"ID",
 		"AnalogGain",
-		"AmplificationGain"
+		"AmplificationGain",
+		"Tier"
 	]
 },
 {
@@ -23233,7 +23318,8 @@
 		"Transmittance",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -23429,7 +23515,8 @@
 		"Type",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -23867,7 +23954,8 @@
 		"Reflectance",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -23974,7 +24062,8 @@
 		"Mechanism",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -24704,7 +24793,8 @@
 		"BuiltIn",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -24846,7 +24936,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"ExcitationFilter"
+		"ExcitationFilter",
+		"Tier"
 	]
 },
 {
@@ -25521,7 +25612,8 @@
 		"DarkCurrentRate",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -25899,7 +25991,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"TransmittanceRange"
+		"TransmittanceRange",
+		"Tier"
 	]
 },
 {
@@ -25992,7 +26085,8 @@
 		"CoverGlassNo",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -26063,7 +26157,8 @@
 		"Type",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -26320,7 +26415,8 @@
 		"MirrorType",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -26462,7 +26558,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"ExcitationFilter"
+		"ExcitationFilter",
+		"Tier"
 	]
 },
 {
@@ -26887,7 +26984,8 @@
 		"BuiltIn",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -27029,7 +27127,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"StandardDichroic"
+		"StandardDichroic",
+		"Tier"
 	]
 },
 {
@@ -27318,7 +27417,8 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -27607,7 +27707,9 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier",
+		"Tier"
 	]
 },
 {
@@ -27730,7 +27832,8 @@
 		"Name",
 		"Version",
 		"Developer",
-		"WebsiteURL"
+		"WebsiteURL",
+		"Tier"
 	]
 },
 {
@@ -28281,7 +28384,8 @@
 		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -28423,7 +28527,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"EmissionFilter"
+		"EmissionFilter",
+		"Tier"
 	]
 },
 {
@@ -28564,7 +28669,8 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -28604,6 +28710,8 @@
 			"tier":1,
 			"enum": [
 				"Compound",
+				"Custom made",
+				"Dissection",
 				"Electrophysiology",
 				"Light sheet",
 				"Stereomicroscope",
@@ -28669,9 +28777,11 @@
 	},
 	"required": [
 		"ID",
+		"Type",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 },
 {
@@ -28808,7 +28918,8 @@
 		}
 	},
 	"required": [
-		"ID"
+		"ID",
+		"Tier"
 	]
 }
 ]

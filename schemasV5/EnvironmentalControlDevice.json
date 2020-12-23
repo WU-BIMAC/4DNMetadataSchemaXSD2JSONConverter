@@ -217,6 +217,7 @@
 		"MinTemberature",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

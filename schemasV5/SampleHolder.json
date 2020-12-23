@@ -66,6 +66,7 @@
 		"Type",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

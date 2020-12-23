@@ -129,6 +129,7 @@
 		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

@@ -80,6 +80,7 @@
 		"RefractiveIndex",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

@@ -119,6 +119,7 @@
 		"Name",
 		"Version",
 		"Developer",
-		"WebsiteURL"
+		"WebsiteURL",
+		"Tier"
 	]
 }

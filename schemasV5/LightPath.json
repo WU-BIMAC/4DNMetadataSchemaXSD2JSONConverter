@@ -132,6 +132,7 @@
 		}
 	},
 	"required": [
-		"ID"
+		"ID",
+		"Tier"
 	]
 }

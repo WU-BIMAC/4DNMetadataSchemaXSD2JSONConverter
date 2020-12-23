@@ -137,6 +137,7 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"StandardDichroic"
+		"StandardDichroic",
+		"Tier"
 	]
 }

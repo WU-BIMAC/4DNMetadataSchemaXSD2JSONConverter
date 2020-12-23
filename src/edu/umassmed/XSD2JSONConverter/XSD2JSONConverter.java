@@ -122,6 +122,7 @@ public class XSD2JSONConverter {
 		XSD2JSONConverter.element_exclusion_list
 				.add("AcoustoOpticalTuneableFilter");
 		XSD2JSONConverter.element_exclusion_list.add("AcoustoOpticalDeviceRef");
+		XSD2JSONConverter.element_exclusion_list.add("Pump");
 
 		// XSD2JSONConverter.attribute_exclusion_list.add("SpecsFile");
 		for (final String s : XSD2JSONConverter.element_exclusion_list) {
@@ -877,6 +878,8 @@ public class XSD2JSONConverter {
 			final String maxS = String.valueOf(max);
 			final XSElementDeclaration element = (XSElementDeclaration) term;
 			final String elementName = element.getName();
+			final String elementTypeName = element.getTypeDefinition()
+					.getName();
 			this.references
 					.append(elementName + " from " + min + " to " + maxS);
 			this.references.append("\n");
@@ -977,7 +980,8 @@ public class XSD2JSONConverter {
 				// FIXME build special case for this
 			} else if (elementName.endsWith("Map")) {
 				// TODO unknown case
-			} else if (elementName.endsWith("Ref")) {
+			} else if (elementName.endsWith("Ref")
+					|| elementTypeName.endsWith("Ref")) {
 
 				// FIXME this need to be double checked
 				final XSObjectList annotations = element.getAnnotations();
@@ -987,11 +991,20 @@ public class XSD2JSONConverter {
 				// ("Ref", "")
 				final String attrName = elementName.substring(0,
 						elementName.length() - 3);
+				final String attrTypeName = elementTypeName.substring(0,
+						elementName.length() - 3);
 				String attrCategory = attrName;
 				if (parentCategory.equals("ChildElement")) {
 					attrCategory = name;
 				}
 				final String attrType = "string";
+				String attrLinkTo = attrName;
+				if (!elementName.endsWith("Ref")) {
+					attrLinkTo = attrTypeName;
+				}
+				if (attrLinkTo.equals("Laser")) {
+					attrLinkTo = "Fluorescence_LightSource_Laser";
+				}
 				aSB.append("\t\t\"" + attrName + "\": {\n");
 				boolean isArray = false;
 				if ((max > 1) || (max == -1) /* || ((min == 0) && (max == 1)) */) {

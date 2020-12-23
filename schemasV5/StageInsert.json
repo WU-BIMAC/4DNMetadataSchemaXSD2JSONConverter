@@ -99,6 +99,7 @@
 		"TemperatureControlled",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

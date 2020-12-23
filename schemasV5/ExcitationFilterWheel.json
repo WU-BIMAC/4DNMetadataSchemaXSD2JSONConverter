@@ -137,6 +137,7 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"ExcitationFilter"
+		"ExcitationFilter",
+		"Tier"
 	]
 }

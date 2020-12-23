@@ -420,6 +420,7 @@
 		"BuiltIn",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

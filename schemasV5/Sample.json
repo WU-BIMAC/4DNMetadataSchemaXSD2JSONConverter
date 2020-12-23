@@ -130,6 +130,7 @@
 		"BiologicalOrigin",
 		"LiveSample",
 		"MetrologySample",
-		"Organism"
+		"Organism",
+		"Tier"
 	]
 }

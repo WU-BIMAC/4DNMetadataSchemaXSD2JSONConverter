@@ -35,6 +35,8 @@
 			"tier":1,
 			"enum": [
 				"Compound",
+				"Custom made",
+				"Dissection",
 				"Electrophysiology",
 				"Light sheet",
 				"Stereomicroscope",
@@ -100,8 +102,10 @@
 	},
 	"required": [
 		"ID",
+		"Type",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

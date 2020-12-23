@@ -315,6 +315,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"LEDModule"
+		"LEDModule",
+		"Tier",
+		"Tier"
 	]
 }

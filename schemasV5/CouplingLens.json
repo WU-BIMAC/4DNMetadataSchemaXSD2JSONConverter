@@ -546,6 +546,7 @@
 		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

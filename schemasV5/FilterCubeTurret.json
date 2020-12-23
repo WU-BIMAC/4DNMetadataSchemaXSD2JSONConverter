@@ -136,6 +136,7 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"FilterCube"
+		"FilterCube",
+		"Tier"
 	]
 }

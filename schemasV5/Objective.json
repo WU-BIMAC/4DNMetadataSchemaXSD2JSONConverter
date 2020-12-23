@@ -547,6 +547,7 @@
 		"CorrectionCollar",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }
