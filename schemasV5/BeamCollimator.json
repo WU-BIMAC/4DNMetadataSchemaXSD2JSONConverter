@@ -17,8 +17,8 @@
 		"BeamCollimator":"Beam Collimators are Lens Systems that transform a strongly diverging light beam into a collimated beam, i.e., a beam where light propagates essentially only in one direction, and the beam divergence is weak. Beam Collimators typically contain some kind of Focusing Lens, or sometimes a curved Mirror, and usually some opto-mechanics for stable mounting and possibly adjustment. Beam Expanders can be custom built or they are also available as pre-assembled optical devices.",
 		"Filter":"This refers to an available Filter which is part of this Optical Assembly.",
 		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"MirroringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
 		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly.",
 		"Prism":"This refers to an available Prism which is part of this Optical Assembly."
 	},
@@ -80,24 +80,24 @@
 				"linkTo":"Lens"
 			}
 		},
-		"MirrorringDevice": {
+		"MirroringDevice": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
+				"category":"MirroringDevice",
+				"linkTo":"MirroringDevice"
 			}
 		},
-		"OpticalAperture": {
+		"Aperture": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
-				"category":"OpticalAperture",
-				"linkTo":"OpticalAperture"
+				"category":"Aperture",
+				"linkTo":"Aperture"
 			}
 		},
 		"PolarizationOptics": {

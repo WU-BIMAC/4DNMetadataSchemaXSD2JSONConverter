@@ -17,8 +17,8 @@
 		"BeamExpander":"Beam Expanders are Lens Systems whose role is to increase the diameter of a collimated input beam to a larger collimated output beam. Beam Expanders typically are afocal systems in which object rays enter and exit parallel to the optical axis. As such a Beam Expander does not have a focal length. In most cases, Beam Expanders are realized as optical telescopes consisting of two lenses. Beam Expanders can be custom built or they are also available as pre-assembled optical devices.",
 		"Filter":"This refers to an available Filter which is part of this Optical Assembly.",
 		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"MirroringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
 		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly.",
 		"Prism":"This refers to an available Prism which is part of this Optical Assembly."
 	},
@@ -91,24 +91,24 @@
 				"linkTo":"Lens"
 			}
 		},
-		"MirrorringDevice": {
+		"MirroringDevice": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
+				"category":"MirroringDevice",
+				"linkTo":"MirroringDevice"
 			}
 		},
-		"OpticalAperture": {
+		"Aperture": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
-				"category":"OpticalAperture",
-				"linkTo":"OpticalAperture"
+				"category":"Aperture",
+				"linkTo":"Aperture"
 			}
 		},
 		"PolarizationOptics": {

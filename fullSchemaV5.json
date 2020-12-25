@@ -1883,8 +1883,8 @@
 		"BeamCollimator":"Beam Collimators are Lens Systems that transform a strongly diverging light beam into a collimated beam, i.e., a beam where light propagates essentially only in one direction, and the beam divergence is weak. Beam Collimators typically contain some kind of Focusing Lens, or sometimes a curved Mirror, and usually some opto-mechanics for stable mounting and possibly adjustment. Beam Expanders can be custom built or they are also available as pre-assembled optical devices.",
 		"Filter":"This refers to an available Filter which is part of this Optical Assembly.",
 		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"MirroringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
 		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly.",
 		"Prism":"This refers to an available Prism which is part of this Optical Assembly."
 	},
@@ -1946,24 +1946,24 @@
 				"linkTo":"Lens"
 			}
 		},
-		"MirrorringDevice": {
+		"MirroringDevice": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
+				"category":"MirroringDevice",
+				"linkTo":"MirroringDevice"
 			}
 		},
-		"OpticalAperture": {
+		"Aperture": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
-				"category":"OpticalAperture",
-				"linkTo":"OpticalAperture"
+				"category":"Aperture",
+				"linkTo":"Aperture"
 			}
 		},
 		"PolarizationOptics": {
@@ -6987,8 +6987,8 @@
 		"BeamExpander":"Beam Expanders are Lens Systems whose role is to increase the diameter of a collimated input beam to a larger collimated output beam. Beam Expanders typically are afocal systems in which object rays enter and exit parallel to the optical axis. As such a Beam Expander does not have a focal length. In most cases, Beam Expanders are realized as optical telescopes consisting of two lenses. Beam Expanders can be custom built or they are also available as pre-assembled optical devices.",
 		"Filter":"This refers to an available Filter which is part of this Optical Assembly.",
 		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"MirroringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
 		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly.",
 		"Prism":"This refers to an available Prism which is part of this Optical Assembly."
 	},
@@ -7061,24 +7061,24 @@
 				"linkTo":"Lens"
 			}
 		},
-		"MirrorringDevice": {
+		"MirroringDevice": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
+				"category":"MirroringDevice",
+				"linkTo":"MirroringDevice"
 			}
 		},
-		"OpticalAperture": {
+		"Aperture": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
-				"category":"OpticalAperture",
-				"linkTo":"OpticalAperture"
+				"category":"Aperture",
+				"linkTo":"Aperture"
 			}
 		},
 		"PolarizationOptics": {
@@ -9918,8 +9918,8 @@
 		"OpticsHolder":"This element represents a Holder for Filters, Dichroic and other Optical Element that is associated with this Instrument. These Holders come in different arrangements such as Cubes, Sliders, Turrets, and Wheels. While some of these Holders, such as Filter Cubes, might be pre-assebled by the Manufacturer and pruchased as a whole, in the majority of cases they are assembled on site depending on the needs of the user.",
 		"OpticsTurret":"This element represents a circular holder for multiple optical elements.",
 		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"MirroringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
 		"Filter":"This empty element refers to any Generic or Neutral Density Filter component placed in this Light Path.",
 		"Prism":"This refers to an available Prism which is part of this Optical Assembly.",
 		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly."
@@ -10030,24 +10030,24 @@
 				"linkTo":"Lens"
 			}
 		},
-		"MirrorringDevice": {
+		"MirroringDevice": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
+				"category":"MirroringDevice",
+				"linkTo":"MirroringDevice"
 			}
 		},
-		"OpticalAperture": {
+		"Aperture": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
-				"category":"OpticalAperture",
-				"linkTo":"OpticalAperture"
+				"category":"Aperture",
+				"linkTo":"Aperture"
 			}
 		},
 		"Filter": {
@@ -13180,8 +13180,8 @@
 		"MicroscopeTube":"Illumination Tubes are Lens systems, which might be embedded within the Microscope Stand and therefore not immediately accessible. They are essential for infinity-correction and should be regarded as integral parts of the Objective Lens System when magnification and correction are considered.",
 		"Filter":"This refers to an available Filter which is part of this Optical Assembly.",
 		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"MirroringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
 		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly.",
 		"Prism":"This refers to an available Prism which is part of this Optical Assembly."
 	},
@@ -13357,24 +13357,24 @@
 				"linkTo":"Lens"
 			}
 		},
-		"MirrorringDevice": {
+		"MirroringDevice": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
+				"category":"MirroringDevice",
+				"linkTo":"MirroringDevice"
 			}
 		},
-		"OpticalAperture": {
+		"Aperture": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
-				"category":"OpticalAperture",
-				"linkTo":"OpticalAperture"
+				"category":"Aperture",
+				"linkTo":"Aperture"
 			}
 		},
 		"PolarizationOptics": {
@@ -14535,8 +14535,8 @@
 		"Condenser":"Condensers are Lens Systems located above the Light Source and under the sample in an Upright Microscope, and above the stage and below the Light Source in an Inverted Microscope. They act to gather light from the Light Source and concentrate it into a cone of light that illuminates the specimen. They typically include a Turret system and Diaphragms. The aperture and angle of the light cone must be adjusted (via the size of the Diaphragm) for each different Objective.",
 		"Filter":"This refers to an available Filter which is part of this Optical Assembly.",
 		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"MirroringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
 		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly.",
 		"Prism":"This refers to an available Prism which is part of this Optical Assembly."
 	},
@@ -14629,24 +14629,24 @@
 				"linkTo":"Lens"
 			}
 		},
-		"MirrorringDevice": {
+		"MirroringDevice": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
+				"category":"MirroringDevice",
+				"linkTo":"MirroringDevice"
 			}
 		},
-		"OpticalAperture": {
+		"Aperture": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
-				"category":"OpticalAperture",
-				"linkTo":"OpticalAperture"
+				"category":"Aperture",
+				"linkTo":"Aperture"
 			}
 		},
 		"PolarizationOptics": {
@@ -28804,7 +28804,7 @@
 		"StandardDichroic":"This field refers to an available Dichroic Mirror which is part of this Filter Cube.",
 		"EmissionFilter":"This field refers to an available Emission Filter which is part of this Filter Cube.",
 		"GenericFilter":"This empty element refers to any additional Generic Filter component placed in this Light Path.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
 		"OpticalAssembly":"This empty element refers to an Optical Assembly component placed in this Light Path.",
 		"PolarizationOptics":"This empty element refers to a PolarizationOptics component placed in this light path."
 	},
@@ -28872,14 +28872,14 @@
 				"linkTo":"GenericFilter"
 			}
 		},
-		"OpticalAperture": {
+		"Aperture": {
 			"type":"array",
 			"items": {
 				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
-				"category":"OpticalAperture",
-				"linkTo":"OpticalAperture"
+				"category":"Aperture",
+				"linkTo":"Aperture"
 			}
 		},
 		"OpticalAssembly": {
