@@ -43,7 +43,6 @@ Fluorescence_LightSource.Laser#Fluorescence_LightSource.MultiLaserEngine:58.7187
 Fluorescence_LightSource.Laser#Fluorescence_LightSource.MultiLaserEngine:135.2187,-0.0461:65.0108,69.3319
 Fluorescence_LightSource.Laser#Fluorescence_LightSource.MultiLaserEngine:211.7187,-0.0461:65.0108,69.3319
 
-
 //Menu position 4 --> Light Source Coupling
 //-----------------------------------------
 LightSourceCoupling.LightGuide:1088.4031,98.9386:112.96,43.0788
@@ -85,19 +84,19 @@ FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterSlider:9.993
 FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterSlider:29.4603,-0.2393:9.3861,45.1842
 FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterSlider:49.9937,-0.2393:9.3861,45.1842
 
-FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:-7.6478,-35.7669:9.3863,45.1842
-FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:-7.6478,14.2331:9.3863,45.1842
-FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:3.8522,-35.7669:9.3863,45.1842
-FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:3.8522,14.2331:9.3863,45.1842
-FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:15.3522,-35.7669:9.3863,45.1842
-FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:15.3522,14.2331:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:-7.6478,-44.5805:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:-7.6478,5.4195:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:3.8522,-44.5805:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:3.8522,5.4195:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:15.3522,-44.5805:9.3863,45.1842
+FluorescenceLightPath.ExcitationFilter#OpticsHolder.ExcitationFilterWheel:15.3522,5.4195:9.3863,45.1842
 
-FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-38.0062:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-26.7041:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-14.3345:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-3.0324:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,9.3367:45.1842,9.3869
-FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,21.1726:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-47.8596:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-36.0238:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-24.1879:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-12.3521:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,-0.5165:45.1842,9.3869
+FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterWheel:1.5506,11.3193:45.1842,9.3869
 
 FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterSlider:-31.114,-13.231:45.1842,9.3869
 FluorescenceLightPath.EmissionFilter#OpticsHolder.EmissionFilterSlider:-31.114,0.6045:45.1842,9.3869
@@ -113,12 +112,12 @@ FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterSlider:7.9979,
 FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterSlider:25.3324,0:37.2202,38.4254
 FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterSlider:42.6668,0:37.2202,38.4254
 
-FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:6.8749,-44.4315:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:4.8749,-31.0315:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:2.8749,-17.63146:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:0.8749,-4.2315:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:-1.1251,9.1685:37.2202,38.4254
-FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:-3.1251,22.5685:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:6.8749,-53.4107:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:4.8749,-40.0107:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:2.8749,-26.6107:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:0.8749,-13.2107:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:-1.1251,0.1893:37.2202,38.4254
+FluorescenceLightPath.StandardDichroic#OpticsHolder.DichroicFilterWheel:-3.1251,13.5893:37.2202,38.4254
 
 
 //Menu position 7 --> SamplePositioning.Stage
@@ -173,14 +172,14 @@ OpticsHolder.ExcitationFilterSlider:711.4616,607.6113:165.4861,60
 OpticsHolder.DichroicFilterSlider:711.4616,671.8141:165.4861,60
 OpticsHolder.EmissionFilterSlider:711.4616,736.1704:165.4861,60
 
-OpticsHolder.ExcitationFilterWheel:1225.3426,779.5355:75.8027,152.367 
-OpticsHolder.ExcitationFilterWheel:1225.4033,956.1075:75.8027,152.367
+OpticsHolder.ExcitationFilterWheel:1225.3426,788.4904:75.8029,170.4406 
+OpticsHolder.ExcitationFilterWheel:1225.4033,965.0299:75.8029,170.4406
 
-OpticsHolder.EmissionFilterWheel:436.0627,772.0829:75.8027,152.367 
-OpticsHolder.EmissionFilterWheel:383.9206,954.898:75.8027,152.367
+OpticsHolder.EmissionFilterWheel:436.0627,781.0281:75.8029,170.4406
+OpticsHolder.EmissionFilterWheel:383.9206,963.8202:75.8029,170.4406
 
-OpticsHolder.DichroicFilterWheel:531.4082,772.0829:75.8027,152.367
-OpticsHolder.DichroicFilterWheel:479.2661,954.898:75.8027,152.367
+OpticsHolder.DichroicFilterWheel:531.4082,781.0593:75.8029,170.4406
+OpticsHolder.DichroicFilterWheel:479.2661,963.8175:75.8029,170.4406
 
 OpticsHolder.FilterCubeTurret:886.8766,860.0793:527.3666,18.4325  
 OpticsHolder.OpticsTurret:-1,-1:226.3076,32.3995
