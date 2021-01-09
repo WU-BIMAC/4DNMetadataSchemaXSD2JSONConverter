@@ -96,7 +96,7 @@ public class XSD2JSONConverter {
 		XSD2JSONConverter.category_exclusion_list.add("\"TypeAnnotation\"");
 		XSD2JSONConverter.category_exclusion_list.add("\"Settings\"");
 		XSD2JSONConverter.category_exclusion_list.add("\"Instrument\"");
-		XSD2JSONConverter.category_exclusion_list.add("\"SpecsFile\"");
+		// XSD2JSONConverter.category_exclusion_list.add("\"SpecsFile\"");
 		XSD2JSONConverter.category_exclusion_list
 				.add("\"IlluminationWavelengthRangeType\"");
 		XSD2JSONConverter.category_exclusion_list
@@ -113,7 +113,8 @@ public class XSD2JSONConverter {
 				.add("PlaneTransformationMatrix");
 		XSD2JSONConverter.element_exclusion_list.add("MetadataOnly");
 		XSD2JSONConverter.element_exclusion_list.add("MapAnnotation");
-		XSD2JSONConverter.element_exclusion_list.add("SpecsFile");
+		// Fare un caso specifico per transformarlo in una string ?
+		// XSD2JSONConverter.element_exclusion_list.add("SpecsFile");
 		XSD2JSONConverter.element_exclusion_list.add("AcoustoOpticalDevice");
 		XSD2JSONConverter.element_exclusion_list
 				.add("AcoustoOpticalBeamSplitter");
@@ -980,10 +981,33 @@ public class XSD2JSONConverter {
 				// FIXME build special case for this
 			} else if (elementName.endsWith("Map")) {
 				// TODO unknown case
+			} else if (elementName.contains("SpecsFile")) {
+				final XSObjectList annotations = element.getAnnotations();
+				final Integer attrTier = this.getTier(elementName, annotations);
+				final String attrDesc = this.getDescription(elementName,
+						annotations);
+				final String attrName = elementName;
+				final String attrType = "string";
+				final String attrCategory = "ManufacturerSpec";
+				// this.getCategory(elementName, annotations);
+				// String attrCategory = XSD2JSONConverter.generic_cat_attr;
+				// if (parentCategory.equals("ChildElement")) {
+				// attrCategory = name;
+				// }
+				aSB.append("\t\t\"" + attrName + "\": {\n");
+				aSB.append("\t\t\t\"title\":\"" + attrName + "\",\n");
+				aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
+				aSB.append("\t\t\t\"description\":\"" + attrDesc + "\",\n");
+				aSB.append("\t\t\t\"tier\":" + attrTier + ",\n");
+				aSB.append("\t\t\t\"category\":\"" + attrCategory + "\"");
+				aSB.append("\n");
+				aSB.append("\t\t}");
+				// required.add(attrName);
+				attributes.add(aSB.toString());
 			} else if (elementName.endsWith("Ref")
 					|| ((elementTypeName != null) && elementTypeName
 							.endsWith("Ref"))) {
-
+				
 				// FIXME this need to be double checked
 				final XSObjectList annotations = element.getAnnotations();
 				final Integer attrTier = this.getTier(elementName, annotations);
@@ -1060,9 +1084,9 @@ public class XSD2JSONConverter {
 					this.errors.append(elementName + " in " + name
 							+ " is not complex");
 					this.errors.append("\n");
-
+					
 					// CREATE FIELD WITH CONTAINSELEMENT similar to linkTo
-
+					
 					// final XSObjectList annotations =
 					// element.getAnnotations();
 					// final Integer attrTier = this.getTier(elementName,
@@ -1086,7 +1110,7 @@ public class XSD2JSONConverter {
 					// }
 					// attributes.add(aSB.toString());
 				} else {
-
+					
 					final XSComplexTypeDefinition elementComplTypeDef = (XSComplexTypeDefinition) element
 							.getTypeDefinition();
 					final XSObjectList attrList = elementComplTypeDef
@@ -1100,12 +1124,12 @@ public class XSD2JSONConverter {
 					final String category = this.getCategory(attrName,
 							annotations);
 					if ((category != null) && !category.equals("ChildElement")) {
-
+						
 						// FIXME need to extrapolate all these classes instead
 						// of wrap them
 						System.out.println("Element not ChildElement -> "
 								+ attrName + " - " + category);
-
+						
 						// final String attrType = "string";
 						// aSB.append("\t\t\"" + attrName + "\": {\n");
 						// final boolean isArray = false;
@@ -1292,7 +1316,7 @@ public class XSD2JSONConverter {
 						if (parentCategory.equals("ChildElement")) {
 							catName = parentCategory;
 						}
-
+						
 						final List<List<String>> attributesAndRequiredLocal = this
 								.getAttributesAndRequired(catName, null,
 										attrList, isArray ? 3 : 2);

@@ -508,6 +508,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -849,6 +856,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -1339,6 +1353,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -1641,6 +1662,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -1923,6 +1951,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -2463,6 +2498,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -2700,6 +2742,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -3414,6 +3463,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -3566,6 +3622,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -3922,6 +3985,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"RelayLens": {
 			"type":"string",
 			"description":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body.",
@@ -4206,6 +4276,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -4338,6 +4415,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -4935,6 +5019,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -5116,6 +5207,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -5790,6 +5888,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"RelayLens": {
 			"type":"string",
 			"description":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body.",
@@ -6388,6 +6493,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -6938,6 +7050,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -7038,6 +7157,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -7320,6 +7446,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -8041,6 +8174,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -8184,6 +8324,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -9214,6 +9361,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -9415,6 +9569,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -9866,6 +10027,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -10010,6 +10178,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -10604,6 +10779,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -11320,6 +11502,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"RelayLens": {
 			"type":"string",
 			"description":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body.",
@@ -11649,6 +11838,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -11871,6 +12067,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -12398,6 +12601,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -13131,6 +13341,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -13334,6 +13551,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -13783,6 +14007,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -14486,6 +14717,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -14606,6 +14844,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -15226,6 +15471,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"TransmittanceRange": {
 			"type":"array",
 			"description":"This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component. It also records the maximum amount of light transmitted. Multiple of these elements can be used.",
@@ -15519,6 +15771,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -15884,6 +16143,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -16197,6 +16463,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -16664,6 +16937,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -17104,6 +17384,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -17317,6 +17604,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -17857,6 +18151,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -18538,6 +18839,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -19032,6 +19340,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"TransmittanceRange": {
 			"type":"array",
 			"description":"This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component. It also records the maximum amount of light transmitted. Multiple of these elements can be used.",
@@ -19213,6 +19528,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -19534,6 +19856,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -20510,6 +20839,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -20900,6 +21236,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -21617,6 +21960,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"RelayLens": {
 			"type":"string",
 			"description":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body.",
@@ -22164,6 +22514,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"TransmittanceRange": {
 			"type":"array",
 			"description":"This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component. It also records the maximum amount of light transmitted. Multiple of these elements can be used.",
@@ -22522,6 +22879,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -23071,6 +23435,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -23289,6 +23660,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"CouplingLens": {
 			"type":"string",
 			"description":"This is a reference to a Lens positioned at the connection between this Light Source coupling element and the Microscope Stand.",
@@ -23492,6 +23870,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -23761,6 +24146,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -24039,6 +24431,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -24766,6 +25165,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -24903,6 +25309,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -25408,6 +25821,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"RelayLens": {
 			"type":"string",
 			"description":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body.",
@@ -25890,6 +26310,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"TransmittanceRange": {
 			"type":"array",
 			"description":"This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component. It also records the maximum amount of light transmitted. Multiple of these elements can be used.",
@@ -26071,6 +26498,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
@@ -26141,6 +26575,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -26394,6 +26835,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -26525,6 +26973,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -26959,6 +27414,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -27097,6 +27559,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -27197,6 +27666,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -27487,6 +27963,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -28358,6 +28841,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -28494,6 +28984,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
@@ -28640,6 +29137,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -28757,6 +29261,13 @@
 		"LotNumber": {
 			"type":"string",
 			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
