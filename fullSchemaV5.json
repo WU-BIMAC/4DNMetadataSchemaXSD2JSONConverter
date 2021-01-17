@@ -576,6 +576,8 @@
 			"tier":3,
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -2973,21 +2975,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"LensNA": {
-			"type":"number",
-			"description":"This field captures the nominal Numerical Aperture (NA) of this Objective as specified by the Manufactuer, expressed as a floating-point (real) number (e.g. 1.27 NA). NA is a number that was defined initially by Abbe to characterize Objectives and Condensers. NA can be calculated by the expression n sin alpha, where n is the Refractive Index of the medium between the Lens and the Sample, and alpha is half the Angular Aperture of the Lens. NA is a measure of how much of the illumination that leaves the specimen actually passes through the Lens. The larger the NA, the more information the lens can transmit. Expected range 0.02 - 1.5.",
-			"tier":1,
-			"category":"Objective"
-		},
 		"Magnification": {
 			"type":"number",
 			"description":"This field captures the Magnification of the Objective as specified by the Manufacturer - i.e., 60 represents a 60X lens.",
 			"tier":1,
 			"category":"Objective"
 		},
+		"CalibratedMagnification": {
+			"type":"number",
+			"description":"This field captures the Magnification of the Objective as measured via a calibration process- i.e., '59.987' for a 60x lens.",
+			"tier":2,
+			"category":"Objective"
+		},
+		"LensNA": {
+			"type":"number",
+			"description":"This field captures the nominal Numerical Aperture (NA) of this Objective as specified by the Manufactuer, expressed as a floating-point (real) number (e.g. 1.27 NA). NA is a number that was defined initially by Abbe to characterize Objectives and Condensers. NA can be calculated by the expression n sin alpha, where n is the Refractive Index of the medium between the Lens and the Sample, and alpha is half the Angular Aperture of the Lens. NA is a measure of how much of the illumination that leaves the specimen actually passes through the Lens. The larger the NA, the more information the lens can transmit. Expected range 0.02 - 1.5.",
+			"tier":1,
+			"category":"Objective"
+		},
 		"Correction": {
 			"type":"string",
-			"description":"This field describes the Immersion medium whose use is recommended by the Manufacturer for this Objective.",
+			"description":"This field captures the type of optical correction (i.e. chromatic correction, or flatness correction, etc.) associated with this Objective.",
 			"tier":1,
 			"enum": [
 				"Achro",
@@ -3064,6 +3072,17 @@
 			],
 			"category":"Objective"
 		},
+		"DippingMedium": {
+			"type":"string",
+			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
+			"tier":2,
+			"enum": [
+				"Water-based",
+				"Organic-based",
+				"Other"
+			],
+			"category":"Objective"
+		},
 		"InfinityCorrected": {
 			"type":"boolean",
 			"description":"This field records whether (True) or not (False) this Objective is infinity corrected. An Infinity-corrected Objective is corrected for an infinite sample to primary image distance and needs to be used with a Tube Lens of appropriate focal length to obtains its nominal magnification.",
@@ -3072,8 +3091,54 @@
 		},
 		"Iris": {
 			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this Objective is infinity corrected. An Infinity-corrected Objective is corrected for an infinite sample to primary Image distance and needs to be used with a Tube Lens of appropriate focal length to obtains its nominal magnification.",
+			"description":"This field records whether (True) or not (False) the Objective was fitted with an Iris. Manufacturers offer high NA Objectives, which are equipped with an internal Iris Diaphragm that increases image contrast during digital imaging to compensate for image flare artifacts due to light emitted from areas outside the focal plane. Opening or closing the Iris Diaphragm determines the size of the Objective rear aperture yielding a variable NA range between 0.5 and the Objective's upper limit.",
 			"tier":2,
+			"category":"Objective"
+		},
+		"CorrectionCollar": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
+			"tier":2,
+			"category":"Objective"
+		},
+		"CorrectionCollarType": {
+			"type":"string",
+			"description":"This field records the type of Correction Collar with which this Objective is fitted.",
+			"tier":2,
+			"enum": [
+				"Coverglass Thickness",
+				"Immersion Liquid",
+				"Numerical Aperture",
+				"Temperature"
+			],
+			"category":"Objective"
+		},
+		"PhaseContrastDesignation": {
+			"type":"string",
+			"description":"If the Objective is designed for Phase, this field specifies the Phase Contrast type designation (see: https://www.microscopyu.com/techniques/phase-contrast/phase-contrast-Microscope-configuration).",
+			"tier":2,
+			"enum": [
+				"Phase",
+				"PHACO",
+				"PC",
+				"PhL",
+				"Ph1",
+				"Ph2",
+				"Ph3",
+				"Ph4",
+				"DL",
+				"DLL",
+				"DM",
+				"ADL",
+				"PL",
+				"PLL",
+				"PM",
+				"PH",
+				"NL",
+				"NM",
+				"BM",
+				"NH"
+			],
 			"category":"Objective"
 		},
 		"WorkingDistance": {
@@ -3125,67 +3190,10 @@
 			],
 			"category":"Objective"
 		},
-		"CorrectionCollar": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
-			"tier":2,
-			"category":"Objective"
-		},
-		"CorrectionCollarType": {
-			"type":"string",
-			"description":"This field records the type of Correction Collar with which this Objective is fitted.",
-			"tier":2,
-			"enum": [
-				"Coverglass Thickness",
-				"Immersion Liquid",
-				"Numerical Aperture",
-				"Temperature"
-			],
-			"category":"Objective"
-		},
-		"PhaseContrastDesignation": {
-			"type":"string",
-			"description":"If the Objective is designed for Phase, this field specifies the Phase Contrast type designation (see: https://www.microscopyu.com/techniques/phase-contrast/phase-contrast-Microscope-configuration).",
-			"tier":2,
-			"enum": [
-				"Phase",
-				"PHACO",
-				"PC",
-				"PhL",
-				"Ph1",
-				"Ph2",
-				"Ph3",
-				"Ph4",
-				"DL",
-				"DLL",
-				"DM",
-				"ADL",
-				"PL",
-				"PLL",
-				"PM",
-				"PH",
-				"NL",
-				"NM",
-				"BM",
-				"NH"
-			],
-			"category":"Objective"
-		},
-		"DippingMedium": {
-			"type":"string",
-			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
-			"tier":2,
-			"enum": [
-				"Water-based",
-				"Organic-based",
-				"Other"
-			],
-			"category":"Objective"
-		},
-		"CalibratedMagnification": {
+		"ObjectiveViewField": {
 			"type":"number",
-			"description":"This field captures the Magnification of the Objective as measured via a calibration process- i.e., '59.987' for a 60x lens.",
-			"tier":2,
+			"description":"This field records the maximal diameter of the view field allowed by this Objective, expressed in mm, and measured at the intermediate Image Plane. NB: The field of view is influenced by the magnification and diameter of the ocular (eyepiece) field diaphragm, but also by the limits imposed by the design of the Objective.",
+			"tier":3,
 			"category":"Objective"
 		},
 		"ImageDistance": {
@@ -3194,62 +3202,7 @@
 			"tier":3,
 			"category":"Objective"
 		},
-		"ObjectiveViewField": {
-			"type":"number",
-			"description":"This field records the maximal diameter of the view field allowed by this Objective, expressed in mm, and measured at the intermediate Image Plane. NB: The field of view is influenced by the magnification and diameter of the ocular (eyepiece) field diaphragm, but also by the limits imposed by the design of the Objective.",
-			"tier":3,
-			"category":"Objective"
-		},
 		"ImageDistanceUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"mm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Objective"
-		},
-		"ObjectDistance": {
-			"type":"number",
-			"description":"This field records the distance in air between the front principal Plane of this Objective and the field Plane in which the object (i.e., specimen) is situated.",
-			"tier":3,
-			"category":"Objective"
-		},
-		"ObjectDistanceUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
@@ -3487,16 +3440,16 @@
 	},
 	"required": [
 		"ID",
-		"LensNA",
 		"Magnification",
+		"LensNA",
 		"Correction",
 		"ContrastModulation",
 		"DIC",
 		"ImmersionType",
 		"InfinityCorrected",
 		"Iris",
-		"WorkingDistance",
 		"CorrectionCollar",
+		"WorkingDistance",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -4704,55 +4657,6 @@
 			"category":"Lens"
 		},
 		"ImageDistanceUnits": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"mm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
-		"ObjectDistance": {
-			"type":"number",
-			"description":"This field records the distance in air between the principal front Plane of this Lens and the field Plane in which the object (i.e., specimen) is situated.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"ObjectDistanceUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
@@ -6464,6 +6368,8 @@
 			"default":"deg",
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -6735,55 +6641,6 @@
 			"category":"Lens"
 		},
 		"ImageDistanceUnits": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"mm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
-		"ObjectDistance": {
-			"type":"number",
-			"description":"This field records the distance in air between the principal front Plane of this Lens and the field Plane in which the object (i.e., specimen) is situated.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"ObjectDistanceUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
@@ -7307,6 +7164,8 @@
 			"default":"deg",
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -7661,8 +7520,8 @@
 	"description":"A Magnification Changer (also known as Optovar because one of the first magnification changing devices was developed by Zeiss and given this proprietary Name) provides additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification Changers are placed before the Tube Lens within the infinity space of the optical system. Typical magnification increments are 1.25x, 1.6x, and 2x.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"Magnification",
-	"image":"Magnification_MagnificationChanger.svg",
+	"category":"Lens",
+	"image":"Lens_MagnificationChanger.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -7859,55 +7718,6 @@
 			"category":"Lens"
 		},
 		"ImageDistanceUnits": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"mm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
-		"ObjectDistance": {
-			"type":"number",
-			"description":"This field records the distance in air between the principal front Plane of this Lens and the field Plane in which the object (i.e., specimen) is situated.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"ObjectDistanceUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
@@ -8217,7 +8027,7 @@
 	"version":"2.00.0",
 	"type":"object",
 	"title":"FilterCube",
-	"description":"This element represents a Filter Cube containing the filters and mirror used in epi-fluorescence microscopy to separate fluorescence excitation and emission light. A Filter Cube is typically composed of one Excitation, one Emission, and one Dichroic Filter. It might be pre-assebled by the Manufacturer and pruchased as a whole or it might be custom assembled on site depending on the needs of the user.",
+	"description":"A Filter Cube is a removable cube-shaped unit that containing the filters and mirror used in epi-fluorescence microscopy to separate fluorescence excitation and emission light. It usually holds a matched set of fluorescence filters, which might include an Excitation filter and Emission filter but always includes a Dichroic mirror. A Filter Cube might be pre-assebled by the Manufacturer and pruchased as a whole or it might be custom assembled on site depending on the needs of the user.",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"FluorescenceLightPath",
@@ -8227,7 +8037,7 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"OpticsHolder":"This element represents a Holder for Filters, Dichroic and other Optical Element that is associated with this Instrument. These Holders come in different arrangements such as Cubes, Sliders, Turrets, and Wheels. While some of these Holders, such as Filter Cubes, might be pre-assebled by the Manufacturer and pruchased as a whole, in the majority of cases they are assembled on site depending on the needs of the user.",
-		"FilterCube":"This element represents a Filter Cube containing the filters and mirror used in epi-fluorescence microscopy to separate fluorescence excitation and emission light. A Filter Cube is typically composed of one Excitation, one Emission, and one Dichroic Filter. It might be pre-assebled by the Manufacturer and pruchased as a whole or it might be custom assembled on site depending on the needs of the user.",
+		"FilterCube":"A Filter Cube is a removable cube-shaped unit that containing the filters and mirror used in epi-fluorescence microscopy to separate fluorescence excitation and emission light. It usually holds a matched set of fluorescence filters, which might include an Excitation filter and Emission filter but always includes a Dichroic mirror. A Filter Cube might be pre-assebled by the Manufacturer and pruchased as a whole or it might be custom assembled on site depending on the needs of the user.",
 		"ExcitationFilter":"This field refers to an available Excitation Filter which is part of this Filter Cube.",
 		"StandardDichroic":"This field refers to an available Dichroic Mirror which is part of this Filter Cube.",
 		"EmissionFilter":"This field refers to an available Emission Filter which is part of this Filter Cube."
@@ -9332,6 +9142,8 @@
 			"default":"deg",
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -13068,55 +12880,6 @@
 			],
 			"category":"Lens"
 		},
-		"ObjectDistance": {
-			"type":"number",
-			"description":"This field records the distance in air between the principal front Plane of this Lens and the field Plane in which the object (i.e., specimen) is situated.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"ObjectDistanceUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"mm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
 		"FrontFocalLength": {
 			"type":"number",
 			"description":"This field records the distance (f) measured along the optical axis from the front principal Plane of this Lens to the front focal Plane (F).",
@@ -14444,55 +14207,6 @@
 			],
 			"category":"Lens"
 		},
-		"ObjectDistance": {
-			"type":"number",
-			"description":"This field records the distance in air between the principal front Plane of this Lens and the field Plane in which the object (i.e., specimen) is situated.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"ObjectDistanceUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"mm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
 		"FrontFocalLength": {
 			"type":"number",
 			"description":"This field records the distance (f) measured along the optical axis from the front principal Plane of this Lens to the front focal Plane (F).",
@@ -15430,6 +15144,8 @@
 			"tier":3,
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -17165,6 +16881,8 @@
 			"tier":3,
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -17839,55 +17557,6 @@
 			"category":"Lens"
 		},
 		"ImageDistanceUnits": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"mm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
-		"ObjectDistance": {
-			"type":"number",
-			"description":"This field records the distance in air between the principal front Plane of this Lens and the field Plane in which the object (i.e., specimen) is situated.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"ObjectDistanceUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
@@ -19299,6 +18968,8 @@
 			"tier":3,
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -19563,6 +19234,8 @@
 						"tier":3,
 						"enum": [
 							"deg",
+							"µrad",
+							"mrad",
 							"rad",
 							"gon"
 						],
@@ -19891,6 +19564,8 @@
 						"tier":3,
 						"enum": [
 							"deg",
+							"µrad",
+							"mrad",
 							"rad",
 							"gon"
 						],
@@ -20810,6 +20485,8 @@
 			"default":"deg",
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -22473,6 +22150,8 @@
 			"tier":3,
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -23120,55 +22799,6 @@
 			"category":"Lens"
 		},
 		"ImageDistanceUnits": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"mm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
-		"ObjectDistance": {
-			"type":"number",
-			"description":"This field records the distance in air between the principal front Plane of this Lens and the field Plane in which the object (i.e., specimen) is situated.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"ObjectDistanceUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
@@ -24005,6 +23635,8 @@
 			"default":"deg",
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -24023,6 +23655,8 @@
 			"default":"deg",
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -24041,6 +23675,8 @@
 			"default":"deg",
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -25136,6 +24772,8 @@
 			"default":"deg",
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -26269,6 +25907,8 @@
 			"tier":3,
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -27385,6 +27025,8 @@
 			"default":"deg",
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],
@@ -28526,55 +28168,6 @@
 			"category":"Lens"
 		},
 		"ImageDistanceUnits": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"mm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
-		"ObjectDistance": {
-			"type":"number",
-			"description":"This field records the distance in air between the principal front Plane of this Lens and the field Plane in which the object (i.e., specimen) is situated.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"ObjectDistanceUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
