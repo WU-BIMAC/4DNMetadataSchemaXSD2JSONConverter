@@ -62,7 +62,7 @@ Magnification.Objective:1004.8708,669.4926:38.1097,83.033
 Magnification.Objective:1046.8708,669.4926:38.1097,83.033
 Magnification.Objective:1088.8708,669.4926:38.1097,83.033
 
-Magnification.MagnificationChanger#OpticalAssembly.MicroscopeTube:-106.0527,0:15.0733,70.702
+Lens.MagnificationChanger#OpticalAssembly.MicroscopeTube:-106.0527,0:15.0733,70.702
 
 
 //Menu position 6 --> Fluorescence Light Path
@@ -260,12 +260,19 @@ Lens#OpticsHolder.OpticsTurret:88.6401,-24.3663:33.2588,60.7821
 AdditionalOptics.PolarizationOptics#OpticalAssembly.MicroscopeTube:141.8691,3.3752:33.2588,60.7821 
 AdditionalOptics.Prism#OpticalAssembly.MicroscopeTube:51.2263,0:77.0372,55.3705 
 
-AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:-88.1521,-24.3663:33.2588,60.7821
-AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:-53.0327,-24.3663:33.2588,60.7821
-AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:-17.5619,-24.3663:33.2588,60.7821
-AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:17.7795,-24.3663:33.2588,60.7821
-AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:53.2208,-24.3663:33.2588,60.7821
-AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:88.6401,-24.3663:33.2588,60.7821
+//AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:-88.1521,-24.3663:33.2588,60.7821
+//AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:-53.0327,-24.3663:33.2588,60.7821
+//AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:-17.5619,-24.3663:33.2588,60.7821
+//AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:17.7795,-24.3663:33.2588,60.7821
+//AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:53.2208,-24.3663:33.2588,60.7821
+//AdditionalOptics.PolarizationOptics#OpticsHolder.OpticsTurret:88.6401,-24.3663:33.2588,60.7821
+
+AdditionalOptics#OpticsHolder.OpticsTurret:-88.1521,-24.3663:33.2588,60.7821
+AdditionalOptics#OpticsHolder.OpticsTurret:-53.0327,-24.3663:33.2588,60.7821
+AdditionalOptics#OpticsHolder.OpticsTurret:-17.5619,-24.3663:33.2588,60.7821
+AdditionalOptics#OpticsHolder.OpticsTurret:17.7795,-24.3663:33.2588,60.7821
+AdditionalOptics#OpticsHolder.OpticsTurret:53.2208,-24.3663:33.2588,60.7821
+AdditionalOptics#OpticsHolder.OpticsTurret:88.6401,-24.3663:33.2588,60.7821
 
 //Menu position 16 --> Detector
 //-----------------------------
