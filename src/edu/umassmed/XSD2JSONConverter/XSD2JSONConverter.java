@@ -444,7 +444,8 @@ public class XSD2JSONConverter {
 			// final List<String> attributes = new ArrayList<String>();
 			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
 					image, attributes);
-			subCategoriesOrder.add(0, XSD2JSONConverter.generic_cat_fullstring);
+			// subCategoriesOrder.add(0,
+			// XSD2JSONConverter.generic_cat_fullstring);
 
 			final List<String> toRemove = new ArrayList<String>();
 			for (final String categoryToExclude : XSD2JSONConverter.category_exclusion_list) {
@@ -910,9 +911,9 @@ public class XSD2JSONConverter {
 					&& name.equals(XSD2JSONConverter.image)) {
 				// TODO special case create field with microscope name + uuid to
 				// be filled in the app
-				final String attrName = "IntrumentName";
+				final String attrName = "InstrumentName";
 				final String attrType = "string";
-				String attrCategory = "Instrument";
+				String attrCategory = XSD2JSONConverter.generic_cat_attr;
 				if (parentCategory.equals("ChildElement")) {
 					attrCategory = name;
 				}
@@ -929,7 +930,7 @@ public class XSD2JSONConverter {
 				required.add(attrName);
 				attributes.add(aSB.toString());
 				aSB = new StringBuffer();
-				final String attrName2 = "IntrumentID";
+				final String attrName2 = "InstrumentID";
 				aSB.append("\t\t\"" + attrName2 + "\": {\n");
 				aSB.append("\t\t\t\"title\":\"" + attrName2 + "\",\n");
 				aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
@@ -942,7 +943,10 @@ public class XSD2JSONConverter {
 				aSB.append("\t\t}");
 				required.add(attrName);
 				attributes.add(aSB.toString());
-			} else if (elementName.endsWith("ExperimentRef")
+			} else if ((elementName.endsWith("ExperimentRef")
+					|| elementName.endsWith("ExperimenterRef")
+					|| elementName.endsWith("ExperimenterGroupRef") || (elementName
+					.endsWith("SampleRef") | elementName.endsWith("ROIRef")))
 					&& name.equals(XSD2JSONConverter.image)) {
 				// TODO special case dont know how to handle yet
 				// I can probably just ignore because Experiment has is own file
@@ -952,9 +956,10 @@ public class XSD2JSONConverter {
 							.equals(XSD2JSONConverter.experiment))) {
 				// TODO special case need to be removed from both because it has
 				// its own sub-categories but how to handle it ?
-			} else if ((elementName.endsWith("Plane") || ((elementName
-					.endsWith("Channel")) && name
-					.equals(XSD2JSONConverter.image)))) {
+			} else if ((elementName.endsWith("Plane")
+					|| elementName.endsWith("Channel") || elementName
+						.endsWith("Pixels"))
+					&& name.equals(XSD2JSONConverter.image)) {
 				// TODO special case create separate json with only array of
 				// these elements, but how ?
 			}
@@ -1007,7 +1012,7 @@ public class XSD2JSONConverter {
 			} else if (elementName.endsWith("Ref")
 					|| ((elementTypeName != null) && elementTypeName
 							.endsWith("Ref"))) {
-				
+
 				// FIXME this need to be double checked
 				final XSObjectList annotations = element.getAnnotations();
 				final Integer attrTier = this.getTier(elementName, annotations);
@@ -1084,9 +1089,9 @@ public class XSD2JSONConverter {
 					this.errors.append(elementName + " in " + name
 							+ " is not complex");
 					this.errors.append("\n");
-					
+
 					// CREATE FIELD WITH CONTAINSELEMENT similar to linkTo
-					
+
 					// final XSObjectList annotations =
 					// element.getAnnotations();
 					// final Integer attrTier = this.getTier(elementName,
@@ -1110,7 +1115,7 @@ public class XSD2JSONConverter {
 					// }
 					// attributes.add(aSB.toString());
 				} else {
-					
+
 					final XSComplexTypeDefinition elementComplTypeDef = (XSComplexTypeDefinition) element
 							.getTypeDefinition();
 					final XSObjectList attrList = elementComplTypeDef
@@ -1124,12 +1129,12 @@ public class XSD2JSONConverter {
 					final String category = this.getCategory(attrName,
 							annotations);
 					if ((category != null) && !category.equals("ChildElement")) {
-						
+
 						// FIXME need to extrapolate all these classes instead
 						// of wrap them
 						System.out.println("Element not ChildElement -> "
 								+ attrName + " - " + category);
-						
+
 						// final String attrType = "string";
 						// aSB.append("\t\t\"" + attrName + "\": {\n");
 						// final boolean isArray = false;
@@ -1195,7 +1200,8 @@ public class XSD2JSONConverter {
 							aSB.append("\t");
 						}
 						aSB.append("\t\t\t\"properties\": {\n");
-						if (category.equals("ChildElement")) {
+						if ((category != null)
+								&& category.equals("ChildElement")) {
 							final List<XSParticle> subParticles = this
 									.getChildrenParticleList(elementComplTypeDef);
 							for (int k = 0; k < subParticles.size(); k++) {
@@ -1316,7 +1322,7 @@ public class XSD2JSONConverter {
 						if (parentCategory.equals("ChildElement")) {
 							catName = parentCategory;
 						}
-						
+
 						final List<List<String>> attributesAndRequiredLocal = this
 								.getAttributesAndRequired(catName, null,
 										attrList, isArray ? 3 : 2);

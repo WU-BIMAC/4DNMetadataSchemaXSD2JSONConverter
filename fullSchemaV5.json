@@ -47,19 +47,14 @@
 	"title":"Image",
 	"description":"This element describes the actual Image that was acquired and its meta-data. The elements that are references (ending in Ref or Settings) refer to elements defined outside of the Image element. Ref elements are simple links, while Settings elements are links with additional values. If any of the required Image attributes or elements are missing, its guaranteed to be an invalid document.",
 	"extension":"Core",
-	"domain":"ImageAcquisitionSettingsSettings",
+	"domain":"ImageAcquisitionSettings",
 	"category":"Image",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"General":"General information about the element",
 		"Image":"This element describes the actual Image that was acquired and its meta-data. The elements that are references (ending in Ref or Settings) refer to elements defined outside of the Image element. Ref elements are simple links, while Settings elements are links with additional values. If any of the required Image attributes or elements are missing, its guaranteed to be an invalid document.",
-		"Experimenter":"This empty element refers to Experimenter that performed this experiment.",
-		"Sample":"This empty element refers to the Sample that was imaged in this Image Acquisition.",
-		"ExperimenterGroup":"This empty element refers to the ExperimenterGroup that owns this Image. ",
-		"ROI":"NA",
 		"StageInsert":"This empty element refers to the optional Stage Insert device that was used for the Acquisition of this Image.",
-		"FocusStabilization":" This empty element refers to the optional Focus Stabilization Device that was used for the Acquisition of the experimental Image this Mechanical Calibration procedure refers to.",
+		"FocusStabilizationDevice":" This empty element refers to the optional Focus Stabilization Device that was used for the Acquisition of the experimental Image this Mechanical Calibration procedure refers to.",
 		"AcquisitionSoftware":"This empty element refers to the Software that was used to drive the Microscope during the Image Acquisition."
 	},
 	"properties": {
@@ -76,61 +71,21 @@
 			"category":"General",
 			"readonly":true
 		},
-		"IntrumentName": {
-			"title":"IntrumentName",
+		"InstrumentName": {
+			"title":"InstrumentName",
 			"type":"string",
 			"description":"Name of the instrument",
 			"tier":1,
-			"category":"Instrument",
+			"category":"General",
 			"readonly":true
 		},
-		"IntrumentID": {
-			"title":"IntrumentID",
+		"InstrumentID": {
+			"title":"InstrumentID",
 			"type":"string",
 			"description":"ID of the instrument",
 			"tier":1,
-			"category":"Instrument",
+			"category":"General",
 			"readonly":true
-		},
-		"Experimenter": {
-			"type":"array",
-			"items": {
-				"description":"This empty element refers to Experimenter that performed this experiment.",
-				"type":"string",
-				"tier":1,
-				"category":"Experimenter",
-				"linkTo":"Experimenter"
-			}
-		},
-		"Sample": {
-			"type":"array",
-			"items": {
-				"description":"This empty element refers to the Sample that was imaged in this Image Acquisition.",
-				"type":"string",
-				"tier":1,
-				"category":"Sample",
-				"linkTo":"Sample"
-			}
-		},
-		"ExperimenterGroup": {
-			"type":"array",
-			"items": {
-				"description":"This empty element refers to the ExperimenterGroup that owns this Image. ",
-				"type":"string",
-				"tier":1,
-				"category":"ExperimenterGroup",
-				"linkTo":"ExperimenterGroup"
-			}
-		},
-		"ROI": {
-			"type":"array",
-			"items": {
-				"description":"NA",
-				"type":"string",
-				"tier":1,
-				"category":"ROI",
-				"linkTo":"ROI"
-			}
 		},
 		"StageInsert": {
 			"type":"array",
@@ -142,14 +97,14 @@
 				"linkTo":"StageInsert"
 			}
 		},
-		"FocusStabilization": {
+		"FocusStabilizationDevice": {
 			"type":"array",
 			"items": {
 				"description":" This empty element refers to the optional Focus Stabilization Device that was used for the Acquisition of the experimental Image this Mechanical Calibration procedure refers to.",
 				"type":"string",
 				"tier":2,
-				"category":"FocusStabilization",
-				"linkTo":"FocusStabilization"
+				"category":"FocusStabilizationDevice",
+				"linkTo":"FocusStabilizationDevice"
 			}
 		},
 		"AcquisitionSoftware": {
@@ -165,7 +120,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -180,9 +135,8 @@
 	"required": [
 		"ID",
 		"Name",
-		"IntrumentName",
-		"IntrumentName",
-		"Sample",
+		"InstrumentName",
+		"InstrumentName",
 		"AcquisitionSoftware",
 		"Tier"
 	]
@@ -356,7 +310,7 @@
 		},
 		"AmplificationGain": {
 			"type":"number",
-			"description":"This field reports the Amplification Gain that was applied during the Acquisition of this Image. Amplification Gain in general measures of the ability of a Detector to add energy to the input light signal therefore increasing its power or amplitude. Higher Amplification Gain levels amplify the signal and result in greater brightness, contrast and background signal. Examples include: 1) the Electron Multiplication (EM) gain (as opposed to the inherent Analog Gain) for an EMCCD camera. 2) The Gain introduced by the Micro-Channel Plate in an Intensified CCD or CMOS camera. 3) The amplification of the electron current provided by a Photomultiplier Tube, and measured as the ratio of the input photoelectron current emitted by the photocatode and the current reaching the anode. 4) The signal amplification provided by an Avalache Photo Diode (APD).",
+			"description":"This field reports the Amplification Gain (i.e., electronic gain as apposed to the inherent Gain) that was set during the Acquisition of this Image. Amplification Gain in general measures of the ability of a Detector to add energy to the input light signal therefore increasing its power or amplitude. Higher Amplification Gain levels amplify the signal and result in greater brightness, contrast and background signal. Examples include: 1) the Electron Multiplication (EM) gain (as opposed to the inherent Analog Gain) for an EMCCD camera. 2) The Gain introduced by the Micro-Channel Plate in an Intensified CCD or CMOS camera. 3) The amplification of the electron current provided by a Photomultiplier Tube, and measured as the ratio of the input photoelectron current emitted by the photocatode and the current reaching the anode. 4) The signal amplification provided by an Avalache Photo Diode (APD).",
 			"tier":1,
 			"category":"DetectorSettings"
 		},
@@ -376,6 +330,12 @@
 				"Voltage",
 				"Other"
 			],
+			"category":"DetectorSettings"
+		},
+		"Zoom": {
+			"type":"number",
+			"description":"The Zoom also known a 'Confocal Zoom' or 'Scan Zoom' that was set for this PointDetector during the acquisition of this Image.",
+			"tier":1,
 			"category":"DetectorSettings"
 		},
 		"Tier": {
@@ -518,7 +478,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -585,7 +545,7 @@
 		},
 		"IlluminationPower": {
 			"type":"number",
-			"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+			"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 			"tier":1,
 			"category":"LEDModule"
 		},
@@ -593,7 +553,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":1,
-			"default":"W",
+			"default":"mW",
 			"enum": [
 				"YW",
 				"ZW",
@@ -615,7 +575,8 @@
 				"fW",
 				"aW",
 				"zW",
-				"yW"
+				"yW",
+				"%"
 			],
 			"category":"LEDModule"
 		},
@@ -670,7 +631,7 @@
 		},
 		"CutOn": {
 			"type":"number",
-			"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+			"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 			"tier":2,
 			"category":"LEDModule"
 		},
@@ -719,7 +680,7 @@
 		},
 		"CutOff": {
 			"type":"number",
-			"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+			"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 			"tier":2,
 			"category":"LEDModule"
 		},
@@ -871,7 +832,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -954,7 +915,7 @@
 	"properties": {
 		"IlluminationPower": {
 			"type":"number",
-			"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+			"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 			"tier":1,
 			"category":"IlluminationWavelengthRange"
 		},
@@ -962,7 +923,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":1,
-			"default":"W",
+			"default":"mW",
 			"enum": [
 				"YW",
 				"ZW",
@@ -984,7 +945,8 @@
 				"fW",
 				"aW",
 				"zW",
-				"yW"
+				"yW",
+				"%"
 			],
 			"category":"IlluminationWavelengthRange"
 		},
@@ -1039,7 +1001,7 @@
 		},
 		"CutOn": {
 			"type":"number",
-			"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+			"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 			"tier":2,
 			"category":"IlluminationWavelengthRange"
 		},
@@ -1088,7 +1050,7 @@
 		},
 		"CutOff": {
 			"type":"number",
-			"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+			"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 			"tier":2,
 			"category":"IlluminationWavelengthRange"
 		},
@@ -1181,7 +1143,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"ReflectanceProfileFile"
 		}
@@ -1216,13 +1178,13 @@
 		},
 		"CutOn": {
 			"type":"number",
-			"description":"This field records the Wavelength(s) below which there is less than 50% Transmittance for this optical element.",
+			"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 			"tier":1,
 			"category":"ReflectionWavelengthRangeSettings"
 		},
 		"CutOff": {
 			"type":"number",
-			"description":"This field records the Wavelength(s) above which there is less than 50% Transmittance for this optical element.",
+			"description":"CutOff is the Wavelength below which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 			"tier":1,
 			"category":"ReflectionWavelengthRangeSettings"
 		},
@@ -1319,9 +1281,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"PowerMode": {
+		"PurchaseDate": {
 			"type":"string",
-			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"description":"This field records the Date in which this Light Source was purchased.",
+			"tier":2,
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingStatistic": {
+			"type":"string",
+			"description":"This field reports the statistic used by the Manufacturer to report the nominal Illumination Power output emitted by this Light Source at Peak Wavelength.",
+			"tier":2,
+			"enum": [
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
+			],
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
 				"Average",
@@ -1365,7 +1345,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -1377,7 +1357,7 @@
 				"properties": {
 					"IlluminationPower": {
 						"type":"number",
-						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 						"tier":1,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -1385,7 +1365,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":1,
-						"default":"W",
+						"default":"mW",
 						"enum": [
 							"YW",
 							"ZW",
@@ -1407,7 +1387,8 @@
 							"fW",
 							"aW",
 							"zW",
-							"yW"
+							"yW",
+							"%"
 						],
 						"category":"IlluminationWavelengthRange"
 					},
@@ -1462,7 +1443,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -1511,7 +1492,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -1628,9 +1609,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"PowerMode": {
+		"PurchaseDate": {
 			"type":"string",
-			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"description":"This field records the Date in which this Light Source was purchased.",
+			"tier":2,
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingStatistic": {
+			"type":"string",
+			"description":"This field reports the statistic used by the Manufacturer to report the nominal Illumination Power output emitted by this Light Source at Peak Wavelength.",
+			"tier":2,
+			"enum": [
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
+			],
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
 				"Average",
@@ -1674,7 +1673,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -1686,7 +1685,7 @@
 				"properties": {
 					"IlluminationPower": {
 						"type":"number",
-						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 						"tier":1,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -1694,7 +1693,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":1,
-						"default":"W",
+						"default":"mW",
 						"enum": [
 							"YW",
 							"ZW",
@@ -1716,7 +1715,8 @@
 							"fW",
 							"aW",
 							"zW",
-							"yW"
+							"yW",
+							"%"
 						],
 						"category":"IlluminationWavelengthRange"
 					},
@@ -1771,7 +1771,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -1820,7 +1820,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -2026,7 +2026,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -2150,7 +2150,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -2285,7 +2285,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -2510,7 +2510,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -2841,7 +2841,7 @@
 		},
 		"CutOn": {
 			"type":"number",
-			"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+			"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 			"tier":2,
 			"category":"WavelengthRange"
 		},
@@ -2890,7 +2890,7 @@
 		},
 		"CutOff": {
 			"type":"number",
-			"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+			"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 			"tier":2,
 			"category":"WavelengthRange"
 		},
@@ -3426,7 +3426,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -3588,7 +3588,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -3762,7 +3762,8 @@
 				"fW",
 				"aW",
 				"zW",
-				"yW"
+				"yW",
+				"%"
 			],
 			"category":"PointDetector"
 		},
@@ -3827,7 +3828,7 @@
 		},
 		"ReadOutNoise": {
 			"type":"number",
-			"description":"This field captures the Read Out Noise associated with this Detector, as specified by the Manufacturer. Read Out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
+			"description":"This field captures the Read-out Noise associated with this Detector, as specified by the Manufacturer. Read-out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by the CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -3955,7 +3956,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -4239,7 +4240,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -4381,7 +4382,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -4440,7 +4441,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"TransmittanceProfileFile"
 		}
@@ -4933,7 +4934,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -5290,7 +5291,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -5681,7 +5682,7 @@
 		},
 		"ReadOutNoise": {
 			"type":"number",
-			"description":"This field captures the Read Out Noise associated with this Detector, as specified by the Manufacturer. Read Out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
+			"description":"This field captures the Read-out Noise associated with this Detector, as specified by the Manufacturer. Read-out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by the CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -5809,7 +5810,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -6409,7 +6410,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -6917,7 +6918,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -7087,7 +7088,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -7386,7 +7387,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -7435,7 +7436,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -7994,7 +7995,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -8147,7 +8148,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -8212,7 +8213,7 @@
 		},
 		"FWHMBandwidth": {
 			"type":"number",
-			"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+			"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 			"tier":1,
 			"category":"TransmittanceRange"
 		},
@@ -8324,13 +8325,13 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) below which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmissionWavelengthRangeSettings"
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) above which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOff is the Wavelength below which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmissionWavelengthRangeSettings"
 					},
@@ -8398,13 +8399,13 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) below which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":1,
 						"category":"ReflectionWavelengthRangeSettings"
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) above which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOff is the Wavelength below which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":1,
 						"category":"ReflectionWavelengthRangeSettings"
 					},
@@ -9183,7 +9184,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -9394,7 +9395,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -9849,7 +9850,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -10003,7 +10004,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -10406,7 +10407,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -10454,13 +10455,13 @@
 		},
 		"CutOn": {
 			"type":"number",
-			"description":"This field records the Wavelength(s) below which there is less than 50% Transmittance for this optical element.",
+			"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 			"tier":1,
 			"category":"TransmissionWavelengthRangeSettings"
 		},
 		"CutOff": {
 			"type":"number",
-			"description":"This field records the Wavelength(s) above which there is less than 50% Transmittance for this optical element.",
+			"description":"CutOff is the Wavelength below which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 			"tier":1,
 			"category":"TransmissionWavelengthRangeSettings"
 		},
@@ -10558,9 +10559,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"PowerMode": {
+		"PurchaseDate": {
 			"type":"string",
-			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"description":"This field records the Date in which this Light Source was purchased.",
+			"tier":2,
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingStatistic": {
+			"type":"string",
+			"description":"This field reports the statistic used by the Manufacturer to report the nominal Illumination Power output emitted by this Light Source at Peak Wavelength.",
+			"tier":2,
+			"enum": [
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
+			],
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
 				"Average",
@@ -10604,7 +10623,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -10616,7 +10635,7 @@
 				"properties": {
 					"IlluminationPower": {
 						"type":"number",
-						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 						"tier":1,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -10624,7 +10643,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":1,
-						"default":"W",
+						"default":"mW",
 						"enum": [
 							"YW",
 							"ZW",
@@ -10646,7 +10665,8 @@
 							"fW",
 							"aW",
 							"zW",
-							"yW"
+							"yW",
+							"%"
 						],
 						"category":"IlluminationWavelengthRange"
 					},
@@ -10701,7 +10721,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -10750,7 +10770,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -10896,17 +10916,17 @@
 			],
 			"category":"LightSourceSettings"
 		},
-		"IlluminationIntensity": {
+		"IlluminationPowerSettings": {
 			"type":"number",
-			"description":"This field records the nominal Illumination Intensity (also known as Illumination Power or Power Output) that was set for the Acquisition of this Image or was reported by the Image Acquisition Software.",
+			"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) that was set for the Acquisition of this Image or was reported by the Image Acquisition Software, as advertised by the Manufacturer. Depending on the system this might be reported as a % value.",
 			"tier":1,
 			"category":"LightSourceSettings"
 		},
-		"IlluminationIntensityUnit": {
+		"lluminationPowerSettingsUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":1,
-			"default":"W",
+			"default":"mW",
 			"enum": [
 				"YW",
 				"ZW",
@@ -10928,20 +10948,8 @@
 				"fW",
 				"aW",
 				"zW",
-				"yW"
-			],
-			"category":"LightSourceSettings"
-		},
-		"IntensityReportingPosition": {
-			"type":"string",
-			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
-			"tier":2,
-			"enum": [
-				"Back of the Objective",
-				"Back of the Microscope Stand",
-				"Source",
-				"Specimen",
-				"Other"
+				"yW",
+				"%"
 			],
 			"category":"LightSourceSettings"
 		},
@@ -10957,6 +10965,12 @@
 			"tier":3,
 			"category":"LightSourceSettings"
 		},
+		"UsedAcoustoOpticalDevice": {
+			"type":"boolean",
+			"description":"In case a Laser was used for this Image Acquisition, this field records whether (True) or not (False) an AcoustoOptical Device was employed for intensity modulation.",
+			"tier":2,
+			"category":"LightSourceSettings"
+		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
@@ -10968,8 +10982,7 @@
 	"required": [
 		"ID",
 		"Wavelength",
-		"IlluminationIntensity",
-		"IntensityReportingPosition",
+		"IlluminationPowerSettings",
 		"Tier"
 	]
 },
@@ -11138,7 +11151,8 @@
 				"fW",
 				"aW",
 				"zW",
-				"yW"
+				"yW",
+				"%"
 			],
 			"category":"PointDetector"
 		},
@@ -11203,7 +11217,7 @@
 		},
 		"ReadOutNoise": {
 			"type":"number",
-			"description":"This field captures the Read Out Noise associated with this Detector, as specified by the Manufacturer. Read Out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
+			"description":"This field captures the Read-out Noise associated with this Detector, as specified by the Manufacturer. Read-out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by the CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -11331,7 +11345,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -11614,9 +11628,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"PowerMode": {
+		"PurchaseDate": {
 			"type":"string",
-			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"description":"This field records the Date in which this Light Source was purchased.",
+			"tier":2,
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingStatistic": {
+			"type":"string",
+			"description":"This field reports the statistic used by the Manufacturer to report the nominal Illumination Power output emitted by this Light Source at Peak Wavelength.",
+			"tier":2,
+			"enum": [
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
+			],
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
 				"Average",
@@ -11660,7 +11692,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -12305,7 +12337,7 @@
 		},
 		"ReadOutNoise": {
 			"type":"number",
-			"description":"This field captures the Read Out Noise associated with this Detector, as specified by the Manufacturer. Read Out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
+			"description":"This field captures the Read-out Noise associated with this Detector, as specified by the Manufacturer. Read-out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by the CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -12433,7 +12465,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -13114,7 +13146,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -13387,7 +13419,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -13783,7 +13815,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -13801,7 +13833,7 @@
 					},
 					"FWHMBandwidth": {
 						"type":"number",
-						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmittanceRange"
 					},
@@ -13875,7 +13907,7 @@
 					},
 					"FWHMBandwidth": {
 						"type":"number",
-						"description":"This field records the width of this Reflectance Range (also known as Reflection band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"description":"This field records the width of this Reflectance Range (also known as Reflection band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 						"tier":3,
 						"category":"ReflectanceRange"
 					},
@@ -14441,7 +14473,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -14631,7 +14663,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -14879,7 +14911,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -15208,7 +15240,7 @@
 					},
 					"FWHMBandwidth": {
 						"type":"number",
-						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmittanceRange"
 					},
@@ -15271,7 +15303,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -15379,7 +15411,7 @@
 		},
 		"ReadOutNoise": {
 			"type":"number",
-			"description":"This field captures the Read Out Noise associated with this Detector, as specified by the Manufacturer. Read Out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
+			"description":"This field captures the Read-out Noise associated with this Detector, as specified by the Manufacturer. Read-out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by the CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -15507,7 +15539,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -15869,7 +15901,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -15923,7 +15955,7 @@
 		},
 		"AmplificationGain": {
 			"type":"number",
-			"description":"This field reports the Amplification Gain that was applied during the Acquisition of this Image. Amplification Gain in general measures of the ability of a Detector to add energy to the input light signal therefore increasing its power or amplitude. Higher Amplification Gain levels amplify the signal and result in greater brightness, contrast and background signal. Examples include: 1) the Electron Multiplication (EM) gain (as opposed to the inherent Analog Gain) for an EMCCD camera. 2) The Gain introduced by the Micro-Channel Plate in an Intensified CCD or CMOS camera. 3) The amplification of the electron current provided by a Photomultiplier Tube, and measured as the ratio of the input photoelectron current emitted by the photocatode and the current reaching the anode. 4) The signal amplification provided by an Avalache Photo Diode (APD).",
+			"description":"This field reports the Amplification Gain (i.e., electronic gain as apposed to the inherent Gain) that was set during the Acquisition of this Image. Amplification Gain in general measures of the ability of a Detector to add energy to the input light signal therefore increasing its power or amplitude. Higher Amplification Gain levels amplify the signal and result in greater brightness, contrast and background signal. Examples include: 1) the Electron Multiplication (EM) gain (as opposed to the inherent Analog Gain) for an EMCCD camera. 2) The Gain introduced by the Micro-Channel Plate in an Intensified CCD or CMOS camera. 3) The amplification of the electron current provided by a Photomultiplier Tube, and measured as the ratio of the input photoelectron current emitted by the photocatode and the current reaching the anode. 4) The signal amplification provided by an Avalache Photo Diode (APD).",
 			"tier":1,
 			"category":"DetectorSettings"
 		},
@@ -15943,6 +15975,12 @@
 				"Voltage",
 				"Other"
 			],
+			"category":"DetectorSettings"
+		},
+		"Zoom": {
+			"type":"number",
+			"description":"The Zoom also known a 'Confocal Zoom' or 'Scan Zoom' that was set for this PointDetector during the acquisition of this Image.",
+			"tier":1,
 			"category":"DetectorSettings"
 		},
 		"Tier": {
@@ -16192,7 +16230,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -16271,7 +16309,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -16663,7 +16701,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -16681,7 +16719,7 @@
 					},
 					"FWHMBandwidth": {
 						"type":"number",
-						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmittanceRange"
 					},
@@ -16755,7 +16793,7 @@
 					},
 					"FWHMBandwidth": {
 						"type":"number",
-						"description":"This field records the width of this Reflectance Range (also known as Reflection band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"description":"This field records the width of this Reflectance Range (also known as Reflection band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 						"tier":3,
 						"category":"ReflectanceRange"
 					},
@@ -17112,7 +17150,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -17833,7 +17871,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -17981,7 +18019,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -18039,7 +18077,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"WavelengthProfileFile"
 		}
@@ -18090,13 +18128,13 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) below which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmissionWavelengthRangeSettings"
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) above which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOff is the Wavelength below which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmissionWavelengthRangeSettings"
 					},
@@ -18164,13 +18202,13 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) below which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":1,
 						"category":"ReflectionWavelengthRangeSettings"
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) above which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOff is the Wavelength below which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":1,
 						"category":"ReflectionWavelengthRangeSettings"
 					},
@@ -18459,6 +18497,12 @@
 			"tier":3,
 			"category":"Laser"
 		},
+		"UsedAcoustoOpticalDevice": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) an AcoustoOptical Device was utilized during this Calibration Procedure.",
+			"tier":2,
+			"category":"Laser"
+		},
 		"Name": {
 			"type":"string",
 			"description":"A User-defined Name for this component.",
@@ -18472,9 +18516,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"PowerMode": {
+		"PurchaseDate": {
 			"type":"string",
-			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"description":"This field records the Date in which this Light Source was purchased.",
+			"tier":2,
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingStatistic": {
+			"type":"string",
+			"description":"This field reports the statistic used by the Manufacturer to report the nominal Illumination Power output emitted by this Light Source at Peak Wavelength.",
+			"tier":2,
+			"enum": [
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
+			],
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
 				"Average",
@@ -18518,7 +18580,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -18530,7 +18592,7 @@
 				"properties": {
 					"IlluminationPower": {
 						"type":"number",
-						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 						"tier":1,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -18538,7 +18600,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":1,
-						"default":"W",
+						"default":"mW",
 						"enum": [
 							"YW",
 							"ZW",
@@ -18560,7 +18622,8 @@
 							"fW",
 							"aW",
 							"zW",
-							"yW"
+							"yW",
+							"%"
 						],
 						"category":"IlluminationWavelengthRange"
 					},
@@ -18615,7 +18678,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -18664,7 +18727,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -19032,7 +19095,7 @@
 					},
 					"FWHMBandwidth": {
 						"type":"number",
-						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmittanceRange"
 					},
@@ -19095,7 +19158,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -19166,9 +19229,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"PowerMode": {
+		"PurchaseDate": {
 			"type":"string",
-			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"description":"This field records the Date in which this Light Source was purchased.",
+			"tier":2,
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingStatistic": {
+			"type":"string",
+			"description":"This field reports the statistic used by the Manufacturer to report the nominal Illumination Power output emitted by this Light Source at Peak Wavelength.",
+			"tier":2,
+			"enum": [
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
+			],
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
 				"Average",
@@ -19212,7 +19293,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -19243,7 +19324,7 @@
 					},
 					"IlluminationPower": {
 						"type":"number",
-						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 						"tier":1,
 						"category":"LEDModule"
 					},
@@ -19251,7 +19332,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":1,
-						"default":"W",
+						"default":"mW",
 						"enum": [
 							"YW",
 							"ZW",
@@ -19273,7 +19354,8 @@
 							"fW",
 							"aW",
 							"zW",
-							"yW"
+							"yW",
+							"%"
 						],
 						"category":"LEDModule"
 					},
@@ -19328,7 +19410,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"LEDModule"
 					},
@@ -19377,7 +19459,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"LEDModule"
 					},
@@ -19496,9 +19578,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"PowerMode": {
+		"PurchaseDate": {
 			"type":"string",
-			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"description":"This field records the Date in which this Light Source was purchased.",
+			"tier":2,
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingStatistic": {
+			"type":"string",
+			"description":"This field reports the statistic used by the Manufacturer to report the nominal Illumination Power output emitted by this Light Source at Peak Wavelength.",
+			"tier":2,
+			"enum": [
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
+			],
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
 				"Average",
@@ -19542,7 +19642,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -19573,7 +19673,7 @@
 					},
 					"IlluminationPower": {
 						"type":"number",
-						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 						"tier":1,
 						"category":"LEDModule"
 					},
@@ -19581,7 +19681,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":1,
-						"default":"W",
+						"default":"mW",
 						"enum": [
 							"YW",
 							"ZW",
@@ -19603,7 +19703,8 @@
 							"fW",
 							"aW",
 							"zW",
-							"yW"
+							"yW",
+							"%"
 						],
 						"category":"LEDModule"
 					},
@@ -19658,7 +19759,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"LEDModule"
 					},
@@ -19707,7 +19808,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"LEDModule"
 					},
@@ -20064,7 +20165,7 @@
 		},
 		"FWHMBandwidth": {
 			"type":"number",
-			"description":"This field records the width of this Reflectance Range (also known as Reflection band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+			"description":"This field records the width of this Reflectance Range (also known as Reflection band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 			"tier":3,
 			"category":"ReflectanceRange"
 		},
@@ -20526,7 +20627,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -20740,7 +20841,8 @@
 				"fW",
 				"aW",
 				"zW",
-				"yW"
+				"yW",
+				"%"
 			],
 			"category":"PointDetector"
 		},
@@ -20805,7 +20907,7 @@
 		},
 		"ReadOutNoise": {
 			"type":"number",
-			"description":"This field captures the Read Out Noise associated with this Detector, as specified by the Manufacturer. Read Out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
+			"description":"This field captures the Read-out Noise associated with this Detector, as specified by the Manufacturer. Read-out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by the CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -20933,7 +21035,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -21526,7 +21628,7 @@
 		},
 		"ReadOutNoise": {
 			"type":"number",
-			"description":"This field captures the Read Out Noise associated with this Detector, as specified by the Manufacturer. Read Out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
+			"description":"This field captures the Read-out Noise associated with this Detector, as specified by the Manufacturer. Read-out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by the CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -21654,7 +21756,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -22214,7 +22316,7 @@
 					},
 					"FWHMBandwidth": {
 						"type":"number",
-						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmittanceRange"
 					},
@@ -22277,7 +22379,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -22571,7 +22673,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -22589,6 +22691,186 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
+		"Tier"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"StageLabel.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"StageLabel",
+	"description":"The StageLabel is used to specify the Name and Position for a Stage position in the Microscope's reference frame.",
+	"extension":"Core",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_StageLabel.svg",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"StageLabel":"The StageLabel is used to specify the Name and Position for a Stage position in the Microscope's reference frame."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A User-defined Name for this Stage Label.",
+			"tier":2,
+			"category":"General"
+		},
+		"X": {
+			"type":"number",
+			"description":"The X position of this StageLabel.",
+			"tier":2,
+			"category":"StageLabel"
+		},
+		"XUnits": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"StageLabel"
+		},
+		"Y": {
+			"type":"number",
+			"description":"The Y position of this StageLabel.",
+			"tier":2,
+			"category":"StageLabel"
+		},
+		"YUnits": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"StageLabel"
+		},
+		"Z": {
+			"type":"number",
+			"description":"The Z position of this StageLabel.",
+			"tier":2,
+			"category":"StageLabel"
+		},
+		"ZUnits": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"StageLabel"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Name",
 		"Tier"
 	]
 },
@@ -23075,7 +23357,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -23177,7 +23459,7 @@
 		},
 		"AmplificationGain": {
 			"type":"number",
-			"description":"This field reports the Amplification Gain that was applied during the Acquisition of this Image. Amplification Gain in general measures of the ability of a Detector to add energy to the input light signal therefore increasing its power or amplitude. Higher Amplification Gain levels amplify the signal and result in greater brightness, contrast and background signal. Examples include: 1) the Electron Multiplication (EM) gain (as opposed to the inherent Analog Gain) for an EMCCD camera. 2) The Gain introduced by the Micro-Channel Plate in an Intensified CCD or CMOS camera. 3) The amplification of the electron current provided by a Photomultiplier Tube, and measured as the ratio of the input photoelectron current emitted by the photocatode and the current reaching the anode. 4) The signal amplification provided by an Avalache Photo Diode (APD).",
+			"description":"This field reports the Amplification Gain (i.e., electronic gain as apposed to the inherent Gain) that was set during the Acquisition of this Image. Amplification Gain in general measures of the ability of a Detector to add energy to the input light signal therefore increasing its power or amplitude. Higher Amplification Gain levels amplify the signal and result in greater brightness, contrast and background signal. Examples include: 1) the Electron Multiplication (EM) gain (as opposed to the inherent Analog Gain) for an EMCCD camera. 2) The Gain introduced by the Micro-Channel Plate in an Intensified CCD or CMOS camera. 3) The amplification of the electron current provided by a Photomultiplier Tube, and measured as the ratio of the input photoelectron current emitted by the photocatode and the current reaching the anode. 4) The signal amplification provided by an Avalache Photo Diode (APD).",
 			"tier":1,
 			"category":"DetectorSettings"
 		},
@@ -23197,6 +23479,12 @@
 				"Voltage",
 				"Other"
 			],
+			"category":"DetectorSettings"
+		},
+		"Zoom": {
+			"type":"number",
+			"description":"The Zoom also known a 'Confocal Zoom' or 'Scan Zoom' that was set for this PointDetector during the acquisition of this Image.",
+			"tier":1,
 			"category":"DetectorSettings"
 		},
 		"Tier": {
@@ -23513,7 +23801,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -23961,7 +24249,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -24080,7 +24368,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -24813,7 +25101,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -24960,7 +25248,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -25348,7 +25636,7 @@
 		},
 		"ReadOutNoise": {
 			"type":"number",
-			"description":"This field captures the Read Out Noise associated with this Detector, as specified by the Manufacturer. Read Out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
+			"description":"This field captures the Read-out Noise associated with this Detector, as specified by the Manufacturer. Read-out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by the CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -25476,7 +25764,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -25971,7 +26259,7 @@
 					},
 					"FWHMBandwidth": {
 						"type":"number",
-						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmittanceRange"
 					},
@@ -26034,7 +26322,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -26485,7 +26773,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -26626,7 +26914,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -27066,7 +27354,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -27211,7 +27499,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -27275,9 +27563,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"PowerMode": {
+		"PurchaseDate": {
 			"type":"string",
-			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"description":"This field records the Date in which this Light Source was purchased.",
+			"tier":2,
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingStatistic": {
+			"type":"string",
+			"description":"This field reports the statistic used by the Manufacturer to report the nominal Illumination Power output emitted by this Light Source at Peak Wavelength.",
+			"tier":2,
+			"enum": [
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
+			],
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
 				"Average",
@@ -27321,7 +27627,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -27333,7 +27639,7 @@
 				"properties": {
 					"IlluminationPower": {
 						"type":"number",
-						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 						"tier":1,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -27341,7 +27647,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":1,
-						"default":"W",
+						"default":"mW",
 						"enum": [
 							"YW",
 							"ZW",
@@ -27363,7 +27669,8 @@
 							"fW",
 							"aW",
 							"zW",
-							"yW"
+							"yW",
+							"%"
 						],
 						"category":"IlluminationWavelengthRange"
 					},
@@ -27418,7 +27725,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -27467,7 +27774,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -27572,9 +27879,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"PowerMode": {
+		"PurchaseDate": {
 			"type":"string",
-			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"description":"This field records the Date in which this Light Source was purchased.",
+			"tier":2,
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingStatistic": {
+			"type":"string",
+			"description":"This field reports the statistic used by the Manufacturer to report the nominal Illumination Power output emitted by this Light Source at Peak Wavelength.",
+			"tier":2,
+			"enum": [
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
+			],
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
 				"Average",
@@ -27618,7 +27943,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -27630,7 +27955,7 @@
 				"properties": {
 					"IlluminationPower": {
 						"type":"number",
-						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 						"tier":1,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -27638,7 +27963,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":1,
-						"default":"W",
+						"default":"mW",
 						"enum": [
 							"YW",
 							"ZW",
@@ -27660,7 +27985,8 @@
 							"fW",
 							"aW",
 							"zW",
-							"yW"
+							"yW",
+							"%"
 						],
 						"category":"IlluminationWavelengthRange"
 					},
@@ -27715,7 +28041,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -27764,7 +28090,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -27940,7 +28266,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -28444,7 +28770,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -28590,7 +28916,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -28740,7 +29066,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -28867,7 +29193,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -29009,7 +29335,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
