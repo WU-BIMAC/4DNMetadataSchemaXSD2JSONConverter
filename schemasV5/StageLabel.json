@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"StageLabel",
 	"description":"The StageLabel is used to specify the Name and Position for a Stage position in the Microscope's reference frame.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",

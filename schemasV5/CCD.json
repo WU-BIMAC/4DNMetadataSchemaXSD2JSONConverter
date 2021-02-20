@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"CCD",
 	"description":"This element represents a Charged Coupled Device Camera.",
+	"modelSettings":"CameraSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Detector.Camera",

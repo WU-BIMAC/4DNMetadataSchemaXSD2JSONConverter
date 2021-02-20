@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"StageInsert",
 	"description":"This element describes an optional Stage Insert mounted on the Stage.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"SamplePositioning.Stage",

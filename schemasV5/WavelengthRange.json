@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"WavelengthRange",
 	"description":"This element records a range of Wavelengths this component is designed for, according to the Manufacturer. Multiple of this element may be used.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"ChildElement",

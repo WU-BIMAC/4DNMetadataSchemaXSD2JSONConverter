@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"FilterCubeTurret",
 	"description":"This element represents a circular holder for multiple Filter Cubes.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"OpticsHolder",

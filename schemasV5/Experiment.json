@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Experiment",
 	"description":"This element describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"Experimental",
 	"category":"SamplePreparation",

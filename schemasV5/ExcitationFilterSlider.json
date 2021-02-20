@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"ExcitationFilterSlider",
 	"description":"This element represents a linear holder for multiple individual Excitation Filters.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"OpticsHolder",

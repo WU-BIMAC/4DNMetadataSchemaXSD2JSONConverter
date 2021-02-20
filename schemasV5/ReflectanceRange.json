@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"ReflectanceRange",
 	"description":"This element records the Range (also known as Band) of Wavelengths that are reflected by this optical componewnt. It also records the maximum amount of light reflected. Multiple of these elements can be used.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"ChildElement",

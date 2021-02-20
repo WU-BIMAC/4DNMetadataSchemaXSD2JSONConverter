@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"EmissionFilter",
 	"description":"An optical Filter is a device designed to selectively control the Wavelengths, color temperature, vibration direction, and/or intensity of the radiation which it transmits or reflects. This element refers to an Emission Filter whose purpose is to selectively attenuate the Fluorescent Light that is emitted by the Sample depending on Wavelength. This element can be associated with an optional Filter Holder.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"FluorescenceLightPath",

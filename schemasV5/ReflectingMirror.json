@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"ReflectingMirror",
 	"description":"This element describes a total reflection Mirror.",
+	"modelSettings":"MirroringDeviceSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"MirroringDevice",

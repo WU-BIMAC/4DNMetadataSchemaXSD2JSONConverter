@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"TransmittanceRange",
 	"description":"This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component. It also records the maximum amount of light transmitted. Multiple of these elements can be used.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"ChildElement",

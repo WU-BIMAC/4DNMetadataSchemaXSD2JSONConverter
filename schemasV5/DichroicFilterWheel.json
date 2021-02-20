@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"DichroicFilterWheel",
 	"description":"This element represents a circular holder for multiple individual Dichroics.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"OpticsHolder",

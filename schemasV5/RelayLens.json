@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"RelayLens",
 	"description":"A Relay Lens is often used in combination with other Lenses for transferring an Image into a different optical plane. A typical example of Relay Lens is the Lens positioned at the mount connecting a Detector with the Microscope Stand.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Lens",

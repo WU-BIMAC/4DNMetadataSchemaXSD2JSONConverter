@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"OpticsTurret",
 	"description":"This element represents a circular holder for multiple optical elements.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"OpticsHolder",

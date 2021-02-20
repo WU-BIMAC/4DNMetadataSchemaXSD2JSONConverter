@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"CouplingLens",
 	"description":"This element refers to a Lens positioned at the mount connecting the Light Source Coupling device and the Microscope Stand.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Lens",

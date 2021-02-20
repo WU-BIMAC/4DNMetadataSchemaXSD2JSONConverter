@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"CMOS",
 	"description":"This field records a complementary metal–oxide–semiconductor camera",
+	"modelSettings":"CameraSettings",
 	"extension":"Basic ",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Detector.Camera",

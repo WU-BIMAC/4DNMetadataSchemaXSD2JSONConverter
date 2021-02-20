@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"SoftwareModule",
 	"description":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for any Image Acquisition, Image Analysis or Quality Control task.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeSpecifications",
 	"category":"Software",

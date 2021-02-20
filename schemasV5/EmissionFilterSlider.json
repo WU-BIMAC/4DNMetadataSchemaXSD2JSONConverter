@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"EmissionFilterSlider",
 	"description":"This element represents a linear holder for multiple individual Emission Filters.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"OpticsHolder",

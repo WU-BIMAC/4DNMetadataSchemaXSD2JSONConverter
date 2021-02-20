@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"GenericExcitationSource",
 	"description":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible.",
+	"modelSettings":"LightSourceSettings",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Fluorescence_LightSource",

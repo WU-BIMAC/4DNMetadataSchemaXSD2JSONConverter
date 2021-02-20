@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"MultiLaserEngine",
 	"description":"This element describes a Light Source device that contains multiple Lasers built into a single box. This element contains Reference(s) to individual Laser components built separately and assembled as part of this device.",
+	"modelSettings":"LightSourceSettings",
 	"extension":"Advanced",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Fluorescence_LightSource",

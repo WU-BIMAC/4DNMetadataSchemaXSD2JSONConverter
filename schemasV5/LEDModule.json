@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"LEDModule",
 	"description":"A Light Emitting Diode (LED) Light Source is often composed of multiple modules each with its own wavelength characteristics. This element describes an individual LED module. Multiple of this elements may be used.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"ChildElement",

@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"LightPath",
 	"description":"This element holds a description of the Light Path associated with the Acquisition of this Channel.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"ImageAcquisitionSettings",
 	"category":"LightPath",

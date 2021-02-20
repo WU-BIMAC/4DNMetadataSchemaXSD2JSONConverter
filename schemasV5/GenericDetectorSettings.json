@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"GenericDetectorSettings",
 	"description":"This element refers to the Generic Detector that was used to Acquire this Channel and it holds the Settings that were applied to the Detector during this Acquisition.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",

@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"IntensifiedCamera",
 	"description":"This field records an intensified Camera.",
+	"modelSettings":"CameraSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Detector.Camera",

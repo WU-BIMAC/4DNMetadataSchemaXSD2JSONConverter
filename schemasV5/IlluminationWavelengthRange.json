@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"IlluminationWavelengthRange",
 	"description":"This element records a range of Wavelengths at which this Light Source emits, according to the Manufacturer. Multiple of this element may be used.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"ChildElement",

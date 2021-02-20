@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"ExcitationFilterWheel",
 	"description":"This element represents a circular holder for multiple individual Excitation Filters.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"OpticsHolder",

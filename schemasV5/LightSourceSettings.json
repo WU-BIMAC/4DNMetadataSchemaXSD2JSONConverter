@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"LightSourceSettings",
 	"description":"This element holds the Setting applied to a Light Source used in the Light Path during the acquisition of this Channel as well as a reference to the LightSource (the ID attribute) in question.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",

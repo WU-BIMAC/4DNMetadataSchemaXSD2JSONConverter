@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"DichroicFilterSlider",
 	"description":"This element represents a linear holder for multiple individual Dichroics.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"OpticsHolder",

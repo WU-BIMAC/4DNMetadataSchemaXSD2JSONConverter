@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Channel",
 	"description":"Each Image has to have at least one Plane and one Channel. The Channel element stores information about how the each Image Channel was acquired. The total number of Channel elements for a given Image must equal to SizeC.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Image",

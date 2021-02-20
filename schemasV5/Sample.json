@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Sample",
 	"description":"This field captures a description of the sample that was imaged in this experiment.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"Experimental",
 	"category":"SamplePreparation",

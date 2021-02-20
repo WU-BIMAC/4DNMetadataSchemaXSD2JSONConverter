@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"GenericOpticalApertureSettings",
 	"description":"This element holds the Setting applied to a Generic Optical Aperture used during the Acquisition of this Channel as well as a reference (the ID attribute) to the Optical Aperture in question.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",

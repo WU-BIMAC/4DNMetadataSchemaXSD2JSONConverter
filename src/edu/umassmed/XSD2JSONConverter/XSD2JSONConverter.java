@@ -61,6 +61,7 @@ public class XSD2JSONConverter {
 	public static String tier = "Tier=";
 	public static String desc = "Description=";
 	public static String split = "Split=";
+	public static String model_settings = "Model_Settings=";
 
 	public static String id_attr = "ID";
 	public static String tier_attr = "Tier";
@@ -409,6 +410,8 @@ public class XSD2JSONConverter {
 			final String originalExtension = this.getExtension(name,
 					annotations);
 			final String originalDomain = this.getDomain(name, annotations);
+			final String originalModelSettings = this.getModelSettings(name,
+					annotations);
 			final String originalCategory = this.getCategory(name, annotations);
 
 			final List<XSParticle> particles = this
@@ -468,6 +471,8 @@ public class XSD2JSONConverter {
 			sb.append("\t\"type\":\"object\",\n");
 			sb.append("\t\"title\":\"Image\",\n");
 			sb.append("\t\"description\":\"" + desc + "\",\n");
+			sb.append("\t\"modelSettings\":\"" + originalModelSettings
+					+ "\",\n");
 			sb.append("\t\"extension\":\"" + originalExtension + "\",\n");
 			sb.append("\t\"domain\":\"" + originalDomain + "\",\n");
 			sb.append("\t\"category\":\"" + originalCategory + "\",\n");
@@ -612,6 +617,8 @@ public class XSD2JSONConverter {
 			sb.append("\t\"type\":\"object\",\n");
 			sb.append("\t\"title\":\"Instrument\",\n");
 			sb.append("\t\"description\":\"" + desc + "\",\n");
+			sb.append("\t\"modelSettings\":\"" + "MicroscopeSettings.json"
+					+ "\",\n");
 			sb.append("\t\"image\":\"" + XSD2JSONConverter.image + "\",\n");
 			sb.append("\t\"tier\":" + tier + ",\n");
 			sb.append("\t\"subCategoriesOrder\": {\n");
@@ -1522,6 +1529,8 @@ public class XSD2JSONConverter {
 			final String originalExtension = this.getExtension(name,
 					annotations);
 			final String originalDomain = this.getDomain(name, annotations);
+			final String originalModelSettings = this.getModelSettings(name,
+					annotations);
 			final String originalCategory = this.getCategory(name, annotations);
 
 			final List<XSParticle> particles = this
@@ -1609,6 +1618,8 @@ public class XSD2JSONConverter {
 				sb.append("\t\"type\":\"object\",\n");
 				sb.append("\t\"title\":\"" + name + "\",\n");
 				sb.append("\t\"description\":\"" + desc + "\",\n");
+				sb.append("\t\"modelSettings\":\"" + originalModelSettings
+						+ "\",\n");
 				sb.append("\t\"extension\":\"" + originalExtension + "\",\n");
 				sb.append("\t\"domain\":\"" + originalDomain + "\",\n");
 				sb.append("\t\"category\":\"" + category + "\",\n");
@@ -1849,6 +1860,59 @@ public class XSD2JSONConverter {
 					return extension;
 				} else {
 					this.errors.append(name + " extension is missing");
+					this.errors.append("\n");
+					return XSD2JSONConverter.value_not_assigned;
+				}
+			}
+		}
+		return null;
+	}
+	
+	private String getModelSettings(final String name,
+			final XSObjectList annotations) {
+		if (annotations.getLength() == 0) {
+			this.errors.append(name
+					+ " model settings is missing (no annotations)");
+			this.errors.append("\n");
+		}
+		for (int y = 0; y < annotations.getLength(); y++) {
+			final XSObject annotationObj = annotations.item(y);
+			if (annotationObj instanceof XSAnnotation) {
+				final XSAnnotation annotation = (XSAnnotation) annotationObj;
+				final String annot = annotation.getAnnotationString();
+				if (annot.contains(XSD2JSONConverter.model_settings)) {
+					final int begin = annot
+							.indexOf(XSD2JSONConverter.model_settings);
+					final int end = annot.indexOf("</", begin);
+					String domain = annot.substring(begin, end);
+					domain = domain.replace(XSD2JSONConverter.model_settings,
+							"");
+					if (domain.contains("null")) {
+						this.errors.append(name + " model settings is null");
+						this.errors.append("\n");
+						domain = XSD2JSONConverter.value_not_assigned;
+					}
+					if (domain.contains(" ")) {
+						this.errors.append(name
+								+ " model settings contains SPACE");
+						this.errors.append("\n");
+						domain = domain.replaceAll(" ", "");
+					}
+					if (domain.contains("\t")) {
+						this.errors.append(name
+								+ " model settings contains TAB");
+						this.errors.append("\n");
+						domain = domain.replaceAll("\t", "");
+					}
+					if (domain.contains("\n")) {
+						this.errors.append(name
+								+ " model settings contains NEWLINE");
+						this.errors.append("\n");
+						domain = domain.replaceAll("\n", "");
+					}
+					return domain;
+				} else {
+					this.errors.append(name + " model settings is missing");
 					this.errors.append("\n");
 					return XSD2JSONConverter.value_not_assigned;
 				}

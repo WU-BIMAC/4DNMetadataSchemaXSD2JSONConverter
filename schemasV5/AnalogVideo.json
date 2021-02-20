@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"AnalogVideo",
 	"description":"This element represents a device used to capture Analog Videos.",
+	"modelSettings":"CameraSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Detector.Camera",

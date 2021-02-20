@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"BeamExpanderLens",
 	"description":"A Beam Expander Lens is a Lens designed to work in combination with other optical components to form a Beam Expander device. As such, its role is to increase the diameter of a collimated input beam to a larger collimated output beam.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Lens",

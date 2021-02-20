@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"MicroscopeTable",
 	"description":"This element describes the Table used to support this Instrument during Image Acquisition.",
+	"modelSettings":"MicroscopeTableSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"MicroscopyEssentials",

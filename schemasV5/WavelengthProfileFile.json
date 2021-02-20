@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"WavelengthProfileFile",
 	"description":"This element consists of a file containing the Wavelength profile of this hardware component.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"ChildElement",

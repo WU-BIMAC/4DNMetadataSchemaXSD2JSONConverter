@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"EmissionFilterWheel",
 	"description":"This element represents a circular holder for multiple individual Emission Filters.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"OpticsHolder",

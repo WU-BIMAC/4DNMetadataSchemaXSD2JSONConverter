@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"CameraSettings",
 	"description":"This element refers to the Camera used to acquire this Channel and it holds the Settings that were applied to the Camera during this Acquisition.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",

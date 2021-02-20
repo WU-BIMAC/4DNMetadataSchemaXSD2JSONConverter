@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"PointDetectorSettings",
 	"description":"This element refers to the Point Detector used to acquire this Channel and it holds the Settings that were applied to the Point Detector during this Acquisition.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",

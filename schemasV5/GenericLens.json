@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"GenericLens",
 	"description":"This element refers to any additional Generic Lens positioned in the Light Path for a given Channel.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Lens",

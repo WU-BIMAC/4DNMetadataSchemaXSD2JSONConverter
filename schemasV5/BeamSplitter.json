@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"BeamSplitter",
 	"description":"This element describes a Mirror that reflects part of the light, regardless of wavelength.",
+	"modelSettings":"MirroringDeviceSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"MirroringDevice",

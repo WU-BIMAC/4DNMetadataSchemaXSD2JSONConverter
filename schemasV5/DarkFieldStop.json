@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"DarkFieldStop",
 	"description":"This element refers to a central circular stop (i.e., opaque disk) usually used in dark-field microscopy and placed in the front focal Plane of a Condenser to occlude all the direct light which would fall within the aperture of the objective.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Aperture",

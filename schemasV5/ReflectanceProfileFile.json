@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"ReflectanceProfileFile",
 	"description":"This element represents a file in .csv or other suitable formats containing the Reflectance profile of this optical component.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"ChildElement",

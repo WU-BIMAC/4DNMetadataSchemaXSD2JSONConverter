@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"HybridPhotoDetector",
 	"description":"This element represents a hybrid Photomultiplier and Avalanche Photodiode (APD).",
+	"modelSettings":"PointDetectorSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Detector.PointDetector",
