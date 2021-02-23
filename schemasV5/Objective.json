@@ -349,13 +349,13 @@
 			],
 			"category":"Objective"
 		},
-		"BackFocalLenght": {
+		"BackFocalLength": {
 			"type":"number",
 			"description":"This field records the distance (f') measured along the optical axis from the rear principal Plane of this Lens to the rear focal Plane (F').",
 			"tier":3,
 			"category":"Objective"
 		},
-		"BackFocalLenghtUnit": {
+		"BackFocalLengthUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,

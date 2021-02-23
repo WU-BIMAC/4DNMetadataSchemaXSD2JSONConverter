@@ -1019,6 +1019,10 @@ public class XSD2JSONConverter {
 			} else if (elementName.endsWith("Ref")
 					|| ((elementTypeName != null) && elementTypeName
 							.endsWith("Ref"))) {
+				
+				if (name.equals("LightPath")) {
+					continue;
+				}
 
 				// FIXME this need to be double checked
 				final XSObjectList annotations = element.getAnnotations();
