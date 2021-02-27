@@ -181,7 +181,7 @@ OpticsHolder.EmissionFilterWheel:383.9206,963.8202:75.8029,170.4406
 OpticsHolder.DichroicFilterWheel:531.4082,781.0593:75.8029,170.4406
 OpticsHolder.DichroicFilterWheel:479.2661,963.8175:75.8029,170.4406
 
-OpticsHolder.FilterCubeTurret:886.8766,860.0793:527.3666,18.4325  
+OpticsHolder.FilterCubeTurret:886.8766,886.8766:527.3666,18.4325
 OpticsHolder.OpticsTurret:-1,-1:226.3076,32.3995
 
 
