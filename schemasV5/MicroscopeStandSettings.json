@@ -1,22 +1,19 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
-	"ID":"MicroscopeSettings.json",
+	"ID":"MicroscopeStandSettings.json",
 	"version":"2.00.0",
 	"type":"object",
-	"title":"MicroscopeSettings",
-	"description":"This element refers to the Microscope used to acquire this Image and it holds the Settings that were applied to the Microscope during this Acquisition.",
+	"title":"MicroscopeStandSettings",
+	"description":"This element refers to the Microscope Stand used to acquire this Image and it holds the Settings that were applied to the Microscope Stand during this Acquisition.",
 	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",
-	"image":"Settings_MicroscopeSettings.svg",
+	"image":"Settings_MicroscopeStandSettings.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"MicroscopeSettings":"This element refers to the Microscope used to acquire this Image and it holds the Settings that were applied to the Microscope during this Acquisition.",
-		"Objective":"This empty element refers to the existing Objective component used in this case.",
-		"MagnificationChanger":"This empty element refers to the existing Magnification Changer component used in this case.",
-		"MicroscopeTube":"This empty element refers to the existing Microscope Tube component used in this case."
+		"MicroscopeStandSettings":"This element refers to the Microscope Stand used to acquire this Image and it holds the Settings that were applied to the Microscope Stand during this Acquisition."
 	},
 	"properties": {
 		"ID": {
@@ -30,13 +27,13 @@
 			"type":"number",
 			"description":"This fields records the Total Effective Magnification used in this case. This number can be obtained by multiplying Magnification Changer:Magnification times the Objective:NominalMagnification or even better the Objective:CalibratedMagnification if available.",
 			"tier":2,
-			"category":"MicroscopeSettings"
+			"category":"MicroscopeStandSettings"
 		},
 		"FieldOfView": {
 			"type":"number",
 			"description":"The Field of View defines the area of the specimen that is viewable via the eyepiece. This field caputers the measures size of the Field of View.",
 			"tier":3,
-			"category":"MicroscopeSettings"
+			"category":"MicroscopeStandSettings"
 		},
 		"FieldOfViewUnit": {
 			"type":"string",
@@ -78,28 +75,7 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"MicroscopeSettings"
-		},
-		"Objective": {
-			"type":"string",
-			"description":"This empty element refers to the existing Objective component used in this case.",
-			"tier":2,
-			"category":"Objective",
-			"linkTo":"Objective"
-		},
-		"MagnificationChanger": {
-			"type":"string",
-			"description":"This empty element refers to the existing Magnification Changer component used in this case.",
-			"tier":2,
-			"category":"MagnificationChanger",
-			"linkTo":"MagnificationChanger"
-		},
-		"MicroscopeTube": {
-			"type":"string",
-			"description":"This empty element refers to the existing Microscope Tube component used in this case.",
-			"tier":3,
-			"category":"MicroscopeTube",
-			"linkTo":"MicroscopeTube"
+			"category":"MicroscopeStandSettings"
 		},
 		"Tier": {
 			"type":"integer",
@@ -110,7 +86,6 @@
 		}
 	},
 	"required": [
-		"Objective",
 		"Tier"
 	]
 }

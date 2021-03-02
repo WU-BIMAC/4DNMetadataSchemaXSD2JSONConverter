@@ -587,7 +587,7 @@
 		},
 		"PeakWavelength": {
 			"type":"number",
-			"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+			"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 			"tier":2,
 			"category":"LEDModule"
 		},
@@ -747,7 +747,7 @@
 	"type":"object",
 	"title":"UprightMicroscopeStand",
 	"description":"This is a Microscope in which the object is observed from above the stage.",
-	"modelSettings":"MicroscopeSettings",
+	"modelSettings":"MicroscopeStandSettings",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"MicroscopeStand",
@@ -960,7 +960,7 @@
 		},
 		"PeakWavelength": {
 			"type":"number",
-			"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+			"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 			"tier":2,
 			"category":"IlluminationWavelengthRange"
 		},
@@ -1315,9 +1315,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"
@@ -1405,7 +1406,7 @@
 					},
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -1644,9 +1645,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"
@@ -1734,7 +1736,7 @@
 					},
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -2810,7 +2812,7 @@
 	"properties": {
 		"PeakWavelength": {
 			"type":"number",
-			"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+			"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 			"tier":2,
 			"category":"WavelengthRange"
 		},
@@ -3469,6 +3471,8 @@
 		"Iris",
 		"CorrectionCollar",
 		"WorkingDistance",
+		"ObjectiveViewField",
+		"ImageDistance",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -3989,7 +3993,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -5156,7 +5160,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":3,
 						"category":"WavelengthRange"
 					},
@@ -5849,7 +5853,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -7369,7 +7373,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -9630,7 +9634,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":1,
-			"default":"µm",
+			"default":"nm",
 			"enum": [
 				"Ym",
 				"Zm",
@@ -9764,8 +9768,6 @@
 		"SizeT",
 		"PhysicalSizeX",
 		"PhysicalSizeY",
-		"PhysicalSizeZ",
-		"TimeIncrement",
 		"PixelType",
 		"Tier"
 	]
@@ -10126,6 +10128,97 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"MicroscopeStandSettings.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"MicroscopeStandSettings",
+	"description":"This element refers to the Microscope Stand used to acquire this Image and it holds the Settings that were applied to the Microscope Stand during this Acquisition.",
+	"modelSettings":"NA",
+	"extension":"Basic",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_MicroscopeStandSettings.svg",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"MicroscopeStandSettings":"This element refers to the Microscope Stand used to acquire this Image and it holds the Settings that were applied to the Microscope Stand during this Acquisition."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the Microscope used in this case.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		},
+		"TotalEffectiveMagnification": {
+			"type":"number",
+			"description":"This fields records the Total Effective Magnification used in this case. This number can be obtained by multiplying Magnification Changer:Magnification times the Objective:NominalMagnification or even better the Objective:CalibratedMagnification if available.",
+			"tier":2,
+			"category":"MicroscopeStandSettings"
+		},
+		"FieldOfView": {
+			"type":"number",
+			"description":"The Field of View defines the area of the specimen that is viewable via the eyepiece. This field caputers the measures size of the Field of View.",
+			"tier":3,
+			"category":"MicroscopeStandSettings"
+		},
+		"FieldOfViewUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"MicroscopeStandSettings"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Tier"
+	]
+},
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Plane.json",
 	"version":"2.00.0",
 	"type":"object",
@@ -10216,7 +10309,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":2,
-			"default":"s",
+			"default":"ms",
 			"enum": [
 				"Ys",
 				"Zs",
@@ -10467,7 +10560,6 @@
 		"TheC",
 		"Timestamp",
 		"ExposureTime",
-		"PixelDwellTime",
 		"Tier"
 	]
 },
@@ -10625,9 +10717,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"
@@ -10715,7 +10808,7 @@
 					},
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -10911,55 +11004,6 @@
 			"category":"General",
 			"readonly":true
 		},
-		"Wavelength": {
-			"type":"number",
-			"description":"This field records the nominal Wavelength of the excitation Light utilized in this case.",
-			"tier":1,
-			"category":"LightSourceSettings"
-		},
-		"WavelengthUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":1,
-			"default":"nm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"LightSourceSettings"
-		},
 		"IlluminationPowerSettings": {
 			"type":"number",
 			"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) that was set for the Acquisition of this Image or was reported by the Image Acquisition Software, as advertised by the Manufacturer. Depending on the system this might be reported as a % value.",
@@ -11025,7 +11069,6 @@
 	},
 	"required": [
 		"ID",
-		"Wavelength",
 		"IlluminationPowerSettings",
 		"Tier"
 	]
@@ -11402,7 +11445,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -11697,9 +11740,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"
@@ -11795,8 +11839,8 @@
 			"readonly":true
 		},
 		"Temperature": {
-			"type":"number",
-			"description":"The field records the Temperature the Acquisition of this Image was performed at.",
+			"type":"string",
+			"description":"The field records the Temperature at which this Image Acquisition was performed. Allowed values include a number or the phrase 'Room Temperature'.",
 			"tier":1,
 			"category":"ImagingEnvironment"
 		},
@@ -11811,6 +11855,18 @@
 				"K",
 				"°R"
 			],
+			"category":"ImagingEnvironment"
+		},
+		"CO2Percent": {
+			"type":"string",
+			"description":"The field records the Carbon Dioxide concentration (expressed as a % value) at which this Image Acquisition was performed. Allowed values include a number or the phrase 'Ambient Conditions'.",
+			"tier":1,
+			"category":"ImagingEnvironment"
+		},
+		"Humidity": {
+			"type":"string",
+			"description":"The field records the Humidity (expressed as a % value) at which this Image Acquisition was performed. Allowed values include a number or the phrase 'Ambient Humidity'.",
+			"tier":1,
 			"category":"ImagingEnvironment"
 		},
 		"AirPressure": {
@@ -11860,18 +11916,6 @@
 			],
 			"category":"ImagingEnvironment"
 		},
-		"Humidity": {
-			"type":"number",
-			"description":"The field records then Humidity the Acquisition of this Image was performed at.",
-			"tier":1,
-			"category":"ImagingEnvironment"
-		},
-		"CO2Percent": {
-			"type":"number",
-			"description":"This field records the Carbon Dioxide concentration (expressed as a % value) around the sample during Acquisition.",
-			"tier":1,
-			"category":"ImagingEnvironment"
-		},
 		"O2Percent": {
 			"type":"number",
 			"description":"This field records the Oxygen concentration around the sample [units:none] during the Acquisition of this Image. Expressed as a percentage fraction as a value from 0.0 to 1.0.",
@@ -11888,8 +11932,8 @@
 	},
 	"required": [
 		"Temperature",
-		"Humidity",
 		"CO2Percent",
+		"Humidity",
 		"Tier"
 	]
 },
@@ -12526,7 +12570,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -15610,7 +15654,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -17240,122 +17284,6 @@
 },
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
-	"ID":"MicroscopeSettings.json",
-	"version":"2.00.0",
-	"type":"object",
-	"title":"MicroscopeSettings",
-	"description":"This element refers to the Microscope used to acquire this Image and it holds the Settings that were applied to the Microscope during this Acquisition.",
-	"modelSettings":"NA",
-	"extension":"Basic",
-	"domain":"ImageAcquisitionSettings",
-	"category":"Settings",
-	"image":"Settings_MicroscopeSettings.svg",
-	"tier":2,
-	"subCategoriesOrder": {
-		"General":"General information about the element",
-		"MicroscopeSettings":"This element refers to the Microscope used to acquire this Image and it holds the Settings that were applied to the Microscope during this Acquisition.",
-		"Objective":"This empty element refers to the existing Objective component used in this case.",
-		"MagnificationChanger":"This empty element refers to the existing Magnification Changer component used in this case.",
-		"MicroscopeTube":"This empty element refers to the existing Microscope Tube component used in this case."
-	},
-	"properties": {
-		"ID": {
-			"type":"string",
-			"description":"This is the Unique Identifier of the Microscope used in this case.",
-			"tier":2,
-			"category":"General",
-			"readonly":true
-		},
-		"TotalEffectiveMagnification": {
-			"type":"number",
-			"description":"This fields records the Total Effective Magnification used in this case. This number can be obtained by multiplying Magnification Changer:Magnification times the Objective:NominalMagnification or even better the Objective:CalibratedMagnification if available.",
-			"tier":2,
-			"category":"MicroscopeSettings"
-		},
-		"FieldOfView": {
-			"type":"number",
-			"description":"The Field of View defines the area of the specimen that is viewable via the eyepiece. This field caputers the measures size of the Field of View.",
-			"tier":3,
-			"category":"MicroscopeSettings"
-		},
-		"FieldOfViewUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"MicroscopeSettings"
-		},
-		"Objective": {
-			"type":"string",
-			"description":"This empty element refers to the existing Objective component used in this case.",
-			"tier":2,
-			"category":"Objective",
-			"linkTo":"Objective"
-		},
-		"MagnificationChanger": {
-			"type":"string",
-			"description":"This empty element refers to the existing Magnification Changer component used in this case.",
-			"tier":2,
-			"category":"MagnificationChanger",
-			"linkTo":"MagnificationChanger"
-		},
-		"MicroscopeTube": {
-			"type":"string",
-			"description":"This empty element refers to the existing Microscope Tube component used in this case.",
-			"tier":3,
-			"category":"MicroscopeTube",
-			"linkTo":"MicroscopeTube"
-		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":2,
-			"category":"General",
-			"readonly":true
-		}
-	},
-	"required": [
-		"Objective",
-		"Tier"
-	]
-},
-{
-	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ImmersionLiquid.json",
 	"version":"2.00.0",
 	"type":"object",
@@ -18488,7 +18416,7 @@
 		},
 		"RepetitionRate": {
 			"type":"number",
-			"description":"This field (also known as Pulse Frequency) describes the frequency of laser pulses if Pulse is True. The default unit is Hz.",
+			"description":"In the case this is a pulsed Laser (Pulse is True), this field (also known as Pulse Frequency) describes the frequency of laser pulses. The default unit is Hz.",
 			"tier":3,
 			"category":"Laser"
 		},
@@ -18526,7 +18454,7 @@
 		},
 		"PulseDuration": {
 			"type":"number",
-			"description":"Describes the duration of each Laser pulse if Pulse is True.",
+			"description":"In the case this is a pulsed Laser (Pulse is True), this field describes the duration of each Laser pulse.",
 			"tier":3,
 			"category":"Laser"
 		},
@@ -18564,7 +18492,7 @@
 			"category":"Laser"
 		},
 		"FrequencyMultiplication": {
-			"type":"string",
+			"type":"number",
 			"description":"This field captures the optical frequency multiplication factor that may be specified for this Laser.",
 			"tier":3,
 			"category":"Laser"
@@ -18611,9 +18539,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"
@@ -18701,7 +18630,7 @@
 					},
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -18876,9 +18805,6 @@
 		"Pulse",
 		"IsPumped",
 		"IsPump",
-		"RepetitionRate",
-		"PulseDuration",
-		"FrequencyMultiplication",
 		"ID",
 		"Manufacturer",
 		"Model",
@@ -19326,9 +19252,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"
@@ -19435,7 +19362,7 @@
 					},
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"LEDModule"
 					},
@@ -19676,9 +19603,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"
@@ -19785,7 +19713,7 @@
 					},
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"LEDModule"
 					},
@@ -21128,7 +21056,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -21850,7 +21778,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -24179,7 +24107,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":3,
 						"category":"WavelengthRange"
 					},
@@ -25871,7 +25799,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -27689,9 +27617,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"
@@ -27779,7 +27708,7 @@
 					},
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -28006,9 +27935,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"
@@ -28096,7 +28026,7 @@
 					},
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -29211,7 +29141,7 @@
 	"type":"object",
 	"title":"InvertedMicroscopeStand",
 	"description":"This is a Microscope in which the object is observed from beneath the stage.",
-	"modelSettings":"MicroscopeSettings",
+	"modelSettings":"MicroscopeStandSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"MicroscopeStand",
