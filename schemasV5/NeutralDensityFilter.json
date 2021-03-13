@@ -113,7 +113,7 @@
 			"enum": [
 				"Absorption",
 				"Reflection",
-				"Rifraction",
+				"refraction",
 				"Other"
 			],
 			"category":"Filter"

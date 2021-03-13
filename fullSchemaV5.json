@@ -3831,8 +3831,10 @@
 				"float",
 				"int8",
 				"int16",
+				"int12",
 				"int32",
 				"uint8",
+				"uint12",
 				"uint16",
 				"uint32",
 				"Other"
@@ -5691,8 +5693,10 @@
 				"float",
 				"int8",
 				"int16",
+				"int12",
 				"int32",
 				"uint8",
+				"uint12",
 				"uint16",
 				"uint32",
 				"Other"
@@ -7543,7 +7547,6 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"WavelengthRange",
 		"Tier"
 	]
 },
@@ -9724,8 +9727,10 @@
 				"float",
 				"int8",
 				"int16",
+				"int12",
 				"int32",
 				"uint8",
+				"uint12",
 				"uint16",
 				"uint32",
 				"Other"
@@ -11283,8 +11288,10 @@
 				"float",
 				"int8",
 				"int16",
+				"int12",
 				"int32",
 				"uint8",
+				"uint12",
 				"uint16",
 				"uint32",
 				"Other"
@@ -12408,8 +12415,10 @@
 				"float",
 				"int8",
 				"int16",
+				"int12",
 				"int32",
 				"uint8",
+				"uint12",
 				"uint16",
 				"uint32",
 				"Other"
@@ -13622,7 +13631,7 @@
 			"enum": [
 				"Absorption",
 				"Reflection",
-				"Rifraction",
+				"refraction",
 				"Other"
 			],
 			"category":"Dichroic"
@@ -15159,7 +15168,7 @@
 			"enum": [
 				"Absorption",
 				"Reflection",
-				"Rifraction",
+				"refraction",
 				"Other"
 			],
 			"category":"Filter"
@@ -15492,8 +15501,10 @@
 				"float",
 				"int8",
 				"int16",
+				"int12",
 				"int32",
 				"uint8",
+				"uint12",
 				"uint16",
 				"uint32",
 				"Other"
@@ -16520,7 +16531,7 @@
 			"enum": [
 				"Absorption",
 				"Reflection",
-				"Rifraction",
+				"refraction",
 				"Other"
 			],
 			"category":"Dichroic"
@@ -18809,7 +18820,6 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"IlluminationWavelengthRange",
 		"Tier"
 	]
 },
@@ -18911,7 +18921,7 @@
 			"enum": [
 				"Absorption",
 				"Reflection",
-				"Rifraction",
+				"refraction",
 				"Other"
 			],
 			"category":"Filter"
@@ -20894,8 +20904,10 @@
 				"float",
 				"int8",
 				"int16",
+				"int12",
 				"int32",
 				"uint8",
+				"uint12",
 				"uint16",
 				"uint32",
 				"Other"
@@ -21616,8 +21628,10 @@
 				"float",
 				"int8",
 				"int16",
+				"int12",
 				"int32",
 				"uint8",
+				"uint12",
 				"uint16",
 				"uint32",
 				"Other"
@@ -22145,7 +22159,7 @@
 			"enum": [
 				"Absorption",
 				"Reflection",
-				"Rifraction",
+				"refraction",
 				"Other"
 			],
 			"category":"Filter"
@@ -25637,8 +25651,10 @@
 				"float",
 				"int8",
 				"int16",
+				"int12",
 				"int32",
 				"uint8",
+				"uint12",
 				"uint16",
 				"uint32",
 				"Other"
@@ -26100,7 +26116,7 @@
 			"enum": [
 				"Absorption",
 				"Reflection",
-				"Rifraction",
+				"refraction",
 				"Other"
 			],
 			"category":"Filter"

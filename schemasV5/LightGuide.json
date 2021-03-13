@@ -399,7 +399,6 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"WavelengthRange",
 		"Tier"
 	]
 }

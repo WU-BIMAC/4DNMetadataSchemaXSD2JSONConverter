@@ -534,7 +534,6 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"IlluminationWavelengthRange",
 		"Tier"
 	]
 }
