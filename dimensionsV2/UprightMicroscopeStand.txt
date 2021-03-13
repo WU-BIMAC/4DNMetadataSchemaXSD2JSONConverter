@@ -139,7 +139,7 @@ SamplePositioning.Focusing.Z-Drive:2093.9711,855.3333:110.9688,50.778
 //-------------------------------------
 OpticalAssembly.BeamExpander:-1,-1:191.3512,73
 OpticalAssembly.BeamCollimator:-1,-1:191.3512,73
-OpticalAssembly.Condenser:824.6299,672.4153:174.5964,130.605:R-180
+OpticalAssembly.Condenser:824.6299,672.4153:174.5964,130.605
 OpticalAssembly.MicroscopeTube:887.6322,947.3734:509.7976,130.8837 
 
 
