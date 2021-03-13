@@ -3,3 +3,5 @@
 errors.json
 references.json
 schema.xsd
+*_test/*.json
+*_test.json
