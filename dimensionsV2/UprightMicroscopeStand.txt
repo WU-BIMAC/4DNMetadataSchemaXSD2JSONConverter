@@ -1,5 +1,5 @@
 //Canvas
-UprightMicroscopeStand:-1,-1:3199.25,1150.9761
+MicroscopeStand_UprightMicroscopeStand:-1,-1:3199.25,1150.9761
 
 //Menu position 1 --> Microscopy Essentials
 //-----------------------------------------
@@ -130,8 +130,8 @@ SamplePositioning.Stage.StageInsert:823.6299,496.8009:308.3971,76.1638
 //Menu position 8 --> SamplePositioning.Focusing
 //----------------------------------------------
 SamplePositioning.Focusing.FocusStabilizationDevice:2093.615,979.726:110.9689,64.5002
-SamplePositioning.Focusing.IndividualObjectiveFocusing:863.735,684.725:62.75,50.4977:R-180
-SamplePositioning.Focusing.TurretObjectiveFocusing:815.1336,320.6999:307.5,29.2975:R-180
+SamplePositioning.Focusing.IndividualObjectiveFocusing:928.6945,361.5484:62.75,50.4977:R-180
+SamplePositioning.Focusing.TurretObjectiveFocusing:815.0615,315.1374:307.5,29.2975:R-180
 SamplePositioning.Focusing.Z-Drive:2093.9711,855.3333:110.9688,50.778 
 
 
@@ -139,7 +139,7 @@ SamplePositioning.Focusing.Z-Drive:2093.9711,855.3333:110.9688,50.778
 //-------------------------------------
 OpticalAssembly.BeamExpander:-1,-1:191.3512,73
 OpticalAssembly.BeamCollimator:-1,-1:191.3512,73
-OpticalAssembly.Condenser:824.6299,672.4153:174.5964,130.605
+OpticalAssembly.Condenser:824.6299,672.4153:174.5964,130.605:R-180
 OpticalAssembly.MicroscopeTube:887.6322,947.3734:509.7976,130.8837 
 
 
@@ -154,10 +154,10 @@ OpticalAssembly.MicroscopeTube:887.6322,947.3734:509.7976,130.8837
 Aperture:-1,-1:33.2588,60.7821
 
 Aperture#OpticalAssembly.MicroscopeTube:176.1065,3.3752:33.2588,60.7821
-Aperture#OpticalAssembly.Condenser:-68.6066,1.0314:33.2588,60.7821:R-180
-Aperture#OpticalAssembly.Condenser:-34.591,1.0314:33.2588,60.7821:R-180
-Aperture#OpticalAssembly.Condenser:0.0798,1.0314:33.2588,60.7821:R-180
-Aperture#OpticalAssembly.Condenser:34.5848,1.0314:33.2588,60.7821:R-180
+Aperture#OpticalAssembly.Condenser:-68.6066,1.0314:33.2588,60.7821
+Aperture#OpticalAssembly.Condenser:-34.591,1.0314:33.2588,60.7821
+Aperture#OpticalAssembly.Condenser:0.0798,1.0314:33.2588,60.7821
+Aperture#OpticalAssembly.Condenser:34.5848,1.0314:33.2588,60.7821
 
 Aperture#OpticsHolder.OpticsTurret:-88.1521,-24.3663:33.2588,60.7821
 Aperture#OpticsHolder.OpticsTurret:-53.0327,-24.3663:33.2588,60.7821
@@ -181,7 +181,7 @@ OpticsHolder.EmissionFilterWheel:383.9206,963.8202:75.8029,170.4406
 OpticsHolder.DichroicFilterWheel:531.4082,781.0593:75.8029,170.4406
 OpticsHolder.DichroicFilterWheel:479.2661,963.8175:75.8029,170.4406
 
-OpticsHolder.FilterCubeTurret:886.8766,860.0793:527.3666,18.4325  
+OpticsHolder.FilterCubeTurret:886.8766,866.0793:527.3666,18.4325  
 OpticsHolder.OpticsTurret:-1,-1:226.3076,32.3995
 
 
@@ -244,7 +244,7 @@ Lens.CouplingLens:971.1512,217.6648:10.5314,69
 Lens.CouplingLens:1397.8444,955.9761:10.5314,69
 Lens.CouplingLens#Fluorescence_LightSource.MultiLaserEngine:-233.8225,0.8933:10.5314,69 
 
-Lens.CondenserLens#OpticalAssembly.Condenser:66.8489,1.0314:33.2588,60.7821:R-180
+Lens.CondenserLens#OpticalAssembly.Condenser:66.8489,1.0314:33.2588,60.7821
 
 Lens#OpticsHolder.OpticsTurret:-88.1521,-24.3663:33.2588,60.7821
 Lens#OpticsHolder.OpticsTurret:-53.0327,-24.3663:33.2588,60.7821

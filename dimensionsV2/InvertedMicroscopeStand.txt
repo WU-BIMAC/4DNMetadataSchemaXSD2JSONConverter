@@ -181,7 +181,7 @@ OpticsHolder.EmissionFilterWheel:383.9206,963.8202:75.8029,170.4406
 OpticsHolder.DichroicFilterWheel:531.4082,781.0593:75.8029,170.4406
 OpticsHolder.DichroicFilterWheel:479.2661,963.8175:75.8029,170.4406
 
-OpticsHolder.FilterCubeTurret:886.8766,860.0793:527.3666,18.4325  
+OpticsHolder.FilterCubeTurret:886.8766,866.0793:527.3666,18.4325  
 OpticsHolder.OpticsTurret:-1,-1:226.3076,32.3995
 
 
@@ -240,6 +240,7 @@ Lens.GenericLens:-1,-1:33.2588,60.7821
 Lens.RelayLens:590.7555,775.034:10.8346,54.5
 Lens.RelayLens:557.4831,951.2278:10.8346,54.5
 
+Lens.CouplingLens:1160.8444,90.9761:10.5314,69
 Lens.CouplingLens:1397.8444,955.9761:10.5314,69
 Lens.CouplingLens#Fluorescence_LightSource.MultiLaserEngine:-233.8225,0.8933:10.5314,69 
 
