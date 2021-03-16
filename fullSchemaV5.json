@@ -735,9 +735,7 @@
 	},
 	"required": [
 		"IlluminationPower",
-		"PeakWavelength",
-		"CutOn",
-		"CutOff"
+		"PeakWavelength"
 	]
 },
 {
@@ -1108,9 +1106,7 @@
 	},
 	"required": [
 		"IlluminationPower",
-		"PeakWavelength",
-		"CutOn",
-		"CutOff"
+		"PeakWavelength"
 	]
 },
 {
@@ -1554,9 +1550,7 @@
 				},
 				"required": [
 					"IlluminationPower",
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},
@@ -1884,9 +1878,7 @@
 				},
 				"required": [
 					"IlluminationPower",
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},
@@ -2960,9 +2952,7 @@
 		}
 	},
 	"required": [
-		"PeakWavelength",
-		"CutOn",
-		"CutOff"
+		"PeakWavelength"
 	]
 },
 {
@@ -7525,9 +7515,7 @@
 					}
 				},
 				"required": [
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},
@@ -10962,9 +10950,7 @@
 				},
 				"required": [
 					"IlluminationPower",
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},
@@ -18790,9 +18776,7 @@
 				},
 				"required": [
 					"IlluminationPower",
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},
@@ -19521,9 +19505,7 @@
 				},
 				"required": [
 					"IlluminationPower",
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},
@@ -19872,9 +19854,7 @@
 				},
 				"required": [
 					"IlluminationPower",
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},
@@ -27873,9 +27853,7 @@
 				},
 				"required": [
 					"IlluminationPower",
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},
@@ -28191,9 +28169,7 @@
 				},
 				"required": [
 					"IlluminationPower",
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},
