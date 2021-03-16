@@ -1,5 +1,5 @@
 //Canvas
-MicroscopeStand_UprightMicroscopeStand:-1,-1:3199.25,1150.9761
+UprightMicroscopeStand:-1,-1:3199.25,1150.9761
 
 //Menu position 1 --> Microscopy Essentials
 //-----------------------------------------
