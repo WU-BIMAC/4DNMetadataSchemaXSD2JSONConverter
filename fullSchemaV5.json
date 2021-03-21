@@ -183,7 +183,7 @@
 		},
 		"PixelReadOutRate": {
 			"type":"number",
-			"description":"This represents the effective Pixel Readout Rate used for the Acquisition of this Image. This value is defined as the inverse of the time required to digitize a single pixel (also referred to as serial conversion time). Pixel readout rate can be considered similar to a baud rate as it depends on the bytes per second that can be read from the detector and written on disk. Readout rates are usually given in pixels/second (e.g., 500 kilopixels/second).",
+			"description":"This represents the effective Pixel Readout Rate used for the Acquisition of this Channel. This value is defined as the inverse of the time required to digitize a single pixel (also referred to as serial conversion time). Pixel readout rate can be considered similar to a baud rate as it depends on the bytes per second that can be read from the detector and written on disk. Readout rates are usually given in pixels/second (e.g., 500 kilopixels/second).",
 			"tier":1,
 			"category":"CameraSettings"
 		},
@@ -216,17 +216,6 @@
 				"yHz",
 				"fps",
 				"Pixel per second"
-			],
-			"category":"CameraSettings"
-		},
-		"DigitizerBitDepth": {
-			"type":"string",
-			"description":"If selectable, this field reports the Bit Depth of the Digitizer used for the Acquisition of this Channel.",
-			"tier":1,
-			"enum": [
-				"12bit",
-				"16bit",
-				"Other"
 			],
 			"category":"CameraSettings"
 		},
@@ -311,6 +300,20 @@
 			"category":"General",
 			"readonly":true
 		},
+		"EffectiveBitDepth": {
+			"type":"string",
+			"description":"If selectable, this field reports the Effective Bit Depth that was used by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer) for the Acquisition of this Channel.",
+			"tier":1,
+			"enum": [
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
+			],
+			"category":"DetectorSettings"
+		},
 		"AnalogGain": {
 			"type":"number",
 			"description":"This field reports the Analog Gain (also known as Inherent Gain or simply as Gain) that was applied during the Acquisition of this Image. The Analog Gain is a property Inherent to the Detector and it specifies how many electrons correspond to 1 signal unit (photon) detected. Gain is reported in terms of electrons/ADU (analog-to-digital unit). A gain of 8 means that the Detector digitizes the light signal so that each ADU corresponds to 8 photoelectrons. NOTE: In the case of Point Detectors the value of Analog Gain can be set freely by the user. Conversely, in the case of Cameras, it is common for the Gain to be preset by the Manufacturer to minimize noise. In this case, either the Analog Gain cannot be changed or the user is given the choice of selecting between a few preset Analog Gains values upon Acquisition. Finally, several Cameras might have so-called Automatic Gain Control (AGC or AutoGain) that will automatically adjusts so the full range of the Analog-to-Digital Converter (ADC) is used. Unless you can turn off the AGC, the use of these Cameras are highly discouraged for quantitative work. ",
@@ -320,12 +323,6 @@
 		"AmplificationGain": {
 			"type":"number",
 			"description":"This field reports the Amplification Gain (i.e., electronic gain as apposed to the inherent Gain) that was set during the Acquisition of this Image. Amplification Gain in general measures of the ability of a Detector to add energy to the input light signal therefore increasing its power or amplitude. Higher Amplification Gain levels amplify the signal and result in greater brightness, contrast and background signal. Examples include: 1) the Electron Multiplication (EM) gain (as opposed to the inherent Analog Gain) for an EMCCD camera. 2) The Gain introduced by the Micro-Channel Plate in an Intensified CCD or CMOS camera. 3) The amplification of the electron current provided by a Photomultiplier Tube, and measured as the ratio of the input photoelectron current emitted by the photocatode and the current reaching the anode. 4) The signal amplification provided by an Avalache Photo Diode (APD).",
-			"tier":1,
-			"category":"DetectorSettings"
-		},
-		"Zoom": {
-			"type":"number",
-			"description":"The Zoom that was set for this Detector during the acquisition of this Image.",
 			"tier":1,
 			"category":"DetectorSettings"
 		},
@@ -358,11 +355,11 @@
 	"required": [
 		"Binning",
 		"PixelReadOutRate",
-		"DigitizerBitDepth",
 		"SensorExposureMode",
 		"Integration",
 		"FrameRate",
 		"ID",
+		"EffectiveBitDepth",
 		"AnalogGain",
 		"AmplificationGain",
 		"Tier"
@@ -3129,13 +3126,14 @@
 		},
 		"CorrectionCollarType": {
 			"type":"string",
-			"description":"This field records the type of Correction Collar with which this Objective is fitted.",
+			"description":"This field records the type of Correction Collar with which this Objective is fitted. In case the Objective has more than one Correction Collar please enter 'Multi' and provide more details in Description.",
 			"tier":2,
 			"enum": [
 				"Coverglass Thickness",
 				"Immersion Liquid",
 				"Numerical Aperture",
-				"Temperature"
+				"Temperature",
+				"Multi"
 			],
 			"category":"Objective"
 		},
@@ -3631,7 +3629,6 @@
 	},
 	"required": [
 		"ID",
-		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -3826,23 +3823,15 @@
 		},
 		"MaxBitDepth": {
 			"type":"string",
-			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital (A/D) converter.",
+			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer).",
 			"tier":2,
 			"enum": [
-				"bit",
-				"complex",
-				"double",
-				"double-complex",
-				"float",
-				"int8",
-				"int16",
-				"int12",
-				"int32",
-				"uint8",
-				"uint12",
-				"uint16",
-				"uint32",
-				"Other"
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
 			],
 			"category":"Detector"
 		},
@@ -3854,7 +3843,7 @@
 		},
 		"ElectronicConversionFactor": {
 			"type":"number",
-			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the digital numbers associated with each Pixel with the actual number of electrons generated by the Detector. It is expressed in e-/Digital Number (DN). Note that DN can also be referred to as Analog-to-Digital-Unit (ADU) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
+			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the actual number of electrons generated by the Detector with the digital number associated with each Pixel. It is expressed in electrons/Analog-to-Digital-Unit (ADU). Note that ADU can also be referred to as Digital Number (DN) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -4430,7 +4419,6 @@
 	},
 	"required": [
 		"ID",
-		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -4985,12 +4973,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"RefractiveIndex",
-		"Diameter",
 		"Type",
 		"Composite",
-		"Geometry",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -5688,23 +5672,15 @@
 		},
 		"MaxBitDepth": {
 			"type":"string",
-			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital (A/D) converter.",
+			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer).",
 			"tier":2,
 			"enum": [
-				"bit",
-				"complex",
-				"double",
-				"double-complex",
-				"float",
-				"int8",
-				"int16",
-				"int12",
-				"int32",
-				"uint8",
-				"uint12",
-				"uint16",
-				"uint32",
-				"Other"
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
 			],
 			"category":"Detector"
 		},
@@ -5716,7 +5692,7 @@
 		},
 		"ElectronicConversionFactor": {
 			"type":"number",
-			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the digital numbers associated with each Pixel with the actual number of electrons generated by the Detector. It is expressed in e-/Digital Number (DN). Note that DN can also be referred to as Analog-to-Digital-Unit (ADU) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
+			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the actual number of electrons generated by the Detector with the digital number associated with each Pixel. It is expressed in electrons/Analog-to-Digital-Unit (ADU). Note that ADU can also be referred to as Digital Number (DN) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -6975,12 +6951,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"RefractiveIndex",
-		"Diameter",
 		"Type",
 		"Composite",
-		"Geometry",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -7543,7 +7515,6 @@
 	},
 	"required": [
 		"Type",
-		"RefractiveIndex",
 		"NumericalAperture",
 		"ID",
 		"Transmittance",
@@ -8052,12 +8023,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"RefractiveIndex",
-		"Diameter",
 		"Type",
 		"Composite",
-		"Geometry",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -9456,7 +9423,6 @@
 	},
 	"required": [
 		"ID",
-		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -9720,7 +9686,7 @@
 		},
 		"PixelType": {
 			"type":"string",
-			"description":"This field records the variable type used to represent the Pixel Intensity in the Image.",
+			"description":"This field records the data type used to represent the Pixel Intensity in the Image.",
 			"tier":2,
 			"enum": [
 				"bit",
@@ -9729,11 +9695,13 @@
 				"double-complex",
 				"float",
 				"int8",
-				"int16",
 				"int12",
+				"int14",
+				"int16",
 				"int32",
 				"uint8",
 				"uint12",
+				"uint14",
 				"uint16",
 				"uint32",
 				"Other"
@@ -11279,23 +11247,15 @@
 		},
 		"MaxBitDepth": {
 			"type":"string",
-			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital (A/D) converter.",
+			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer).",
 			"tier":2,
 			"enum": [
-				"bit",
-				"complex",
-				"double",
-				"double-complex",
-				"float",
-				"int8",
-				"int16",
-				"int12",
-				"int32",
-				"uint8",
-				"uint12",
-				"uint16",
-				"uint32",
-				"Other"
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
 			],
 			"category":"Detector"
 		},
@@ -11307,7 +11267,7 @@
 		},
 		"ElectronicConversionFactor": {
 			"type":"number",
-			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the digital numbers associated with each Pixel with the actual number of electrons generated by the Detector. It is expressed in e-/Digital Number (DN). Note that DN can also be referred to as Analog-to-Digital-Unit (ADU) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
+			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the actual number of electrons generated by the Detector with the digital number associated with each Pixel. It is expressed in electrons/Analog-to-Digital-Unit (ADU). Note that ADU can also be referred to as Digital Number (DN) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -12406,23 +12366,15 @@
 		},
 		"MaxBitDepth": {
 			"type":"string",
-			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital (A/D) converter.",
+			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer).",
 			"tier":2,
 			"enum": [
-				"bit",
-				"complex",
-				"double",
-				"double-complex",
-				"float",
-				"int8",
-				"int16",
-				"int12",
-				"int32",
-				"uint8",
-				"uint12",
-				"uint16",
-				"uint32",
-				"Other"
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
 			],
 			"category":"Detector"
 		},
@@ -12434,7 +12386,7 @@
 		},
 		"ElectronicConversionFactor": {
 			"type":"number",
-			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the digital numbers associated with each Pixel with the actual number of electrons generated by the Detector. It is expressed in e-/Digital Number (DN). Note that DN can also be referred to as Analog-to-Digital-Unit (ADU) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
+			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the actual number of electrons generated by the Detector with the digital number associated with each Pixel. It is expressed in electrons/Analog-to-Digital-Unit (ADU). Note that ADU can also be referred to as Digital Number (DN) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -13265,12 +13217,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"RefractiveIndex",
-		"Diameter",
 		"Type",
 		"Composite",
-		"Geometry",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -13604,12 +13552,6 @@
 				"Illumination port",
 				"Other"
 			],
-			"category":"Dichroic"
-		},
-		"FilterHolderPosition": {
-			"type":"string",
-			"description":"This field records the position of this element in a Filter Holder of any kind, such as a Filter Slider, Turret or Wheel.",
-			"tier":2,
 			"category":"Dichroic"
 		},
 		"Technology": {
@@ -14086,7 +14028,6 @@
 		"CoatingMethod",
 		"LightPathLocation",
 		"AttenuationMethod",
-		"AttenuationCoefficient",
 		"ID",
 		"MirrorType",
 		"Manufacturer",
@@ -14595,12 +14536,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"RefractiveIndex",
-		"Diameter",
 		"Type",
 		"Composite",
-		"Geometry",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -15433,7 +15370,6 @@
 		"CoatingMethod",
 		"LightPathLocation",
 		"AttenuationMethod",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -15492,23 +15428,15 @@
 		},
 		"MaxBitDepth": {
 			"type":"string",
-			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital (A/D) converter.",
+			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer).",
 			"tier":2,
 			"enum": [
-				"bit",
-				"complex",
-				"double",
-				"double-complex",
-				"float",
-				"int8",
-				"int16",
-				"int12",
-				"int32",
-				"uint8",
-				"uint12",
-				"uint16",
-				"uint32",
-				"Other"
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
 			],
 			"category":"Detector"
 		},
@@ -15520,7 +15448,7 @@
 		},
 		"ElectronicConversionFactor": {
 			"type":"number",
-			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the digital numbers associated with each Pixel with the actual number of electrons generated by the Detector. It is expressed in e-/Digital Number (DN). Note that DN can also be referred to as Analog-to-Digital-Unit (ADU) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
+			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the actual number of electrons generated by the Detector with the digital number associated with each Pixel. It is expressed in electrons/Analog-to-Digital-Unit (ADU). Note that ADU can also be referred to as Digital Number (DN) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -16031,7 +15959,6 @@
 	},
 	"required": [
 		"ID",
-		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -16064,6 +15991,20 @@
 			"category":"General",
 			"readonly":true
 		},
+		"EffectiveBitDepth": {
+			"type":"string",
+			"description":"If selectable, this field reports the Effective Bit Depth that was used by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer) for the Acquisition of this Channel.",
+			"tier":1,
+			"enum": [
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
+			],
+			"category":"DetectorSettings"
+		},
 		"AnalogGain": {
 			"type":"number",
 			"description":"This field reports the Analog Gain (also known as Inherent Gain or simply as Gain) that was applied during the Acquisition of this Image. The Analog Gain is a property Inherent to the Detector and it specifies how many electrons correspond to 1 signal unit (photon) detected. Gain is reported in terms of electrons/ADU (analog-to-digital unit). A gain of 8 means that the Detector digitizes the light signal so that each ADU corresponds to 8 photoelectrons. NOTE: In the case of Point Detectors the value of Analog Gain can be set freely by the user. Conversely, in the case of Cameras, it is common for the Gain to be preset by the Manufacturer to minimize noise. In this case, either the Analog Gain cannot be changed or the user is given the choice of selecting between a few preset Analog Gains values upon Acquisition. Finally, several Cameras might have so-called Automatic Gain Control (AGC or AutoGain) that will automatically adjusts so the full range of the Analog-to-Digital Converter (ADC) is used. Unless you can turn off the AGC, the use of these Cameras are highly discouraged for quantitative work. ",
@@ -16073,12 +16014,6 @@
 		"AmplificationGain": {
 			"type":"number",
 			"description":"This field reports the Amplification Gain (i.e., electronic gain as apposed to the inherent Gain) that was set during the Acquisition of this Image. Amplification Gain in general measures of the ability of a Detector to add energy to the input light signal therefore increasing its power or amplitude. Higher Amplification Gain levels amplify the signal and result in greater brightness, contrast and background signal. Examples include: 1) the Electron Multiplication (EM) gain (as opposed to the inherent Analog Gain) for an EMCCD camera. 2) The Gain introduced by the Micro-Channel Plate in an Intensified CCD or CMOS camera. 3) The amplification of the electron current provided by a Photomultiplier Tube, and measured as the ratio of the input photoelectron current emitted by the photocatode and the current reaching the anode. 4) The signal amplification provided by an Avalache Photo Diode (APD).",
-			"tier":1,
-			"category":"DetectorSettings"
-		},
-		"Zoom": {
-			"type":"number",
-			"description":"The Zoom that was set for this Detector during the acquisition of this Image.",
 			"tier":1,
 			"category":"DetectorSettings"
 		},
@@ -16110,6 +16045,7 @@
 	},
 	"required": [
 		"ID",
+		"EffectiveBitDepth",
 		"AnalogGain",
 		"AmplificationGain",
 		"Tier"
@@ -16363,7 +16299,6 @@
 	"required": [
 		"PhaseNumber",
 		"ID",
-		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -16504,12 +16439,6 @@
 				"Illumination port",
 				"Other"
 			],
-			"category":"Dichroic"
-		},
-		"FilterHolderPosition": {
-			"type":"string",
-			"description":"This field records the position of this element in a Filter Holder of any kind, such as a Filter Slider, Turret or Wheel.",
-			"tier":2,
 			"category":"Dichroic"
 		},
 		"Technology": {
@@ -16986,7 +16915,6 @@
 		"CoatingMethod",
 		"LightPathLocation",
 		"AttenuationMethod",
-		"AttenuationCoefficient",
 		"ID",
 		"MirrorType",
 		"Manufacturer",
@@ -17894,12 +17822,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"RefractiveIndex",
-		"Diameter",
 		"Type",
 		"Composite",
-		"Geometry",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -18313,10 +18237,11 @@
 			"tier":1,
 			"enum": [
 				"Chemical",
+				"DiodePumpedSolidState (DPSS)",
 				"Dye",
 				"Gas",
 				"MetalVapor",
-				"OpticalParametricOscillator",
+				"OpticalParametricOscillator (OPS)",
 				"SolidState",
 				"SemiconductorLaserDiode",
 				"Other"
@@ -19184,7 +19109,6 @@
 		"CoatingMethod",
 		"LightPathLocation",
 		"AttenuationMethod",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -20889,23 +20813,15 @@
 		},
 		"MaxBitDepth": {
 			"type":"string",
-			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital (A/D) converter.",
+			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer).",
 			"tier":2,
 			"enum": [
-				"bit",
-				"complex",
-				"double",
-				"double-complex",
-				"float",
-				"int8",
-				"int16",
-				"int12",
-				"int32",
-				"uint8",
-				"uint12",
-				"uint16",
-				"uint32",
-				"Other"
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
 			],
 			"category":"Detector"
 		},
@@ -20917,7 +20833,7 @@
 		},
 		"ElectronicConversionFactor": {
 			"type":"number",
-			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the digital numbers associated with each Pixel with the actual number of electrons generated by the Detector. It is expressed in e-/Digital Number (DN). Note that DN can also be referred to as Analog-to-Digital-Unit (ADU) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
+			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the actual number of electrons generated by the Detector with the digital number associated with each Pixel. It is expressed in electrons/Analog-to-Digital-Unit (ADU). Note that ADU can also be referred to as Digital Number (DN) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -21613,23 +21529,15 @@
 		},
 		"MaxBitDepth": {
 			"type":"string",
-			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital (A/D) converter.",
+			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer).",
 			"tier":2,
 			"enum": [
-				"bit",
-				"complex",
-				"double",
-				"double-complex",
-				"float",
-				"int8",
-				"int16",
-				"int12",
-				"int32",
-				"uint8",
-				"uint12",
-				"uint16",
-				"uint32",
-				"Other"
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
 			],
 			"category":"Detector"
 		},
@@ -21641,7 +21549,7 @@
 		},
 		"ElectronicConversionFactor": {
 			"type":"number",
-			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the digital numbers associated with each Pixel with the actual number of electrons generated by the Detector. It is expressed in e-/Digital Number (DN). Note that DN can also be referred to as Analog-to-Digital-Unit (ADU) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
+			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the actual number of electrons generated by the Detector with the digital number associated with each Pixel. It is expressed in electrons/Analog-to-Digital-Unit (ADU). Note that ADU can also be referred to as Digital Number (DN) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -22418,7 +22326,6 @@
 		"CoatingMethod",
 		"LightPathLocation",
 		"AttenuationMethod",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -22709,7 +22616,6 @@
 	},
 	"required": [
 		"ID",
-		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -23396,12 +23302,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"RefractiveIndex",
-		"Diameter",
 		"Type",
 		"Composite",
-		"Geometry",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -23476,6 +23378,20 @@
 			"category":"General",
 			"readonly":true
 		},
+		"EffectiveBitDepth": {
+			"type":"string",
+			"description":"If selectable, this field reports the Effective Bit Depth that was used by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer) for the Acquisition of this Channel.",
+			"tier":1,
+			"enum": [
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
+			],
+			"category":"DetectorSettings"
+		},
 		"AnalogGain": {
 			"type":"number",
 			"description":"This field reports the Analog Gain (also known as Inherent Gain or simply as Gain) that was applied during the Acquisition of this Image. The Analog Gain is a property Inherent to the Detector and it specifies how many electrons correspond to 1 signal unit (photon) detected. Gain is reported in terms of electrons/ADU (analog-to-digital unit). A gain of 8 means that the Detector digitizes the light signal so that each ADU corresponds to 8 photoelectrons. NOTE: In the case of Point Detectors the value of Analog Gain can be set freely by the user. Conversely, in the case of Cameras, it is common for the Gain to be preset by the Manufacturer to minimize noise. In this case, either the Analog Gain cannot be changed or the user is given the choice of selecting between a few preset Analog Gains values upon Acquisition. Finally, several Cameras might have so-called Automatic Gain Control (AGC or AutoGain) that will automatically adjusts so the full range of the Analog-to-Digital Converter (ADC) is used. Unless you can turn off the AGC, the use of these Cameras are highly discouraged for quantitative work. ",
@@ -23485,12 +23401,6 @@
 		"AmplificationGain": {
 			"type":"number",
 			"description":"This field reports the Amplification Gain (i.e., electronic gain as apposed to the inherent Gain) that was set during the Acquisition of this Image. Amplification Gain in general measures of the ability of a Detector to add energy to the input light signal therefore increasing its power or amplitude. Higher Amplification Gain levels amplify the signal and result in greater brightness, contrast and background signal. Examples include: 1) the Electron Multiplication (EM) gain (as opposed to the inherent Analog Gain) for an EMCCD camera. 2) The Gain introduced by the Micro-Channel Plate in an Intensified CCD or CMOS camera. 3) The amplification of the electron current provided by a Photomultiplier Tube, and measured as the ratio of the input photoelectron current emitted by the photocatode and the current reaching the anode. 4) The signal amplification provided by an Avalache Photo Diode (APD).",
-			"tier":1,
-			"category":"DetectorSettings"
-		},
-		"Zoom": {
-			"type":"number",
-			"description":"The Zoom that was set for this Detector during the acquisition of this Image.",
 			"tier":1,
 			"category":"DetectorSettings"
 		},
@@ -23523,6 +23433,7 @@
 	"required": [
 		"Voltage",
 		"ID",
+		"EffectiveBitDepth",
 		"AnalogGain",
 		"AmplificationGain",
 		"Tier"
@@ -24294,7 +24205,6 @@
 		"Function",
 		"Condenser",
 		"OilObjective",
-		"RefractiveIndex",
 		"Reflectance",
 		"Manufacturer",
 		"Model",
@@ -25636,23 +25546,15 @@
 		},
 		"MaxBitDepth": {
 			"type":"string",
-			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital (A/D) converter.",
+			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer).",
 			"tier":2,
 			"enum": [
-				"bit",
-				"complex",
-				"double",
-				"double-complex",
-				"float",
-				"int8",
-				"int16",
-				"int12",
-				"int32",
-				"uint8",
-				"uint12",
-				"uint16",
-				"uint32",
-				"Other"
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
 			],
 			"category":"Detector"
 		},
@@ -25664,7 +25566,7 @@
 		},
 		"ElectronicConversionFactor": {
 			"type":"number",
-			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the digital numbers associated with each Pixel with the actual number of electrons generated by the Detector. It is expressed in e-/Digital Number (DN). Note that DN can also be referred to as Analog-to-Digital-Unit (ADU) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
+			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the actual number of electrons generated by the Detector with the digital number associated with each Pixel. It is expressed in electrons/Analog-to-Digital-Unit (ADU). Note that ADU can also be referred to as Digital Number (DN) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -26377,7 +26279,6 @@
 		"CoatingMethod",
 		"LightPathLocation",
 		"AttenuationMethod",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
@@ -28828,12 +28729,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"RefractiveIndex",
-		"Diameter",
 		"Type",
 		"Composite",
-		"Geometry",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
