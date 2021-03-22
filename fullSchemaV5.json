@@ -3527,7 +3527,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -4223,7 +4223,7 @@
 			"category":"StageInsert"
 		},
 		"NumberOfSlots": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field describes the number of Specimen Holder slots on this Stage Insert.",
 			"tier":2,
 			"category":"StageInsert"
@@ -4317,7 +4317,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -4508,7 +4508,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -6486,7 +6486,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -7558,7 +7558,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -8055,7 +8055,7 @@
 	},
 	"properties": {
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"When relevant, this field records the position of this Filter Cube in a Optics Holder.",
 			"tier":2,
 			"category":"FilterCube"
@@ -9321,7 +9321,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -12752,7 +12752,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -13824,7 +13824,7 @@
 			"category":"MirroringDevice"
 		},
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this Mirroring Device in a Optics Holder of any kind, such as a Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"MirroringDevice"
@@ -14071,7 +14071,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -15857,7 +15857,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -16196,7 +16196,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -16711,7 +16711,7 @@
 			"category":"MirroringDevice"
 		},
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this Mirroring Device in a Optics Holder of any kind, such as a Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"MirroringDevice"
@@ -17160,7 +17160,7 @@
 			"category":"MirroringDevice"
 		},
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this Mirroring Device in a Optics Holder of any kind, such as a Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"MirroringDevice"
@@ -17357,7 +17357,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -18346,7 +18346,7 @@
 			"category":"Laser"
 		},
 		"Position": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field captures the position of this Laser on a Multi Laser Engine.",
 			"tier":3,
 			"category":"Laser"
@@ -22514,7 +22514,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -22837,7 +22837,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -26673,7 +26673,7 @@
 			"category":"MirroringDevice"
 		},
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this Mirroring Device in a Optics Holder of any kind, such as a Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"MirroringDevice"
@@ -28264,7 +28264,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
