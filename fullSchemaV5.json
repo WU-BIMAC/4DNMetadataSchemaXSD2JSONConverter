@@ -231,7 +231,7 @@
 			"category":"CameraSettings"
 		},
 		"Integration": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field represents the number of sequential frames that have been averaged to obtain this image, to improve the overall signal-to-noise ratio.",
 			"tier":2,
 			"category":"CameraSettings"
@@ -9581,31 +9581,31 @@
 			"category":"Pixels"
 		},
 		"SizeX": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the X size of the Pixel data array.",
 			"tier":1,
 			"category":"Pixels"
 		},
 		"SizeY": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the Y size of the Pixel data array.",
 			"tier":1,
 			"category":"Pixels"
 		},
 		"SizeZ": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the number of Z-Planes acquired for this Image.",
 			"tier":1,
 			"category":"Pixels"
 		},
 		"SizeC": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the number of Channels used in this Image",
 			"tier":1,
 			"category":"Pixels"
 		},
 		"SizeT": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the number of Timepoints (often referred to as Frames) used in this Image.",
 			"tier":1,
 			"category":"Pixels"
@@ -9827,7 +9827,7 @@
 			"category":"Pixels"
 		},
 		"SignificantBits": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the number of bits within the type storing each Pixel value that are significant. e.g.,. you can store 12-bit data within a 16-bit type. This does not reduce the storage requirements but can be a useful indicator when processing or viewing the Image data.",
 			"tier":3,
 			"category":"Pixels"
@@ -10331,19 +10331,19 @@
 			"readonly":true
 		},
 		"TheZ": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the Z-section to which this Plane corresponds. This is numbered from 0.",
 			"tier":1,
 			"category":"Plane"
 		},
 		"TheT": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records th Timepoint to which this Plane corresponds. This is numbered from 0.",
 			"tier":1,
 			"category":"Plane"
 		},
 		"TheC": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records th Channel to which this Plane corresponds. This is numbered from 0.",
 			"tier":1,
 			"category":"Plane"
@@ -15137,14 +15137,14 @@
 			"category":"Channel"
 		},
 		"Color": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the Color used to render this Channel - encoded as RGBA. The default value is -1 corresponding #FFFFFFFF, so solid white (it is a signed 32 bit value).",
 			"tier":1,
 			"default":"-1",
 			"category":"Channel"
 		},
 		"SamplesPerPixel": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field is prevalently used for RGB Images and records the number of samples the detector takes to form each pixel value. [units:none]",
 			"tier":3,
 			"category":"Channel"
@@ -15275,7 +15275,7 @@
 			"category":"Filter"
 		},
 		"FilterHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this element in a Filter Holder of any kind, such as a Filter Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"Filter"
@@ -19100,7 +19100,7 @@
 			"category":"Filter"
 		},
 		"FilterHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this element in a Filter Holder of any kind, such as a Filter Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"Filter"
@@ -22317,7 +22317,7 @@
 			"category":"Filter"
 		},
 		"FilterHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this element in a Filter Holder of any kind, such as a Filter Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"Filter"
@@ -26327,7 +26327,7 @@
 			"category":"Filter"
 		},
 		"FilterHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this element in a Filter Holder of any kind, such as a Filter Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"Filter"
