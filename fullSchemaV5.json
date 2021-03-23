@@ -3527,7 +3527,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -4317,7 +4317,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -4508,7 +4508,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"integer",
+			"type":"number",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -4533,7 +4533,7 @@
 		},
 		"Shape": {
 			"type":"string",
-			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please this attribute is often used to classify Lenses into categories.",
+			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please note that this attribute is often used to classify Lenses into categories.",
 			"tier":3,
 			"enum": [
 				"Amici-Bertrand",
@@ -4872,7 +4872,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Lens is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Lens is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
@@ -5118,7 +5118,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Polarization Optics is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Polarization Optics is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
@@ -6540,7 +6540,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"integer",
+			"type":"number",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -6565,7 +6565,7 @@
 		},
 		"Shape": {
 			"type":"string",
-			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please this attribute is often used to classify Lenses into categories.",
+			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please note that this attribute is often used to classify Lenses into categories.",
 			"tier":3,
 			"enum": [
 				"Amici-Bertrand",
@@ -6904,7 +6904,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Lens is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Lens is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
@@ -7644,7 +7644,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"integer",
+			"type":"number",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -7669,7 +7669,7 @@
 		},
 		"Shape": {
 			"type":"string",
-			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please this attribute is often used to classify Lenses into categories.",
+			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please note that this attribute is often used to classify Lenses into categories.",
 			"tier":3,
 			"enum": [
 				"Amici-Bertrand",
@@ -8008,7 +8008,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Lens is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Lens is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
@@ -8167,7 +8167,7 @@
 	},
 	"properties": {
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"When relevant, this field records the position of this Filter Cube in a Optics Holder.",
 			"tier":2,
 			"category":"FilterCube"
@@ -9433,7 +9433,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -12864,7 +12864,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"integer",
+			"type":"number",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -12889,7 +12889,7 @@
 		},
 		"Shape": {
 			"type":"string",
-			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please this attribute is often used to classify Lenses into categories.",
+			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please note that this attribute is often used to classify Lenses into categories.",
 			"tier":3,
 			"enum": [
 				"Amici-Bertrand",
@@ -13228,7 +13228,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Lens is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Lens is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
@@ -13797,7 +13797,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Mirroring Device in a Optics Holder of any kind, such as a Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"MirroringDevice"
@@ -14239,7 +14239,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"integer",
+			"type":"number",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -14264,7 +14264,7 @@
 		},
 		"Shape": {
 			"type":"string",
-			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please this attribute is often used to classify Lenses into categories.",
+			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please note that this attribute is often used to classify Lenses into categories.",
 			"tier":3,
 			"enum": [
 				"Amici-Bertrand",
@@ -14603,7 +14603,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Lens is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Lens is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
@@ -16051,7 +16051,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -16390,7 +16390,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -16740,7 +16740,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Mirroring Device in a Optics Holder of any kind, such as a Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"MirroringDevice"
@@ -17219,7 +17219,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Mirroring Device in a Optics Holder of any kind, such as a Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"MirroringDevice"
@@ -17611,7 +17611,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"integer",
+			"type":"number",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -17636,7 +17636,7 @@
 		},
 		"Shape": {
 			"type":"string",
-			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please this attribute is often used to classify Lenses into categories.",
+			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please note that this attribute is often used to classify Lenses into categories.",
 			"tier":3,
 			"enum": [
 				"Amici-Bertrand",
@@ -17975,7 +17975,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Lens is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Lens is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
@@ -22794,7 +22794,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"
@@ -23117,7 +23117,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"integer",
+			"type":"number",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -23142,7 +23142,7 @@
 		},
 		"Shape": {
 			"type":"string",
-			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please this attribute is often used to classify Lenses into categories.",
+			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please note that this attribute is often used to classify Lenses into categories.",
 			"tier":3,
 			"enum": [
 				"Amici-Bertrand",
@@ -23481,7 +23481,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Lens is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Lens is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
@@ -24261,7 +24261,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Prism is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Prism is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
@@ -26847,7 +26847,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Mirroring Device in a Optics Holder of any kind, such as a Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"MirroringDevice"
@@ -28633,7 +28633,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"integer",
+			"type":"number",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -28658,7 +28658,7 @@
 		},
 		"Shape": {
 			"type":"string",
-			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please this attribute is often used to classify Lenses into categories.",
+			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please note that this attribute is often used to classify Lenses into categories.",
 			"tier":3,
 			"enum": [
 				"Amici-Bertrand",
@@ -28997,7 +28997,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Lens is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Lens is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
