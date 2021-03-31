@@ -2778,9 +2778,6 @@
 	},
 	"required": [
 		"ID",
-		"Manufacturer",
-		"Model",
-		"CatalogNumber",
 		"Tier"
 	]
 },
@@ -17575,9 +17572,6 @@
 	},
 	"required": [
 		"ID",
-		"Manufacturer",
-		"Model",
-		"CatalogNumber",
 		"Tier"
 	]
 },
