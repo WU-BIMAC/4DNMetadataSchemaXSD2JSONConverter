@@ -38,7 +38,7 @@ date-released: 2021-04-20
 license: GNU General Public License v.3
 repository-code: https://github.com/WU-BIMAC/4DNMetadataSchemaXSD2JSONConverter
 title: 4DNMetadataSchemaXSD2JSONConverter 
-version: PENDING
+version: 1.0.0
 doi: PENDING
   - 
 keywords: 
