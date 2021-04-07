@@ -10,24 +10,6 @@ authors:
     given-names: Alessandro
     email: alex.rigano@umassmed.edu
   -
-    affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
-    family-names: Balashov
-    given-names: Alexander
-  -
-    affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
-    family-names: Ehmsen
-    given-names: Shannon
-  -
-    affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
-    family-names: Ozturk
-    given-names: Serkan Utku
-    orcid: https://orcid.org/0000-0001-8835-787X
-  -
-    affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
-    family-names: Alver
-    given-names: Burak
-    orcid: https://orcid.org/https://orcid.org/0000-0002-5019-7652
-  -
     affiliation:  Program in Molecular Medicine, UMass Medical School, Worcester MA 01605, USA
     family-names: Strambio-De-Castillia
     given-names: Caterina
