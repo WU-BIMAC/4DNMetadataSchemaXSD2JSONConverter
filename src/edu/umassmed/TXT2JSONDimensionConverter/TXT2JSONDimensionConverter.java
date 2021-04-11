@@ -2,6 +2,7 @@ package edu.umassmed.TXT2JSONDimensionConverter;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,7 +11,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import edu.umassmed.XSD2JSONConverter.XSD2JSONConverter;
+
 public class TXT2JSONDimensionConverter {
+	
+	final static String folder = "dimensions";
+	
 	final Map<String, Map<String, Map<String, List<String[]>>>> positions;
 	final Map<String, Map<String, Map<String, List<String[]>>>> dimensions;
 	final Map<String, Map<String, Map<String, List<String[]>>>> rotates;
@@ -21,9 +27,10 @@ public class TXT2JSONDimensionConverter {
 		this.rotates = new LinkedHashMap<String, Map<String, Map<String, List<String[]>>>>();
 	}
 
-	public void writeDimensionsFile() throws IOException {
-		final FileWriter fw = new FileWriter(
-				"./dimensionsV2/MicroscopeDimensions.json");
+	public void writeDimensionsFile(final String path) throws IOException {
+		final String fileName = path + File.separator
+				+ "MicroscopeDimensions.json";
+		final FileWriter fw = new FileWriter(fileName);
 		final BufferedWriter bw = new BufferedWriter(fw);
 		bw.write("{\n");
 		int counter1 = 0;
@@ -128,9 +135,10 @@ public class TXT2JSONDimensionConverter {
 		fw.close();
 	}
 	
-	public void parseDimensionsFile(final String type) throws IOException {
-		final String f = "./dimensionsV2/" + type + ".txt";
-		final FileReader fr = new FileReader(f);
+	public void parseDimensionsFile(final String type, final String path)
+			throws IOException {
+		final String fileName = path + File.separator + type + ".txt";
+		final FileReader fr = new FileReader(fileName);
 		final BufferedReader br = new BufferedReader(fr);
 
 		Map<String, Map<String, List<String[]>>> typePositions;
@@ -234,11 +242,30 @@ public class TXT2JSONDimensionConverter {
 	}
 	
 	public static void main(final String[] args) {
+		String newOutputFolder = XSD2JSONConverter.outputFolder;
+		final File dir = new File(newOutputFolder);
+		if (!dir.exists()) {
+			dir.mkdir();
+		}
+		if (XSD2JSONConverter.useProgress) {
+			newOutputFolder += XSD2JSONConverter.inputFileVersionProgress;
+		} else {
+			newOutputFolder += XSD2JSONConverter.inputFileVersionStable;
+		}
+		final File dir2 = new File(newOutputFolder);
+		if (!dir2.exists()) {
+			dir2.mkdir();
+		}
+		newOutputFolder += TXT2JSONDimensionConverter.folder;
+		final File dir3 = new File(newOutputFolder);
+		if (!dir3.exists()) {
+			dir3.mkdir();
+		}
 		final TXT2JSONDimensionConverter conv = new TXT2JSONDimensionConverter();
 		try {
-			conv.parseDimensionsFile("InvertedMicroscopeStand");
-			conv.parseDimensionsFile("UprightMicroscopeStand");
-			conv.writeDimensionsFile();
+			conv.parseDimensionsFile("InvertedMicroscopeStand", newOutputFolder);
+			conv.parseDimensionsFile("UprightMicroscopeStand", newOutputFolder);
+			conv.writeDimensionsFile(newOutputFolder);
 		} catch (final IOException ex) {
 			ex.printStackTrace();
 		}
