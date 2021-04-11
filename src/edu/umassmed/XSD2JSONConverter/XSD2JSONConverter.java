@@ -12,9 +12,6 @@ import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -2136,19 +2133,33 @@ public class XSD2JSONConverter {
 		
 		final String logsFolder = newOutputFolder;
 		try {
-			final File currentLink = new File(
+			final File currentLinkFolder = new File(
 					XSD2JSONConverter.currentVersionLink);
-			if (currentLink.exists()) {
-				currentLink.delete();
+			if (!currentLinkFolder.exists()) {
+				currentLinkFolder.mkdir();
 			}
-			final Path linkPath = Paths.get(currentLink.getPath());
-			final Path targetPath = Paths.get(newOutputFolder);
-			System.out.println(linkPath);
-			System.out.println(targetPath);
-			Files.createSymbolicLink(linkPath, targetPath);
-		} catch (final IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			final File currentLink = new File(
+					XSD2JSONConverter.currentVersionLink + File.separator
+							+ "index.html");
+			String versionLink = "https:" + File.separator + File.separator
+					+ "github.com" + File.separator + "WU-BIMAC"
+					+ File.separator + "4DNMetadataSchemaXSD2JSONConverter"
+					+ File.separator + "tree" + File.separator + "master"
+					+ File.separator + "versions" + File.separator;
+			if (XSD2JSONConverter.useProgress) {
+				versionLink += XSD2JSONConverter.inputFileVersionProgress;
+			} else {
+				versionLink += XSD2JSONConverter.inputFileVersionStable;
+			}
+			versionLink = versionLink.substring(0, versionLink.length() - 1);
+			final FileWriter fw = new FileWriter(currentLink);
+			final BufferedWriter bw = new BufferedWriter(fw);
+			bw.write("<meta http-equiv=\"refresh\" content=\"0\" url=\""
+					+ versionLink + "\"/>");
+			bw.close();
+			fw.close();
+		} catch (final IOException ex) {
+			System.out.println(ex);
 		}
 
 		newOutputFolder += XSD2JSONConverter.outputFolderSingleSchemas;
