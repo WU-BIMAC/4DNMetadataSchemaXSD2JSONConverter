@@ -1,7 +1,6 @@
 /bin/
 .settings
-errors.json
-references.json
-schema.xsd
+*errors.json
+*references.json
 *_test/*.json
 *_test.json
