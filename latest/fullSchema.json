@@ -2333,8 +2333,8 @@
 	"modelSettings":"ImagingEnvironment",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"MicroscopyEssentials",
-	"image":"MicroscopyEssentials_EnvironmentalControlDevice.svg",
+	"category":"MicroscopyAccessories",
+	"image":"MicroscopyAccessories_EnvironmentalControlDevice.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -2782,9 +2782,6 @@
 	},
 	"required": [
 		"ID",
-		"Manufacturer",
-		"Model",
-		"CatalogNumber",
 		"Tier"
 	]
 },
@@ -17579,9 +17576,6 @@
 	},
 	"required": [
 		"ID",
-		"Manufacturer",
-		"Model",
-		"CatalogNumber",
 		"Tier"
 	]
 },
@@ -23889,8 +23883,8 @@
 	"modelSettings":"MicroscopeTableSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"MicroscopyEssentials",
-	"image":"MicroscopyEssentials_MicroscopeTable.svg",
+	"category":"MicroscopyAccessories",
+	"image":"MicroscopyAccessories_MicroscopeTable.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
