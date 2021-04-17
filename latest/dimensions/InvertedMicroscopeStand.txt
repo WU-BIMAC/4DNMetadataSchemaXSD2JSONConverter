@@ -4,8 +4,8 @@ InvertedMicroscopeStand:-1,-1:3199.25,1150.9761
 //Menu position 1 --> Microscopy Essentials
 //-----------------------------------------
 
-MicroscopyEssentials.MicroscopeTable:1613.7446,1072.818:3118.29,43.0292 
-MicroscopyEssentials.EnvironmentalControlDevice:2093.4117,913.9234:110.9688,50.778
+MicroscopyAccessories.MicroscopeTable:1613.7446,1072.818:3118.29,43.0292 
+MicroscopyAccessories.EnvironmentalControlDevice:2093.4117,913.9234:110.9688,50.778
 
 //Menu position 2 --> Software
 //-----------------------------------------
