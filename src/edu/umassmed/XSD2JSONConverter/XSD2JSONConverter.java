@@ -43,11 +43,11 @@ import com.sun.org.apache.xerces.internal.xs.XSTypeDefinition;
 public class XSD2JSONConverter {
 
 	public static boolean forceVersion = true;
-	public static String version = "2.00.0";
+	public static String version = "2.01.0";
 
 	public static boolean useProgress = false;
-	public static String inputFileVersionProgress = "v02-01/";
-	public static String inputFileVersionStable = "v02-00/";
+	public static String inputFileVersionProgress = "v02-10/";
+	public static String inputFileVersionStable = "v02-01/";
 	public static String versionType_Stable = "stable%20version/";
 	public static String versionType_Progress = "in%20progress/";
 	public static String githubPrefix = "https://raw.githubusercontent.com/WU-BIMAC/NBOMicroscopyMetadataSpecs/master/Model/";
