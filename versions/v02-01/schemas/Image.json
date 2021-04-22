@@ -1,0 +1,109 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Image.json",
+	"modelVersion":"2.01.0",
+	"type":"object",
+	"title":"Image",
+	"description":"This element describes the actual Image that was acquired and its meta-data. The elements that are references (ending in Ref or Settings) refer to elements defined outside of the Image element. Ref elements are simple links, while Settings elements are links with additional values. If any of the required Image attributes or elements are missing, its guaranteed to be an invalid document.",
+	"modelSettings":"NA",
+	"extension":"Core",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Image",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Image":"This element describes the actual Image that was acquired and its meta-data. The elements that are references (ending in Ref or Settings) refer to elements defined outside of the Image element. Ref elements are simple links, while Settings elements are links with additional values. If any of the required Image attributes or elements are missing, its guaranteed to be an invalid document.",
+		"StageInsert":"This empty element refers to the optional Stage Insert device that was used for the Acquisition of this Image.",
+		"FocusStabilizationDevice":" This empty element refers to the optional Focus Stabilization Device that was used for the Acquisition of the experimental Image this Mechanical Calibration procedure refers to.",
+		"AcquisitionSoftware":"This empty element refers to the Software that was used to drive the Microscope during the Image Acquisition."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user assigned name for this Image.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Image.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"AcquisitionDate": {
+			"type":"string",
+			"description":"The Date in which this Image was Acquired.",
+			"tier":1,
+			"category":"Image"
+		},
+		"InstrumentName": {
+			"title":"InstrumentName",
+			"type":"string",
+			"description":"Name of the instrument",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"InstrumentID": {
+			"title":"InstrumentID",
+			"type":"string",
+			"description":"ID of the instrument",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"StageInsert": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to the optional Stage Insert device that was used for the Acquisition of this Image.",
+				"type":"string",
+				"tier":2,
+				"category":"StageInsert",
+				"linkTo":"StageInsert"
+			}
+		},
+		"FocusStabilizationDevice": {
+			"type":"array",
+			"items": {
+				"description":" This empty element refers to the optional Focus Stabilization Device that was used for the Acquisition of the experimental Image this Mechanical Calibration procedure refers to.",
+				"type":"string",
+				"tier":2,
+				"category":"FocusStabilizationDevice",
+				"linkTo":"FocusStabilizationDevice"
+			}
+		},
+		"AcquisitionSoftware": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to the Software that was used to drive the Microscope during the Image Acquisition.",
+				"type":"string",
+				"tier":1,
+				"category":"AcquisitionSoftware",
+				"linkTo":"AcquisitionSoftware"
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of the microscope.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"InstrumentName",
+		"InstrumentName",
+		"AcquisitionSoftware",
+		"Tier"
+	]
+}

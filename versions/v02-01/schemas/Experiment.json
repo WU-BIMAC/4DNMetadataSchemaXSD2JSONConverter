@@ -1,0 +1,142 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Experiment.json",
+	"modelVersion":"2.01.0",
+	"type":"object",
+	"title":"Experiment",
+	"description":"This element describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
+	"modelSettings":"NA",
+	"extension":"Core",
+	"domain":"Experimental",
+	"category":"SamplePreparation",
+	"image":"SamplePreparation_Experiment.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Experiment":"This element describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
+		"Experimenter":"This empty element refers to Experimenter that performed this experiment."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user assigned name for this Experiment.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Experiment.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Purpose": {
+			"type":"string",
+			"description":"This field records a term used the general purpose of the imaging experiment performed in this case.",
+			"tier":1,
+			"enum": [
+				"Co-localization",
+				"Electrophysiology",
+				"Fluorescent Speckle Microscopy (FSM)",
+				"HightThroughputScreen",
+				"Histology",
+				"Intensity Quantification",
+				"Laser Capture Microdissection (LCM)",
+				"Localization",
+				"Morphometry",
+				"OpticalTrapping",
+				"PGI-Documentation",
+				"PhotoAblation",
+				"Single Molecule Imaging (SMI)",
+				"TimeLapse",
+				"Other"
+			],
+			"category":"Experiment"
+		},
+		"LabellingMethod": {
+			"type":"string",
+			"description":"This field records a term that describes the method used for the Labelling or Visualization of the structures (i.e. molecular components) under study in this Experiment. The use of a sub-class of the 'Visualization Method' (http://purl.obolibrary.org/obo/FBbi_00000031) term from the Biological Imaging Methods Ontology (FBbi; https://www.ebi.ac.uk/ols/ontologies/fbbi) is recommended.",
+			"tier":1,
+			"category":"Experiment"
+		},
+		"LabellingMethodTermAccession": {
+			"type":"string",
+			"description":"This field records the Accession ID for the term used to describe the Visualization Method (also often referred to as Labelling Method). The use of a sub-classes of 'Visualization Method' (http://purl.obolibrary.org/obo/FBbi_00000031) from the Biological Imaging Methods Ontology (FBbi; https://www.ebi.ac.uk/ols/ontologies/fbbi) is recommended.",
+			"tier":1,
+			"category":"Experiment"
+		},
+		"Tag": {
+			"type":"string",
+			"description":"This field describes small molecules, peptides or full proteins that were used as label in this Experiment. The use of a sub-class of the 'Tag' (http://purl.obolibrary.org/obo/MI_0507) term from the Molecular Interactions Controlled Vocabulary (MI; http://purl.obolibrary.org/obo/mi.owl) is recommended.",
+			"tier":1,
+			"category":"Experiment"
+		},
+		"TagTermAccession": {
+			"type":"string",
+			"description":"This records the Accession ID for the term used to describe the Tag used in this Experiment. The use of a sub-class of http://purl.obolibrary.org/obo/MI_0507 is recommended.",
+			"tier":1,
+			"category":"Experiment"
+		},
+		"HystochemistryType": {
+			"type":"string",
+			"description":"This field records a term that describes the general category of Histochemistry staining used in this case.",
+			"tier":1,
+			"enum": [
+				"Acid fuschin",
+				"Alcian blue",
+				"Aniline Blue",
+				"Azan",
+				"Chrome alum/haemotoxylin",
+				"Eosin",
+				"Giemsa",
+				"Histochemistry stains",
+				"Isamin blue/eosin",
+				"Masson's trichrome",
+				"Methyl green",
+				"Methylene blue",
+				"Nissl and methylene blue",
+				"Orange G",
+				"Periodic acid-Schiff reaction (PAS)",
+				"Pyronin G",
+				"Reticulin Stain",
+				"Silver and gold",
+				"Sudan Black and osmium",
+				"Toluidine blue",
+				"van Gieson",
+				"Other"
+			],
+			"category":"Experiment"
+		},
+		"Experimenter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to Experimenter that performed this experiment.",
+				"type":"string",
+				"tier":1,
+				"category":"Experimenter",
+				"linkTo":"Experimenter"
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Purpose",
+		"LabellingMethod",
+		"Experimenter",
+		"Tier"
+	]
+}

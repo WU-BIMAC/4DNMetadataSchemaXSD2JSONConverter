@@ -1,0 +1,29 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Pump.json",
+	"modelVersion":"2.01.0",
+	"type":"object",
+	"title":"Pump",
+	"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
+	"modelSettings":"NA",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"ChildElement",
+	"image":"ChildElement_Pump.svg",
+	"tier":3,
+	"subCategoriesOrder": {
+		"Pump":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"Pump",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID"
+	]
+}

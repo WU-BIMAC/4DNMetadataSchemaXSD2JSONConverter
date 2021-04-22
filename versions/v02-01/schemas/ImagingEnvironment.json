@@ -1,0 +1,124 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ImagingEnvironment.json",
+	"modelVersion":"2.01.0",
+	"type":"object",
+	"title":"ImagingEnvironment",
+	"description":"This element describes the environment in which the biological sample was maintained during the Acquisition of this Image.",
+	"modelSettings":"NA",
+	"extension":"Core",
+	"domain":"ImageAcquisitionSettings",
+	"category":"SampleConditions",
+	"image":"SampleConditions_ImagingEnvironment.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ImagingEnvironment":"This element describes the environment in which the biological sample was maintained during the Acquisition of this Image."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the Environmental Control Device used in this case.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Temperature": {
+			"type":"string",
+			"description":"The field records the Temperature at which this Image Acquisition was performed. Allowed values include a number or the phrase 'Room Temperature'.",
+			"tier":1,
+			"category":"ImagingEnvironment"
+		},
+		"TemperatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"°C",
+			"enum": [
+				"°C",
+				"°F",
+				"K",
+				"°R"
+			],
+			"category":"ImagingEnvironment"
+		},
+		"CO2Percent": {
+			"type":"string",
+			"description":"The field records the Carbon Dioxide concentration (expressed as a % value) at which this Image Acquisition was performed. Allowed values include a number or the phrase 'Ambient Conditions'.",
+			"tier":1,
+			"category":"ImagingEnvironment"
+		},
+		"Humidity": {
+			"type":"string",
+			"description":"The field records the Humidity (expressed as a % value) at which this Image Acquisition was performed. Allowed values include a number or the phrase 'Ambient Humidity'.",
+			"tier":1,
+			"category":"ImagingEnvironment"
+		},
+		"AirPressure": {
+			"type":"number",
+			"description":"The field records the AirPressure the Acquisition of this Image was performed at.",
+			"tier":2,
+			"category":"ImagingEnvironment"
+		},
+		"AirPressureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"mbar",
+			"enum": [
+				"YPa",
+				"ZPa",
+				"EPa",
+				"PPa",
+				"TPa",
+				"GPa",
+				"MPa",
+				"kPa",
+				"hPa",
+				"daPa",
+				"Pa",
+				"dPa",
+				"cPa",
+				"mPa",
+				"µPa",
+				"nPa",
+				"pPa",
+				"fPa",
+				"aPa",
+				"zPa",
+				"yPa",
+				"bar",
+				"Mbar",
+				"kbar",
+				"dbar",
+				"cbar",
+				"mbar",
+				"atm",
+				"psi",
+				"Torr",
+				"mTorr",
+				"mm Hg"
+			],
+			"category":"ImagingEnvironment"
+		},
+		"O2Percent": {
+			"type":"number",
+			"description":"This field records the Oxygen concentration around the sample [units:none] during the Acquisition of this Image. Expressed as a percentage fraction as a value from 0.0 to 1.0.",
+			"tier":2,
+			"category":"ImagingEnvironment"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Temperature",
+		"CO2Percent",
+		"Humidity",
+		"Tier"
+	]
+}
