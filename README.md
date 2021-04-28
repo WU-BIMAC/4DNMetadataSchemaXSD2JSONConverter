@@ -11,3 +11,13 @@ The XSD to JSON Schema converter middleware utilizes the Xerces2 Java XML Parser
 2. A series of JSON files each containing the schema of individual components, which were designed to be employed by the Electron implementation of the App. These individual schema files are available within a subdirectory of the main repository on GitHub.
 
 The middleware was specifically designed to maximize flexibility and extensibility. As such, the software allows the introduction of implementation-specific modifications of the resulting JSON schema so that it can be adapted for special purposes. For example, the introduction of a “Version” field allows the validation of whether or not the data being saved is compatible with the specific version of the schema being employed. As a further example, the introduction of the “Category” field allows the organization of different components in specific sub-menus across the sidebar. In order to facilitate the evolution of the model while ensuring back compatibility, the GitHub repository supports versioning by storing all revisions of the output JSON schema.
+
+# Background information
+
+For more information please refer to our recent publications:
+
+1. **A perspective on Microscopy Metadata: data provenance and quality control.**
+Maximiliaan Huisman, Mathias Hammer, Alex Rigano, Ulrike Boehm, James J. Chambers, Nathalie Gaudreault, Alison J. North, Jaime A. Pimentel, Damir Sudar, Peter Bajcsy, Claire M. Brown, Alexander D. Corbett, Orestis Faklaris, Judith Lacoste, Alex Laude, Glyn Nelson, Roland Nitschke, David Grunwald, Caterina Strambio-De-Castillia, (2021). Available at: https://arxiv.org/abs/1910.11370
+
+2. **Towards community-driven metadata standards for light microscopy: tiered specifications extending the OME model.**
+Mathias Hammer, Maximiliaan Huisman, Alessandro Rigano, Ulrike Boehm, James J. Chambers, Nathalie Gaudreault, Alison J. North, Jaime A. Pimentel, Damir Sudar, Peter Bajcsy, Claire M. Brown, Alexander D. Corbett, Orestis Faklaris, Judith Lacoste, Alex Laude, Glyn Nelson, Roland Nitschke, Farzin Farzam, Carlas Smith, David Grunwald, Caterina Strambio-De-Castillia, (2021). Available at: https://www.biorxiv.org/content/10.1101/2021.04.25.441198v1. doi: https://doi.org/10.1101/2021.04.25.441198
