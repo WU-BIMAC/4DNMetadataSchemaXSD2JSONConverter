@@ -295,4 +295,4 @@ Detector.PointDetector:280.6207,775.1089:184.5212,94.5
 //Menu position 20 --> Calibration Tools
 //--------------------------------------------
 
-Calibration.IntensityCalibrationTool:1963.7673,1001.8739:121.5,40.7034
+CalibrationTools.IntensityCalibrationTool:1963.7673,1001.8739:121.5,40.7034
