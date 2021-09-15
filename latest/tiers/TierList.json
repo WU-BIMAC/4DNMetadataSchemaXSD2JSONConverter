@@ -1,16 +1,15 @@
 [{
 		"Index": 1,
 		"Name": "Tier 1: Minimum Information",
-		"Description": "Reporting qualitative effects, or effects that require simple quantifications",
-		"MinimumComponentsList": "[Transmitted_LightSource || Fluorescence_LightSource, Objective, Detector]"
+		"Description": "Reporting qualitative effects, or effects that require simple quantification such as basic  feature extraction and statistical analysis": "[Transmitted_LightSource || Fluorescence_LightSource, Objective, Detector]"
 	}, {
 		"Index": 2,
 		"Name": "Tier 2: Advanced Quantification",
-		"Description": "Identification and localization of diffraction-limited particles, super-resolution microscopy, tracking of intracellular dynamics",
+		"Description": "Reporting quantitative effects that require advanced quantification such as localization of single molecules and  tracking of intracellular dynamics",
 		"MinimumComponentsList": "[Transmitted_LightSource || Fluorescence_LightSource, Objective, Detector]"
 	}, {
 		"Index": 3,
-		"Name": "Tier 3: Full Documentation",
+		"Name": "Tier 3: Manufacturing/ Technical Development",
 		"Description": "Full documentation of microscopic setup, image acquisition and quality control",
 		"MinimumComponentsList": "[Transmitted_LightSource || Fluorescence_LightSource, Objective, Detector]"
 	}
