@@ -1,6 +1,6 @@
 [{
 		"Index": 1,
-		"Name": "Tier 1: Minimum Information/Material & Methods",
+		"Name": "Tier 1: Minimum Information / Material & Methods",
 		"Description": "Reporting qualitative effects, or effects that require simple quantification including the identification of objects larger than the resolution limit followed by basic  feature extraction and statistical analysis",
 		"MinimumComponentsList": "[Transmitted_LightSource || Fluorescence_LightSource, Objective, Detector]"
 	}, {
@@ -10,7 +10,7 @@
 		"MinimumComponentsList": "[Transmitted_LightSource || Fluorescence_LightSource, Objective, Detector]"
 	}, {
 		"Index": 3,
-		"Name": "Tier 3: Manufacturing/Technical Development/Full Documentation",
+		"Name": "Tier 3: Manufacturing / Technical Development / Full Documentation",
 		"Description": "Full documentation of microscopic setup, image acquisition and quality control",
 		"MinimumComponentsList": "[Transmitted_LightSource || Fluorescence_LightSource, Objective, Detector]"
 	}
