@@ -14,19 +14,19 @@ import java.util.Map;
 import edu.umassmed.XSD2JSONConverter.XSD2JSONConverter;
 
 public class TXT2JSONDimensionConverter {
-	
+
 	final static String folder = "dimensions";
-	
+
 	final Map<String, Map<String, Map<String, List<String[]>>>> positions;
 	final Map<String, Map<String, Map<String, List<String[]>>>> dimensions;
 	final Map<String, Map<String, Map<String, List<String[]>>>> rotates;
-
+	
 	public TXT2JSONDimensionConverter() {
 		this.positions = new LinkedHashMap<String, Map<String, Map<String, List<String[]>>>>();
 		this.dimensions = new LinkedHashMap<String, Map<String, Map<String, List<String[]>>>>();
 		this.rotates = new LinkedHashMap<String, Map<String, Map<String, List<String[]>>>>();
 	}
-
+	
 	public void writeDimensionsFile(final String path) throws IOException {
 		final String fileName = path + File.separator
 				+ "MicroscopeDimensions.json";
@@ -59,11 +59,11 @@ public class TXT2JSONDimensionConverter {
 				for (final String groupKey : groupCoord.keySet()) {
 					final String tabs3 = tabs2 + "\t";
 					bw.write(tabs3 + "\"" + groupKey + "\":");
-
+					
 					final List<String[]> coords = groupCoord.get(groupKey);
 					final List<String[]> dims = groupDims.get(groupKey);
 					final List<String[]> rotates = groupRotates.get(groupKey);
-					
+
 					String tabs4 = tabs3;
 					if (coords.size() > 1) {
 						bw.write("[\n");
@@ -71,7 +71,7 @@ public class TXT2JSONDimensionConverter {
 					} else {
 						bw.write("{\n");
 					}
-
+					
 					for (int i = 0; i < coords.size(); i++) {
 						final String[] singleCoord = coords.get(i);
 						final String[] singleDims = dims.get(i);
@@ -79,7 +79,7 @@ public class TXT2JSONDimensionConverter {
 						if (coords.size() > 1) {
 							bw.write(tabs4 + "{\n");
 						}
-
+						
 						bw.write(tabs4 + "\t\"x\":" + singleCoord[0] + ",\n");
 						bw.write(tabs4 + "\t\"y\":" + singleCoord[1] + ",\n");
 						bw.write(tabs4 + "\t\"w\":" + singleDims[0] + ",\n");
@@ -92,7 +92,7 @@ public class TXT2JSONDimensionConverter {
 						} else {
 							bw.write("\n");
 						}
-
+						
 						if (coords.size() > 1) {
 							if (i < (coords.size() - 1)) {
 								bw.write(tabs4 + "},\n");
@@ -101,7 +101,7 @@ public class TXT2JSONDimensionConverter {
 							}
 						}
 					}
-
+					
 					if (coords.size() > 1) {
 						bw.write(tabs3 + "]");
 					} else {
@@ -134,13 +134,13 @@ public class TXT2JSONDimensionConverter {
 		bw.close();
 		fw.close();
 	}
-	
+
 	public void parseDimensionsFile(final String type, final String path)
 			throws IOException {
 		final String fileName = path + File.separator + type + ".txt";
 		final FileReader fr = new FileReader(fileName);
 		final BufferedReader br = new BufferedReader(fr);
-
+		
 		Map<String, Map<String, List<String[]>>> typePositions;
 		Map<String, Map<String, List<String[]>>> typeDimensions;
 		Map<String, Map<String, List<String[]>>> typeRotates;
@@ -159,16 +159,16 @@ public class TXT2JSONDimensionConverter {
 		} else {
 			typeRotates = new LinkedHashMap<String, Map<String, List<String[]>>>();
 		}
-
+		
 		String line = br.readLine();
 		while (line != null) {
 			if (line.startsWith("//") || line.equals("")) {
 				line = br.readLine();
 				continue;
 			}
-
+			
 			final String[] values = line.split(":");
-
+			
 			final String[] coord = values[1].split(",");
 			final String[] dims = values[2].split(",");
 			final String[] rotate = new String[1];
@@ -177,9 +177,9 @@ public class TXT2JSONDimensionConverter {
 			}
 			Map<String, List<String[]>> map;
 			List<String[]> list;
-
-			final String key = values[0];
 			
+			final String key = values[0];
+
 			String currentKey = values[0];
 			String currentSubKey = "General";
 			if (key.contains("#")) {
@@ -201,7 +201,7 @@ public class TXT2JSONDimensionConverter {
 			list.add(coord);
 			map.put(currentSubKey, list);
 			typePositions.put(currentKey, map);
-			
+
 			if (typeDimensions.keySet().contains(currentKey)) {
 				map = typeDimensions.get(currentKey);
 				if (map.keySet().contains(currentSubKey)) {
@@ -216,7 +216,7 @@ public class TXT2JSONDimensionConverter {
 			list.add(dims);
 			map.put(currentSubKey, list);
 			typeDimensions.put(currentKey, map);
-			
+
 			if (typeRotates.keySet().contains(currentKey)) {
 				map = typeRotates.get(currentKey);
 				if (map.keySet().contains(currentSubKey)) {
@@ -231,7 +231,7 @@ public class TXT2JSONDimensionConverter {
 			list.add(rotate);
 			map.put(currentSubKey, list);
 			typeRotates.put(currentKey, map);
-
+			
 			line = br.readLine();
 		}
 		br.close();
@@ -240,18 +240,21 @@ public class TXT2JSONDimensionConverter {
 		this.dimensions.put(type, typeDimensions);
 		this.rotates.put(type, typeRotates);
 	}
-	
+
 	public static void main(final String[] args) {
 		String newOutputFolder = XSD2JSONConverter.outputFolder;
 		final File dir = new File(newOutputFolder);
 		if (!dir.exists()) {
 			dir.mkdir();
 		}
-		if (XSD2JSONConverter.useProgress) {
-			newOutputFolder += XSD2JSONConverter.inputFileVersionProgress;
-		} else {
-			newOutputFolder += XSD2JSONConverter.inputFileVersionStable;
-		}
+		// if (XSD2JSONConverter.useProgress) {
+		// newOutputFolder += XSD2JSONConverter.inputFileVersionProgress;
+		// } else {
+		// newOutputFolder += XSD2JSONConverter.inputFileVersionStable;
+		// }
+		final String versionWithDash = XSD2JSONConverter.version.replace(".",
+				"-");
+		newOutputFolder += versionWithDash + "//";
 		final File dir2 = new File(newOutputFolder);
 		if (!dir2.exists()) {
 			dir2.mkdir();
@@ -263,7 +266,8 @@ public class TXT2JSONDimensionConverter {
 		}
 		final TXT2JSONDimensionConverter conv = new TXT2JSONDimensionConverter();
 		try {
-			conv.parseDimensionsFile("InvertedMicroscopeStand", newOutputFolder);
+			conv.parseDimensionsFile("InvertedMicroscopeStand",
+					newOutputFolder);
 			conv.parseDimensionsFile("UprightMicroscopeStand", newOutputFolder);
 			conv.writeDimensionsFile(newOutputFolder);
 		} catch (final IOException ex) {

@@ -43,7 +43,7 @@ import com.sun.org.apache.xerces.internal.xs.XSTypeDefinition;
 public class XSD2JSONConverter {
 	
 	public static boolean forceVersion = true;
-	public static String version = "2.01.0";
+	public static String version = "2.01.1";
 	
 	public static boolean useProgress = false;
 	public static String inputFileVersionProgress = "v02-10/";
@@ -143,7 +143,7 @@ public class XSD2JSONConverter {
 	public static String outputFile = "fullSchema";
 	public static String outputFile_ext = ".json";
 	public static String outputFolder = "./versions/";
-	public static String outputFolderSingleSchemas = "schemas";
+	public static String outputFolderSingleSchemas = "./schemas/";
 	public static String currentVersionLink = "./latest/";
 	
 	private XSModel model;
@@ -164,8 +164,8 @@ public class XSD2JSONConverter {
 	private void createTempSchemaFile(final String fileURL,
 			final String tmpFileName) throws IOException {
 		final URL inputFileURL = new URL(fileURL);
-		final ReadableByteChannel rbc = Channels.newChannel(inputFileURL
-				.openStream());
+		final ReadableByteChannel rbc = Channels
+				.newChannel(inputFileURL.openStream());
 		final FileOutputStream fos = new FileOutputStream(tmpFileName);
 		fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
 		fos.close();
@@ -213,8 +213,8 @@ public class XSD2JSONConverter {
 				&& !typeDef.getName().equals("anyType")) {
 			final Map<String, String> newAttributeMap = new LinkedHashMap<String, String>();
 			final XSComplexTypeDefinition complTypeDef = (XSComplexTypeDefinition) typeDef;
-			newAttributeMap.putAll(this.parseElement(
-					complTypeDef.getBaseType(), attributeMap));
+			newAttributeMap.putAll(this.parseElement(complTypeDef.getBaseType(),
+					attributeMap));
 			final String name = complTypeDef.getName();
 			final XSObjectList attrList = complTypeDef.getAttributeUses();
 			for (int i = 0; i < attrList.getLength(); i++) {
@@ -289,12 +289,10 @@ public class XSD2JSONConverter {
 				final XSObjectList annotations = element.getAnnotations();
 				if (XSD2JSONConverter.element_exclusion_list
 						.contains(elementName)
-						|| XSD2JSONConverter.extension_exclusion_list
-								.contains(this.getExtension(elementName,
-										annotations))
-						|| XSD2JSONConverter.domain_exclusion_list
-								.contains(this.getDomain(elementName,
-										annotations))) {
+						|| XSD2JSONConverter.extension_exclusion_list.contains(
+								this.getExtension(elementName, annotations))
+						|| XSD2JSONConverter.domain_exclusion_list.contains(
+								this.getDomain(elementName, annotations))) {
 					continue;
 				}
 				final List<String> compsJson = this.writeComponentJSONFile(
@@ -311,7 +309,7 @@ public class XSD2JSONConverter {
 			// .get(microscopeBody);
 			// microscopeMap.putAll(microscopeBodyMap);
 			final String micJson = this.writeMicroscopeJSONFile(instrument,
-			/* microscopeBody, */microscopeMap, path);
+					/* microscopeBody, */microscopeMap, path);
 			jsons.add(0, micJson);
 		}
 		boolean isErrorOrTerminated = false;
@@ -451,8 +449,8 @@ public class XSD2JSONConverter {
 			required.addAll(childrenRequired);
 			
 			// final List<String> attributes = new ArrayList<String>();
-			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
-					image, attributes);
+			final List<String> subCategoriesOrder = this
+					.getSubCategoriesOrder(image, attributes);
 			// subCategoriesOrder.add(0,
 			// XSD2JSONConverter.generic_cat_fullstring);
 			
@@ -470,15 +468,16 @@ public class XSD2JSONConverter {
 			final String desc = this.getDescription(name, annotations);
 			final StringBuffer sb = new StringBuffer();
 			sb.append("{\n");
-			sb.append("\t\"$schema\":\"http://json-schema.org/draft-07/schema\",\n");
+			sb.append(
+					"\t\"$schema\":\"http://json-schema.org/draft-07/schema\",\n");
 			sb.append("\t\"ID\":\"Image.json\",\n");
 			sb.append("\t\"" + XSD2JSONConverter.version_tag + "\":\""
 					+ XSD2JSONConverter.version + "\",\n");
 			sb.append("\t\"type\":\"object\",\n");
 			sb.append("\t\"title\":\"Image\",\n");
 			sb.append("\t\"description\":\"" + desc + "\",\n");
-			sb.append("\t\"modelSettings\":\"" + originalModelSettings
-					+ "\",\n");
+			sb.append(
+					"\t\"modelSettings\":\"" + originalModelSettings + "\",\n");
 			sb.append("\t\"extension\":\"" + originalExtension + "\",\n");
 			sb.append("\t\"domain\":\"" + originalDomain + "\",\n");
 			sb.append("\t\"category\":\"" + originalCategory + "\",\n");
@@ -521,7 +520,8 @@ public class XSD2JSONConverter {
 			// }
 			sb.append("\t\t\"Tier\": {\n");
 			sb.append("\t\t\t\"type\":\"integer\",\n");
-			sb.append("\t\t\t\"description\":\"The tier level of the microscope.\",\n");
+			sb.append(
+					"\t\t\t\"description\":\"The tier level of the microscope.\",\n");
 			sb.append("\t\t\t\"tier\":" + tier + ",\n");
 			sb.append("\t\t\t\"category\":\""
 					+ XSD2JSONConverter.generic_cat_attr + "\",\n");
@@ -594,8 +594,8 @@ public class XSD2JSONConverter {
 
 			final List<String> attributes = new ArrayList<String>();
 			// final List<String> subCategoriesOrder = new ArrayList<String>();
-			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
-					instrument, attributes);
+			final List<String> subCategoriesOrder = this
+					.getSubCategoriesOrder(instrument, attributes);
 			// final List<String> subCategoriesOrder =
 			// this.getSubCategoriesOrder(microscopeBody, attributes);
 			subCategoriesOrder.add(0, XSD2JSONConverter.generic_cat_fullstring);
@@ -617,7 +617,8 @@ public class XSD2JSONConverter {
 
 			final StringBuffer sb = new StringBuffer();
 			sb.append("{\n");
-			sb.append("\t\"$schema\":\"http://json-schema.org/draft-07/schema\",\n");
+			sb.append(
+					"\t\"$schema\":\"http://json-schema.org/draft-07/schema\",\n");
 			sb.append("\t\"ID\":\"Instrument.json\",\n");
 			sb.append("\t\"" + XSD2JSONConverter.version_tag + "\":\""
 					+ XSD2JSONConverter.version + "\",\n");
@@ -665,14 +666,16 @@ public class XSD2JSONConverter {
 			}
 			sb.append("\t\t\"Description\": {\n");
 			sb.append("\t\t\t\"type\":\"string\",\n");
-			sb.append("\t\t\t\"description\":\"This is a simple multi-line comment or annotation describing this component.\",\n");
+			sb.append(
+					"\t\t\t\"description\":\"This is a simple multi-line comment or annotation describing this component.\",\n");
 			sb.append("\t\t\t\"tier\":" + 1 + ",\n");
 			sb.append("\t\t\t\"category\":\""
 					+ XSD2JSONConverter.generic_cat_attr + "\"\n");
 			sb.append("\t\t},\n");
 			sb.append("\t\t\"Tier\": {\n");
 			sb.append("\t\t\t\"type\":\"integer\",\n");
-			sb.append("\t\t\t\"description\":\"The tier level of the microscope.\",\n");
+			sb.append(
+					"\t\t\t\"description\":\"The tier level of the microscope.\",\n");
 			sb.append("\t\t\t\"tier\":" + tier + ",\n");
 			sb.append("\t\t\t\"category\":\""
 					+ XSD2JSONConverter.generic_cat_attr + "\",\n");
@@ -856,7 +859,8 @@ public class XSD2JSONConverter {
 		return insert;
 	}
 	
-	private List<XSParticle> getAllParticles(final XSParticle containerParticle) {
+	private List<XSParticle> getAllParticles(
+			final XSParticle containerParticle) {
 		final List<XSParticle> list = new ArrayList<XSParticle>();
 		final XSTerm containerTerm = containerParticle.getTerm();
 		if (containerTerm instanceof XSElementDeclaration) {
@@ -949,8 +953,8 @@ public class XSD2JSONConverter {
 				aSB.append("\t\t\"" + attrName + "\": {\n");
 				aSB.append("\t\t\t\"title\":\"" + attrName + "\",\n");
 				aSB.append("\t\t\t\"type\":\"" + attrType + "\",\n");
-				aSB.append("\t\t\t\"description\":\""
-						+ "Name of the instrument" + "\",\n");
+				aSB.append("\t\t\t\"description\":\"" + "Name of the instrument"
+						+ "\",\n");
 				aSB.append("\t\t\t\"tier\":" + 1 + ",\n");
 				aSB.append("\t\t\t\"category\":\"" + attrCategory + "\",\n");
 				aSB.append("\t\t\t\"readonly\":true");
@@ -974,20 +978,21 @@ public class XSD2JSONConverter {
 				attributes.add(aSB.toString());
 			} else if ((elementName.endsWith("ExperimentRef")
 					|| elementName.endsWith("ExperimenterRef")
-					|| elementName.endsWith("ExperimenterGroupRef") || (elementName
-					.endsWith("SampleRef") | elementName.endsWith("ROIRef")))
+					|| elementName.endsWith("ExperimenterGroupRef")
+					|| (elementName.endsWith("SampleRef")
+							| elementName.endsWith("ROIRef")))
 					&& name.equals(XSD2JSONConverter.image)) {
 				// TODO special case dont know how to handle yet
 				// I can probably just ignore because Experiment has is own file
 				// and I can handle it separately in the application
 			} else if (elementName.endsWith("MicrobeamManipulationRef")
-					&& (name.equals(XSD2JSONConverter.image) || name
-							.equals(XSD2JSONConverter.experiment))) {
+					&& (name.equals(XSD2JSONConverter.image)
+							|| name.equals(XSD2JSONConverter.experiment))) {
 				// TODO special case need to be removed from both because it has
 				// its own sub-categories but how to handle it ?
 			} else if ((elementName.endsWith("Plane")
-					|| elementName.endsWith("Channel") || elementName
-						.endsWith("Pixels"))
+					|| elementName.endsWith("Channel")
+					|| elementName.endsWith("Pixels"))
 					&& name.equals(XSD2JSONConverter.image)) {
 				// TODO special case create separate json with only array of
 				// these elements, but how ?
@@ -1038,9 +1043,8 @@ public class XSD2JSONConverter {
 				aSB.append("\t\t}");
 				// required.add(attrName);
 				attributes.add(aSB.toString());
-			} else if (elementName.endsWith("Ref")
-					|| ((elementTypeName != null) && elementTypeName
-							.endsWith("Ref"))) {
+			} else if (elementName.endsWith("Ref") || ((elementTypeName != null)
+					&& elementTypeName.endsWith("Ref"))) {
 
 				if (name.equals("LightPath")) {
 					continue;
@@ -1073,7 +1077,8 @@ public class XSD2JSONConverter {
 				}
 				aSB.append("\t\t\"" + attrName + "\": {\n");
 				boolean isArray = false;
-				if ((max > 1) || (max == -1) /* || ((min == 0) && (max == 1)) */) {
+				if ((max > 1)
+						|| (max == -1) /* || ((min == 0) && (max == 1)) */) {
 					aSB.append("\t\t\t\"type\":\"array\",\n");
 					aSB.append("\t\t\t\"items\": {\n");
 					isArray = true;
@@ -1118,9 +1123,10 @@ public class XSD2JSONConverter {
 				// required.add(attrName);
 				attributes.add(aSB.toString());
 			} else {
-				if (!(element.getTypeDefinition() instanceof XSComplexTypeDefinition)) {
-					this.errors.append(elementName + " in " + name
-							+ " is not complex");
+				if (!(element
+						.getTypeDefinition() instanceof XSComplexTypeDefinition)) {
+					this.errors.append(
+							elementName + " in " + name + " is not complex");
 					this.errors.append("\n");
 					
 					// CREATE FIELD WITH CONTAINSELEMENT similar to linkTo
@@ -1161,7 +1167,8 @@ public class XSD2JSONConverter {
 					final String attrName = elementName;
 					final String category = this.getCategory(attrName,
 							annotations);
-					if ((category != null) && !category.equals("ChildElement")) {
+					if ((category != null)
+							&& !category.equals("ChildElement")) {
 						
 						// FIXME need to extrapolate all these classes instead
 						// of wrap them
@@ -1236,7 +1243,8 @@ public class XSD2JSONConverter {
 						if ((category != null)
 								&& category.equals("ChildElement")) {
 							final List<XSParticle> subParticles = this
-									.getChildrenParticleList(elementComplTypeDef);
+									.getChildrenParticleList(
+											elementComplTypeDef);
 							for (int k = 0; k < subParticles.size(); k++) {
 								final XSParticle subParticle = subParticles
 										.get(k);
@@ -1292,19 +1300,21 @@ public class XSD2JSONConverter {
 									// ("Ref", "")
 									final String subAttrName = subElementName
 											.substring(0,
-													subElementName.length() - 3);
+													subElementName.length()
+															- 3);
 									final String subAttrCategory = attrName;
 									final String subAttrType = "string";
 									aSB.append("\t\t\t\t\"" + subAttrName
 											+ "\": {\n");
 									boolean subIsArray = false;
-									if ((subMax > 1) || (subMax == -1)/*
-																	 * || ((min
-																	 * == 0) &&
-																	 * (max ==
-																	 * 1))
-																	 */) {
-										aSB.append("\t\t\t\t\t\"type\":\"array\",\n");
+									if ((subMax > 1)
+											|| (subMax == -1)/*
+																 * || ((min ==
+																 * 0) && (max ==
+																 * 1))
+																 */) {
+										aSB.append(
+												"\t\t\t\t\t\"type\":\"array\",\n");
 										aSB.append("\t\t\t\t\t\"items\": {\n");
 										subIsArray = true;
 									} else {
@@ -1469,7 +1479,8 @@ public class XSD2JSONConverter {
 				String cat = s.substring(index1, index2);
 				cat = cat.replace(",", "");
 				// cat = cat.replace("\"", "");
-				if (cat.equals("\"" + XSD2JSONConverter.generic_cat_attr + "\"")) {
+				if (cat.equals(
+						"\"" + XSD2JSONConverter.generic_cat_attr + "\"")) {
 					hasGeneric = true;
 				} else {
 					if (!categoriesNeeded.contains(cat)
@@ -1591,8 +1602,8 @@ public class XSD2JSONConverter {
 			attributes.addAll(childrenAttributes);
 			required.addAll(childrenRequired);
 			
-			final List<String> subCategoriesOrder = this.getSubCategoriesOrder(
-					element, attributes);
+			final List<String> subCategoriesOrder = this
+					.getSubCategoriesOrder(element, attributes);
 			
 			final List<String> toRemove = new ArrayList<String>();
 			for (final String categoryToExclude : XSD2JSONConverter.category_exclusion_list) {
@@ -1633,7 +1644,8 @@ public class XSD2JSONConverter {
 				
 				final StringBuffer sb = new StringBuffer();
 				sb.append("{\n");
-				sb.append("\t\"$schema\":\"http://json-schema.org/draft-07/schema\",\n");
+				sb.append(
+						"\t\"$schema\":\"http://json-schema.org/draft-07/schema\",\n");
 				if (isSplit) {
 					sb.append("\t\"ID\":\"" + newName + ".json\",\n");
 				} else {
@@ -1649,7 +1661,8 @@ public class XSD2JSONConverter {
 				sb.append("\t\"extension\":\"" + originalExtension + "\",\n");
 				sb.append("\t\"domain\":\"" + originalDomain + "\",\n");
 				sb.append("\t\"category\":\"" + category + "\",\n");
-				if (!category.equals(XSD2JSONConverter.subComponents_category)) {
+				if (!category
+						.equals(XSD2JSONConverter.subComponents_category)) {
 					sb.append("\t\"image\":\"" + image + "\",\n");
 				}
 				// TODO is this neeeded for subComponent?
@@ -1685,7 +1698,8 @@ public class XSD2JSONConverter {
 					sb.append(",\n");
 					sb.append("\t\t\"Tier\": {\n");
 					sb.append("\t\t\t\"type\":\"integer\",\n");
-					sb.append("\t\t\t\"description\":\"The tier level of this component.\",\n");
+					sb.append(
+							"\t\t\t\"description\":\"The tier level of this component.\",\n");
 					sb.append("\t\t\t\"tier\":" + tier + ",\n");
 					sb.append("\t\t\t\"category\":\""
 							+ XSD2JSONConverter.generic_cat_attr + "\",\n");
@@ -1762,8 +1776,8 @@ public class XSD2JSONConverter {
 					final int begin = annot.indexOf(XSD2JSONConverter.split);
 					final int end = annot.indexOf("</", begin);
 					String splitCategoriesS = annot.substring(begin, end);
-					splitCategoriesS = splitCategoriesS.replace(
-							XSD2JSONConverter.split, "");
+					splitCategoriesS = splitCategoriesS
+							.replace(XSD2JSONConverter.split, "");
 					splitCategoriesS = splitCategoriesS.replaceAll("\\[", "");
 					splitCategoriesS = splitCategoriesS.replaceAll("\\]", "");
 					splitCategoriesS = splitCategoriesS.replaceAll(" ", "");
@@ -1777,14 +1791,14 @@ public class XSD2JSONConverter {
 					if (splitCategoriesS.contains("\t")) {
 						this.errors.append(name + " category contains TAB");
 						this.errors.append("\n");
-						splitCategoriesS = splitCategoriesS
-								.replaceAll("\t", "");
+						splitCategoriesS = splitCategoriesS.replaceAll("\t",
+								"");
 					}
 					if (splitCategoriesS.contains("\n")) {
 						this.errors.append(name + " category contains NEWLINE");
 						this.errors.append("\n");
-						splitCategoriesS = splitCategoriesS
-								.replaceAll("\n", "");
+						splitCategoriesS = splitCategoriesS.replaceAll("\n",
+								"");
 					}
 					final String[] splitCategories = splitCategoriesS
 							.split(";");
@@ -1798,8 +1812,8 @@ public class XSD2JSONConverter {
 	private String getDescription(final String name,
 			final XSObjectList annotations) {
 		if (annotations.getLength() == 0) {
-			this.errors.append(name
-					+ " description is missing (no annotations)");
+			this.errors
+					.append(name + " description is missing (no annotations)");
 			this.errors.append("\n");
 			return XSD2JSONConverter.value_not_assigned;
 		}
@@ -1825,8 +1839,8 @@ public class XSD2JSONConverter {
 						description = description.replaceAll("\t", "");
 					}
 					if (description.contains("\n")) {
-						this.errors.append(name
-								+ " description contains NEWLINE");
+						this.errors
+								.append(name + " description contains NEWLINE");
 						this.errors.append("\n");
 						description = description.replaceAll("\n", "");
 					}
@@ -1899,8 +1913,8 @@ public class XSD2JSONConverter {
 	private String getModelSettings(final String name,
 			final XSObjectList annotations) {
 		if (annotations.getLength() == 0) {
-			this.errors.append(name
-					+ " model settings is missing (no annotations)");
+			this.errors.append(
+					name + " model settings is missing (no annotations)");
 			this.errors.append("\n");
 		}
 		for (int y = 0; y < annotations.getLength(); y++) {
@@ -1921,20 +1935,20 @@ public class XSD2JSONConverter {
 						domain = XSD2JSONConverter.value_not_assigned;
 					}
 					if (domain.contains(" ")) {
-						this.errors.append(name
-								+ " model settings contains SPACE");
+						this.errors.append(
+								name + " model settings contains SPACE");
 						this.errors.append("\n");
 						domain = domain.replaceAll(" ", "");
 					}
 					if (domain.contains("\t")) {
-						this.errors.append(name
-								+ " model settings contains TAB");
+						this.errors
+								.append(name + " model settings contains TAB");
 						this.errors.append("\n");
 						domain = domain.replaceAll("\t", "");
 					}
 					if (domain.contains("\n")) {
-						this.errors.append(name
-								+ " model settings contains NEWLINE");
+						this.errors.append(
+								name + " model settings contains NEWLINE");
 						this.errors.append("\n");
 						domain = domain.replaceAll("\n", "");
 					}
@@ -1949,7 +1963,8 @@ public class XSD2JSONConverter {
 		return null;
 	}
 	
-	private String getDomain(final String name, final XSObjectList annotations) {
+	private String getDomain(final String name,
+			final XSObjectList annotations) {
 		if (annotations.getLength() == 0) {
 			this.errors.append(name + " domain is missing (no annotations)");
 			this.errors.append("\n");
@@ -1995,7 +2010,8 @@ public class XSD2JSONConverter {
 		return null;
 	}
 	
-	private String getCategory(final String name, final XSObjectList annotations) {
+	private String getCategory(final String name,
+			final XSObjectList annotations) {
 		if (annotations.getLength() == 0) {
 			this.errors.append(name + " category is missing (no annotations)");
 			this.errors.append("\n");
@@ -2121,11 +2137,14 @@ public class XSD2JSONConverter {
 		if (!dir.exists()) {
 			dir.mkdir();
 		}
-		if (XSD2JSONConverter.useProgress) {
-			newOutputFolder += XSD2JSONConverter.inputFileVersionProgress;
-		} else {
-			newOutputFolder += XSD2JSONConverter.inputFileVersionStable;
-		}
+		// if (XSD2JSONConverter.useProgress) {
+		// newOutputFolder += XSD2JSONConverter.inputFileVersionProgress;
+		// } else {
+		// newOutputFolder += XSD2JSONConverter.inputFileVersionStable;
+		// }
+		final String versionWithDash = XSD2JSONConverter.version.replace(".",
+				"-");
+		newOutputFolder += versionWithDash + "//";
 		final File dir2 = new File(newOutputFolder);
 		if (!dir2.exists()) {
 			dir2.mkdir();
