@@ -2,7 +2,7 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: https://github.com/WU-BIMAC/4DNMetadataSchemaXSD2JSONConverter
+title: 4DNMetadataSchemaXSD2JSONConverter
 message: >-
   If you use this software please cite both the
   software using the metadata indicated below, and
@@ -13,24 +13,38 @@ authors:
   - given-names: Alessandro
     family-names: Rigano
     email: alex.rigano@umassmed.edu
-    affiliation: 'Program in Molecular Medicine, UMass Chan Medical School, Worcester MA 01605, USA'
+    affiliation: >-
+      Program in Molecular Medicine, UMass Chan
+      Medical School, Worcester MA 01605, USA
   - given-names: Caterina
     family-names: Strambio-De-Castillia
     name-particle: Caterina Strambio De Castillia
     email: caterina.strambio@umassmed.edu
-    affiliation: 'Program in Molecular Medicine, UMass Chan Medical School, Worcester MA 01605, USA'
+    affiliation: >-
+      Program in Molecular Medicine, UMass Chan
+      Medical School, Worcester MA 01605, USA
     orcid: 'https://orcid.org/0000-0002-1069-1816'
 identifiers:
-  - type: doi
+  - type: url
     value: 'https://doi.org/10.5281/zenodo.4827269'
     description: >-
-    The versioned DOI for version v2.01 of the work.
+      The versioned DOI for version v2.01 of the
+      work.
 repository-code: >-
   https://github.com/WU-BIMAC/4DNMetadataSchemaXSD2JSONConverter
 repository-artifact: >-
   https://github.com/WU-BIMAC/4DNMetadataSchemaXSD2JSONConverter/releases/latest
 abstract: >-
-  The main function of this Java-encoded component is to transform the XML Schema Definition (XSD)  implementation of the 4DN-BINA-OME Data Model into a JSON-based schema, which is subsequently ingested by Micro-Meta App to automatically generate the software GUI and the associated data insertion forms. The XSD to JSON Schema converter middleware utilizes the Xerces2 Java XML Parser and the W3C Java XML bindings libraries to navigate the XSD schema and produces version-aware JSON files.
+  The main function of this Java-encoded component is
+  to transform the XML Schema Definition (XSD) 
+  implementation of the 4DN-BINA-OME Data Model into
+  a JSON-based schema, which is subsequently ingested
+  by Micro-Meta App to automatically generate the
+  software GUI and the associated data insertion
+  forms. The XSD to JSON Schema converter middleware
+  utilizes the Xerces2 Java XML Parser and the W3C
+  Java XML bindings libraries to navigate the XSD
+  schema and produces version-aware JSON files.
 keywords:
   - metadata
   - microscopy
