@@ -25,7 +25,7 @@ authors:
       Medical School, Worcester MA 01605, USA
     orcid: 'https://orcid.org/0000-0002-1069-1816'
 identifiers:
-  - type: url
+  - type: doi
     value: 'https://doi.org/10.5281/zenodo.4827269'
     description: >-
       The versioned DOI for version v2.01 of the
